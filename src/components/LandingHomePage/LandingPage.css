@@ -1,0 +1,20 @@
+.header-container{
+    background-color: #143C66;
+    height: 667px;
+    width: 80%;
+    border-top-right-radius: 80px; 
+    border-bottom-right-radius: 80px;
+}
+.navigation {
+    position: fixed;
+    top: 20px;
+    height: 80px;
+    width: 80%;
+  }
+  
+.navigation .navbar-nav .nav-link,
+.navigation .navbar-brand,
+.navigation .btn-link,
+.navigation .btn-primary {
+  color: white;
+}
