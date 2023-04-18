@@ -6,7 +6,7 @@ import Home from "./Home";
 import JobseekerLandingPage from "./jobseeker/JobseekerLandingPage";
 import RecruiterLandingPage from "./recruiter/RecruiterLandingPage";
 import Dashboard from "./admin/Dashboard";
-import Footer from "./Footer";
+import Footer from "./LandingHomePage/Footer";
 import UserLogin from "./UserLogin";
 import DashboardSelection from "./admin/DashboardSelection";
 import AddJob from "./recruiter/AddJob";
