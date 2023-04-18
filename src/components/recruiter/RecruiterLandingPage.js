@@ -1,9 +1,18 @@
-import React from 'react'
-
+import React from "react";
+import RecruiterNavbar from "./RecruiterNavbar";
+import RecruiterProfile from "./RecruiterProfile";
+import JobListing from "./JobListing";
 const RecruiterLandingPage = () => {
   return (
-    <div>RecruiterLandingPage</div>
-  )
-}
+    <div>
+      <RecruiterNavbar/>
+      <RecruiterProfile/>
+      <JobListing/>
 
-export default RecruiterLandingPage
+      </div>
+    
+
+  );
+};
+
+export default RecruiterLandingPage;
