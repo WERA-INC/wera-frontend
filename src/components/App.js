@@ -54,7 +54,7 @@ function App() {
         <Route path="/jobseekerprofile" element={<JobseekerProfile />} />
         <Route path="/jobseekernavbar" element={<JobseekerNavbar />} />
 
-        // others
+        {/* others */ }
         <Route path="/footer" element={<Footer />} />
       </Routes>
     </div>
