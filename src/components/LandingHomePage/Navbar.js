@@ -35,9 +35,7 @@ const Navbar = () => {
                     </a>
                   </li>
                 </ul>
-                <form class="form-inline mr-auto" target="_self">
-                
-                </form>
+                <form class="form-inline mr-auto" target="_self"></form>
                 <span class="navbar-text">
                   {" "}
                   <a class="login" href="#">
@@ -82,7 +80,8 @@ const Navbar = () => {
               <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                 <h1>/WERA/</h1>
                 <p>
-                a.k.a /mboka/ is a Kenyan slang meaning work .Commonly associated with the youth and some native languages<br></br>
+                  a.k.a /mboka/ is a Kenyan slang meaning work .Commonly
+                  associated with the youth and some native languages<br></br>
                 </p>
                 <button
                   class="btn btn-light btn-lg action-button"
@@ -91,17 +90,19 @@ const Navbar = () => {
                   Learn More<i class="fa fa-long-arrow-right ml-2"></i>
                 </button>
               </div>
-              <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block " >
-                <div class="iphone-mockup">
+              <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block ">
+                <div >
                   <img
-                  style={{height:"300px"}}
-                    class="device"
-                    src="https://images.unsplash.com/photo-1533167649158-6d508895b680?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                    alt="image"
+                    class="img-fluid"
+                    style={{height:"75vh", width:"90%", borderRadius:"10px"}}
                   />
                 </div>
               </div>
             </div>
           </div>
+   
         </div>
       </div>
     </>
