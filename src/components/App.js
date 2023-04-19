@@ -13,13 +13,13 @@ import AddJob from "./recruiter/AddJob";
 import JobListing from "./recruiter/JobListing";
 import RecruiterNavbar from "./recruiter/RecruiterNavbar";
 import RecruiterLogIn from "./recruiter/RecruiterLogIn";
-import RecruiterSignUp from "./recruiter/RecruiterSignUp";
-import JobseekerSignUp from "./jobseeker/JobseekerSignUp";
+import UserSignUp from "./UserSignUp";
+import UserLogin from "./UserLogin";
 import JobsApplied from "./jobseeker/JobsApplied"
 import JobCard from "./jobseeker/JobCard"
 import JobseekerNavbar from "./jobseeker/JobseekerNavbar"
 import JobseekerProfile from "./jobseeker/JobseekerProfile"
-import JobseekerLogin from "./jobseeker/JobseekerLogin"
+
 
 
 
@@ -31,7 +31,9 @@ function App() {
         {/* general */}
         <Route path="/" element={<Home />} />
         <Route path="/landingpage" element={<LandingPage />} />
-
+        <Route path="/usersignup" element={<UserSignUp />} />
+        <Route path="/userlogin" element={<UserLogin />} />
+        
         {/* Admin paths */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
@@ -42,13 +44,10 @@ function App() {
         <Route path="/addjob" element={<AddJob />} />
         <Route path="/joblisting" element={<JobListing />} />
         <Route path="/recruiternavbar" element={<RecruiterNavbar />} />
-        <Route path="/recruitersignup" element={<RecruiterSignUp />} />
-        <Route path="/recruiterlogin" element={<RecruiterLogIn />} />
+        
 
         {/* Jobseeker paths */}
         <Route path="/jobseeker" element={<JobseekerLandingPage />} />
-        <Route path="/jobseekersignup" element={<JobseekerSignUp />} />
-        <Route path="/jobseekerlogin" element={<JobseekerLogin />} />
         <Route path="/jobsapplied" element={<JobsApplied />} />
         <Route path="/jobcard" element={<JobCard />} />
         <Route path="/jobseekerprofile" element={<JobseekerProfile />} />
