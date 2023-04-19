@@ -22,3 +22,8 @@
 .blue-nav {
   background-color: #87c0f2
 }
+.select-title{
+  background-color: #d3d7db;
+  border-top: 5px solid rgb(43, 41, 114);
+  border-bottom: 5px solid rgb(12, 58, 156);
+}

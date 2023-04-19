@@ -48,7 +48,7 @@ const DashboardSelection = () => {
       </div>
 
       {/* table section */}
-      <div className="d-flex align-items-center justify-content-between py-2 px-5">
+      <div className="d-flex align-items-center justify-content-between py-2 px-5 select-title">
         <div>
           <span className="me-5 h3">JobSeekers</span>
 
@@ -58,7 +58,7 @@ const DashboardSelection = () => {
           <div class="input-group rounded">
             <input
               type="search"
-              class="form-control rounded"
+              class="form-control rounded-pill"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="search-addon"
@@ -86,6 +86,11 @@ const DashboardSelection = () => {
           <Tabledata />
           <Tabledata />
         </tbody>
+        <thead className="table-secondary">
+          <tr>
+            <button className="btn btn-primary bg-primary my-2 ">Delete</button>
+          </tr>
+        </thead>
       </table>
     </div>
   );
