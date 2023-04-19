@@ -1,18 +1,23 @@
 import React from "react";
-import { Container } from "semantic-ui-react";
-import Header from "./LandingHomePage/Header";
+// import Header from "./LandingHomePage/Header";
 import AboutUs from "./LandingHomePage/AboutUs";
 import Team from "./LandingHomePage/Team";
 import Feature from "./LandingHomePage/Feature";
 import Footer from "./LandingHomePage/Footer";
+import Navbar from "./LandingHomePage/Navbar";
 import "./LandingHomePage/LandingHomePage.css"
 
 const LandingPage = () => {
   return (
     <>
       <div className="landingPage">
-        <Header />
-        <section id="about" style={{ marginTop: "35em" }}>
+      <section id="about" style={{ marginTop: "0em" }}>
+          <Navbar />
+        </section>
+        {/* <section id="about" style={{ marginTop: "0em" }}>
+          <Header />
+        </section> */}
+        <section id="about" style={{ marginTop: "20em" }}>
           <AboutUs />
         </section>
         <section id="team" style={{ marginTop: "20em" }}>
@@ -21,7 +26,7 @@ const LandingPage = () => {
         <section id="feature" style={{ marginTop: "20em" }}>
           <Feature />
         </section>
-        <section id="footer" style={{ marginTop: "20em" }}>
+        <section id="footer" style={{ marginBottom: "5px" }}>
           <Footer />
         </section>
       </div>
