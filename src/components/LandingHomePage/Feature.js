@@ -9,6 +9,7 @@ const Feature = () => {
         <h1 className='featureTitle' >Features</h1>
 
     </div>
+    
     </>
   )
 }

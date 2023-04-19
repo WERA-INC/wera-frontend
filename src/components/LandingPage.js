@@ -15,11 +15,14 @@ const LandingPage = () => {
         <section id="about" style={{ marginTop: "35em" }}>
           <AboutUs />
         </section>
-        <section id="team" style={{ marginTop: "30em" }}>
+        <section id="team" style={{ marginTop: "20em" }}>
           <Team />
         </section>
-        <section id="feature" style={{ marginTop: "30em" }}>
+        <section id="feature" style={{ marginTop: "20em" }}>
           <Feature />
+        </section>
+        <section id="footer" style={{ marginTop: "20em" }}>
+          <Footer />
         </section>
       </div>
     </>

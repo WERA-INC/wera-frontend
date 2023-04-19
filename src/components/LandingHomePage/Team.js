@@ -20,7 +20,7 @@ const Team = () => {
                 <h2>Marcus Macharia</h2>
                 <ul>
                   <li>
-                    <a href="https://github.com/atuljustano">
+                    <a href="https://github.com/marcus-kariuki">
                       <i class="fab fa-github"></i>
                     </a>
                   </li>
@@ -48,7 +48,7 @@ const Team = () => {
                 <h2>Elizabeth Muthusi</h2>
                 <ul>
                   <li>
-                    <a href="https://github.com/atuljustano">
+                    <a href="https://github.com/Elizabeth-M-M">
                       <i class="fab fa-github"></i>
                     </a>
                   </li>
@@ -76,7 +76,7 @@ const Team = () => {
                 <h2>Alvin Mithamo</h2>
                 <ul>
                   <li>
-                    <a href="https://github.com/atuljustano">
+                    <a href="https://github.com/alvinsleek">
                       <i class="fab fa-github"></i>
                     </a>
                   </li>
@@ -132,7 +132,7 @@ const Team = () => {
                 <h2>Jose Muhlanga</h2>
                 <ul>
                   <li>
-                    <a href="https://github.com/atuljustano">
+                    <a href="https://github.com/JMuhlanga">
                       <i class="fab fa-github"></i>
                     </a>
                   </li>
@@ -157,10 +157,10 @@ const Team = () => {
                   src="https://images.pexels.com/photos/1220757/pexels-photo-1220757.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   alt="Atul Prajapati"
                 />
-                <h2>Jeff</h2>
+                <h2>Jeff Ndungu</h2>
                 <ul>
                   <li>
-                    <a href="https://github.com/atuljustano">
+                    <a href="https://github.com/ndungu-jeff">
                       <i class="fab fa-github"></i>
                     </a>
                   </li>

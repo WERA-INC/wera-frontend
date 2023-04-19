@@ -10,6 +10,7 @@
 	height: 400px;
 	position: relative;
 	overflow: hidden;
+    border-radius: 5px;
 }
 
 .img-wrapper:before
@@ -50,7 +51,7 @@
 
 .img-wrapper h2
 {
-	background: tomato;
+	background: #143C66;
 	font-family: Poppins;
 	color: #fff;
 	text-align: center;
@@ -120,13 +121,13 @@
 
 .img-wrapper ul li a
 {
-	color: tomato;
+	color: #143C66;
 	background: rgba(255,255,255,0);
 }
 
 .img-wrapper ul li i
 {
-	color: tomato;
+	color: #F1F7FE;
 	background: rgba(255,255,255,0);
 }
 
