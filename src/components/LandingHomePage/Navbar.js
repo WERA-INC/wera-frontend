@@ -36,7 +36,7 @@ const Navbar = () => {
             <Dropdown.Menu>
               <Dropdown.Item>
                 <Link
-                  to="about"
+                  to="aboutSection"
                   smooth={true}
                   duration={200}
                   spy={true}
@@ -48,7 +48,7 @@ const Navbar = () => {
               </Dropdown.Item>
               <Dropdown.Item>
                 <Link
-                  to="team"
+                  to="teamSection"
                   smooth={true}
                   duration={150}
                   spy={true}

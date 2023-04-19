@@ -1,3 +1,8 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
 .headerContainer {
   background-color: #143C66;
   height: 650px;
@@ -79,7 +84,15 @@
   font-size: 25px;
   padding: 30px;
 }
-
+#aboutSection{
+  height: 100vh;
+}
+#featureSection{
+  height: 100vh;
+}
+#teamSection{
+  height: 100vh;
+}
 .aboutContainer {
   padding: 50px;
   justify-content: center;

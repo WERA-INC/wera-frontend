@@ -5,10 +5,10 @@ import "./LandingHomePage.css";
 const AboutUs = () => {
   return (
     <>
+    <div id="aboutSection">
       <div className="aboutContainer">
-        
-        <h1 className="aboutTitle"> 
-        About Us</h1>
+        <h1 className="aboutTitle">About Us</h1>
+      </div>
       </div>
     </>
   );
