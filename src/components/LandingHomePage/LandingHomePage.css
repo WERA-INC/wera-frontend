@@ -19,16 +19,6 @@
   color: #fff;
 }
 
-.home-navbar {
-
-  color: #143C66;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-
-
 .image-container {
   position: absolute;
   right: 0px;

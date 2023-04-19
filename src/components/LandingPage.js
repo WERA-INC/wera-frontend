@@ -1,22 +1,18 @@
 import React from "react";
-// import Header from "./LandingHomePage/Header";
+import Header from "./LandingHomePage/Header";
 import AboutUs from "./LandingHomePage/AboutUs";
 import Team from "./LandingHomePage/Team";
 import Feature from "./LandingHomePage/Feature";
 import Footer from "./LandingHomePage/Footer";
-import Navbar from "./LandingHomePage/Navbar";
 import "./LandingHomePage/LandingHomePage.css"
 
 const LandingPage = () => {
   return (
     <>
       <div className="landingPage">
-      <section id="about" style={{ marginTop: "0em" }}>
-          <Navbar />
-        </section>
-        {/* <section id="about" style={{ marginTop: "0em" }}>
+        <section id="about" style={{ marginTop: "0em" }}>
           <Header />
-        </section> */}
+        </section>
         <section id="about" style={{ marginTop: "20em" }}>
           <AboutUs />
         </section>
