@@ -1,5 +1,5 @@
 .header-blue {
-    background: linear-gradient(135deg, #fe2929, #ffb3c5);
+    background: linear-gradient(135deg, #0D2644, #B9DDFF);
     background-color: #184e8e;
     padding-bottom: 80px;
     font-family: 'Source Sans Pro', sans-serif;
@@ -10,6 +10,7 @@
       padding-bottom: 120px;
     }
   }
+
   
   .header-blue .navbar {
     background: transparent;
@@ -38,7 +39,7 @@
   }
   
   .header-blue .navbar .navbar-collapse {
-    border-top: 1px solid rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(22, 28, 124, 0.3);
     margin-top: .5rem;
   }
   
