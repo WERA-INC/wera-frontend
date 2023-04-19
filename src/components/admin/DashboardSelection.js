@@ -12,7 +12,7 @@ const DashboardSelection = () => {
             Logo
           </h4>
           <div className="right-nav">
-            <button className="btn-success btn bg-primary">Logout</button>
+            <button className="btn blue text-light">Logout</button>
             <p>
               {/* {!user ? (
               <button
@@ -86,11 +86,9 @@ const DashboardSelection = () => {
           <Tabledata />
           <Tabledata />
         </tbody>
-        <thead className="table-secondary">
-          <tr>
-            <button className="btn btn-primary bg-primary my-2 ">Delete</button>
-          </tr>
-        </thead>
+        
+        <button className="btn blue text-light my-2 ">Delete</button>
+           
       </table>
     </div>
   );
