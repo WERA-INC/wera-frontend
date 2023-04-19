@@ -7,9 +7,9 @@ const AddJob = () => {
     qualification: "",
     responsibilities: "",
     skills: "",
-    type: "",
+    job_type: "",
     location: "",
-    estimatedSalary: "",
+    estimated_salary: "",
   });
 
   const handleChange = (e) => {
