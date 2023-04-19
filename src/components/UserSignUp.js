@@ -1,15 +1,37 @@
-import React from 'react'
-import SignupImg from '../images/signup.jpg'
+import React, {useState} from 'react'
+import SignupImg from './images/signup.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
  function UserSignUp() {
+
+    const [fullName, setFullName] = useState("")
+    const [emailAddress, setEmailAddress] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
+    async function Register()
+    {
+        let item={fullName,emailAddress,password,confirmPassword}
+        console.warn(item)
+
+        let result= await fetch("http://localhost:3000/login",{
+            method: "POST",
+            body:JSON.stringify(item),
+            headers: {
+                "Content-Type": "application/json",
+                "Accept":'application/json'
+            }
+        })
+        result = await result.json()
+        console.warn("result",result)
+    }
   return (
     <div className="container maincontainer">
     <div class="container-fluid">
         <div class="row no-gutter">
            
             <div class="col-md-6 d-none d-md-flex bg-image">
-            <img className='w-full h-full object-contain bg-blue-300' src={SignupImg} alt="" />
+            <img className='img-fluid max-width-100% d-block max-height-100vh' src={SignupImg} alt="" />
             </div>
             
             <div class="col-md-6 bg-light">
@@ -22,16 +44,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                                 <p class="text-muted mb-4">Signup your account</p>
                                 <form>
                                     <div class="mb-3">
-                                        <input id="inputText" type="text" placeholder="Full Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" />
+                                        <input id="inputText" onChange={(e) => setFullName(e.target.value)} type="text" placeholder="Full Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" />
                                     </div>
                                     <div class="mb-3">
-                                        <input id="inputEmail" type="email" placeholder="Email Address" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
+                                        <input id="inputEmail" onChange={(e) => setEmailAddress(e.target.value)} type="email" placeholder="Email Address" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
                                     </div>
                                     <div class="mb-3">
-                                        <input id="inputPassword" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
+                                        <input id="inputPassword" onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
                                     </div>
                                     <div class="mb-3">
-                                        <input id="inputPassword" type="password" placeholder="Confirm Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
+                                        <input id="inputPassword" onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="Confirm Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
                                     </div>
                                     <div className='flex flex-col text-black-900 py-1 form-control rounded-pill border-0 shadow-sm px-4 text-primary'>
                                      <label for='users'>Who are you?</label>
