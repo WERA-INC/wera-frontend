@@ -32,6 +32,26 @@ const DashboardSelection = () => {
           </div>
         </nav>
       </div>
+      {/* <div class="row">
+        <div class="col-md-4 offset-md-9 ">
+          <div class="card" style={{ width: 250 }}>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="card-link">
+                Card link
+              </a>
+              <a href="#" class="card-link">
+                Another link
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> */}
 
       <div class="row">
         <div class="col-md-6 offset-md-6 ">
@@ -86,9 +106,8 @@ const DashboardSelection = () => {
           <Tabledata />
           <Tabledata />
         </tbody>
-        
+
         <button className="btn blue text-light my-2 ">Delete</button>
-           
       </table>
     </div>
   );
