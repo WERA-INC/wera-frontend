@@ -14,7 +14,7 @@ const Dashboard = () => {
           WERA
         </h4>
         <div className="right-nav">
-          <button className="btn blue text-light">Logout</button>
+          <button className="py-2 px-3 blue text-light">Logout</button>
           <p>
             {/* {!user ? (
               <button
