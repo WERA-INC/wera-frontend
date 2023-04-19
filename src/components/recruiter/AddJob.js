@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState} from 'react';
 
 const AddJob = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +24,25 @@ const AddJob = () => {
     e.preventDefault();
     console.log(formData);
     // add your code here to submit the form data to your server or store
+  
+    fetch("/opportunities", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // handle the response from the server or store
+      })
+      .catch((error) => {
+        console.error(error);
+        // handle the error
+      });
   };
+  
 
 
   return (
