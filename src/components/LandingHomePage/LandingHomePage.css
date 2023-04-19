@@ -1,0 +1,98 @@
+.headerContainer {
+  background-color: #143C66;
+  height: 650px;
+  width: 80%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+}
+
+.navigation {
+  position: fixed;
+  top: 20px;
+  height: 80px;
+  width: 80%;
+}
+
+.navigation .navbar-nav .nav-link,
+.navigation .navbar-brand,
+.navigation .btn-link,
+.navigation .btn-primary {
+  color: white;
+}
+
+
+.home-logo {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #143C66;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.home-navbar {
+
+  color: #143C66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.menu {
+  background-color: #143C66;
+  font-weight: bold;
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu a {
+  color: black;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.image-container {
+  position: absolute;
+  right: 0px;
+  height: 70%;
+  max-width: 100%;
+}
+
+.headerDefinition {
+  text-align: left;
+  padding: 20px;
+  color: white;
+}
+
+.headerTitle {
+  padding: 40px;
+  letter-spacing: 2px;
+  font-size: 50px;
+}
+
+.headerText {
+  font-size: 25px;
+  padding: 30px;
+}
+
+.aboutContainer {
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 500px;
+  background-color: #143C66;
+}
+
+.aboutTitle {
+  font-size: 40px;
+  color: white;
+
+
+}
