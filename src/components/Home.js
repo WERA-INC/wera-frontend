@@ -17,6 +17,12 @@ const Home = () => {
         <li>
           <Link to="footer">Footer</Link>
         </li>
+        <li>
+          <Link to="usersignup">UserSignup</Link>
+        </li>
+        <li>
+          <Link to="userlogin">UserLogin</Link>
+        </li>
       </ul>
       <h3>RECRUITER</h3>
       <ul>
@@ -32,23 +38,12 @@ const Home = () => {
         <li>
           <Link to="recruiternavbar">RecruiterNavbar</Link>
         </li>
-        <li>
-          <Link to="recruitersignup">RecruiterSignup</Link>
-        </li>
-        <li>
-          <Link to="recruiterlogin">RecruiterLogin</Link>
-        </li>
+        
       </ul>
       <h3>JOB SEEKER</h3>
       <ul>
         <li>
           <Link to="jobseeker">JobSeekerLandingPage</Link>
-        </li>
-        <li>
-          <Link to="jobseekersignup">JobseekerSignup</Link>
-        </li>
-        <li>
-          <Link to="jobseekerlogin">JobseekerLogin</Link>
         </li>
         <li>
           <Link to="jobsapplied">JobsApplied</Link>
