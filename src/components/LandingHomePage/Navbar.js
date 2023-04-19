@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import './LandingHomePage.css'
 import "semantic-ui-css/semantic.min.css";
 
-function Navbar() {
+const Navbar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const handleScrollToTop = () => {
@@ -48,7 +48,7 @@ function Navbar() {
               </Dropdown.Item>
               <Dropdown.Item>
                 <Link
-                  to="services"
+                  to="team"
                   smooth={true}
                   duration={150}
                   spy={true}
@@ -60,14 +60,14 @@ function Navbar() {
               </Dropdown.Item>
               <Dropdown.Item>
                 <Link
-                  to="signup"
+                  to="feature"
                   smooth={true}
                   duration={200}
                   spy={true}
                   exact="true"
                   onClick={handleMenuToggle}
                 >
-                  Sign Up
+                  Feature
                 </Link>
               </Dropdown.Item>
             </Dropdown.Menu>
