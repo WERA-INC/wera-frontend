@@ -7,10 +7,12 @@
 .img-wrapper
 {
 	width: 300px;
-	height: 400px;
+	height: 300px;
+	margin-right: 10px;
 	position: relative;
 	overflow: hidden;
     border-radius: 5px;
+	background-size: cover;
 }
 
 .img-wrapper:before
@@ -21,6 +23,7 @@
 	left: 180%;
 	height: 100%;
 	width: 100%;
+	background-size: cover;	
 	background: rgba(255,255,255,.3);
 	z-index: 1;
 	transform: skew(45deg);
@@ -28,7 +31,7 @@
 }
 
 .teamTitle{
-    padding: 10px;
+    padding: 70px;
 }
 
 .img-wrapper:hover:before
@@ -36,10 +39,11 @@
 	left: -180%;
 }
 
+
 .img-wrapper img
 {
-	height: 400px;
-	width: 300px;
+	height: 270px;
+	width: 400px;
 	filter: grayscale(100%);
 	transition: 2s;
 }
@@ -96,7 +100,7 @@
 
 .img-wrapper:hover ul li
 {
-	transform: perspective(800px) rotateY(0deg);
+	transform: perspective(400px) rotateY(0deg);
 }
 
 .img-wrapper:hover ul li:nth-child(1)

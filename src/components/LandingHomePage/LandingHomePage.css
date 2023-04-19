@@ -6,9 +6,9 @@
 .headerContainer {
   background-color: #143C66;
   height: 650px;
-  width: 80%;
-  border-top-right-radius: 80px;
-  border-bottom-right-radius: 80px;
+  width: 100%;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .navigation {
