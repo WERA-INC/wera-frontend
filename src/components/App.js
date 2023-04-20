@@ -29,13 +29,13 @@ function App() {
     <div className="App">
       <Routes>
         {/* general */}
-        <Route path="/" element={<Home />} />
-        <Route path="/landingpage" element={<LandingPage />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/usersignup" element={<UserSignUp />} />
 
         {/* Admin paths */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin-dashboard" element={<Dashboard />} />
         <Route path="/dashboardselect" element={<DashboardSelection />} />
 
         {/* Recruiter paths */}
@@ -54,7 +54,7 @@ function App() {
         <Route path="/jobseekerprofile" element={<JobseekerProfile />} />
         <Route path="/jobseekernavbar" element={<JobseekerNavbar />} />
 
-        {/* others */ }
+        {/* others */}
         <Route path="/footer" element={<Footer />} />
       </Routes>
     </div>
