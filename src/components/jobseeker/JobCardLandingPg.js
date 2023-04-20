@@ -1,8 +1,19 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const JobCardLandingPg = () => {
+    const navigator = useNavigate();
   return (
-    <div class="card js-card mb-4" style={{ width: 800 }}>
+    <div
+      class="card js-card mb-4"
+      style={{ width: 800 }}
+      onClick={() => {
+        navigator("/jobcard");
+      }}
+    >
       <div className="d-flex align-items-center justify-content-start">
         <img
           src="https://images.pexels.com/photos/1337384/pexels-photo-1337384.jpeg?auto=compress&cs=tinysrgb&w=600"
