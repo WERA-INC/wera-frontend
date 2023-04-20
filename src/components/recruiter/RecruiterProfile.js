@@ -1,34 +1,41 @@
-import React from 'react'
+import React from "react";
 
 const RecruiterProfile = () => {
   return (
-    <div>
-    <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form class="space-y-3" action="#">
-            <h5 class="text-xl font-medium text-gray-900 dark:text-white">Moringa Tech BootCamp</h5>
-            <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required/>
-            </div>
-            <div>
-                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
-            </div>
-            <div>
-                <label for="type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
-                <input type="type" name="type" id="type" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
-            </div>
-            <div>
-                <label for="website" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Website</label>
-                <input type="website" name="website" id="website" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
-            </div>
-            
-        </form>
-    </div>
-    </div>
+  //   <div class="row">
+  //   <div class="col-md-4 offset-md-9 ">
+  //     <div class="card" style={{"width": 250}}>
+  //       <div class="card-body">
+  //         <h5 class="card-title">Card title</h5>
+  //         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+  //         <p class="card-text">
+  //           Some quick example text to build on the card title and make up
+  //           the bulk of the card's content.
+  //         </p>
+  //         <a href="#" class="card-link">
+  //           Card link
+  //         </a>
+  //         <a href="#" class="card-link">
+  //           Another link
+  //         </a>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  <div> 
+<div class="max-w-sm mx-auto my-8 rounded overflow-hidden shadow-lg bg-gray-100">
+<div class="px-6 py-4">
+<div class="font-bold text-xl mb-2">Moringa Tech Camp</div>
+</div>
+<div class="px-6 pt-4 pb-2">
+<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">moringa@tech.com</span>
+<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Ngong Lane, Ngong Lane Plaza, 1st Floor, Nairobi Kenya</span>
+<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Type;full time, part time</span>
+<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">https://moringaschool.com/</span>
+</div>
+</div>
+</div>
+  );
+};
 
-  )
-}
-
-export default RecruiterProfile
-
+export default RecruiterProfile;
