@@ -9,8 +9,6 @@ const RecruiterLandingPage = () => {
       <RecruiterProfile/>
       <JobPosted/>
 
-     
-
       </div>
     
 
