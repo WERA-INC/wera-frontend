@@ -31,7 +31,7 @@ const Header = () => {
         </h1>
 
         <h1 className="md:text-1xl text-2xl text-white  py-5">
-          a.k.a /mboka/ is a Kenyan slang meaning work .Commonly associated{" "}
+          a.k.a /mboka/ is a Kenyan slang meaning work (kazi).Commonly associated{" "}
           <br></br> with the youth and some native languages
         </h1>
         <div className="text-xl">
