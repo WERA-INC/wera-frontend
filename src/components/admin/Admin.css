@@ -1,0 +1,71 @@
+.dashboard_icons {
+  font-size: 130px;
+  margin-right: 20px;
+}
+
+.brown {
+  background-color: rgb(165, 148, 117);
+}
+
+.pink {
+  background-color: rgb(158, 120, 123);
+}
+
+.green {
+  background-color: rgb(110, 138, 112);
+}
+
+.blue {
+  background-color: #669ca3
+}
+.bluey {
+  background-color: #0f4852
+}
+
+.blue-nav {
+  background-color: #87c0f2
+}
+.select-title{
+  background-color: #d3d7db;
+  border-top: 5px solid #04355f;
+  border-bottom: 5px solid #04355f
+}
+.admin-land{
+  background-color: #c0dcf7;
+  height: 100vh;
+}
+.admin-image-holder img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+
+
+}
+.card-hover {
+  box-shadow: 8px 10px 5px 0px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+}
+.card-hover:hover{
+  transform: scale(1.05);
+}
+/* .card-hover::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(160, 153, 153, 0.2);
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  transition: 0.1s;
+}
+.card-hover:hover::after{
+ visibility: visible;
+} */
+/* .card-hover::after {
+  content: " - Remember this";
+  background-color: yellow;
+  color: red;
+  font-weight: bold;
+} */

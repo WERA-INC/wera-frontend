@@ -3,8 +3,13 @@ import { Link } from "react-scroll";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "./LandingHomePage.css";
 import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
+
+
+  
 
 const Navbar = () => {
+  const navigator = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleScrollToTop = () => {
@@ -38,7 +43,13 @@ const Navbar = () => {
                 <form class="form-inline mr-auto" target="_self"></form>
                 <span class="navbar-text">
                   {" "}
-                  <a class="login" href="#">
+                  <a
+                    class="login"
+                    href="#"
+                    onClick={() => {
+                      navigator("/userlogin");
+                    }}
+                  >
                     Log In
                   </a>
                 </span>
@@ -56,17 +67,35 @@ const Navbar = () => {
                     style={{ border: "none" }}
                   >
                     <li>
-                      <a class="text-black dropdown-item" href="/dashboard">
+                      <a
+                        class="text-black dropdown-item"
+                        href="/dashboard"
+                        onClick={() => {
+                          navigator("/dashboard");
+                        }}
+                      >
                         Dashboard
                       </a>
                     </li>
                     <li>
-                      <a class="text-black dropdown-item" href="/recruiter">
+                      <a
+                        class="text-black dropdown-item"
+                        href="/recruiter"
+                        onClick={() => {
+                          navigator("/recruiter");
+                        }}
+                      >
                         Employer
                       </a>
                     </li>
                     <li>
-                      <a class="text-black dropdown-item" href="/jobseeker">
+                      <a
+                        class="text-black dropdown-item"
+                        href="/jobseeker"
+                        onClick={() => {
+                          navigator("/jobseeker");
+                        }}
+                      >
                         Job Seeker
                       </a>
                     </li>
@@ -91,18 +120,21 @@ const Navbar = () => {
                 </button>
               </div>
               <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block ">
-                <div >
+                <div>
                   <img
                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
                     alt="image"
                     class="img-fluid"
-                    style={{height:"75vh", width:"90%", borderRadius:"10px"}}
+                    style={{
+                      height: "75vh",
+                      width: "90%",
+                      borderRadius: "10px",
+                    }}
                   />
                 </div>
               </div>
             </div>
           </div>
-   
         </div>
       </div>
     </>
