@@ -9,52 +9,16 @@ const DashboardSelection = () => {
       <div className="blue-nav">
         <nav className="navbar container" id="navtitle">
           <h4 href="#" className="theme-color me-3">
-            Logo
+            WERA
           </h4>
           <div className="right-nav">
             <button className="btn blue text-light">Logout</button>
-            <p>
-              {/* {!user ? (
-              <button
-                className="btn btn-info"
-                onClick={() => {
-                  navigator("/login");
-                }}
-              >
-                Login
-              </button>
-            ) : (
-              <button className="btn btn-info" onClick={handleLogout}>
-                Logout
-              </button>
-            )} */}
-            </p>
           </div>
         </nav>
       </div>
-      {/* <div class="row">
-        <div class="col-md-4 offset-md-9 ">
-          <div class="card" style={{ width: 250 }}>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="card-link">
-                Card link
-              </a>
-              <a href="#" class="card-link">
-                Another link
-              </a>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       <div class="row">
-        <div class="col-md-6 offset-md-6 ">
+        <div class="col-md-4 col-sm-6 offset-md-8 ">
           <div class="card">
             <div className="d-flex align-items-center justify-content-between brown px-3">
               <div className="text-light">
@@ -78,7 +42,7 @@ const DashboardSelection = () => {
           <div class="input-group rounded">
             <input
               type="search"
-              class="form-control rounded-pill"
+              class="form-control rounded"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="search-addon"
@@ -90,13 +54,13 @@ const DashboardSelection = () => {
         </div>
       </div>
       <table class="table">
-        <thead className="table-secondary">
-          <tr>
-            <th scope="col">mark</th>
+        <thead className="blue">
+          <tr className="text-light">
             <th scope="col">Date</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Industry</th>
+            <th scope="col">Mark</th>
           </tr>
         </thead>
         <tbody>
@@ -107,7 +71,7 @@ const DashboardSelection = () => {
           <Tabledata />
         </tbody>
 
-        <button className="btn blue text-light my-2 ">Delete</button>
+        {/* <button className="btn blue text-light my-2 ">Delete</button> */}
       </table>
     </div>
   );
