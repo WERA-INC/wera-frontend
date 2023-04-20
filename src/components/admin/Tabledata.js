@@ -15,8 +15,9 @@ const Tabledata = () => {
               checked
               data-toggle="toggle"
               data-style="ios"
-              data-onstyle="info"
+            
               data-offstyle="danger"
+              
             />
           </label>
         </div>
