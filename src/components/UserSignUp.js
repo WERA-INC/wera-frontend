@@ -85,6 +85,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                                       <br/>
                                      
                                     <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                                    <h7>Already have an account? <a href='http://localhost:4000/userlogin'><button type='button' class="btn-primary">LOGIN</button></a></h7>
                                     </div>
                                     
                                     
