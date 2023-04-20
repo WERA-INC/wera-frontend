@@ -26,7 +26,7 @@ const JobsApplied = () => {
             </div>
           </div>
         </div>
-        <h5 className="py-3">Your Job Application History</h5>
+        <h5 className="py-3">Your Application History</h5>
         <div className='row'>
           <JobAppliedCard />
           <JobAppliedCard />
