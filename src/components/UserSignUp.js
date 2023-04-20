@@ -84,7 +84,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                                     <div class="d-grid gap-2 mt-2">
                                       <br/>
                                      
-                                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign up</button>
+                                    <h7>Already have an account? <a href='http://localhost:4000/userlogin'><button type='button' class="btn-primary">LOGIN</button></a></h7>
                                     </div>
                                     
                                     
