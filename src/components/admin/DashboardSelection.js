@@ -6,13 +6,13 @@ import Tabledata from "./Tabledata";
 const DashboardSelection = () => {
   return (
     <div>
-      <div className="blue-nav">
+      <div className="blue">
         <nav className="navbar container" id="navtitle">
-          <h4 href="#" className="theme-color me-3">
+          <h4 href="#" className="me-3">
             WERA
           </h4>
           <div className="right-nav">
-            <button className="btn blue text-light">Logout</button>
+            <button className="px-3 py-2 bg-light text-dark">Logout</button>
           </div>
         </nav>
       </div>
