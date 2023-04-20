@@ -45,7 +45,7 @@ const Feature = () => {
                       Access to a larger pool of job openings:
                       </h4>
                       <p className="mt-2 dark:text-gray-400">
-                      We provide job seekers with access to a broader range of job openings, including positions that may not be advertised through other channels.
+                      Wera provides job seekers with access to a broader range of job openings, including positions that may not be advertised through other channels.
                       </p>
                     </div>
                   </div>
@@ -109,7 +109,7 @@ const Feature = () => {
               </div>
               <div aria-hidden="true" className="mt-10 lg:mt-0">
                 <img
-                  src="https://source.unsplash.com/random/360x480"
+                  src="https://img.freepik.com/premium-vector/black-man-search-vacancy-with-magnifying-glass-male-character-looking-finding-new-work-opportunities-vacancies-employment-career-strategy-concept-job-search-concept_384065-1038.jpg?w=740"
                   alt=""
                   className="mx-auto rounded-lg shadow-lg dark:bg-gray-500"
                 />
@@ -210,7 +210,7 @@ const Feature = () => {
                 </div>
                 <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
                   <img
-                    src="https://source.unsplash.com/random/361x481"
+                    src="https://img.freepik.com/free-photo/employment-opportunity-hiring-jobs-icon_53876-122778.jpg?w=996&t=st=1681961873~exp=1681962473~hmac=ba0cf626f03cf4d7be3fc34e8535a0df1fd9293955d20196f35f042010922fa2"
                     alt=""
                     className="mx-auto rounded-lg shadow-lg dark:bg-gray-500"
                   />
