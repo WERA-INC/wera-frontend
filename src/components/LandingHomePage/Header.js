@@ -7,13 +7,32 @@ const Header = () => {
     <section
       className="h-screen bg-Hero bg-cover
       font-[Poppins] md:bg-top bg-center"
-      style={{backgroundImage:"url(https://media.istockphoto.com/id/1283869564/photo/christmas-decorations-on-the-blue-background-with-copy-space-for-your-text.jpg?b=1&s=170667a&w=0&k=20&c=uQwSG0iXqI6riFjetYsGHvBe0ubcTjZ7QUijIWmJT-g=)"}}
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <Navbar />
-      <div className="flex flex-col justify-center text-center items-center h-3/4">
-        <h2 className="text-black text-2xl font-medium ">/W E R A/</h2>
-        <h1 className="md:text-5xl text-3xl text-black font-semibold py-5">
-          Items every woman should have
+      <div className="flex flex-col justify-center text-left p-9 items-left h-3/4">
+        <h1
+          className="text-6xl "
+          style={{
+            color: "#0D2644",
+            letterSpacing: "3px",
+          }}
+        >
+          /WERA/
+        </h1>
+        <h1 className=" text-6xl " style={{ color: "#11477B" }}>
+          [we-ra]
+        </h1>
+
+        <h1 className="md:text-1xl text-2xl text-white  py-5">
+          a.k.a /mboka/ is a Kenyan slang meaning work .Commonly associated{" "}
+          <br></br> with the youth and some native languages
         </h1>
         <div className="text-xl">
           <Button />

@@ -35,10 +35,10 @@ const NavLinks = () => {
                   <div className="py-3">
                     <div
                       className="w-4 h-4 left-3 absolute 
-                    mt-1 bg-white rotate-45"
+                    mt-1 bg-transparent rotate-45"
                     ></div>
                   </div>
-                  <div className="bg-white p-5 grid grid-cols-3 gap-10">
+                  <div className="bg-transparent p-5 grid grid-cols-1 gap-10">
                     {link.sublinks.map((mysublinks) => (
                       <div>
                         <h1 className="text-lg font-semibold">
@@ -48,7 +48,8 @@ const NavLinks = () => {
                           <li className="text-sm text-gray-600 my-2.5">
                             <Link
                               to={slink.link}
-                              className="hover:text-primary"
+
+                              className="text-white hover:text-primary"
                             >
                               {slink.name}
                             </Link>

@@ -22,9 +22,9 @@ const LandingPage = () => {
         <section id="feature" style={{ marginTop: "20em" }}>
           <Feature />
         </section>
-        <section id="footer" style={{ marginBottom: "5px" }}>
+        {/* <section id="footer" style={{ marginBottom: "5px" }}>
           <Footer />
-        </section>
+        </section> */}
       </div>
     </>
   );
