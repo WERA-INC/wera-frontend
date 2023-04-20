@@ -40,6 +40,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                                       <br/>
                                      
                                     <button type="submit" class="btn btn-primary btn-sm  text-uppercase mb-3 rounded-pill shadow-sm custom button">Sign in</button>
+                                    <h7>Not yet registered? <a href='http://localhost:4003/usersignup'><button type='button' class="btn-primary">SIGN UP</button></a></h7>
                                     </div>
                                     
                                     

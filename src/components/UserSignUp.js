@@ -1,30 +1,47 @@
 import React, {useState} from 'react'
+import { useNavigate } from "react-router-dom";
 import SignupImg from './images/signup.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
- function UserSignUp() {
+ function UserSignUp({ setStoredToken}){
+    const navigate = useNavigate();
 
     const [fullName, setFullName] = useState("")
     const [emailAddress, setEmailAddress] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
 
-    async function Register()
-    {
-        let item={fullName,emailAddress,password,confirmPassword}
-        console.warn(item)
+    
+    const signUpFunctionality = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          fullName,
+          emailAddress,
+          password,
+          confirmPassword,
 
-        let result= await fetch("http://localhost:3000/login",{
-            method: "POST",
-            body:JSON.stringify(item),
-            headers: {
-                "Content-Type": "application/json",
-                "Accept":'application/json'
-            }
-        })
-        result = await result.json()
-        console.warn("result",result)
-    }
+        },
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.jwt) {
+          localStorage.setItem("token", data.jwt);
+          console.log(data);
+          setStoredToken(data.jwt);
+          navigate("/");
+        } else {
+          alert("Please fill out all fields");
+        }
+      });
+  };
+
   return (
     <div className="container maincontainer">
     <div class="container-fluid">
@@ -42,7 +59,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <div class="col-lg-10 col-xl-7">
                                 <h4 class="display-6">WELCOME TO WERA</h4>
                                 <p class="text-muted mb-4">Signup your account</p>
-                                <form>
+                                <form onSubmit={signUpFunctionality}>
                                     <div class="mb-3">
                                         <input id="inputText" onChange={(e) => setFullName(e.target.value)} type="text" placeholder="Full Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" />
                                     </div>
@@ -67,7 +84,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                                     <div class="d-grid gap-2 mt-2">
                                       <br/>
                                      
-                                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign up</button>
+                                    <h7>Already have an account? <a href='http://localhost:4000/userlogin'><button type='button' class="btn-primary">LOGIN</button></a></h7>
                                     </div>
                                     
                                     
