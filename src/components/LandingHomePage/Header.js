@@ -1,49 +1,44 @@
 import React from "react";
-
-import "./LandingHomePage.css";
+import Button from "./Navbar components/Button";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <>
-      <div className="headerContainer">
-        <section className="relative bg-[] bg-cover bg-center bg-no-repeat"
-        style={{backgroundImage:"url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)"}}>
-          <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
+    <section
+      className="h-screen bg-Hero bg-cover
+      font-[Poppins] md:bg-top bg-center"
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <Navbar />
+      <div className="flex flex-col justify-center text-left p-9 items-left h-3/4">
+        <h1
+          className="text-6xl "
+          style={{
+            color: "#0D2644",
+            letterSpacing: "3px",
+          }}
+        >
+          /WERA/
+        </h1>
+        <h1 className=" text-6xl " style={{ color: "#11477B" }}>
+          [we-ra]
+        </h1>
 
-          <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
-            <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-              <h1 className="text-3xl font-extrabold sm:text-5xl">
-                Let us find your
-                <strong className="block font-extrabold text-rose-700">
-                  Forever Home.
-                </strong>
-              </h1>
-
-              <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Nesciunt illo tenetur fuga ducimus numquam ea!
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4 text-center">
-                <a
-                  href="#"
-                  className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-                >
-                  Get Started
-                </a>
-
-                <a
-                  href="#"
-                  className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-                >
-                  Learn More
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <h1 className="md:text-1xl text-2xl text-white  py-5">
+          a.k.a /mboka/ is a Kenyan slang meaning work (kazi).Commonly associated{" "}
+          <br></br> with the youth and some native languages
+        </h1>
+        <div className="text-xl">
+          <Button />
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 
