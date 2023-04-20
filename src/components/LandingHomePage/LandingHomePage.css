@@ -3,13 +3,6 @@
 	margin: 0;
 	padding: 0;
 }
-/* .headerContainer {
-  background-color: #143C66;
-  height: 200px;
-  width: 100%;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 700px;
-} */
 
 .home-logo {
   font-size: 24px;
@@ -19,39 +12,6 @@
   color: #fff;
 }
 
-.home-navbar {
-
-  color: #143C66;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-
-
-.image-container {
-  position: absolute;
-  right: 0px;
-  height: 70%;
-  max-width: 100%;
-}
-
-.headerDefinition {
-  text-align: left;
-  padding: 20px;
-  color: white;
-}
-
-.headerTitle {
-  padding: 40px;
-  letter-spacing: 2px;
-  font-size: 50px;
-}
-
-.headerText {
-  font-size: 25px;
-  padding: 30px;
-}
 #aboutSection{
   height: 100vh;
 }
@@ -61,6 +21,9 @@
 #teamSection{
   height: 100vh;
 }
+/* #footerSection{
+  height: 100vh;
+} */
 .aboutContainer {
   padding: 50px;
   justify-content: center;
