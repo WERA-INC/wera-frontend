@@ -38,10 +38,11 @@ const NavLinks = () => {
                     mt-1 bg-transparent rotate-45"
                     ></div>
                   </div>
-                  <div className="bg-transparent p-5 grid grid-cols-1 gap-10">
+                  <div className="p-3 grid grid-cols-1 gap-10"
+                  style={{backgroundColor:"#0D2644"}}>
                     {link.sublinks.map((mysublinks) => (
                       <div>
-                        <h1 className="text-lg font-semibold">
+                        <h1 style={{cursor:"pointer", textDecoration:"none"}} className="text-lg font-semibold" >
                           {mysublinks.Head}
                         </h1>
                         {mysublinks.sublink.map((slink) => (
@@ -50,6 +51,7 @@ const NavLinks = () => {
                               to={slink.link}
 
                               className="text-white hover:text-primary"
+                              style={{textDecoration:"none"}}
                             >
                               {slink.name}
                             </Link>
@@ -98,7 +100,7 @@ const NavLinks = () => {
                     }`}
                   >
                     {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14">
+                      <li className="py-3 text-white pl-9" style={{textDecoration:"none"}}>
                         <Link to={slink.link}>{slink.name}</Link>
                       </li>
                     ))}
