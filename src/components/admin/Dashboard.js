@@ -36,13 +36,8 @@ const Dashboard = () => {
 
       <div className="container">
         <div className="row">
-          <div className="col-4 admin-image-holder d-lg-block d-none">
-            <img
-              src="https://images.pexels.com/photos/3937174/pexels-photo-3937174.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt=""
-            />
-          </div>
-          <div className="col-lg-8 col-12">
+          
+          <div className="col-lg-8 col-12 mx-auto">
             <div className="row ps-md-5">
               <div
                 className="col-md-6 mb-3"
