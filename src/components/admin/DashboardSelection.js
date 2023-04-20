@@ -9,7 +9,7 @@ const DashboardSelection = () => {
       <div className="blue-nav">
         <nav className="navbar container" id="navtitle">
           <h4 href="#" className="theme-color me-3">
-            Logo
+            WERA
           </h4>
           <div className="right-nav">
             <button className="btn blue text-light">Logout</button>
