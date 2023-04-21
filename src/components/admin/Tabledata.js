@@ -1,12 +1,15 @@
 import React from "react";
 
-const Tabledata = () => {
+const Tabledata = ({val}) => {
+  console.log(val)
+  let values = Object.values(val)
   return (
-    <tr className="p"> 
-      <td>12/11/2022</td>
-      <td>Bill</td>
+    <tr className="text-left"> 
+    {values.map((value)=>{return <td key={value[0]}>{value}</td>})}
+      
+      {/* <td>{values[1]}</td>
       <td>Clinton</td>
-      <td>ICT</td>
+      <td>ICT</td> */}
       <th>
         <div class="checkbox">
           <label>
