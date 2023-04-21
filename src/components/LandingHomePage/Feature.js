@@ -4,7 +4,7 @@ import "./LandingHomePage.css";
 const Feature = () => {
   return (
     <>
-      <div id="featureSection">
+    
         <section className="dark:bg-gray-800 dark:text-gray-100">
           <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
             <div>
@@ -210,7 +210,7 @@ const Feature = () => {
                 </div>
                 <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
                   <img
-                    src="https://img.freepik.com/free-photo/employment-opportunity-hiring-jobs-icon_53876-122778.jpg?w=996&t=st=1681961873~exp=1681962473~hmac=ba0cf626f03cf4d7be3fc34e8535a0df1fd9293955d20196f35f042010922fa2"
+                    src="https://img.freepik.com/premium-vector/man-job-interview-isolated-work-meeting-hr-management-recruitment-agency-cartoon-male-employee-business-woman-have-conversation-young-manager-boss-vector-illustration_53562-13422.jpg"
                     alt=""
                     className="mx-auto rounded-lg shadow-lg dark:bg-gray-500"
                   />
@@ -219,7 +219,7 @@ const Feature = () => {
             </div>
           </div>
         </section>
-      </div>
+  
     </>
   );
 };
