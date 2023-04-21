@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SignupImg from './images/signup.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
- function UserSignUp({ setStoredToken}){
+ function Register({ setStoredToken}){
     const navigate = useNavigate();
 
     const [fullName, setFullName] = useState("")
@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     
     const signUpFunctionality = (e) => {
     e.preventDefault();
-    fetch("http://localhost:4000/signup", {
+    fetch("http://localhost:4000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                                       <br/>
                                      
                                     <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign up</button>
-                                    <h7>Already have an account? <a href='http://localhost:4000/userlogin'><button type='button' class="btn-primary">LOGIN</button></a></h7>
+                                    <h7>Already have an account? <a href='http://localhost:4000/login'><button type='button' class="btn-primary">LOGIN</button></a></h7>
                                     </div>
                                     
                                     
@@ -102,7 +102,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 }
 
 
-export default UserSignUp
+export default Register 
 
 // import React from 'react'
 
