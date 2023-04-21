@@ -47,110 +47,107 @@ function Register({ setStoredToken }) {
       <div class="container">
         <div class="row no-gutter">
           <div class="col-md-7 d-none d-md-block bg-image me-2">
-            <img
-              className=""
-              src={SignupImg}
-              alt=""
-            />
+            <img className="" src={SignupImg} alt="" />
           </div>
 
           <div class="col-md-4 bg-light bg-image">
             <div class="login py-3">
-              
-                  <div class="col-lg-12 col-xl-10 mx-auto">
-                    <h4 class="display-6">WELCOME TO WERA</h4>
-                    <p class="text-muted mb-4">Create an account</p>
-                    <form onSubmit={signUpFunctionality} novalidate>
-                      <div class="mb-3">
-                        <input
-                          id="inputText"
-                          onChange={(e) => setFullName(e.target.value)}
-                          type="text"
-                          placeholder="Full Name"
-                          autofocus=""
-                          class="form-control rounded-pill border-0 shadow-sm px-4"
-                          required
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <input
-                          id="inputEmail"
-                          onChange={(e) => setEmailAddress(e.target.value)}
-                          type="email"
-                          placeholder="Email Address"
-                          class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-                          required
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <input
-                          id="inputPassword"
-                          onChange={(e) => setPassword(e.target.value)}
-                          type="password"
-                          placeholder="Password"
-                          class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-                          required
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <input
-                          id="inputPassword"
-                          onChange={(e) => setConfirmPassword(e.target.value)}
-                          type="password"
-                          placeholder="Confirm Password"
-                          class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-                          required
-                        />
-                      </div>
-                      <div className="form-group col-12">
-                        <label
-                          htmlFor="usertype"
-                          className="text-start text-primary"
-                        >
-                          Who are you?
-                        </label>
-                        <select
-                          id="users"
-                          name="users"
-                          class="form-control rounded-pill border-0 shadow-sm px-4"
-                          onChange={(e) => setUserType(e.target.value)}
-                        >
-                          <option selected>Select</option>
-                          <option>Jobseeker</option>
-                          <option>Employer</option>
-
-                        </select>
-                      </div>
-                      <div class="d-grid gap-2 mt-2">
-                        <br />
-
-                        <button
-                          type="submit"
-                          class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
-                        >
-                          Sign up
-                        </button>
-                        <ul>
-                          {errors.length > 0
-                            ? errors.map((err) => (
-                                <li key={err} className="text-danger">
-                                  {err}
-                                </li>
-                              ))
-                            : null}
-                        </ul>
-                        <h7>
-                          Already have an account?{" "}
-                          <a href="http://localhost:4000/login">
-                            <button type="button" class="btn-primary">
-                              LOGIN
-                            </button>
-                          </a>
-                        </h7>
-                      </div>
-                    </form>
+              <div class="col-lg-12 col-xl-10 mx-auto">
+                <h4 class="display-6">WELCOME TO WERA</h4>
+                <p class="text-muted mb-4">Create an account</p>
+                <form onSubmit={signUpFunctionality} novalidate>
+                  <div class="mb-3">
+                    <input
+                      id="inputText"
+                      onChange={(e) => setFullName(e.target.value)}
+                      type="text"
+                      placeholder="Full Name"
+                      autofocus=""
+                      class="form-control rounded-pill border-0 shadow-sm px-4"
+                      required
+                    />
                   </div>
-               
+                  <div class="mb-3">
+                    <input
+                      id="inputEmail"
+                      onChange={(e) => setEmailAddress(e.target.value)}
+                      type="email"
+                      placeholder="Email Address"
+                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <input
+                      id="inputPassword"
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                      placeholder="Password"
+                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <input
+                      id="inputPassword"
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      type="password"
+                      placeholder="Confirm Password"
+                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      required
+                    />
+                  </div>
+                  <div className="form-group col-12">
+                    <label
+                      htmlFor="usertype"
+                      className="text-start text-primary"
+                    >
+                      Who are you?
+                    </label>
+                    <select
+                      id="users"
+                      name="users"
+                      class="form-control rounded-pill border-0 shadow-sm px-4"
+                      onChange={(e) => setUserType(e.target.value)}
+                    >
+                      <option selected>Select</option>
+                      <option>Jobseeker</option>
+                      <option>Employer</option>
+                    </select>
+                  </div>
+                  <div class="d-grid gap-2 mt-2">
+                    <br />
+
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                    >
+                      Sign up
+                    </button>
+                    <ul>
+                      {errors.length > 0
+                        ? errors.map((err) => (
+                            <li key={err} className="text-danger">
+                              {err}
+                            </li>
+                          ))
+                        : null}
+                    </ul>
+                    <span>
+                      Already have an account?
+                      <span
+                      style={{"cursor":"pointer"}}
+                        onClick={() => {
+                          navigate(`/login`);
+                        }}
+                        className="ms-3 text-primary"
+                      >
+                        Log In
+                      </span>
+                    </span>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

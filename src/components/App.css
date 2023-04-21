@@ -38,6 +38,12 @@
   object-fit: cover;
   object-position: -250px 100%;
 }
+.bg-image .login {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: -50px 100%;
+}
 
 @keyframes App-logo-spin {
   from {
