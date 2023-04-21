@@ -4,38 +4,39 @@ import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <section
-      className="h-screen bg-Hero bg-cover
-      font-[Poppins] md:bg-top bg-center"
-      style={{
-        backgroundImage:
-          "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <section style={{ 
+      backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.7),rgba(0,0,0.95,1), #0D2644), url(https://images.unsplash.com/photo-1635350736475-c8cef4b21906?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)",
+      backgroundSize: "cover",
+    }}>
       <Navbar />
-      <div className="flex flex-col justify-center text-left p-9 items-left h-3/4">
-        <h1
-          className="text-6xl "
-          style={{
-            color: "#0D2644",
-            letterSpacing: "3px",
-          }}
-        >
-          /WERA/
-        </h1>
-        <h1 className=" text-6xl " style={{ color: "#11477B" }}>
-          [we-ra]
-        </h1>
-
-        <h1 className="md:text-1xl text-2xl text-white  py-5">
-          a.k.a /mboka/ is a Kenyan slang meaning work (kazi).Commonly associated{" "}
-          <br></br> with the youth and some native languages
-        </h1>
-        <div className="text-xl">
-          <Button />
+      <div class=" text-white py-20" >
+        <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+          <div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
+            <h1 class="text-5xl md:text-7xl p-2 text-blue-200 tracking-loose">
+              /WE-RA
+            </h1>
+            <h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
+            (we-ra)
+            </h2>
+            <p class="text-sm md:text-base text-left text-gray-50 mb-4">
+            a.k.a /mboka/ is a Kenyan slang meaning work .
+            Commonly associated with the youth and some native languages
+            </p>
+            <a
+              href="#"
+              class="bg-blue-900 hover:bg-blue-500 text-white hover:text-blue-900 rounded shadow hover:shadow-lg py-2 px-4 border "
+              style={{textDecoration:"none"}}
+            >
+              Explore Now
+            </a>
+          </div>
+          <div class="p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3  justify-center">
+            <img
+              src="https://c0.wallpaperflare.com/preview/374/276/835/job-search-hr-cv.jpg"
+              alt=""
+              className="object-cover w-full h-full rounded-md xl:col-span-3 dark:bg-gray-500"
+            />
+          </div>
         </div>
       </div>
     </section>

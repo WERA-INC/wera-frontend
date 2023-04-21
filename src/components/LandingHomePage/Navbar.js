@@ -7,10 +7,10 @@ import NavLinks from "./Navbar components/NavLinks";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-transparent">
+    <nav className="" >
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 p-5 md:w-auto text-white w-full flex justify-between">
-          <h1 style={{cursor:"pointer"}} >WERA</h1>
+          <h3 style={{cursor:"pointer"}} >WERA</h3>
           {/* <img src={Logo} alt="wera" href="/landingpage" className="md:cursor-pointer h-9 " /> */}
           <div style={{cursor:"pointer"}} className="text-3xl text-white md:hidden" onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}>menu</ion-icon>
@@ -18,10 +18,10 @@ const Navbar = () => {
         </div>
         <ul className="md:flex hidden text-white uppercase items-center gap-6 font-[Poppins]" >
           
-          <NavLinks />
+         
         </ul>
-        <div className="md:block hidden">
-          <Button />
+        <div className="md:block hidden text-white" style={{fontSize:"20px"}}>
+        <NavLinks />
         </div>
         {/* Mobile nav */}
         <ul

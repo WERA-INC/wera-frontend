@@ -20,7 +20,7 @@ const AboutUs = () => {
               style={{ backgroundColor: " #0D2644" }}
             >
               <h3 className="text-3xl font-bold">Welcome to Wera</h3>
-              <p className="my-6 dark:text-gray-400">
+              <p className="my-6 dark:text-gray-200">
                 "Your gateway to endless career possibilities! We are dedicated
                 to connecting talented individuals with top employers and
                 helping you achieve your professional goals. Explore our job
@@ -39,14 +39,10 @@ const AboutUs = () => {
               style={{ backgroundColor: " #0D2644" }}
             >
               <h3 className="text-3xl font-bold">OUR MISSION</h3>
-              <p className="my-6 dark:text-gray-400">
+              <p className="my-6 dark:text-gray-200">
                 To provide exceptional job placement services to job seekers
-                while helping companies(recruiters) find the best candidates for
-                their open positions. We strive to create a bridge between job
-                seekers and employers and make the job search process efficient,
-                transparent and fair. Our mission is to help job seekers achieve
-                their career goals and provide businesses with the talent they
-                need to succeed.
+                while helping companies(employers) find the best candidates for
+                their open positions.
               </p>
             </div>
           </div>
@@ -61,17 +57,12 @@ const AboutUs = () => {
               style={{ backgroundColor: " #0D2644" }}
             >
               <h3 className="text-3xl font-bold">OUR VISION</h3>
-              <p className="my-6 dark:text-gray-400">
+              <p className="my-6 dark:text-gray-200">
                 Become a leading job agency company that is recognized for its
                 commitment to excellence, integrity, and innovation. We envision
                 a future where every job seeker has access to meaningful
                 employment opportunities, and every employer has access to
-                top-tier talent. We aim to achieve this by leveraging
-                technology, data-driven insights, and best practices to provide
-                personalized and efficient services to our clients. Our ultimate
-                goal is to help build strong and thriving communities by
-                connecting talented individuals with organizations that can
-                harness their potential.
+                top-tier talent. 
               </p>
             </div>
           </div>
