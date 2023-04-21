@@ -115,12 +115,12 @@ function Register({ setStoredToken }) {
                       <option>Employer</option>
                     </select>
                   </div>
-                  <div class="d-grid gap-2 mt-2">
-                    <br />
+                  <div class="d-grid gap-2 mt-3">
+                   
 
                     <button
                       type="submit"
-                      class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                      class="btn btn-primary btn-block text-uppercase rounded-pill shadow-sm"
                     >
                       Sign up
                     </button>
