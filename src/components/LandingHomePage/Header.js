@@ -27,7 +27,7 @@ const Header = () => {
               class="bg-blue-900 hover:bg-blue-500 text-white hover:text-blue-900 rounded shadow hover:shadow-lg py-2 px-4 border "
               style={{textDecoration:"none"}}
             >
-              Explore Now
+              Sign Up
             </a>
           </div>
           <div class="p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3  justify-center">
