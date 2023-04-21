@@ -7,14 +7,14 @@ import JobseekerLandingPage from "./jobseeker/JobseekerLandingPage";
 import RecruiterLandingPage from "./recruiter/RecruiterLandingPage";
 import Dashboard from "./admin/Dashboard";
 import Footer from "./LandingHomePage/Footer";
-import UserLogin from "./UserLogin";
+import UserLogin from "./Login";
 import DashboardSelection from "./admin/DashboardSelection";
 import AddJob from "./recruiter/AddJob";
 import JobListing from "./recruiter/JobListing";
 import RecruiterNavbar from "./recruiter/RecruiterNavbar";
 import RecruiterLogIn from "./recruiter/RecruiterLogIn";
 import RecruiterSignUp from "./recruiter/RecruiterSignUp";
-import UserSignUp from "./UserSignUp";
+import UserSignUp from "./Register";
 import JobsApplied from "./jobseeker/JobsApplied"
 import JobCard from "./jobseeker/JobCard"
 import JobseekerNavbar from "./jobseeker/JobseekerNavbar"
@@ -31,8 +31,8 @@ function App() {
         {/* general */}
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/userlogin" element={<UserLogin />} />
-        <Route path="/usersignup" element={<UserSignUp />} />
+        <Route path="/login" element={<UserLogin />} />
+        <Route path="/register" element={<UserSignUp />} />
 
         {/* Admin paths */}
         <Route path="/admin-dashboard" element={<Dashboard />} />
