@@ -2,7 +2,7 @@ import React from 'react'
 import LoginImg from './images/signup.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
- function UserLogin() {
+ function Login() {
   return (
     <div className="container maincontainer">
     <div class="container-fluid">
@@ -40,7 +40,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                                       <br/>
                                      
                                     <button type="submit" class="btn btn-primary btn-sm  text-uppercase mb-3 rounded-pill shadow-sm custom button">Sign in</button>
-                                    <h7>Not yet registered? <a href='http://localhost:4000/usersignup'><button type='button' class="btn-primary">SIGN UP</button></a></h7>
+                                    <h7>Not yet registered? <a href='http://localhost:4000/register'><button type='button' class="btn-primary">SIGN UP</button></a></h7>
                                     </div>
                                     
                                     
@@ -57,7 +57,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 }
 
 
-export default UserLogin
+export default Login
 
 // import React from 'react'
 
