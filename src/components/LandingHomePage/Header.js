@@ -9,8 +9,8 @@ const Header = () => {
       backgroundSize: "cover",
     }}>
       <Navbar />
-      <div class=" text-white py-20" >
-        <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+      <div class=" text-white pb-10" >
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
           <div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
             <h1 class="text-5xl md:text-7xl p-2 text-blue-200 tracking-loose">
               /WE-RA
