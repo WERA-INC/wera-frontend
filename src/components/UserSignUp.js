@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     
     const signUpFunctionality = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/signup", {
+    fetch("http://localhost:4000/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
