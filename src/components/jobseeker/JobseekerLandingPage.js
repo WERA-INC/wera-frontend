@@ -3,13 +3,13 @@ import JobseekerNavbar from './JobseekerNavbar'
 import "./Jobseeker.css";
 import JobCardLandingPg from './JobCardLandingPg';
 
-const JobseekerLandingPage = () => {
+const JobseekerLandingPage = ({jobseeker}) => {
   return (
     <div>
       <JobseekerNavbar />
       <div className="header">
         <div className="blue text-light p-5 text-left">
-          <h6 className="">Hello, Mary</h6>
+          <h6 className="">Hello,  {jobseeker.full_name}</h6>
           <div className="row">
             <div className="col-10">
               <h2 className="display-3 fw-bold">Discover Your Dream Job</h2>
