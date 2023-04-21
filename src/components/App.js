@@ -14,7 +14,7 @@ import RecruiterNavbar from "./recruiter/RecruiterNavbar";
 import RecruiterLogIn from "./recruiter/RecruiterLogIn";
 import RecruiterSignUp from "./recruiter/RecruiterSignUp";
 
-import UserSignUp from "./UserSignUp";
+import UserSignUp from "./Register";
 import JobsApplied from "./jobseeker/JobsApplied";
 import JobCard from "./jobseeker/JobCard";
 import JobseekerNavbar from "./jobseeker/JobseekerNavbar";
