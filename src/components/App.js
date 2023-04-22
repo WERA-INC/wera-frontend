@@ -1,6 +1,5 @@
-
 import { Routes, Route } from "react-router-dom";
-import './App.css';
+import "./App.css";
 import LandingPage from "./LandingPage";
 import Home from "./Home";
 import JobseekerLandingPage from "./jobseeker/JobseekerLandingPage";
@@ -22,9 +21,6 @@ import JobseekerProfile from "./jobseeker/JobseekerProfile"
 import RecruiterProfile from "./recruiter/RecruiterProfile";
 // import JobseekerLogin from "./jobseeker/JobseekerLogin"
 
-
-
-
 function App() {
   return (
     <div className="App">
@@ -37,7 +33,7 @@ function App() {
 
         {/* Admin paths */}
         <Route path="/admin-dashboard" element={<Dashboard />} />
-        <Route path="/dashboardselect" element={<DashboardSelection />} />
+        <Route path="/admin-dashboard/:slug" element={<DashboardSelection />} />
 
         {/* Recruiter paths */}
         <Route path="/recruiter" element={<RecruiterLandingPage />} />
