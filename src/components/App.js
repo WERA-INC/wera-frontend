@@ -19,6 +19,7 @@ import JobsApplied from "./jobseeker/JobsApplied"
 import JobCard from "./jobseeker/JobCard"
 import JobseekerNavbar from "./jobseeker/JobseekerNavbar"
 import JobseekerProfile from "./jobseeker/JobseekerProfile"
+import RecruiterProfile from "./recruiter/RecruiterProfile";
 // import JobseekerLogin from "./jobseeker/JobseekerLogin"
 
 
@@ -45,7 +46,7 @@ function App() {
         <Route path="/recruiternavbar" element={<RecruiterNavbar />} />
         <Route path="/recruitersignup" element={<RecruiterSignUp />} />
         <Route path="/recruiterlogin" element={<RecruiterLogIn />} />
-
+        <Route path="/recruiterprofile" element={<RecruiterProfile />} />
         {/* Jobseeker paths */}
         <Route path="/jobseeker" element={<JobseekerLandingPage />} />
         {/* <Route path="/jobseekerlogin" element={<JobseekerLogin />} /> */}
