@@ -50,7 +50,7 @@ function Login({setUser}) {
   };
 
   return (
-    <div className="maincontainer p-5">
+    <div className="maincontainer p-3">
       <div class="container">
         <div class="row no-gutter">
           <div class="col-md-7 d-none d-md-block bg-image me-2">
