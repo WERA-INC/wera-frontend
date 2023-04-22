@@ -27,6 +27,23 @@
 .App-link {
   color: #61dafb;
 }
+.bg-image{
+  height: 95vh;
+  box-shadow: rgba(12, 12, 12, 0.6) 0px 5px 10px;
+  border-radius: 10px;
+}
+.bg-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: -250px 100%;
+}
+.bg-image .login {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: -50px 100%;
+}
 
 @keyframes App-logo-spin {
   from {
