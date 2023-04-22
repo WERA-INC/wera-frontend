@@ -14,12 +14,11 @@ import RecruiterNavbar from "./recruiter/RecruiterNavbar";
 import RecruiterLogIn from "./recruiter/RecruiterLogIn";
 import RecruiterSignUp from "./recruiter/RecruiterSignUp";
 
-import UserSignUp from "./Register";
+import UserSignUp from "./UserSignUp";
 import JobsApplied from "./jobseeker/JobsApplied";
 import JobCard from "./jobseeker/JobCard";
 import JobseekerNavbar from "./jobseeker/JobseekerNavbar";
 import JobseekerProfile from "./jobseeker/JobseekerProfile";
-import { useState } from "react";
 
 // import JobseekerLogin from "./jobseeker/JobseekerLogin"
 
@@ -46,7 +45,7 @@ function App() {
         <Route path="/recruiternavbar" element={<RecruiterNavbar />} />
         <Route path="/recruitersignup" element={<RecruiterSignUp />} />
         <Route path="/recruiterlogin" element={<RecruiterLogIn />} />
-
+        <Route path="/recruiterprofile" element={<RecruiterProfile />} />
         {/* Jobseeker paths */}
         <Route path="/jobseeker" element={<JobseekerLandingPage jobseeker={jobseeker}/>} />
         {/* <Route path="/jobseekerlogin" element={<JobseekerLogin />} /> */}
