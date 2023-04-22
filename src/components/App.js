@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { useState } from "react";
+import RecruiterProfile from "./recruiter/RecruiterProfile";
 import LandingPage from "./LandingPage";
 import Home from "./Home";
 import JobseekerLandingPage from "./jobseeker/JobseekerLandingPage";
@@ -14,7 +16,7 @@ import RecruiterNavbar from "./recruiter/RecruiterNavbar";
 import RecruiterLogIn from "./recruiter/RecruiterLogIn";
 import RecruiterSignUp from "./recruiter/RecruiterSignUp";
 
-import UserSignUp from "./UserSignUp";
+import UserSignUp from "./Register";
 import JobsApplied from "./jobseeker/JobsApplied";
 import JobCard from "./jobseeker/JobCard";
 import JobseekerNavbar from "./jobseeker/JobseekerNavbar";
