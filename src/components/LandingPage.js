@@ -11,7 +11,7 @@ const LandingPage = () => {
     <>
       <div className="landingPage">
         <section id="about" style={{ marginTop: "0em" }}>
-          <Header />
+          <Header/>
         </section>
         <section id="about" style={{ marginTop: "3em" }}>
           <AboutUs />
