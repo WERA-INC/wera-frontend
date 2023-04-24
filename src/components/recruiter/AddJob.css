@@ -4,7 +4,7 @@
     margin-top: 50px;
   }
   
-  .container {
+  container {
     display: flex;
     justify-content: center;
     align-items: center;

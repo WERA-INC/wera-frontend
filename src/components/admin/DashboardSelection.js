@@ -27,12 +27,12 @@ const DashboardSelection = () => {
       //  console.log(Object.keys(data[0]));
       if (slug === "profiles") {
         let selected = data.map((object) => {
-          return (({ full_name }) => ({ full_name }))(object);
+          return (({created_at, full_name,phone_number, email_address }) => ({created_at, full_name,phone_number, email_address }))(object);
         });
         setFiltered(selected);
       } else if (slug === "opportunities") {
         let selected = data.map((object) => {
-          return (({ title, job_type, cut_off, estimated_salary }) => ({
+          return (({created_at, title, job_type, cut_off, estimated_salary }) => ({created_at,
             title,
             job_type,
             cut_off,
@@ -42,7 +42,7 @@ const DashboardSelection = () => {
         setFiltered(selected);
       } else if (slug === "employers") {
         let selected = data.map((object) => {
-          return (({ company_name, company_location, email_address }) => ({
+          return (({created_at, company_name, company_location, email_address }) => ({created_at,
             company_name,
             company_location,
             email_address,
@@ -51,7 +51,9 @@ const DashboardSelection = () => {
         setFiltered(selected);
       } else {
         let selected = data.map((object) => {
-          // return (({ opportunity.title }) => ({ opportunity.title }))(object);
+          return (({created_at, applicant, title, company_name }) => ({created_at, applicant, title, company_name
+            
+          }))(object);
         });
         setFiltered(selected);
       }
@@ -65,11 +67,14 @@ const DashboardSelection = () => {
       setKeys(Object.keys(filtered[0]))
     }
   },[filtered])
- 
+ console.log("full_name".split("_").length)
   return (
     <div>
       <div className="blue">
-        <nav className="navbar container" id="navtitle">
+        <nav
+          className="navbar container d-flex align-items-center justify-content-between"
+          id="navtitle"
+        >
           <h4 href="#" className="me-3">
             WERA
           </h4>
@@ -84,7 +89,7 @@ const DashboardSelection = () => {
           <div class="card">
             <div className="d-flex align-items-center justify-content-between brown px-3">
               <div className="text-light">
-                <h1 className="display-1">22</h1>
+                <h1 className="display-1">{data.length}</h1>
                 <h3 className="text-capitalize">
                   {slug === "profiles"
                     ? "Job Seekers"
@@ -121,8 +126,8 @@ const DashboardSelection = () => {
               aria-label="Search"
               aria-describedby="search-addon"
             />
-            <span class="input-group-text border-0" id="search-addon">
-              <i class="fas fa-search"></i>
+            <span class=" border-0" id="search-addon">
+              <i class="fas fa-search p-2"></i>
             </span>
           </div>
         </div>
@@ -136,14 +141,18 @@ const DashboardSelection = () => {
             <th scope="col">Industry</th>
             <th scope="col">Mark</th> */}
             {keys.map((key) => (
-              <th scope="col">{key}</th>
+              <th scope="col" className="text-capitalize">
+                {key.split("_").length > 1 ? key.split("_").join(" ") : key}
+              </th>
             ))}
             <th scope="col">Mark</th>
           </tr>
         </thead>
         <tbody>
-          {filtered.map((val)=>{return <Tabledata val={val}/>;})}
-          
+          {filtered.map((val) => {
+            return <Tabledata val={val} />;
+          })}
+
           {/* <Tabledata />
           <Tabledata />
           <Tabledata />

@@ -644,7 +644,7 @@ const Team = () => {
                           </div>
                         </a>
                         <a href="javascript:void(0)" class="mx-5">
-                          <div aria-label="Instagram" role="img" >
+                          <div aria-label="Instagram" role="img">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="24"
@@ -656,7 +656,6 @@ const Team = () => {
                               stroke-linecap="round"
                               stroke-linejoin="round"
                               class="feather feather-instagram"
-                              
                             >
                               <rect
                                 x="2"

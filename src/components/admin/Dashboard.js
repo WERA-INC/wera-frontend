@@ -5,48 +5,22 @@ import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const navigator = useNavigate();
-  const [jobs, setJobs] = useState([]);
-  const [jobseekers, setJobseekers] = useState([]);
-  const [employers, setEmployers] = useState([]);
-  const [applications, setApplications] = useState([]);
-  
+  const [summary, setSummary] = useState([]);
+
   useEffect(() => {
-    fetch(`http://localhost:3000/opportunities`).then((res) => {
+    fetch(`http://localhost:3000/all_summaries`).then((res) => {
       if (res.ok) {
-        res.json().then((data) => setJobs(data));
+        res.json().then((data) => {
+          setSummary(data);
+        });
       }
     });
   }, []);
-  useEffect(() => {
-    fetch(`http://localhost:3000/profiles`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => setJobseekers(data));
-      }
-    });
-  }, []);
-  useEffect(() => {
-    fetch(`http://localhost:3000/employers`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => setEmployers(data));
-      }
-    });
-  }, []);
-  useEffect(() => {
-    fetch(`http://localhost:3000/opportunities`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => setApplications(data));
-      }
-    });
-  }, []);
-  // console.log(applications)
-  // console.log(jobs);
-  // console.log(employers);
-  // console.log(jobseekers);
 
 
   return (
     <div className="admin-land">
-      <nav className="navbar container" id="navtitle">
+      <nav className="navbar container d-flex align-items-center justify-content-between" id="navtitle">
         <h4 href="#" className="me-3">
           WERA
         </h4>
@@ -70,7 +44,7 @@ const Dashboard = () => {
                   <div className="d-flex align-items-center justify-content-between brown px-3">
                     <i class="bi bi-people-fill dashboard_icons text-light"></i>
                     <div className="text-light">
-                      <h1 className="display-6">{jobseekers.length}</h1>
+                      <h1 className="display-6">{summary.profiles}</h1>
                       <h3>Job Seekers</h3>
                     </div>
                   </div>
@@ -91,7 +65,7 @@ const Dashboard = () => {
                   <div className="d-flex align-items-center justify-content-between green px-3">
                     <i class="bi bi-houses-fill dashboard_icons text-light"></i>
                     <div className="text-light">
-                      <h1 className="display-6">{employers.length}</h1>
+                      <h1 className="display-6">{summary.employers}</h1>
                       <h3>Employers</h3>
                     </div>
                   </div>
@@ -112,7 +86,7 @@ const Dashboard = () => {
                   <div className="d-flex align-items-center justify-content-between blue px-3">
                     <i class="bi bi-clipboard2-data-fill dashboard_icons text-light"></i>
                     <div className="text-light">
-                      <h1 className="display-6">{jobs.length}</h1>
+                      <h1 className="display-6">{summary.opportunities}</h1>
                       <h3>Jobs</h3>
                     </div>
                   </div>
@@ -131,7 +105,7 @@ const Dashboard = () => {
                   <div className="d-flex align-items-center justify-content-between pink px-3">
                     <i class="bi bi-bar-chart-fill dashboard_icons text-light"></i>
                     <div className="text-light">
-                      <h1 className="display-6">{applications.length}</h1>
+                      <h1 className="display-6">{summary.applications}</h1>
                       <h3>Job Applications</h3>
                     </div>
                   </div>
