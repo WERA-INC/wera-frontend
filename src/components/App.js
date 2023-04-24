@@ -66,7 +66,10 @@ function App() {
           element={<JobseekerLandingPage jobseeker={jobseeker} />}
         />
         {/* <Route path="/jobseekerlogin" element={<JobseekerLogin />} /> */}
-        <Route path="/jobsapplied" element={<JobsApplied />} />
+        <Route
+          path="/jobsapplied"
+          element={<JobsApplied jobseeker={jobseeker} />}
+        />
         <Route path="/jobs/:id" element={<JobCard />} />
         <Route path="/jobseekerprofile" element={<JobseekerProfile />} />
         <Route path="/jobseekernavbar" element={<JobseekerNavbar />} />

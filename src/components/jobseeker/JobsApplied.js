@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react'
 import JobAppliedCard from './JobAppliedCard';
 import JobseekerNavbar from './JobseekerNavbar';
 
-const JobsApplied = () => {
-  const id = 1;
+const JobsApplied = ({jobseeker}) => {
+   const [id, setId] = useState(jobseeker.id);
+  // const id = 1;
   
   const [applications, setApplications] = useState([]);
  
@@ -72,7 +73,7 @@ const JobsApplied = () => {
               <JobAppliedCard application={application} />
             ))
           ) : (
-            <p>You have not selected any tags</p>
+            <p>You have not applied for any jobs</p>
           )}
         </div>
       </div>

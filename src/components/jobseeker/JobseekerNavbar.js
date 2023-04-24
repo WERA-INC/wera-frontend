@@ -21,14 +21,20 @@ const JobseekerNavbar = () => {
           </a>
         </div>
         <div>
-          <button className="blue rounded text-light py-2 px-3 mt-2 ">Logout</button>
-         
-            {/* <img
+          <button
+            className="blue rounded text-light py-2 px-3 mt-2 "
+            onClick={() => {
+              navigator("/login");
+            }}
+          >
+            Logout
+          </button>
+
+          {/* <img
               src="https://images.pexels.com/photos/7275385/pexels-photo-7275385.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt=""
               className="profile-pic"
             /> */}
-         
         </div>
       </div>
     </nav>

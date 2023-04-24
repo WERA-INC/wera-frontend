@@ -10,8 +10,8 @@ import Footer from "../LandingHomePage/Footer";
 const JobseekerLandingPage = ({ jobseeker }) => {
   // const [user, setUser]=useState(jobseeker)
   console.log(jobseeker)
-  // const [id, setId]= useState(jobseeker.id)
-  const id=2
+  const [id, setId]= useState(jobseeker.id)
+  // const id=2
   const[profileData, setProfileData]=useState([])
   const [jobs, setJobs] = useState([]);
   const [tags, setTags] = useState([]);
