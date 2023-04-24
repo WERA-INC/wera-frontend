@@ -132,14 +132,44 @@ const JobListing = () => {
 
         </div>
         <div className="applicats-section-container">
-          <h3>Applicants Section</h3>
+          <h3>Applicants For this Job</h3>
           <div className="applicants-table">
             <table>
               <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Date</th>
+                <th>Applicant</th>
+                <th>View More</th>                
+              </tr>
+
+              <tr>
+                <td>8/15/17</td>
+                <td>Courtney Kimani</td>
+                <td><link>View</link></td>
+              </tr>
+              <tr>
+                <td>8/15/17</td>
+                <td>Billy Clinton</td>
+                <td><link>View</link></td>
+              </tr>
+              <tr>
+                <td>8/15/17</td>
+                <td>Risper Aluoch</td>
+                <td><link>View</link></td>
+              </tr>
+              <tr>
+                <td>8/15/17</td>
+                <td>Bill Simons</td>
+                <td><link>View</link></td>
+              </tr>
+              <tr>
+                <td>8/15/17</td>
+                <td>Edgar Obare</td>
+                <td><link>View</link></td>
+              </tr>
+              <tr>
+                <td>8/15/17</td>
+                <td>Reese Witherspoon</td>
+                <td><link>View</link></td>
               </tr>
 
             </table>
