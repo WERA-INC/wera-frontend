@@ -85,7 +85,17 @@
     border:none;
     padding: 5px 5px;
     margin: 0;
+    color: black;
  }
  .btn-link:hover{
   text-decoration: none;
+  color: black;
+ }
+ .logo-title{
+  text-decoration: none;
+  color: black;
+ }
+ .logo-title:hover{
+  text-decoration: none;
+  color: black;
  }
