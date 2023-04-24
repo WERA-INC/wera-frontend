@@ -4,7 +4,7 @@ import "./LandingHomePage.css";
 const AboutUs = () => {
   return (
     <>
-      <section className="p-4 lg:p-8  dark:text-gray-100">
+      <section className="p-4 lg:p-8  text-white">
         <div>
           <h1 style={{ padding: "30px", color: "black" }}>About Us</h1>
         </div>
