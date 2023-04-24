@@ -6,12 +6,13 @@ const AddJob = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    qualification: "",
+    qualifications: "",
     responsibilities: "",
-    skills: "",
+    cut_off: "",
     job_type: "",
-    location: "",
+    application_deadline: "",
     estimated_salary: "",
+    employer_id:2
   });
 
   const handleChange = (e) => {
@@ -24,10 +25,10 @@ const AddJob = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     // add your code here to submit the form data to your server or store
   
-    fetch("/opportunities", {
+    fetch("http://localhost:3000/opportunities", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,8 +76,8 @@ const AddJob = () => {
             <input
               type="text"
               id="qualification"
-              name="qualification"
-              value={formData.qualification}
+              name="qualifications"
+              value={formData.qualifications}
               onChange={handleChange}
               required
             />
@@ -90,32 +91,32 @@ const AddJob = () => {
               required
             ></textarea>
 
-            <label htmlFor="skills">Skills</label>
+            <label htmlFor="skills">Cut Off</label>
             <input
               type="text"
-              id="skills"
-              name="skills"
-              value={formData.skills}
+              id="cut_off"
+              name="cut_off"
+              value={formData.cut_off}
               onChange={handleChange}
               required
             />
 
-            <label htmlFor="type">Type</label>
+            <label htmlFor="type">Job Type</label>
             <input
               type="text"
               id="type"
-              name="type"
-              value={formData.type}
+              name="job_type"
+              value={formData.job_type}
               onChange={handleChange}
               required
             />
 
-            <label htmlFor="location">Location</label>
+            <label htmlFor="location">Application deadline</label>
             <input
-              type="text"
-              id="location"
-              name="location"
-              value={formData.location}
+              type="date"
+              id="application_deadline"
+              name="application_deadline"
+              value={formData.application_deadline}
               onChange={handleChange}
               required
             />
@@ -123,9 +124,9 @@ const AddJob = () => {
             <label htmlFor="estimatedSalary">Estimated Salary</label>
             <input
               type="text"
-              id="estimatedSalary"
-              name="estimatedSalary"
-              value={formData.estimatedSalary}
+              id="estimated_salary"
+              name="estimated_salary"
+              value={formData.estimated_salary}
               onChange={handleChange}
               required
             />

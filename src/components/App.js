@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RecruiterProfile from "./recruiter/RecruiterProfile";
 import LandingPage from "./LandingPage";
 import Home from "./Home";
@@ -26,14 +26,26 @@ import JobseekerProfile from "./jobseeker/JobseekerProfile";
 
 function App() {
   const [jobseeker, setJobseeker]=useState(null)
-  console.log(jobseeker)
+  // useEffect(() => {
+  //   const jsId = localStorage.getItem("jobseekerId");
+  //   console.log(jsId);
+  //   if (jsId) {
+  //     const id = JSON.parse(jsId);
+  //     fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+  //       if (res.ok) {
+  //         res.json().then((user) => console.log(user));
+  //       }
+  //     });
+  //   }
+  // }, []);
+  // console.log(jobseeker)
   return (
     <div className="App">
       <Routes>
         {/* general */}
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<UserLogin setUser={setJobseeker}/>} />
+        <Route path="/login" element={<UserLogin setUser={setJobseeker} />} />
         <Route path="/register" element={<UserSignUp />} />
 
         {/* Admin paths */}
@@ -49,10 +61,16 @@ function App() {
         <Route path="/recruiterlogin" element={<RecruiterLogIn />} />
         <Route path="/recruiterprofile" element={<RecruiterProfile />} />
         {/* Jobseeker paths */}
-        <Route path="/jobseeker" element={<JobseekerLandingPage jobseeker={jobseeker}/>} />
+        <Route
+          path="/jobseeker"
+          element={<JobseekerLandingPage jobseeker={jobseeker} />}
+        />
         {/* <Route path="/jobseekerlogin" element={<JobseekerLogin />} /> */}
-        <Route path="/jobsapplied" element={<JobsApplied />} />
-        <Route path="/jobcard" element={<JobCard />} />
+        <Route
+          path="/jobsapplied"
+          element={<JobsApplied jobseeker={jobseeker} />}
+        />
+        <Route path="/jobs/:id" element={<JobCard />} />
         <Route path="/jobseekerprofile" element={<JobseekerProfile />} />
         <Route path="/jobseekernavbar" element={<JobseekerNavbar />} />
 

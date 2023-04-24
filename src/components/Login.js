@@ -31,12 +31,13 @@ function Login({setUser}) {
       if (response.ok) {
         response.json().then((data) => {
           
-         
+         console.log(data)
         if(userType=="Employer"){
           navigate("/recruiter");
           console.log(data);
         }else if(userType=="Jobseeker"){
             navigate("/jobseeker");
+            localStorage.setItem("jobseekerId", JSON.stringify(data.id));
             setUser(data);
         }else{
             navigate("/admin-dashboard");
