@@ -49,7 +49,7 @@ const Footer = () => {
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-400 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/presentation?ref=njs-profile"
+                        href="#"
                       >
                         About Us
                       </a>
@@ -57,7 +57,7 @@ const Footer = () => {
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-400 font-semibold block pb-2 text-sm"
-                        href="https://blog.creative-tim.com?ref=njs-profile"
+                        href="#"
                       >
                         Login
                       </a>
@@ -65,7 +65,7 @@ const Footer = () => {
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-400 font-semibold block pb-2 text-sm"
-                        href="https://www.github.com/creativetimofficial?ref=njs-profile"
+                        href="#"
                       >
                         Github
                       </a>
@@ -73,7 +73,7 @@ const Footer = () => {
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-400 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
+                        href="#"
                       >
                         Sign up
                       </a>
