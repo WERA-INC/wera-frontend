@@ -1,33 +1,41 @@
 import React from "react";
 import Button from "./Navbar components/Button";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";  
 
 const Header = () => {
+   const navigator = useNavigate();
   return (
-    <section style={{ 
-      backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.7),rgba(0,0,0.95,1), #0D2644), url(https://images.unsplash.com/photo-1635350736475-c8cef4b21906?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)",
-      backgroundSize: "cover",
-    }}>
+    <section
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom, rgba(0,0,0,0.7),rgba(0,0,0.95,1), #0D2644), url(https://images.unsplash.com/photo-1635350736475-c8cef4b21906?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)",
+        backgroundSize: "cover",
+      }}
+    >
       <Navbar />
-      <div class=" text-white py-20" >
-        <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+      <div class=" text-white pb-10">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
           <div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
             <h1 class="text-5xl md:text-7xl p-2 text-blue-200 tracking-loose">
               /WE-RA
             </h1>
             <h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
-            (we-ra)
+              (we-ra)
             </h2>
             <p class="text-sm md:text-base text-left text-gray-50 mb-4">
-            a.k.a /mboka/ is a Kenyan slang meaning work .
-            Commonly associated with the youth and some native languages
+              a.k.a /mboka/ is a Kenyan slang meaning work . Commonly associated
+              with the youth and some native languages
             </p>
             <a
               href="#"
               class="bg-blue-900 hover:bg-blue-500 text-white hover:text-blue-900 rounded shadow hover:shadow-lg py-2 px-4 border "
-              style={{textDecoration:"none"}}
+              style={{ textDecoration: "none" }}
+              onClick={() => {
+                navigator("/register");
+              }}
             >
-              Explore Now
+              Sign Up
             </a>
           </div>
           <div class="p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3  justify-center">

@@ -27,7 +27,7 @@ const Team = () => {
               >
                 <div
                   role="listitem"
-                  class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                  class="w-16 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
                 >
                   <div
                     class="rounded overflow-hidden shadow-md"
@@ -43,7 +43,7 @@ const Team = () => {
                         />
                       </div>
                     </div>
-                    <div class="px-6 mt-16">
+                    <div class="px-5 mt-16">
                       <h1
                         class="font-bold text-3xl text-center mb-1"
                         style={{ color: "#D8EBFF" }}
@@ -570,7 +570,7 @@ const Team = () => {
                     </div>
                   </div>
                 </div>
-                <div
+                {/* <div
                   role="listitem"
                   class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
                 >
@@ -644,7 +644,7 @@ const Team = () => {
                           </div>
                         </a>
                         <a href="javascript:void(0)" class="mx-5">
-                          <div aria-label="Instagram" role="img" >
+                          <div aria-label="Instagram" role="img">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="24"
@@ -656,7 +656,6 @@ const Team = () => {
                               stroke-linecap="round"
                               stroke-linejoin="round"
                               class="feather feather-instagram"
-                              
                             >
                               <rect
                                 x="2"
@@ -679,7 +678,7 @@ const Team = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

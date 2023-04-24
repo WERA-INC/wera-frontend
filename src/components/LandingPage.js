@@ -11,18 +11,18 @@ const LandingPage = () => {
     <>
       <div className="landingPage">
         <section id="about" style={{ marginTop: "0em" }}>
-          <Header />
+          <Header/>
         </section>
-        <section id="about" style={{ marginTop: "15em" }}>
+        <section id="about" style={{ marginTop: "3em" }}>
           <AboutUs />
         </section>
-        <section id="team" style={{ marginTop: "20em" }}>
-          <Team />
+        <section id="teamSection" style={{ marginTop: "0em" }}>
+          <Team/>
         </section>
-        <section id="featureSection" style={{ marginTop: "0em" }}>
-          <Feature />
+        <section id="featureSection" style={{ marginTop: "0em"}}>
+          <Feature/>
         </section>
-        <section id="footerSection" style={{ marginTop: "50em" }} >
+        <section id="footerSection" style={{ marginTop: "0em" }} >
           <Footer />
         </section>
       </div>
