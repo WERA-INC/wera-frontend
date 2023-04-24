@@ -78,3 +78,14 @@
  .toggle.ios .toggle-handle {
    border-radius: 20px;
  }
+
+ .btn-link {
+    text-decoration: none;
+    background-color: inherit;
+    border:none;
+    padding: 5px 5px;
+    margin: 0;
+ }
+ .btn-link:hover{
+  text-decoration: none;
+ }

@@ -25,7 +25,8 @@ const Dashboard = () => {
           WERA
         </h4>
         <div className="right-nav">
-          <button className="py-2 px-3 blue text-light">Logout</button>
+          <button className="btn btn-outline-light "><a href="http://localhost:4000/login" class="btn-link">LOGOUT</a></button>
+         
         </div>
       </nav>
 
