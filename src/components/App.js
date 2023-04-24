@@ -13,7 +13,7 @@ import AddJob from "./recruiter/AddJob";
 import JobListing from "./recruiter/JobListing";
 import RecruiterNavbar from "./recruiter/RecruiterNavbar";
 
-import UserSignUp from "./UserSignUp";
+import UserSignUp from "./Register";
 import JobsApplied from "./jobseeker/JobsApplied"
 import JobCard from "./jobseeker/JobCard"
 import JobseekerNavbar from "./jobseeker/JobseekerNavbar"
@@ -57,9 +57,6 @@ function App() {
 
         {/* ALTERNATIVE RECRUITER ACTIONS */}
         <Route path="/company" element={<CompanyNav />}>
-          {/* Security and Authentication */}
-          <Route path="register" element={<RecruiterSignUp />} />
-          <Route path="login" element={<RecruiterLogIn />} />
           {/* Dashboard */}
           <Route index element={<CompanyDashboard />} />
           <Route path="dashboard" element={<CompanyDashboard />} />
