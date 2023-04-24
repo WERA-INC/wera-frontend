@@ -132,6 +132,18 @@ const JobListing = () => {
 
         </div>
         <div className="applicats-section-container">
+          <h3>Applicants Section</h3>
+          <div className="applicants-table">
+            <table>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+
+            </table>
+          </div>
 
         </div>
         
