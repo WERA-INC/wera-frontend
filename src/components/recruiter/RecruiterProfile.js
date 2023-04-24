@@ -4,7 +4,7 @@ const RecruiterProfile = () => {
   
   return ( 
     <div class="flex justify-content-center">
-  <img src="https://shorturl.at/frLN0" class="float px-80 py-8 flex justify-content-right"></img>
+  <img src="https://shorturl.at/frLN0" class="float px-80 py-8 flex justify-stretch"></img>
   <div class="max-w-sm mx-auto my-8 rounded overflow-hidden shadow-lg bg-gray-100 ">
     <div class="px-6 py-4">
       <div class="font-bold text-xl mb-2">Moringa Tech Camp</div>
