@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import Logo from "../../assets/logo.png";
+import Logo from "../images/Logo5.png";
 import Button from "./Navbar components/Button";
 import NavLinks from "./Navbar components/NavLinks";
 
@@ -10,8 +10,8 @@ const Navbar = () => {
     <nav className="" >
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 p-5 md:w-auto text-white w-full flex justify-between">
-          <h3 style={{cursor:"pointer"}} >WERA</h3>
-          {/* <img src={Logo} alt="wera" href="/landingpage" className="md:cursor-pointer h-9 " /> */}
+          {/* <h3 style={{cursor:"pointer"}} >WERA</h3> */}
+          <img src={Logo} alt="wera" href="/landingpage" className="md:cursor-pointer h-20 " />
           <div style={{cursor:"pointer"}} className="text-3xl text-white md:hidden" onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}>menu</ion-icon>
           </div>
