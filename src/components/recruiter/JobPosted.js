@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import JobPostedCard from "./JobPostedCard";
 
 const JobPosted = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  useEffect(()=>{
+    fetch(`http://localhost:3000/opportunities`).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => console.log(data));
+      }
+    });
+  },[])
+
   const handleSearch = (e) => {
     e.preventDefault();
     console.log("Searching for:", searchTerm);
-
-    // Fetch data here using the searchTerm
-    fetch("/opportunities",{
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
+    
   };
 
   const handleInputChange = (e) => {
@@ -46,8 +45,10 @@ const JobPosted = () => {
           </button>
         </div>
       </form>
+
+      < JobPostedCard/>
       
-      <div class="max-w-sm mx-auto my-8 rounded overflow-hidden shadow-lg bg-gray-100">
+      {/* <div class="max-w-sm mx-auto my-8 rounded overflow-hidden shadow-lg bg-gray-100">
         <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">Full Stack Developer</div>
           <p class="text-gray-700 text-base">
@@ -111,7 +112,7 @@ const JobPosted = () => {
             On Site
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
