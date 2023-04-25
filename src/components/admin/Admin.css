@@ -32,7 +32,7 @@
 }
 .admin-land{
   background-color: #c0dcf7;
-  height: 100vh;
+  min-height: 100vh;
 }
 .admin-image-holder img{
   width: 100%;
@@ -77,4 +77,25 @@
 
  .toggle.ios .toggle-handle {
    border-radius: 20px;
+ }
+
+ .btn-link {
+    text-decoration: none;
+    background-color: inherit;
+    border:none;
+    padding: 5px 5px;
+    margin: 0;
+    color: black;
+ }
+ .btn-link:hover{
+  text-decoration: none;
+  color: black;
+ }
+ .logo-title{
+  text-decoration: none;
+  color: black;
+ }
+ .logo-title:hover{
+  text-decoration: none;
+  color: black;
  }

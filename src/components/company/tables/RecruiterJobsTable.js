@@ -29,7 +29,7 @@ import { setCurrentJob } from "../../../features/jobs/jobSlice.js";
 
 
 
-let employer_id = 2;
+let employer_id = 1;
 
 function getChipProps(params) {
     const deadline = new Date(params.value);
