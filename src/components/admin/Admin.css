@@ -78,6 +78,14 @@
  .toggle.ios .toggle-handle {
    border-radius: 20px;
  }
+ .dashboard-main{
+  min-height:100vh;
+  background: #030f18
+ }
+ .dashboard-row{
+  background: #051b2c
+ }
+
 
  .btn-link {
     text-decoration: none;
