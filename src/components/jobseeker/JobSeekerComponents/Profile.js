@@ -40,14 +40,14 @@ const Profile = () => {
     phone_number: "",
     date_of_birth: "",
     biography: "",
-    skills: "",
+    tags: "",
     profile_pic: "",
     resume: null,
   });
 
   useEffect(() => {
     async function fetchProfileData() {
-      const response = await axios.get(`http://localhost:3000/profiles/1`);
+      const response = await axios.get(`http://localhost:3000/profiles/36`);
       setProfileData(response.data);
       setFormData(response.data);
       console.log(response.data);
@@ -64,7 +64,7 @@ const Profile = () => {
       formDataToUpdate.append("phone_number", formData.phone_number);
       formDataToUpdate.append("date_of_birth", formData.date_of_birth);
       formDataToUpdate.append("biography", formData.biography);
-      formDataToUpdate.append("skills", formData.skills);
+      formDataToUpdate.append("tags", formData.tags);
       if (formData.profile_pic) {
         formDataToUpdate.append("profile_pic", formData.profile_pic);
       }
@@ -126,10 +126,7 @@ const Profile = () => {
                   date,
                   changeYear,
                   changeMonth,
-                  decreaseMonth,
-                  increaseMonth,
-                  prevMonthButtonDisabled,
-                  nextMonthButtonDisabled,
+              
                 }) => (
                   <div
                     style={{
@@ -180,12 +177,12 @@ const Profile = () => {
               />
             </label>
             <label className="block mb-2">
-              Skills:
+              tags:
               <input
                 className="border rounded w-full py-2 px-3"
                 type="text"
-                name="skills"
-                value={formData.skills}
+                name="tags"
+                value={formData.tags}
                 onChange={handleChange}
               />
             </label>
@@ -232,7 +229,7 @@ const Profile = () => {
               <p>Phone number: {profileData.phone_number}</p>
               <p>Date of birth: {profileData.date_of_birth}</p>
               <p>Biography: {profileData.biography}</p>
-              <p>Skills: {profileData.skills}</p>
+              <p>tags: {profileData.tags}</p>
               {profileData.profile_pic && (
                 <img
                   src={profileData.profile_pic}
@@ -267,7 +264,7 @@ export default Profile;
 //     <p>Phone number: {profileData.phone_number}</p>
 //     <p>Date of birth: {profileData.date_of_birth}</p>
 //     <p>Biography: {profileData.biography}</p>
-//     <p>Skills: {profileData.skills}</p>
+//     <p>tags: {profileData.tags}</p>
 //     {profileData.profile_pic && (
 //       <img
 //         src={profileData.profile_pic}
