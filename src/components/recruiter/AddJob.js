@@ -1,5 +1,4 @@
 import { useState} from 'react';
-import RecruiterNavbar from "./RecruiterNavbar";
 import './AddJob.css';
 
 const AddJob = () => {
@@ -47,22 +46,20 @@ const AddJob = () => {
   
   return (
     <div>
-      <RecruiterNavbar />
-    <div className="add-job">
       
-      <h1>Add a Job</h1>
-      <div className="container">
-        
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-          />
+      <div className="add-job">
+        <h1>Add a Job</h1>
+        <div className="container">
+          <form className="form-addjob" onSubmit={handleSubmit}>
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
 
           <label htmlFor="description">Description</label>
           <textarea
