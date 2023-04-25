@@ -1,5 +1,4 @@
 import { useState} from 'react';
-import RecruiterNavbar from "./RecruiterNavbar";
 import './AddJob.css';
 
 const AddJob = () => {
@@ -48,7 +47,7 @@ const AddJob = () => {
   
   return (
     <div>
-      <RecruiterNavbar />
+      
       <div className="add-job">
         <h1>Add a Job</h1>
         <div className="container">

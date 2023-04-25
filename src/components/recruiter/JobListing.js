@@ -1,10 +1,10 @@
 import React from 'react'
-import RecruiterNavbar from "./RecruiterNavbar";
+
 
 const JobListing = () => {
   return (
   <div>
-        <RecruiterNavbar />
+       
         <div className="job-description-section">
         <div className="header position-relative">
           <div className="jobcard-header position-relative">
