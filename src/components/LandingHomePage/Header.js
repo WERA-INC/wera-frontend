@@ -29,7 +29,7 @@ const Header = () => {
             </p>
             <a
               href="#"
-              class="bg-blue-900 hover:bg-blue-500 text-white hover:text-blue-900 rounded shadow hover:shadow-lg py-2 px-4 border "
+              class="bg-blue-500 hover:bg-blue-900 text-white hover:text-blue-900 rounded shadow hover:shadow-lg py-2 px-4 border "
               style={{ textDecoration: "none" }}
               onClick={() => {
                 navigator("/register");
