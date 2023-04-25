@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Education = () => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const toggleEdit = () => {
+    setIsEditing(!isEditing);
+  };
+
   const [educationData, setEducationData] = useState([]);
   const [formData, setFormData] = useState({
     year_of_admission: "",
@@ -13,10 +19,10 @@ const Education = () => {
   useEffect(() => {
     async function fetchEducationData(id) {
       const response = await axios.get(
-        `http://localhost:4000/profiles/${id}/educations`
+        `http://localhost:3000/profiles/1/educations`
       );
       setEducationData(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     }
 
     fetchEducationData();
@@ -27,7 +33,7 @@ const Education = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/profiles/${id}/educations`,
+        `http://localhost:3000/profiles/${id}/educations`,
         formData
       );
       setEducationData([...educationData, response.data]);
@@ -45,7 +51,7 @@ const Education = () => {
   async function handleDeleteEducation(id) {
     try {
       await axios.delete(
-        `http://localhost:4000/profiles/${id}/educations/${id}`
+        `http://localhost:3000/profiles/${id}/educations/${id}`
       );
       setEducationData(
         educationData.filter((education) => education.id !== id)
@@ -58,7 +64,7 @@ const Education = () => {
   async function handleUpdateEducation(id, updatedData) {
     try {
       const response = await axios.patch(
-        `http://localhost:4000/profiles/${id}/educations/${id}`,
+        `http://localhost:3000/profiles/${id}/educations/${id}`,
         updatedData
       );
       setEducationData(
@@ -77,8 +83,8 @@ const Education = () => {
 
   return (
     <>
-      <div>Education</div>
       <div className="bg-gray-100 p-4">
+        <h1>Education</h1>
         {/* Render education data */}
         {educationData.map((education) => (
           <div key={education.id} className="bg-white rounded p-4 mb-4">

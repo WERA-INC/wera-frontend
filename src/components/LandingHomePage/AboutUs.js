@@ -20,7 +20,7 @@ const AboutUs = () => {
               style={{ backgroundColor: " #0D2644" }}
             >
               <h3 className="text-3xl font-bold">Welcome to Wera</h3>
-              <p className="my-6 dark:text-gray-200">
+              <p className="my-6 text-white">
                 "Your gateway to endless career possibilities! We are dedicated
                 to connecting talented individuals with top employers and
                 helping you achieve your professional goals. Explore our job
