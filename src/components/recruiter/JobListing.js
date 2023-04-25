@@ -4,7 +4,7 @@ import React from 'react'
 const JobListing = () => {
   return (
   <div>
-       
+
         <div className="job-description-section">
         <div className="header position-relative">
           <div className="jobcard-header position-relative">
