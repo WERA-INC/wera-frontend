@@ -102,9 +102,9 @@ const Dashboard = () => {
   return (
     <>
       <div class="grid grid-cols-6">
-        <div class="col-start-1 col-end-2 bg-blue-600">
+        <div class="col-start-1 col-end-2 bg-cyan-950">
           <div className="dashboard-body"></div>
-          <div class="bg-blue-600">
+          <div class="bg-cyan-950">
             <span
               class="absolute text-white text-4xl top-5 left-4 cursor-pointer"
               onclick="openSidebar()"
@@ -191,14 +191,14 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div class="col-end-7 col-span-5 bg-blue-600 dashboard-main px-5 text-blue-950 ">
+        <div class="col-end-7 col-span-5  px-5 text-blue-950 ">
           {/* start */}
           {slug === "" ? (
             <div>
-              <h2 className="text-light pt-4">SUMMARY</h2>
+              <h2 className="text-blue-950 pt-4">SUMMARY</h2>
               <div class="flex items-center justify-center">
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 p-5">
-                  <div class="relative bg-white bg-opacity-25 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -216,7 +216,7 @@ const Dashboard = () => {
                       </svg>
                     </div>
                     <div class="mt-8">
-                      <p class="text-xl text-white font-semibold my-2">
+                      <p class="text-xl font-semibold my-2 text-blue-950">
                         Job Seekers
                       </p>
 
@@ -228,7 +228,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-white bg-opacity-25 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +246,7 @@ const Dashboard = () => {
                       </svg>
                     </div>
                     <div class="mt-8">
-                      <p class="text-xl text-white font-semibold my-2">
+                      <p class="text-xl font-semibold my-2 text-blue-950">
                         Employers
                       </p>
 
@@ -258,7 +258,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-white bg-opacity-25 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -276,7 +276,7 @@ const Dashboard = () => {
                       </svg>
                     </div>
                     <div class="mt-8">
-                      <p class="text-xl text-white font-semibold my-2">Jobs</p>
+                      <p class="text-xl font-semibold my-2 text-blue-950">Jobs</p>
 
                       <div class=" ">
                         <p className="text-6xl text-center text-gray-400">
@@ -286,7 +286,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-white bg-opacity-25 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -310,7 +310,7 @@ const Dashboard = () => {
                       </svg>
                     </div>
                     <div class="mt-8">
-                      <p class="text-xl text-white font-semibold my-2">
+                      <p class="text-xl font-semibold my-2 text-blue-950">
                         Applications
                       </p>
 
