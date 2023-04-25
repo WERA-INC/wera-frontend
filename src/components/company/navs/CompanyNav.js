@@ -15,6 +15,8 @@ import {
     Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+
+
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonOffOutlinedIcon from "@mui/icons-material/PersonOffOutlined";
@@ -83,6 +85,8 @@ const CompanyNav = () => {
                                 alt="Wera"
                                 src={wera_logo}
                                 style={{ width: "40px", height: "50px", marginRight: "20px" }}
+
+                                style={{ width: "60px", height: "50px", marginRight: "20px" }}
                             ></img>
                         </Box>
 
@@ -189,6 +193,7 @@ const CompanyNav = () => {
                         {/* NOTIFICATION, TUNE AND PROFILE ICONS  */}
 
                         <Box sx={{ display: "flex", flexGrow: 0 }}>
+
                             <Tooltip title="Log Out">
                                 <IconButton onClick={handleLogOut} sx={{ color: "white" }}>
                                     <LogoutIcon />

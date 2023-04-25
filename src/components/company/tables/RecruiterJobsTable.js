@@ -31,6 +31,7 @@ import { setCurrentJob } from "../../../features/jobs/jobSlice.js";
 
 let employer_id = 1;
 
+
 function getChipProps(params) {
     const deadline = new Date(params.value);
     const now = new Date();

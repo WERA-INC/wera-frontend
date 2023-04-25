@@ -40,6 +40,7 @@ const JobViewerDialog = ({
                         <CloseOutlinedIcon />
                     </IconButton>
                 </Box>
+
                 <Grid xs={12} md={6}>
                     <Box><JobDetails /></Box>
                 </Grid>
