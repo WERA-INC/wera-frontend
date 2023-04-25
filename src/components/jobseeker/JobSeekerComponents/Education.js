@@ -13,7 +13,7 @@ const Education = () => {
   useEffect(() => {
     async function fetchEducationData(id) {
       const response = await axios.get(
-        `https://rails-qmlh.onrender.com/profiles/${id}/educations`
+        `http://localhost:4000/profiles/${id}/educations`
       );
       setEducationData(response.data);
       console.log(response.data);
@@ -27,7 +27,7 @@ const Education = () => {
 
     try {
       const response = await axios.post(
-        `https://rails-qmlh.onrender.com/profiles/${id}/educations`,
+        `http://localhost:4000/profiles/${id}/educations`,
         formData
       );
       setEducationData([...educationData, response.data]);
@@ -45,7 +45,7 @@ const Education = () => {
   async function handleDeleteEducation(id) {
     try {
       await axios.delete(
-        `https://rails-qmlh.onrender.com/profiles/${id}/educations/${id}`
+        `http://localhost:4000/profiles/${id}/educations/${id}`
       );
       setEducationData(
         educationData.filter((education) => education.id !== id)
@@ -58,7 +58,7 @@ const Education = () => {
   async function handleUpdateEducation(id, updatedData) {
     try {
       const response = await axios.patch(
-        `https://rails-qmlh.onrender.com/profiles/${id}/educations/${id}`,
+        `http://localhost:4000/profiles/${id}/educations/${id}`,
         updatedData
       );
       setEducationData(

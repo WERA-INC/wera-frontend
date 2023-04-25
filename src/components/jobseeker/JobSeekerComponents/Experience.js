@@ -11,7 +11,7 @@ const Experience = () => {
 
   useEffect(() => {
     async function fetchExperienceData(id) {
-      const response = await axios.get(`https://rails-qmlh.onrender.com/profiles/${id}/experiences`);
+      const response = await axios.get(`http://localhost:4000/profiles/${id}/experiences`);
       setExperienceData(response.data);
     }
 
@@ -23,7 +23,7 @@ const Experience = () => {
 
     try {
       const response = await axios.post(
-        `https://rails-qmlh.onrender.com/profiles/${id}/experiences`,
+        `http://localhost:4000/profiles/${id}/experiences`,
         formData
       );
       setExperienceData([...experienceData, response.data]);
@@ -39,7 +39,7 @@ const Experience = () => {
 
   async function handleDeleteExperience(id) {
     try {
-      await axios.delete(`https://rails-qmlh.onrender.com/profiles/${id}/experiences/${id}`);
+      await axios.delete(`http://localhost:4000/profiles/${id}/experiences/${id}`);
       setExperienceData(
         experienceData.filter((experience) => experience.id !== id)
       );
@@ -51,7 +51,7 @@ const Experience = () => {
   async function handleUpdateExperience(id, updatedData) {
     try {
       const response = await axios.patch(
-        `https://rails-qmlh.onrender.com/profiles/${id}/experiences/${id}`,
+        `http://localhost:4000/profiles/${id}/experiences/${id}`,
         updatedData
       );
       setExperienceData(
