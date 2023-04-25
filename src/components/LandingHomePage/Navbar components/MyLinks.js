@@ -1,6 +1,6 @@
 export const links = [
     {
-      name: "N",
+      name: "menu",
       submenu: true,
       sublinks: [
         {

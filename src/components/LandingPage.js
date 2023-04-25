@@ -10,10 +10,10 @@ const LandingPage = () => {
   return (
     <>
       <div className="landingPage">
-        <section id="about" style={{ marginTop: "0em" }}>
+        <section id="headerSection" style={{ marginTop: "0em" }}>
           <Header/>
         </section>
-        <section id="about" style={{ marginTop: "3em" }}>
+        <section id="aboutSection" style={{ marginTop: "20em" }}>
           <AboutUs />
         </section>
         <section id="teamSection" style={{ marginTop: "0em" }}>

@@ -12,27 +12,15 @@
   color: #fff;
 }
 
-/* #aboutSection{
-  height: 100vh;
-}
-#featureSection{
-  height: 100vh;
-}
-#teamSection{
+/* /* #aboutSection{
   height: 100vh;
 } */
-.aboutContainer {
-  padding: 50px;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  height: 800px;
-  border-top-left-radius: 70px;
-  border-bottom-right-radius: 70px;
-  background-color: #143C66;
+#headerSection{
+  height: 85vh;
 }
-
+/* #teamSection{
+  height: 100vh;
+} */ 
 .aboutTitle {
   font-size: 40px;
   color: white;
