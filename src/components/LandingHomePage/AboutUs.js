@@ -4,10 +4,10 @@ import "./LandingHomePage.css";
 const AboutUs = () => {
   return (
     <>
-      <section className="dark:bg-gray-800 dark:text-gray-100">
+      <section className="dark:bg-white dark:text-black">
         <div className="container flex flex-col p-6 mx-auto">
           <h2 className="py-4 text-3xl font-bold text-center">About Us</h2>
-          <span className="mt-4 dark:text-gray-300">
+          <span className="mt-4 dark:text-black">
             "Welcome to Wera - your gateway to endless career possibilities! We
             are dedicated to connecting talented individuals with top employers
             and helping you achieve your professional goals. Explore our job
@@ -30,8 +30,8 @@ const AboutUs = () => {
                 </svg>
               </div>
               <div className="flex flex-col justify-left max-w-3xl text-left col-span-full lg:col-span-3 lg:text-left">
-                <span className="text-xl font-bold md:text-2xl">History</span>
-                <span className="mt-4 dark:text-gray-300">
+                <span className="text-xl text-black font-bold md:text-2xl">History</span>
+                <span className="mt-4 dark:text-black">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Aperiam facilis, voluptates error alias dolorem praesentium
                   sit soluta iure incidunt labore explicabo eaque, quia
@@ -52,8 +52,8 @@ const AboutUs = () => {
                 </svg>
               </div>
               <div className="flex flex-col justify-left max-w-3xl text-left col-span-full lg:col-span-3 lg:text-left">
-                <span className="text-xl font-bold md:text-2xl">Mission</span>
-                <span className="mt-4 dark:bg-gray-800 dark:text-gray-300">
+                <span className="text-xl font-bold text-black md:text-2xl">Mission</span>
+                <span className="mt-4  dark:text-black">
                   To provide exceptional job placement services to job seekers
                   while helping companies(recruiters) find the best candidates
                   for their open positions.Our mission is to help job
@@ -76,8 +76,8 @@ const AboutUs = () => {
                 </svg>
               </div>
               <div className="flex flex-col justify-left max-w-3xl text-left col-span-full lg:col-span-3 lg:text-left">
-                <span className="text-xl font-bold md:text-2xl">Vision</span>
-                <span className="mt-4 dark:text-gray-300">
+                <span className="text-xl font-bold text-black md:text-2xl">Vision</span>
+                <span className="mt-4 dark:text-black">
                   Become a leading job agency company that is recognized for its
                   commitment to excellence, integrity, and innovation. We
                   envision a future where every job seeker has access to
