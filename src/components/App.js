@@ -28,7 +28,7 @@ import RecruiterJobsTable from "./company/tables/RecruiterJobsTable.js";
 import JobDetails from "./company/views/JobDetails.js";
 
 function App() {
-  const [jobseeker, setJobseeker] = useState(null);
+  const [jobseeker, setJobseeker]=useState(null)
   // useEffect(() => {
   //   const jsId = localStorage.getItem("jobseekerId");
   //   console.log(jsId);
