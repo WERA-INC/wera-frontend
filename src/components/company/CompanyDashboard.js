@@ -11,6 +11,8 @@ const CompanyDashboard = () => {
         
       </Grid>      
     </Container>
+
+    
   );
 };
 

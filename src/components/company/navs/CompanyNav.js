@@ -20,8 +20,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonOffOutlinedIcon from "@mui/icons-material/PersonOffOutlined";
-import wera_logo from "../images/wera_logo.jpg";
 import Person_Avatar from "../images/Person_Avatar.png";
+import Logo5 from "../images/Logo5.png";
 
 
 const pages = [
@@ -80,16 +80,14 @@ const CompanyNav = () => {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Box
-                            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-                            component={Link}
-                            to={"/company/dashboard"}
+                            // sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+                            // component={Link}
+                            // to={"/company/dashboard"}
                         >
                             <img
-                                alt="Wera"
-                                src={wera_logo}
-                                style={{ width: "40px", height: "50px", marginRight: "20px" }}
-
-                                style={{ width: "60px", height: "50px", marginRight: "20px" }}
+                                alt="Logo"
+                                src={Logo5}
+                                style={{ width: "140px", height: "60px", marginRight: "20px" }}
                             ></img>
                         </Box>
 
@@ -131,66 +129,67 @@ const CompanyNav = () => {
 
               {/* WERA LOGO ON DROPDOWN*/}
 
-              <Box
-                component={Link}
-                to={"/company/dashboard"}
-                sx={{
-                  display: { xs: "flex", md: "none" },
-                }}
-              >
-                <img
-                  alt="Wera"
-                  src={wera_logo}
-                  style={{
-                    width: "150px",
-                    height: "30px",
-                    justify: "center",
-                    marginRight: "80px",
-                    marginLeft: "50px",
-                  }}
-                ></img>
-              </Box>
+                        <Box
+                            component={Link}
+                            // to={"/company/dashboard"}
+                            sx={{
+                                display: { xs: "flex", md: "none" },
+                            }}
+                        >
+                            <img
+                                alt=""
+                                src={Logo5}
+                                style={{
+                                    width: "150px",
+                                    height: "30px",
+                                    justify: "center",
+                                    marginRight: "80px",
+                                    marginLeft: "50px",
+                                }}
+                            ></img>
+                        </Box>
 
-              {/* MENU BUTTONS ON SCREEN ABOVE MD */}
-              <Box
-                sx={{
-                  textTransform: "none",
-                  flexGrow: 1,
-                  display: { xs: "none", md: "flex" },
-                  // padding: "0px 5px",
-                  paddingTop: "10px",
-                }}
-              >
-                <Tabs
-                  value={selectedTab}
-                  onChange={handleChange}
-                  TabIndicatorProps={{ hidden: true }}
-                  sx={{
-                    "& button": {
-                      borderTopLeftRadius: 6,
-                      borderTopRightRadius: 6,
-                      height: 70,
-                      color: "white",
-                      fontSize: "1rem",
-                    },
-                    "& button.Mui-selected": {
-                      color: "black",
-                      backgroundColor: "#e5e5e5",
-                    },
-                  }}
-                >
-                  <Tab
-                    value="dashboard"
-                    onClick={() => navigate("dashboard")}
-                    label="Dashboard"
-                  />
-                  <Tab
-                    value="jobs"
-                    onClick={() => navigate("jobs")}
-                    label="Jobs"
-                  />
-                </Tabs>
-              </Box>
+                        {/* MENU BUTTONS ON SCREEN ABOVE MD */}
+                        <Box
+                            sx={{
+                                textTransform: "none",
+                                flexGrow: 1,
+                                display: { xs: "none", md: "flex" },
+                                // padding: "0px 5px",
+                                paddingTop: "10px",
+                            }}
+                        >
+                            <Tabs
+                                value={selectedTab}
+                                onChange={handleChange}
+                                TabIndicatorProps={{ hidden: true }}
+                                sx={{
+                                    "& button": {
+                                        borderTopLeftRadius: 6,
+                                        borderTopRightRadius: 6,
+                                        height: 70,
+                                        color: "white",
+                                        fontSize: "1rem",
+                                    },
+                                    "& button.Mui-selected": {
+                                        color: "black",
+                                        backgroundColor: "#e5e5e5",
+                                    },
+                                }}
+                            >
+                                {/* <Tab
+                                    value="dashboard"
+                                    onClick={() => navigate("dashboard")}
+                                    label="Dashboard"
+                                /> */}
+                                <Tab
+                                    value="jobs"
+                                    onClick={() => navigate("jobs")}
+                                    label="Jobs"
+                                />
+                            </Tabs>
+                        </Box>
+
 
               {/* NOTIFICATION, TUNE AND PROFILE ICONS  */}
 
@@ -198,7 +197,7 @@ const CompanyNav = () => {
 
                             <Tooltip title="Log Out">
                                 <IconButton onClick={handleLogOut} sx={{ color: "white" }}>
-                                    <LogoutIcon />
+                                    {/* <LogoutIcon /> */}
                                 </IconButton>
                             </Tooltip>
                             <Tooltip title="Open settings">
