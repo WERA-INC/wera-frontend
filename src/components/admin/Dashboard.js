@@ -198,7 +198,7 @@ const Dashboard = () => {
           class="col-end-7 col-span-5  px-5 "
           style={{
             backgroundImage:
-              "linear-gradient(to top, rgba(0,0,0,0.9),rgba(0,0,0.95,1), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
+              "linear-gradient(to top, rgba(0, 0, 0, 0.95),rgba(5, 27, 44, 1), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
             backgroundSize: "cover",
             minHeight: "100vh",
           }}

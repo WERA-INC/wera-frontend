@@ -39,7 +39,7 @@ const NavLinks = () => {
                     ></div>
                   </div>
                   <div className="p-3 grid grid-cols-1 gap-10"
-                  style={{backgroundColor:"#0D2644"}}>
+                  style={{backgroundColor:"#0D2644", listStyle:"none"}}>
                     {link.sublinks.map((mysublinks) => (
                       <div>
                         <h1  className="text-sm font-semibold" >
