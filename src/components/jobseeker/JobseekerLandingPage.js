@@ -74,7 +74,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
     }
 
   }, [profileData, filteredTag]);
-  console.log(profileData["id"])
+  console.log(profileData.full_name)
 
   // The editor can search for an job since the jobs can be many to sort through visually, and jobs stored in variable found
   let found = jobs.filter((job) => {
@@ -105,6 +105,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
     <>
       <div>
         <JobseekerNavbar />
+
         <div class="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
           <div class="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
             <svg
@@ -121,7 +122,17 @@ const JobseekerLandingPage = ({ jobseeker }) => {
               alt=""
             />
           </div>
+
           <div class="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl ">
+            {profileData.full_name !== undefined ? (
+              <h6
+                className="text-left ps-12 
+            pt-2"
+              >
+                Hello, {profileData.full_name}
+              </h6>
+            ) : null}
+
             <div class="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
               <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                 AT WERA
@@ -143,9 +154,9 @@ const JobseekerLandingPage = ({ jobseeker }) => {
           </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-1">
-          <div class="">
-            <div className="w-3/4 mx-auto">
+        <div class="grid grid-cols-8 gap-1">
+          <div class="col-span-2">
+            <div className="w-3/4 mx-auto ">
               <div class="max-w-sm rounded overflow-hidden shadow-lg">
                 <div class="px-6 py-4">
                   <div class="font-bold text-xl mb-2 pb-3">Filter Industry</div>
@@ -192,7 +203,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
               </div>
             </div>
           </div>
-          <div class="col-span-2">
+          <div class="col-span-6">
             <div>
               <div class="bg-gray-100">
                 <div class="bg-gray-100 flex justify-center items-center">
@@ -251,11 +262,16 @@ const JobseekerLandingPage = ({ jobseeker }) => {
                 </div>
                 <div>
                   <div class="text-gray-600 body-font text-left">
-                    <div class="container px-3 py-10 mx-auto">
-                      {AllJobs.length > 0 ? (
+                    <div class="container px-3  mx-auto">
+                      {jobs.length == 0 ? null : (
+                        <h4 className="mb-3 text-center">
+                          Recommended for you
+                        </h4>
+                      )}
+                      {jobs.length > 0 ? (
                         found.map((job) => <JobCardLandingPg job={job} />)
                       ) : (
-                        <p>
+                        <p className="text-center pb-4 text-gray-850">
                           Kindly visit later to view more jobs or you have not
                           selected any tags
                         </p>
@@ -291,6 +307,10 @@ const JobseekerLandingPage = ({ jobseeker }) => {
           </div>
         </div> */}
       </div>
+      {/* <div className="grid grid-cols-8">
+        <div className="bg-pink-600 col-span-2">one</div>
+        <div className="bg-blue-600 col-span-6">two</div>
+      </div> */}
       <Footer />
       <Routes>
         <Route path="/jobsapplied" element={<JobsApplied />} />
