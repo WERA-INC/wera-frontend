@@ -1,14 +1,25 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Logo from "../images/Logo5.png";
 
 const Footer = () => {
   return (
     <>
-      <footer class="relative  pt-8 pb-6" style={{ backgroundColor: "#0D2644" }}>
+      <footer
+        class="relative  pt-8 pb-6"
+        style={{ backgroundColor: "#0D2644" }}
+      >
         <div class="container mx-auto px-4">
           <div class="flex flex-wrap text-left lg:text-left">
             <div class="w-full lg:w-6/12 px-4">
-              <h4 class="text-3xl fonat-semibold text-white">WERA</h4>
+              <div class=" mt-1 flex items-center">
+                <img
+                  src={Logo}
+                  alt="wera"
+                  href="/landingpage"
+                  className="md:cursor-pointer h-14 "
+                />
+              </div>
               <h5 class="text-lg mt-0 mb-2 text-blueGray-400">
                 Find us on any of these platforms, we respond 1-2 business days.
               </h5>

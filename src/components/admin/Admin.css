@@ -13,10 +13,11 @@
 
 .green {
   background-color: rgb(110, 138, 112);
+
 }
 
 .blue {
-  background-color: #669ca3
+  background-color: #171d27
 }
 .bluey {
   background-color: #0f4852
@@ -80,7 +81,7 @@
  }
  .dashboard-main{
   min-height:100vh;
-  background: #030f18
+  background: #031727
  }
  .dashboard-row{
   background: #051b2c
