@@ -29,38 +29,42 @@ import { setCurrentJob } from "../../../features/jobs/jobSlice.js";
 
 
 
-let employer_id = 1;
 
-function getChipProps(params) {
-    const deadline = new Date(params.value);
-    const now = new Date();
-    console.log(params)
-    if (now <= deadline) {
-        return {
-            label: "ACTIVE",
-            style: {
-                width: "200px",
-                color: green[600],
-                borderColor: green[100],
-                backgroundColor: green[100],
-                borderRadius: 5,
-            },
-        };
-    } else {
-        return {
-            label: "ELAPSED",
-            style: {
-                width: "200px",
-                color: red[600],
-                borderColor: red[100],
-                backgroundColor: red[100],
-                borderRadius: 5,
-            },
-        };
-    }
-}
+// function getChipProps(params) {
+//     const deadline = new Date(params.value);
+//     const now = new Date();
+//     console.log(params)
+//     if (now <= deadline) {
+//         return {
+//             label: "ACTIVE",
+//             style: {
+//                 width: "200px",
+//                 color: green[600],
+//                 borderColor: green[100],
+//                 backgroundColor: green[100],
+//                 borderRadius: 5,
+//             },
+//         };
+//     } else {
+//         return {
+//             label: "ELAPSED",
+//             style: {
+//                 width: "200px",
+//                 color: red[600],
+//                 borderColor: red[100],
+//                 backgroundColor: red[100],
+//                 borderRadius: 5,
+//             },
+//         };
+//     }
+// }
 
-const RecruiterJobsTable = () => {
+const RecruiterJobsTable = ({employer}) => {
+
+    // const [employer_id, setEmployerId] = useState(employer.id);
+    // console.log (employer.id)
+    let employer_id = 1;
+
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [jobsData, setJobsData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -212,16 +216,16 @@ const RecruiterJobsTable = () => {
             headerName: "Salary Range",
             width: 200,
         },
-        {
-            field: "application_deadline",
-            headerName: "Status",
-            width: 200,
-            renderCell: (params) => {
-                return (
-                    <Chip variant="outlined" size="medium" {...getChipProps(params)} />
-                );
-            },
-        },
+        // {
+        //     field: "application_deadline",
+        //     headerName: "Status",
+        //     width: 200,
+        //     renderCell: (params) => {
+        //         return (
+        //             <Chip variant="outlined" size="medium" {...getChipProps(params)} />
+        //         );
+        //     },
+        // },
         {
             field: "actions",
             type: "actions",

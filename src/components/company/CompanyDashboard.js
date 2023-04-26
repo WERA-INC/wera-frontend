@@ -10,6 +10,7 @@ const CompanyDashboard = () => {
       <Grid container spacing={2}> </Grid>
       
     </Container>
+
     
   );
 };

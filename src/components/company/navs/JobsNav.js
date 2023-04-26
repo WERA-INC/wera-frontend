@@ -11,7 +11,11 @@ import { getRecruiterJobs } from "../api/company/index.js";
 
 
 
-const JobsNav = () => {
+const JobsNav = ({employer}) => {
+    // const [employer_id, setEmployerId] = useState(employer.id);
+    // console.log (employer.id)
+    let employer_id = 1;
+
     const [selectedTab, setSelectedTab] = React.useState("company-jobs");
     const [jobsTotal, setJobsTotal] = useState("");
 
@@ -32,7 +36,6 @@ const JobsNav = () => {
     }, [pathnameArray]);
 
     //  to check if the search job is function i need to change line 36 everytime  
-    let employer_id = 1;
 
     const fetchJobsTotal = async () => {
         let companyJobs = await getRecruiterJobs(employer_id);

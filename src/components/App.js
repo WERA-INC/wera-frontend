@@ -29,6 +29,8 @@ import JobDetails from "./company/views/JobDetails.js";
 
 function App() {
   const [jobseeker, setJobseeker]=useState(null)
+  const [employer, setEmployer]=useState(null)
+
   // useEffect(() => {
   //   const jsId = localStorage.getItem("jobseekerId");
   //   console.log(jsId);
@@ -47,7 +49,7 @@ function App() {
       <Routes>
         {/* general paths*/}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login setUser={setJobseeker} />} />
+        <Route path="/login" element={<Login setUser={setJobseeker} setCompany={setEmployer}/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/footer" element={<Footer />} />
 
@@ -59,8 +61,8 @@ function App() {
         <Route path="/company" element={<CompanyNav />}>
           <Route index element={<CompanyDashboard />} />
           <Route path="dashboard" element={<CompanyDashboard />} />
-          <Route path="jobs" element={<JobsNav />}>
-            <Route index element={<RecruiterJobsTable />} />
+          <Route path="jobs" element={<JobsNav employer={employer} />}>
+            <Route index element={<RecruiterJobsTable employer={employer} />} />
             <Route path="view" element={<JobDetails />} />
             <Route path="new-job" element={<AddJob />} />
             {/* <Route path="new-job" element={<AddJobListing />} /> */}
