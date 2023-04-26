@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import JobseekerNavbar from "./JobseekerNavbar";
 import "./Jobseeker.css";
 import JobCardLandingPg from "./JobCardLandingPg";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import JobsApplied from "./JobsApplied";
 import Navbar from "../LandingHomePage/Navbar";
 import Footer from "../LandingHomePage/Footer";
@@ -10,8 +10,15 @@ import Footer from "../LandingHomePage/Footer";
 const JobseekerLandingPage = ({ jobseeker }) => {
   // const [user, setUser]=useState(jobseeker)
   // console.log(jobseeker);
-  // const [id, setId]= useState(jobseeker.id)
-  const id = 1;
+  const [id, setId]= useState(null)
+  const navigator = useNavigate()
+  useEffect(() => {
+    const jsId = localStorage.getItem("jobseekerId");
+    console.log(jsId)
+    setId(jsId);
+    
+  }, []);
+  // const id = 1;
   const [profileData, setProfileData] = useState([]);
   const [jobs, setJobs] = useState([]);
   const [AllJobs, setAllJobs] = useState([]);
@@ -19,27 +26,28 @@ const JobseekerLandingPage = ({ jobseeker }) => {
   const [filteredTag, setFilteredTag] = useState("All");
   let applications = profileData.applications;
   useEffect(() => {
-    fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          setProfileData(data);
-          setTags(data.tags);
-          
-        });
-      }
-    });
-  }, []);
-  useEffect(()=>{
+    if(id!==null){
+      fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            console.log(data)
+            setProfileData(data);
+            setTags(data.tags);
+          });
+        }
+      });
+    }
+    
+  }, [id]);
+  useEffect(() => {
     if (AllJobs.length > 0) {
       let result = AllJobs.filter(
         (o1) => !applications.some((o2) => o1.id === o2.opportunity.id)
       );
       setJobs(result);
     }
+  }, [AllJobs]);
 
-  }, [AllJobs])
-  
-  
   // console.log()
   // console.log(AllJobs)
   // console.log(profileData.applications);
@@ -58,10 +66,10 @@ const JobseekerLandingPage = ({ jobseeker }) => {
           opps.push(opp);
         });
       });
-      console.log(opps)
+      console.log(opps);
       setAllJobs(opps);
     } else if (filteredTag !== "All" && profileData["id"] !== undefined) {
-      console.log(filteredTag)
+      console.log(filteredTag);
       // let opps = [];
       profileData.tags.map((tag) => {
         if (tag.name == filteredTag) {
@@ -72,9 +80,8 @@ const JobseekerLandingPage = ({ jobseeker }) => {
       // console.log(opps);
       // setAllJobs(opps);
     }
-
   }, [profileData, filteredTag]);
-  console.log(profileData.full_name)
+  console.log(profileData.full_name);
 
   // The editor can search for an job since the jobs can be many to sort through visually, and jobs stored in variable found
   let found = jobs.filter((job) => {
@@ -92,13 +99,12 @@ const JobseekerLandingPage = ({ jobseeker }) => {
       return job;
     }
   });
-  
+
   // console.log()
-  function handleFilter(selected){
-    setFilteredTag(selected)
+  function handleFilter(selected) {
+    setFilteredTag(selected);
     // jobs.filter(job=>{console.log(jobs)})
     // console.log(profileData.tags.filter(tag=>tag.name=selected))
-    
   }
 
   return (
@@ -159,45 +165,89 @@ const JobseekerLandingPage = ({ jobseeker }) => {
             <div className="w-3/4 mx-auto ">
               <div class="max-w-sm rounded overflow-hidden shadow-lg">
                 <div class="px-6 py-4">
-                  <div class="font-bold text-xl mb-2 pb-3">Filter Industry</div>
+                  {tags.length == 0 ? (
+                    <h6 className="uppercase">Select an industry</h6>
+                  ) : (
+                    <div class="font-bold text-xl mb-2 pb-3">
+                      Filter Industry
+                    </div>
+                  )}
+
                   <div class="my-4 bg-gray-600 h-[1px]"></div>
                   <form action="">
-                    <div class="flex items-center mb-4">
-                      <input
-                        id="default-radio-1"
-                        type="radio"
-                        value=""
-                        name="default-radio"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        onChange={() => handleFilter("All")}
-                      />
-                      <label
-                        for="default-radio-1"
-                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                      >
-                        All
-                      </label>
-                    </div>
-                    {tags.length > 0
-                      ? tags.map((tag) => (
-                          <div class="flex items-center mb-4">
-                            <input
-                              id="default-radio-1"
-                              type="radio"
-                              value=""
-                              name="default-radio"
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                              onChange={() => handleFilter(tag.name)}
+                    {tags.length == 0 ? null : (
+                      <div class="flex items-center mb-4">
+                        <input
+                          id="default-radio-1"
+                          type="radio"
+                          value=""
+                          name="default-radio"
+                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          onChange={() => handleFilter("All")}
+                        />
+                        <label
+                          for="default-radio-1"
+                          class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >
+                          All
+                        </label>
+                      </div>
+                    )}
+
+                    {tags.length > 0 ? (
+                      tags.map((tag) => (
+                        <div class="flex items-center mb-4">
+                          <input
+                            id="default-radio-1"
+                            type="radio"
+                            value=""
+                            name="default-radio"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            onChange={() => handleFilter(tag.name)}
+                          />
+                          <label
+                            for="default-radio-1"
+                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            {tag.name}
+                          </label>
+                        </div>
+                      ))
+                    ) : (
+                      <>
+                        <p>
+                          Please click the button below to update your profile by selecting
+                          the industry to view the jobs
+                        </p>
+
+                        <button
+                          class="relative z-[2] flex items-center rounded mx-auto  px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg "
+                          style={{ backgroundColor: "#0D2644" }}
+                          type="button"
+                          id="button-addon1"
+                          data-te-ripple-init
+                          data-te-ripple-color="light"
+                          onClick={() => {
+                            navigator("/jobseekerprofile");
+                          }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-4 h-4 me-2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
                             />
-                            <label
-                              for="default-radio-1"
-                              class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                            >
-                              {tag.name}
-                            </label>
-                          </div>
-                        ))
-                      : "Not Selected"}
+                          </svg>  To Profile
+                        </button>
+                      </>
+                    )}
                   </form>
                 </div>
               </div>
@@ -273,7 +323,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
                       ) : (
                         <p className="text-center pb-4 text-gray-850">
                           Kindly visit later to view more jobs or you have not
-                          selected any tags
+                          selected any industry
                         </p>
                       )}
                     </div>

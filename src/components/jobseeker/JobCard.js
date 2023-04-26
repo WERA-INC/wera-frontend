@@ -8,18 +8,26 @@ const JobCard = () => {
   const [hasApplied, setHasApplied]=useState(false)
   const navigator = useNavigate();
   const [job, setJob] = useState(null);
-  let profileId = 1;
+  const [profileId, setProfileId] = useState(null);
+  useEffect(() => {
+    const jsId = localStorage.getItem("jobseekerId");
+    console.log(jsId);
+    setProfileId(jsId);
+  }, []);
+ 
   let { id } = useParams();
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
   // console.log(id);
   useEffect(() => {
-    fetch(`http://localhost:3000/profiles/${profileId}`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          setProfileData(data);
-        });
-      }
-    });
+    if(profileId!==null){
+      fetch(`http://localhost:3000/profiles/${profileId}`).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            setProfileData(data);
+          });
+        }
+      });
+    }
   }, []);
   useEffect(() => {
     fetch(`http://localhost:3000/opportunities/${id}`).then((res) => {
@@ -169,9 +177,9 @@ const JobCard = () => {
                   >
                     <div class="px-6 py-4 ">
                       <div class="">
-                        <h2 class="inline-block px-3 font-semibold tracking-wider text-white uppercase rounded-full">
+                        <h4 class="uppercase rounded-full">
                           {job.employer.company_name}
-                        </h2>
+                        </h4>
                         {/* <h2 class="card-title fw-bold mb-3">
                         {job.employer.company_name}
                       </h2> */}

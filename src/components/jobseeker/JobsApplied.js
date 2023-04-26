@@ -4,19 +4,26 @@ import JobseekerNavbar from "./JobseekerNavbar";
 
 const JobsApplied = ({ jobseeker }) => {
   //  const [id, setId] = useState(jobseeker.id);
-  const id = 1;
+   const [id, setId] = useState(null);
+   useEffect(() => {
+     const jsId = localStorage.getItem("jobseekerId");
+     console.log(jsId);
+     setId(jsId);
+   }, []);
 
   const [applications, setApplications] = useState([]);
-
   useEffect(() => {
-    fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          setApplications(data.applications);
-        });
-      }
-    });
-  }, []);
+    if (id !== null) {
+      fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            setApplications(data.applications);
+          });
+        }
+      });
+    }
+  }, [id]);
+
   console.log(applications);
   const [search, setSearch] = useState("");
   // console.log(profileData);
@@ -87,7 +94,7 @@ const JobsApplied = ({ jobseeker }) => {
                   <JobAppliedCard application={application} />
                 ))
               ) : (
-                <p>You have not applied for any jobs</p>
+                <p className="text-center">You have not applied for any jobs</p>
               )}
             </div>
           </div>
