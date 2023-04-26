@@ -32,7 +32,7 @@ const JobsNav = () => {
     }, [pathnameArray]);
 
     //  to check if the search job is function i need to change line 36 everytime  
-    let employer_id = 2;
+    let employer_id = 1;
 
     const fetchJobsTotal = async () => {
         let companyJobs = await getRecruiterJobs(employer_id);

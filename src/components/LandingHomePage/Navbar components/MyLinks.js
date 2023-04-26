@@ -7,7 +7,7 @@ export const links = [
           Head: "",
           sublink: [
             { name: "Dashboard", link: "/admin-dashboard" },
-            { name: "Employer", link: "/recruiter" },
+            { name: "Employer", link: "/company" },
             { name: "Job Seeker", link: "/jobseeker" },
           ],
         },

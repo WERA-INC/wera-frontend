@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LoginImg from "./images/login.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Login({setUser}) {
+function Login({setUser,setCompany}) {
   const navigate = useNavigate();
 
  
@@ -33,6 +33,7 @@ function Login({setUser}) {
           
          console.log(data)
         if(userType=="Employer"){
+          setCompany(data.id)
           navigate("/company");
           console.log(data);
         }else if(userType=="Jobseeker"){

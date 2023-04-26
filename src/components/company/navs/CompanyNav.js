@@ -15,7 +15,8 @@ import {
     Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
+
+
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonOffOutlinedIcon from "@mui/icons-material/PersonOffOutlined";
@@ -74,26 +75,23 @@ const CompanyNav = () => {
     }, [pathnameArray]);
 
     return (
-      <>
-        <AppBar
-          position="static"
-          elevation={0}
-          sx={{ minHeight: 80 }}
-          style={{ backgroundColor: " #0D2644" }}
-        >
-          <Container maxWidth="xl">
-            <Toolbar disableGutters>
-              <Box
-                sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-                component={Link}
-                to={"/company/dashboard"}
-              >
-                <img
-                  alt="Wera"
-                  src={wera_logo}
-                  style={{ width: "60px", height: "50px", marginRight: "20px" }}
-                ></img>
-              </Box>
+        <>
+            <AppBar position="static" elevation={0} sx={{ minHeight: 80 }} style={{ backgroundColor: " #0D2644" }}>
+                <Container maxWidth="xl">
+                    <Toolbar disableGutters>
+                        <Box
+                            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+                            component={Link}
+                            to={"/company/dashboard"}
+                        >
+                            <img
+                                alt="Wera"
+                                src={wera_logo}
+                                style={{ width: "40px", height: "50px", marginRight: "20px" }}
+
+                                style={{ width: "60px", height: "50px", marginRight: "20px" }}
+                            ></img>
+                        </Box>
 
               {/* MENU BUTTONS ICON ON DROPDOWN */}
 
@@ -196,20 +194,18 @@ const CompanyNav = () => {
 
               {/* NOTIFICATION, TUNE AND PROFILE ICONS  */}
 
-              <Box sx={{ display: "flex", flexGrow: 0 }}>
-                <IconButton sx={{ color: "white" }}>
-                  <CircleNotificationsOutlinedIcon />
-                </IconButton>
-                <Tooltip title="Log Out">
-                  <IconButton onClick={handleLogOut} sx={{ color: "white" }}>
-                    <LogoutIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Moringa School" src={Person_Avatar} />
-                  </IconButton>
-                </Tooltip>
+                        <Box sx={{ display: "flex", flexGrow: 0 }}>
+
+                            <Tooltip title="Log Out">
+                                <IconButton onClick={handleLogOut} sx={{ color: "white" }}>
+                                    <LogoutIcon />
+                                </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Open settings">
+                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                    <Avatar alt="Moringa School" src={Person_Avatar} />
+                                </IconButton>
+                            </Tooltip>
 
                 {/* PROFILE SETTINGS ON DROP DOWN */}
 

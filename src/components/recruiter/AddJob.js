@@ -46,7 +46,7 @@ const AddJob = () => {
   
   return (
     <div>
-      
+
       <div className="add-job">
         <h1>Add a Job</h1>
         <div className="container">

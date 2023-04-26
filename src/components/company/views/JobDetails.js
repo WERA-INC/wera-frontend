@@ -12,11 +12,16 @@ import {
     Typography,
     IconButton
 } from '@mui/material';
+
+
 import { red } from '@mui/material/colors';
-import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
+// import ShareIcon from '@mui/icons-material/Share';
+
+
+
 
 
 import { useSelector } from 'react-redux';
@@ -71,12 +76,7 @@ export default function JobDetails() {
                 <Typography paragraph>Job Type: <Chip label={currentJob.job_type} color="success" variant="outlined" /></Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <DeleteOutlineIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
+
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
