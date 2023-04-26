@@ -1,18 +1,17 @@
-import React, {useState, useEffect} from 'react'
-import JobAppliedCard from './JobAppliedCard';
-import JobseekerNavbar from './JobseekerNavbar';
+import React, { useState, useEffect } from "react";
+import JobAppliedCard from "./JobAppliedCard";
+import JobseekerNavbar from "./JobseekerNavbar";
 
-const JobsApplied = ({jobseeker}) => {
+const JobsApplied = ({ jobseeker }) => {
   //  const [id, setId] = useState(jobseeker.id);
   const id = 1;
-  
+
   const [applications, setApplications] = useState([]);
- 
+
   useEffect(() => {
     fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          
           setApplications(data.applications);
         });
       }
@@ -30,7 +29,6 @@ const JobsApplied = ({jobseeker}) => {
     let applicationName = application.title.toLocaleLowerCase();
     let applicationCompany = application.company_name.toLocaleLowerCase();
 
-
     if (search === "") {
       return true;
     } else if (
@@ -40,7 +38,7 @@ const JobsApplied = ({jobseeker}) => {
       return application;
     }
   });
-  console.log(found)
+  console.log(found);
   return (
     <>
       <div>
@@ -51,7 +49,7 @@ const JobsApplied = ({jobseeker}) => {
               <input
                 type="search"
                 class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg- bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-                placeholder="Search"
+                placeholder="Search by job title or company name"
                 aria-label="Search"
                 aria-describedby="button-addon1"
                 value={search}
@@ -81,16 +79,16 @@ const JobsApplied = ({jobseeker}) => {
               </button>
             </div>
           </div>
-          <h5 className='py-3'>Your Application History</h5>
-          <div className="container">
+          <h5 className="py-3">Your Application History</h5>
+          <div className="container p-4">
             <div className="grid grid-cols-3 gap-3">
               {applications.length > 0 ? (
-            found.map((application) => (
-              <JobAppliedCard application={application} />
-            ))
-          ) : (
-            <p>You have not applied for any jobs</p>
-          )}
+                found.map((application) => (
+                  <JobAppliedCard application={application} />
+                ))
+              ) : (
+                <p>You have not applied for any jobs</p>
+              )}
             </div>
           </div>
         </div>
@@ -133,6 +131,6 @@ const JobsApplied = ({jobseeker}) => {
     //   </div>
     // </div>
   );
-}
+};
 
-export default JobsApplied
+export default JobsApplied;

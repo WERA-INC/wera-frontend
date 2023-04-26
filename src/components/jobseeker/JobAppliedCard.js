@@ -7,7 +7,7 @@ const JobAppliedCard = ({ application }) => {
   console.log(application);
   return (
     <div
-      class="rounded overflow-hidden shadow-lg flex items-center sm:flex-row flex-col cursor-pointer"
+      class="rounded p-3 cursor-pointer bg-blue-800 bg-opacity-20"
       onClick={() => {
         navigator(`/jobs/${application.opportunity.id}`);
       }}
@@ -21,7 +21,7 @@ const JobAppliedCard = ({ application }) => {
           />
         ) : (
           <h1
-            className="px-8 py-8 my-2 mx-2 text-light"
+            className="px-4 py-3 text-light"
             style={{
               backgroundColor:
                 randColors[Math.floor(Math.random() * randColors.length)],
@@ -34,10 +34,10 @@ const JobAppliedCard = ({ application }) => {
       </div>
       <div class="pe-3 py-2">
         <div class="flex-grow sm:text-left sm:mt-0">
-          <h1 class="text-black text-2xl title-font font-bold">
+          <h1 class="text-black text-2xl title-font text-center font-bold">
             {application.title}
           </h1>
-          <div class="my-4 bg-gray-600 h-[1px]"></div>
+          <div class="mb-4 bg-gray-600 h-[1px]"></div>
 
           <div class="py-1 mb-2">
             <div class=" inline-block mr-2">
