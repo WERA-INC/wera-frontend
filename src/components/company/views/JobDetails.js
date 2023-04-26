@@ -13,9 +13,16 @@ import {
     IconButton
 } from '@mui/material';
 
+
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+import { red } from '@mui/material/colors';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 
 
 import { useSelector } from 'react-redux';
@@ -70,6 +77,7 @@ export default function JobDetails() {
                 <Typography paragraph>Job Type: <Chip label={currentJob.job_type} color="success" variant="outlined" /></Typography>
             </CardContent>
             <CardActions disableSpacing>
+
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}

@@ -7,8 +7,9 @@ import Grid from "@mui/material/Unstable_Grid2";
 const CompanyDashboard = () => {
   return (
     <Container maxWidth="xl">
-      <Grid container spacing={2}> </Grid>
-      
+      <Grid container spacing={2}>
+        
+      </Grid>      
     </Container>
 
     
