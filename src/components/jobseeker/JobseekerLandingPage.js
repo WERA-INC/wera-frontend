@@ -9,37 +9,73 @@ import Footer from "../LandingHomePage/Footer";
 
 const JobseekerLandingPage = ({ jobseeker }) => {
   // const [user, setUser]=useState(jobseeker)
-  console.log(jobseeker);
+  // console.log(jobseeker);
   // const [id, setId]= useState(jobseeker.id)
-  const id = 2;
+  const id = 1;
   const [profileData, setProfileData] = useState([]);
   const [jobs, setJobs] = useState([]);
+  const [AllJobs, setAllJobs] = useState([]);
   const [tags, setTags] = useState([]);
-  const [filteredTags, setFilteredTags] = useState([]);
+  const [filteredTag, setFilteredTag] = useState("All");
+  let applications = profileData.applications;
   useEffect(() => {
     fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setProfileData(data);
           setTags(data.tags);
-          let opps = [];
-          data.tags.map((tag) => {
-            tag.opportunities.map((opp) => {
-              opps.push(opp);
-            });
-          });
-          setJobs(opps);
+          
         });
       }
     });
   }, []);
-  // console.log(profileData.tags);
+  useEffect(()=>{
+    if (AllJobs.length > 0) {
+      let result = AllJobs.filter(
+        (o1) => !applications.some((o2) => o1.id === o2.opportunity.id)
+      );
+      setJobs(result);
+    }
+
+  }, [AllJobs])
+  
+  
+  // console.log()
+  // console.log(AllJobs)
+  // console.log(profileData.applications);
   const [search, setSearch] = useState("");
-  console.log(profileData);
+  // console.log(profileData);
   // Updates search words
   function handleSearch(event) {
     setSearch(event.target.value);
   }
+  useEffect(() => {
+    if (filteredTag == "All" && profileData["id"] !== undefined) {
+      console.log("all");
+      let opps = [];
+      profileData.tags.map((tag) => {
+        tag.opportunities.map((opp) => {
+          opps.push(opp);
+        });
+      });
+      console.log(opps)
+      setAllJobs(opps);
+    } else if (filteredTag !== "All" && profileData["id"] !== undefined) {
+      console.log(filteredTag)
+      // let opps = [];
+      profileData.tags.map((tag) => {
+        if (tag.name == filteredTag) {
+          setAllJobs(tag.opportunities);
+        }
+      });
+      // console.log(filteredTag);
+      // console.log(opps);
+      // setAllJobs(opps);
+    }
+
+  }, [profileData, filteredTag]);
+  console.log(profileData["id"])
+
   // The editor can search for an job since the jobs can be many to sort through visually, and jobs stored in variable found
   let found = jobs.filter((job) => {
     let jobName = job.title.toLocaleLowerCase();
@@ -56,7 +92,15 @@ const JobseekerLandingPage = ({ jobseeker }) => {
       return job;
     }
   });
-  // console.log(found)
+  
+  // console.log()
+  function handleFilter(selected){
+    setFilteredTag(selected)
+    // jobs.filter(job=>{console.log(jobs)})
+    // console.log(profileData.tags.filter(tag=>tag.name=selected))
+    
+  }
+
   return (
     <>
       <div>
@@ -107,22 +151,35 @@ const JobseekerLandingPage = ({ jobseeker }) => {
                   <div class="font-bold text-xl mb-2 pb-3">Filter Industry</div>
                   <div class="my-4 bg-gray-600 h-[1px]"></div>
                   <form action="">
+                    <div class="flex items-center mb-4">
+                      <input
+                        id="default-radio-1"
+                        type="radio"
+                        value=""
+                        name="default-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        onChange={() => handleFilter("All")}
+                      />
+                      <label
+                        for="default-radio-1"
+                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >
+                        All
+                      </label>
+                    </div>
                     {tags.length > 0
                       ? tags.map((tag) => (
-                          <div class="flex items-center mb-4 ps-5">
+                          <div class="flex items-center mb-4">
                             <input
-                              
+                              id="default-radio-1"
                               type="radio"
                               value=""
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                              name={tag.name}
-                              onChange={(event) => {
-                                // console.log(event.target.checked)
-                                console.log(event.target.name);
-                              }}
+                              name="default-radio"
+                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                              onChange={() => handleFilter(tag.name)}
                             />
                             <label
-                              
+                              for="default-radio-1"
                               class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                             >
                               {tag.name}
@@ -135,7 +192,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
               </div>
             </div>
           </div>
-          <div class="col-span-2 bg-pink-400">
+          <div class="col-span-2">
             <div>
               <div class="bg-gray-100">
                 <div class="bg-gray-100 flex justify-center items-center">
@@ -195,10 +252,13 @@ const JobseekerLandingPage = ({ jobseeker }) => {
                 <div>
                   <div class="text-gray-600 body-font text-left">
                     <div class="container px-3 py-10 mx-auto">
-                      {jobs.length > 0 ? (
+                      {AllJobs.length > 0 ? (
                         found.map((job) => <JobCardLandingPg job={job} />)
                       ) : (
-                        <p>You have not selected any tags</p>
+                        <p>
+                          Kindly visit later to view more jobs or you have not
+                          selected any tags
+                        </p>
                       )}
                     </div>
                   </div>

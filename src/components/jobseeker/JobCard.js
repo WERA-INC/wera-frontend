@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from "react";
 import JobseekerNavbar from "./JobseekerNavbar";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 
 const JobCard = () => {
+  const [showAlert, setShowAlert] = React.useState(false);
+  const [profileData, setProfileData] = useState({});
+  const [hasApplied, setHasApplied]=useState(false)
+  const navigator = useNavigate();
   const [job, setJob] = useState(null);
+  let profileId = 1;
   let { id } = useParams();
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
-  console.log(id);
+  // console.log(id);
+  useEffect(() => {
+    fetch(`http://localhost:3000/profiles/${profileId}`).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setProfileData(data);
+        });
+      }
+    });
+  }, []);
   useEffect(() => {
     fetch(`http://localhost:3000/opportunities/${id}`).then((res) => {
       if (res.ok) {
@@ -18,176 +32,230 @@ const JobCard = () => {
       }
     });
   }, []);
-  console.log(job);
+
+  function handleApply() {
+    const applicationData = {
+      profile_id: profileId,
+      opportunity_id: parseInt(id),
+    };
+    
+
+    // console.log(applicationData)
+
+    fetch("http://localhost:3000/applications", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(applicationData),
+    }).then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+     
+      setShowAlert(true);
+      // navigator("/jobsapplied");
+    })
+    .catch(error=>console.error(error))
+  }
+  useEffect(() => {
+    if (profileData["id"]!==undefined) {
+      let applications = profileData.applications;
+       const answer = applications.filter(
+         (element) => {return element.opportunity.id == job.id;}
+       );
+       console.log(answer.length)
+       if(answer.length==0){
+        setHasApplied(true)
+       }
+
+    }
+  }, [profileData]);
+  console.log(profileData);
+
   return (
     <>
-      {job ? (
-        <>
-          <JobseekerNavbar />
-          <header>
-            <div
-              class="relative overflow-hidden bg-cover bg-no-repeat"
-              style={{
-                backgroundImage:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.4),rgba(0,0,0.95,0.4), #051b2c), url(https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150266863.jpg?size=626&ext=jpg)",
-                backgroundSize: "cover",
-                minHeight: "20vh",
-              }}
+      <div className="relative">
+        <JobseekerNavbar />
+        {showAlert ? (
+          <div
+            className={
+              "fixed top-0 left-0 right-0 text-green-800 px-6 py-4 border-0 rounded mb-4 bg-green-50"
+            }
+          >
+            <span className="text-xl inline-block mr-5 align-middle">
+              <i className="fas fa-bell" />
+            </span>
+            <span className="inline-block align-middle mr-8">
+              <b className="capitalize">Successful Application! </b>
+              Your resume and profile will be sent to the employer
+            </span>
+            <button
+              className="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+              onClick={() => setShowAlert(false)}
             >
-              <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed">
-                <div class="flex h-full items-center justify-center">
-                  <div class="px-6 text-center text-white md:px-12">
-                    <h1 class="mb-6 text-5xl font-bold">
-                      {/* {job.employer.company_logo ? (
-                        <div className="logo-jobcard">
-                          <img
-                            src={job.employer.company_logo}
-                            alt=""
-                            className="profile-picture m-4"
-                          />
-                        </div>
-                      ) : (
-                        <h1
-                          className="text-light m-5"
-                          style={{
-                            backgroundColor:
-                              randColors[
-                                Math.floor(Math.random() * randColors.length)
-                              ],
-                            borderRadius: "50%",
-                            width: "200px",
-                            height: "200px",
-                            position: "absolute",
-                            top: "5%",
-                            left: "40%",
-                            border: "10px solid white",
-                            fontSize: "150px",
-                          }}
-                        >
-                          {job.employer.company_name.charAt(0)}
-                        </h1>
-                      )} */}
-                    </h1>
+              <span>×</span>
+            </button>
+          </div>
+        ) : null}
+        {job ? (
+          <>
+            <header>
+              <div
+                class="relative overflow-hidden bg-cover bg-no-repeat"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom, rgba(0,0,0,0.4),rgba(0,0,0.95,0.4), #051b2c), url(https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150266863.jpg?size=626&ext=jpg)",
+                  backgroundSize: "cover",
+                  minHeight: "20vh",
+                }}
+              >
+                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed">
+                  <div class="flex h-full items-center justify-center">
+                    <div class="px-6 text-center text-white md:px-12">
+                      <h1 class="mb-6 text-5xl font-bold">
+                        
+                      </h1>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </header>
-          <div class="grid grid-cols-3 gap-1 mt-3">
-            <div class="relative">
-              {job.employer.company_logo ? (
-                <div className="logo-jobcard">
-                  <img
-                    src={job.employer.company_logo}
-                    alt=""
-                    className="profile-picture m-4"
-                  />
-                </div>
-              ) : (
-                <h1
-                  className="text-light m-5"
-                  style={{
-                    backgroundColor:
-                      randColors[Math.floor(Math.random() * randColors.length)],
-                    borderRadius: "50%",
-                    width: "200px",
-                    height: "200px",
-                    position: "absolute",
-                    top: "-35%",
-                    left: "15%",
-                    border: "10px solid white",
-                    fontSize: "150px",
-                  }}
-                >
-                  {job.employer.company_name.charAt(0)}
-                </h1>
-              )}
-              <div className="w-3/4 mx-auto mt-20">
-                <div
-                  class="max-w-sm rounded overflow-hidden shadow-lg text-white relative"
-                  style={{ backgroundColor: "#0D2644" }}
-                >
-                  <div class="px-6 py-4 ">
-                    <div class="">
-                      <h2 class="inline-block px-3 font-semibold tracking-wider text-white uppercase rounded-full">
-                        {job.employer.company_name}
-                      </h2>
-                      {/* <h2 class="card-title fw-bold mb-3">
+            </header>
+            <div class="grid grid-cols-3 gap-1 mt-3">
+              <div class="relative">
+                {job.employer.company_logo ? (
+                  <div
+                    className="logo-jobcard"
+                    style={{
+                      width: "200px",
+                      height: "200px",
+                      position: "absolute",
+                      top: "-10%",
+                      left: "15%",
+
+                      fontSize: "150px",
+                    }}
+                  >
+                    <img
+                      src={job.employer.company_logo}
+                      alt=""
+                      className="profile-picture m-4"
+                    />
+                  </div>
+                ) : (
+                  <h1
+                    className="text-light m-5"
+                    style={{
+                      backgroundColor:
+                        randColors[
+                          Math.floor(Math.random() * randColors.length)
+                        ],
+                      borderRadius: "50%",
+                      width: "200px",
+                      height: "200px",
+                      position: "absolute",
+                      top: "-35%",
+                      left: "15%",
+                      border: "10px solid white",
+                      fontSize: "150px",
+                    }}
+                  >
+                    {job.employer.company_name.charAt(0)}
+                  </h1>
+                )}
+                <div className="w-3/4 mx-auto mt-20">
+                  <div
+                    class="max-w-sm rounded overflow-hidden shadow-lg text-white relative"
+                    style={{ backgroundColor: "#0D2644" }}
+                  >
+                    <div class="px-6 py-4 ">
+                      <div class="">
+                        <h2 class="inline-block px-3 font-semibold tracking-wider text-white uppercase rounded-full">
+                          {job.employer.company_name}
+                        </h2>
+                        {/* <h2 class="card-title fw-bold mb-3">
                         {job.employer.company_name}
                       </h2> */}
-                      <div class="my-4 bg-gray-600 h-[1px]"></div>
-                      <p className="text-left  mb-4">
-                        Date Posted: {job.created_at.split("T")[0]}
-                      </p>
-                      <p className="text-left  mb-4">
-                        Location: {job.employer.company_location}
-                      </p>
-                      <p className="text-left  mb-4 ">
-                        Industry:{" "}
-                        {job.tags.map((tag) => (
-                          <span className="ms-2">{tag.name}</span>
-                        ))}
-                      </p>
-                      <p className="text-left  mb-4">
-                        Estimated salary: {job.estimated_salary}
-                      </p>
-                      <p className="text-left  mb-4">
-                        Application Deadline: 30/12/2023
-                      </p>
-                      <button className="text-dark py-2 px-3 mt-2 bg-light rounded">
-                        APPLY
-                      </button>
+                        <div class="my-4 bg-gray-600 h-[1px]"></div>
+                        <p className="text-left  mb-4">
+                          Date Posted: {job.created_at.split("T")[0]}
+                        </p>
+                        <p className="text-left  mb-4">
+                          Location: {job.employer.company_location}
+                        </p>
+                        <p className="text-left  mb-4 ">
+                          Industry:{" "}
+                          {job.tags.map((tag) => (
+                            <span className="ms-2">{tag.name}</span>
+                          ))}
+                        </p>
+                        <p className="text-left  mb-4">
+                          Estimated salary: {job.estimated_salary}
+                        </p>
+                        <p className="text-left  mb-4">
+                          Application Deadline: 30/12/2023
+                        </p>
+                        {!hasApplied ? null : (
+                          <button
+                            className="text-dark py-2 px-3 mt-2 bg-light rounded"
+                            onClick={handleApply}
+                          >
+                            APPLY
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-span-2 bg-gray-200">
-              <div>
-                <div class="bg-gray-100">
-                  <div className="">
-                    <div class="mb-4 text-left p-4" style={{ width: "100%" }}>
-                      <h4 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
-                        {job.title}
-                      </h4>
-                      <h5 class="inline-block font-semibold tracking-wide text-gray-900 uppercase rounded-full">
-                        About the company
-                      </h5>
-                      {/* <h4 className="">About the company</h4> */}
-                      <p className="mb-4">{job.employer.company_description}</p>
-                      <h5 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
-                        Job Description
-                      </h5>
-                      <p className="text-base mb-4">{job.description}</p>
+              <div class="col-span-2 bg-gray-200">
+                <div>
+                  <div class="bg-gray-100">
+                    <div className="">
+                      <div class="mb-4 text-left p-4" style={{ width: "100%" }}>
+                        <h4 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
+                          {job.title}
+                        </h4>
+                        <h5 class="inline-block font-semibold tracking-wide text-gray-900 uppercase rounded-full">
+                          About the company
+                        </h5>
+                        {/* <h4 className="">About the company</h4> */}
+                        <p className="mb-4">
+                          {job.employer.company_description}
+                        </p>
+                        <h5 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
+                          Job Description
+                        </h5>
+                        <p className="text-base mb-4">{job.description}</p>
 
-                      <h5 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
-                        Responsibilities
-                      </h5>
-                      <ul className="mb-4">
-                        <li className="mt-2">
-                          <i class="bi bi-arrow-up-right-circle-fill me-3 text-sm "></i>
-                          {job.responsibilities}
-                        </li>
-                      </ul>
-                      <h5 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
-                        Minimum Qualifications
-                      </h5>
-                      <ul>
-                        <li className="mt-2">
-                          <i class="bi bi-arrow-up-right-circle-fill me-3"></i>
-                          {job.qualifications}
-                        </li>
-                      </ul>
+                        <h5 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
+                          Responsibilities
+                        </h5>
+                        <ul className="mb-4">
+                          <li className="mt-2">
+                            <i class="bi bi-arrow-up-right-circle-fill me-3 text-sm "></i>
+                            {job.responsibilities}
+                          </li>
+                        </ul>
+                        <h5 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
+                          Minimum Qualifications
+                        </h5>
+                        <ul>
+                          <li className="mt-2">
+                            <i class="bi bi-arrow-up-right-circle-fill me-3"></i>
+                            {job.qualifications}
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </>
-      ) : (
-        "Please wait"
-      )}
+          </>
+        ) : (
+          "Please wait"
+        )}
+      </div>
     </>
   );
 };
@@ -300,3 +368,5 @@ export default JobCard;
 //     "Please wait"
 //   );
 // }
+
+

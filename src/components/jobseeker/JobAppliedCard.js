@@ -1,10 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const JobAppliedCard = ({ application }) => {
+  const navigator=useNavigate()
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
   console.log(application);
   return (
-    <div class="rounded overflow-hidden shadow-lg flex items-center sm:flex-row flex-col cursor-pointer">
+    <div
+      class="rounded overflow-hidden shadow-lg flex items-center sm:flex-row flex-col cursor-pointer"
+      onClick={() => {
+        navigator(`/jobs/${application.opportunity.id}`);
+      }}
+    >
       <div class="sm:w-32 sm:h-20 h-20 w-20 sm:mr-3 inline-flex items-center justify-center flex-shrink-0">
         {application.company_logo ? (
           <img
