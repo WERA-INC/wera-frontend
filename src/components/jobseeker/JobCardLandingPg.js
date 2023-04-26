@@ -10,6 +10,7 @@ const JobCardLandingPg = ({ job }) => {
     <div
       class="py-3 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col shadow-2xl"
       onClick={() => {
+        
         navigator(`/jobs/${job.id}`);
       }}
     >

@@ -94,6 +94,7 @@ const JobseekerNavbar = () => {
               href="#"
               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
               onClick={() => {
+                localStorage.clear();
                 navigator("/login");
               }}
             >
