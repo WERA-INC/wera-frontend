@@ -6,19 +6,19 @@ const JobseekerNavbar = () => {
   const navigator = useNavigate();
   return (
     <nav style={{ backgroundColor: "#0D2644" }}>
-      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div class="relative flex h-16 items-center justify-between">
-          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               type="button"
-              class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
-              <span class="sr-only">Open main menu</span>
+              <span className="sr-only">Open main menu</span>
 
               <svg
-                class="block h-6 w-6"
+                className="block h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
@@ -33,7 +33,7 @@ const JobseekerNavbar = () => {
               </svg>
 
               <svg
-                class="hidden h-6 w-6"
+                className="hidden h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
@@ -48,10 +48,10 @@ const JobseekerNavbar = () => {
               </svg>
             </button>
           </div>
-          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div class="flex flex-shrink-0 items-center">
-              {/* <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/>
-          <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/> */}
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-shrink-0 items-center">
+              {/* <img className="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/>
+          <img className="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/> */}
               <img
                 src={Logo}
                 alt="wera"
@@ -59,18 +59,18 @@ const JobseekerNavbar = () => {
                 className="md:cursor-pointer h-12 "
               />
             </div>
-            <div class="hidden sm:ml-6 sm:block">
-              <div class="flex space-x-4">
+            <div className="hidden sm:ml-6 sm:block">
+              <div className="flex space-x-4">
                 {/* <a
                   href="#"
-                  class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
                   aria-current="page"
                 >
                   Dashboard
                 </a> */}
                 <a
                   href="#"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
                   onClick={() => {
                     navigator("/jobseeker");
                   }}
@@ -79,7 +79,7 @@ const JobseekerNavbar = () => {
                 </a>
                 <a
                   href="#"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
                   onClick={() => {
                     navigator("/jobsapplied");
                   }}
@@ -89,10 +89,10 @@ const JobseekerNavbar = () => {
               </div>
             </div>
           </div>
-          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <a
               href="#"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
+              className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
               onClick={() => {
                 localStorage.clear();
                 navigator("/login");
@@ -102,7 +102,7 @@ const JobseekerNavbar = () => {
             </a>
 
             <div
-              class="relative ml-3"
+              className="relative ml-3"
               onClick={() => {
                 navigator("/jobseekerprofile");
               }}
@@ -110,19 +110,19 @@ const JobseekerNavbar = () => {
               <div>
                 <button
                   type="button"
-                  class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   id="user-menu-button"
                   aria-expanded="false"
                   aria-haspopup="true"
                 >
-                  <span class="sr-only">Open user menu</span>
+                  <span className="sr-only">Open user menu</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-9 h-9 text-white"
+                    className="w-9 h-9 text-white"
                   >
                     <path
                       stroke-linecap="round"
@@ -141,15 +141,16 @@ const JobseekerNavbar = () => {
 };
 
 export default JobseekerNavbar;
-{/* <nav class="navbar py-3">
-      <div class="container">
+{
+  /* <nav className="navbar py-3">
+      <div className="container">
         <div>
-          <a href="#" class="navbar-brand me-5">
+          <a href="#" className="navbar-brand me-5">
             WERA
           </a>
           <a
             href="#"
-            class="navbar-brand blue rounded px-2 py-1 text-light h6"
+            className="navbar-brand blue rounded px-2 py-1 text-light h6"
             onClick={() => {
               navigator("/jobsapplied");
             }}
@@ -170,4 +171,5 @@ export default JobseekerNavbar;
          
         </div>
       </div>
-    </nav> */}
+    </nav> */
+}

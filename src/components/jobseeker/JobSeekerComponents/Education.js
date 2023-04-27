@@ -109,7 +109,7 @@ const Education = () => {
         <div className="flex">
           {/* Render form to add education */}
 
-          <section class="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
+          <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
             <form
               onSubmit={handleAddEducation}
               className="bg-dark text-white  rounded  mt-2"
@@ -191,22 +191,22 @@ const Education = () => {
             Add
           </button>
           {/* Render education data */}
-          <div class="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-3">
             {educationData.map((education) => (
               <div key={education.id} className="bg-white rounded p-4 mb-4">
                 <div className="text-white">
                   <section
-                    class="w-64 mx-auto bg-dark rounded-2xl px-8 py-6 shadow-lg h-100"
+                    className="w-64 mx-auto bg-dark rounded-2xl px-8 py-6 shadow-lg h-100"
                     style={{
                       background:
                         "linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.9), #0D2644)",
                     }}
                   >
-                    <div class="flex items-center justify-between">
-                      <span class="text-emerald-400">
+                    <div className="flex items-center justify-between">
+                      <span className="text-emerald-400">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-6 w-6"
+                          className="h-6 w-6"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -220,7 +220,7 @@ const Education = () => {
                         </svg>
                       </span>
                     </div>
-                    <div class="mt-8 ">
+                    <div className="mt-8 ">
                       <p>Start Year: {education.year_of_admission}</p>
                       <p>Year of completion: {education.year_of_completion}</p>
                       <p>Institution: {education.institution}</p>
@@ -231,18 +231,17 @@ const Education = () => {
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                       onClick={toggleEdit}
                     >
-                  
                       Edit
                     </button>
 
-                    <div class="mt-3 text-white text-sm">
+                    <div className="mt-3 text-white text-sm">
                       <button
-                        class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
+                        className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
                         onClick={() => handleDeleteEducation(education.id)}
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 mr-2"
+                          className="h-5 w-5 mr-2"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -260,7 +259,7 @@ const Education = () => {
                   </section>
                 </div>
                 {isEditing && (
-                  <section class="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
+                  <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
                     <form className="bg-black justify-center items-center rounded p-4 mt-4">
                       <input
                         type="text"
@@ -358,7 +357,7 @@ export default Education;
               </button>
               </div>
               {isEditing && (
-                 <section class="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
+                 <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
                   <form className="bg-black justify-center items-center rounded p-4 mt-4">
                   <input
                     type="text"

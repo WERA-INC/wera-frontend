@@ -1,5 +1,4 @@
 import React from "react";
-import "./LandingHomePage.css";
 
 const AboutUs = () => {
   return (

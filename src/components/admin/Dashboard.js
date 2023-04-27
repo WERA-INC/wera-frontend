@@ -30,7 +30,7 @@ const Dashboard = () => {
   }, [slug]);
   const [filtered, setFiltered] = useState([]);
   const [keys, setKeys] = useState([]);
-  const[found, setFound]=useState([])
+  const [found, setFound] = useState([]);
 
   const [search, setSearch] = useState("");
   // console.log(profileData);
@@ -40,34 +40,31 @@ const Dashboard = () => {
     setSearch(event.target.value);
   }
   // The editor can search for an application since the applications can be many to sort through visually, and applications stored in variable found
- 
-// if(data.length!==0){
-//   let found = data.filter((element) => {
-//      let val1 = Object.values(element)[0].toLocaleLowerCase();
-//      let val2 = Object.values(element)[1].toLocaleLowerCase();
-//      let val3 = Object.values(element)[2].toLocaleLowerCase();
-//     //  let val2 = element[keys[1]].toLocaleLowerCase();
-//     //  let val3 = element[keys[2]].toLocaleLowerCase();
-  
 
-//      if (search === "") {
-//        return true;
-//      } else if (
-//        val1.includes(search) ||
-//        val2.includes(search) ||
-//        val3.includes(search)
-//      ) {
-//        return element
-//      }
-//    });
-  
+  // if(data.length!==0){
+  //   let found = data.filter((element) => {
+  //      let val1 = Object.values(element)[0].toLocaleLowerCase();
+  //      let val2 = Object.values(element)[1].toLocaleLowerCase();
+  //      let val3 = Object.values(element)[2].toLocaleLowerCase();
+  //     //  let val2 = element[keys[1]].toLocaleLowerCase();
+  //     //  let val3 = element[keys[2]].toLocaleLowerCase();
 
-// }
+  //      if (search === "") {
+  //        return true;
+  //      } else if (
+  //        val1.includes(search) ||
+  //        val2.includes(search) ||
+  //        val3.includes(search)
+  //      ) {
+  //        return element
+  //      }
+  //    });
 
-  
-//   console.log(found)
-// console.log(data)
-  //  
+  // }
+
+  //   console.log(found)
+  // console.log(data)
+  //
   //  let { slug } = useParams();
   //  console.log(slug)
 
@@ -137,19 +134,19 @@ const Dashboard = () => {
 
   return (
     <>
-      <div class="grid grid-cols-6">
-        <div class="col-start-1 col-end-2 bg-sky-200">
+      <div className="grid grid-cols-6">
+        <div className="col-start-1 col-end-2 bg-sky-200">
           <div className=""></div>
-          <div class="bg-sky-200">
+          <div className="bg-sky-200">
             <span
-              class="absolute text-white text-4xl top-5 left-4 cursor-pointer"
+              className="absolute text-white text-4xl top-5 left-4 cursor-pointer"
               onclick="openSidebar()"
             >
-              <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+              <i className="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
             </span>
-            <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center dashboard-main">
-              <div class="text-gray-100 text-xl">
-                <div class="p-2.5 mt-1 flex items-center">
+            <div className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center dashboard-main">
+              <div className="text-gray-100 text-xl">
+                <div className="p-2.5 mt-1 flex items-center">
                   <img
                     src={Logo}
                     alt="wera"
@@ -157,25 +154,25 @@ const Dashboard = () => {
                     className="md:cursor-pointer h-20 "
                   />
                 </div>
-                <div class="my-2 bg-gray-600 h-[1px]"></div>
+                <div className="my-2 bg-gray-600 h-[1px]"></div>
               </div>
 
               <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("");
                 }}
               >
-                <i class="bi bi-house-door-fill"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="bi bi-house-door-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200 font-bold">
                   Dashboard
                 </span>
               </div>
-              <div class="my-4 bg-gray-600 h-[1px]"></div>
-              <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white">
-                <i class="bi bi-bookmark-fill"></i>
+              <div className="my-4 bg-gray-600 h-[1px]"></div>
+              <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white">
+                <i className="bi bi-bookmark-fill"></i>
                 <span
-                  class="text-[15px] ml-4 text-gray-200 font-bold"
+                  className="text-[15px] ml-4 text-gray-200 font-bold"
                   onClick={() => {
                     setSlug("profiles");
                   }}
@@ -184,48 +181,48 @@ const Dashboard = () => {
                 </span>
               </div>
               <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("employers");
                 }}
               >
-                <i class="bi bi-bookmark-fill"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="bi bi-bookmark-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200 font-bold">
                   Employers
                 </span>
               </div>
               <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("opportunities");
                 }}
               >
-                <i class="bi bi-bookmark-fill"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="bi bi-bookmark-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200 font-bold">
                   Jobs
                 </span>
               </div>
               <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("applications");
                 }}
               >
-                <i class="bi bi-bookmark-fill"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="bi bi-bookmark-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200 font-bold">
                   Applications
                 </span>
               </div>
-              <div class="my-4 bg-gray-600 h-[1px]"></div>
+              <div className="my-4 bg-gray-600 h-[1px]"></div>
 
               <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   navigator("/login");
                 }}
               >
-                <i class="bi bi-box-arrow-in-right"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="bi bi-box-arrow-in-right"></i>
+                <span className="text-[15px] ml-4 text-gray-200 font-bold">
                   Logout
                 </span>
               </div>
@@ -233,7 +230,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          class="col-end-7 col-span-5  px-5 "
+          className="col-end-7 col-span-5  px-5 "
           style={{
             // backgroundImage:
             //   "linear-gradient(to top, rgba(0, 0, 0, 0.95),rgba(5, 27, 44, 1), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
@@ -246,17 +243,17 @@ const Dashboard = () => {
           {slug === "" ? (
             <div>
               <h2 className="text-gray-200 pt-3">SUMMARY</h2>
-              <div class="flex items-center justify-center">
-                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 p-5 ">
-                  <div class="relative bg-gray-400  py-6 px-6 rounded-3xl w-64 my-4 shadow-xl ">
-                    <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
+              <div className="flex items-center justify-center">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 p-5 ">
+                  <div className="relative bg-gray-400  py-6 px-6 rounded-3xl w-64 my-4 shadow-xl ">
+                    <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke-width="2.0"
                         stroke="currentColor"
-                        class="w-9 h-9"
+                        className="w-9 h-9"
                       >
                         <path
                           stroke-linecap="round"
@@ -265,27 +262,27 @@ const Dashboard = () => {
                         />
                       </svg>
                     </div>
-                    <div class="mt-8">
-                      <div class=" ">
+                    <div className="mt-8">
+                      <div className=" ">
                         <p className="text-6xl text-center text-white-400">
                           {summary.profiles}
                         </p>
                       </div>
-                      <p class="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950">
                         Job Seekers
                       </p>
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
-                    <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
+                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                    <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke-width="2.0"
                         stroke="currentColor"
-                        class="w-9 h-9"
+                        className="w-9 h-9"
                       >
                         <path
                           stroke-linecap="round"
@@ -294,25 +291,25 @@ const Dashboard = () => {
                         />
                       </svg>
                     </div>
-                    <div class="mt-8">
-                      <div class=" ">
+                    <div className="mt-8">
+                      <div className=" ">
                         <p className="text-6xl text-center text-white-400">
                           {summary.employers}
                         </p>
                       </div>
-                      <p class="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950">
                         Employers
                       </p>
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
-                    <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
+                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                    <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
-                        class="w-9 h-9"
+                        className="w-9 h-9"
                       >
                         <path
                           fill-rule="evenodd"
@@ -322,27 +319,27 @@ const Dashboard = () => {
                         <path d="M3 15.055v-.684c.126.053.255.1.39.142 2.092.642 4.313.987 6.61.987 2.297 0 4.518-.345 6.61-.987.135-.041.264-.089.39-.142v.684c0 1.347-.985 2.53-2.363 2.686a41.454 41.454 0 01-9.274 0C3.985 17.585 3 16.402 3 15.055z" />
                       </svg>
                     </div>
-                    <div class="mt-8">
-                      <div class=" ">
+                    <div className="mt-8">
+                      <div className=" ">
                         <p className="text-6xl text-center text-white-400">
                           {summary.opportunities}
                         </p>
                       </div>
-                      <p class="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950">
                         Jobs
                       </p>
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
-                    <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
+                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                    <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke-width="2.0"
                         stroke="currentColor"
-                        class="w-9 h-9"
+                        className="w-9 h-9"
                       >
                         <path
                           stroke-linecap="round"
@@ -351,13 +348,13 @@ const Dashboard = () => {
                         />
                       </svg>
                     </div>
-                    <div class="mt-8">
-                      <div class=" ">
+                    <div className="mt-8">
+                      <div className=" ">
                         <p className="text-6xl text-center text-white-400">
                           {summary.applications}
                         </p>
                       </div>
-                      <p class="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950">
                         Applications
                       </p>
                     </div>
@@ -366,11 +363,11 @@ const Dashboard = () => {
               </div>
             </div>
           ) : (
-            <div class="antialiased font-sans text-white px-5 ms-20 mt-4">
-              <div class="container px-4 sm:px-8">
-                <div class="py-8">
+            <div className="antialiased font-sans text-white px-5 ms-20 mt-4">
+              <div className="container px-4 sm:px-8">
+                <div className="py-8">
                   <div>
-                    <h2 class="text-2xl text-blue-950 font-semibold leading-tight uppercase">
+                    <h2 className="text-2xl text-blue-950 font-semibold leading-tight uppercase">
                       {slug == "profiles"
                         ? "Job Seekers"
                         : slug == "opportunities"
@@ -378,11 +375,11 @@ const Dashboard = () => {
                         : slug}
                     </h2>
                   </div>
-                  <div class="my-3 px-10 w-2/3 mx-auto">
-                    <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+                  <div className="my-3 px-10 w-2/3 mx-auto">
+                    <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                       <input
                         type="search"
-                        class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg- bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                        className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg- bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
                         placeholder="Search "
                         aria-label="Search"
                         aria-describedby="button-addon1"
@@ -391,7 +388,7 @@ const Dashboard = () => {
                       />
 
                       <button
-                        class="relative z-[2] flex items-center rounded-r  px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg "
+                        className="relative z-[2] flex items-center rounded-r  px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg "
                         style={{ backgroundColor: "#0D2644" }}
                         type="button"
                         id="button-addon1"
@@ -402,7 +399,7 @@ const Dashboard = () => {
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          class="h-5 w-5"
+                          className="h-5 w-5"
                         >
                           <path
                             fill-rule="evenodd"
@@ -413,26 +410,26 @@ const Dashboard = () => {
                       </button>
                     </div>
                   </div>
-                  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                      <table class="min-w-full leading-normal">
+                  <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                    <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                      <table className="min-w-full leading-normal">
                         <thead>
                           <tr>
                             {keys.map((key) => (
-                              <th class="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-white capitalize tracking-wider">
+                              <th className="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-white capitalize tracking-wider">
                                 {key.split("_").length > 1
                                   ? key.split("_").join(" ")
                                   : key}
                               </th>
                             ))}
-                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                               Action
                             </th>
                           </tr>
                         </thead>
                         <tbody>
                           {filtered.map((val) => {
-                            return <Tabledata val={val} slug={slug}/>;
+                            return <Tabledata val={val} slug={slug} />;
                           })}
                         </tbody>
                       </table>
@@ -482,9 +479,9 @@ export default Dashboard;
 //             }}
 //             style={{ width: "250", cursor: "pointer" }}
 //           >
-//             <div class="card card-hover">
+//             <div className="card card-hover">
 //               <div className="d-flex align-items-center justify-content-between brown px-3">
-//                 <i class="bi bi-people-fill dashboard_icons text-light"></i>
+//                 <i className="bi bi-people-fill dashboard_icons text-light"></i>
 //                 <div className="text-light">
 //                   <h1 className="display-6">{summary.profiles}</h1>
 //                   <h3>Job Seekers</h3>
@@ -492,7 +489,7 @@ export default Dashboard;
 //               </div>
 //               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
 //                 <h6 className="text-light">View Details</h6>
-//                 <i class="bi bi-arrow-right-circle-fill h1"></i>
+//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
 //               </div>
 //             </div>
 //           </div>
@@ -503,9 +500,9 @@ export default Dashboard;
 //             }}
 //             style={{ width: "250", cursor: "pointer" }}
 //           >
-//             <div class="card card-hover">
+//             <div className="card card-hover">
 //               <div className="d-flex align-items-center justify-content-between green px-3">
-//                 <i class="bi bi-houses-fill dashboard_icons text-light"></i>
+//                 <i className="bi bi-houses-fill dashboard_icons text-light"></i>
 //                 <div className="text-light">
 //                   <h1 className="display-6">{summary.employers}</h1>
 //                   <h3>Employers</h3>
@@ -513,7 +510,7 @@ export default Dashboard;
 //               </div>
 //               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
 //                 <h6 className="text-light">View Details</h6>
-//                 <i class="bi bi-arrow-right-circle-fill h1"></i>
+//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
 //               </div>
 //             </div>
 //           </div>
@@ -524,9 +521,9 @@ export default Dashboard;
 //             }}
 //             style={{ width: "250", cursor: "pointer" }}
 //           >
-//             <div class="card card-hover">
+//             <div className="card card-hover">
 //               <div className="d-flex align-items-center justify-content-between blue px-3">
-//                 <i class="bi bi-clipboard2-data-fill dashboard_icons text-light"></i>
+//                 <i className="bi bi-clipboard2-data-fill dashboard_icons text-light"></i>
 //                 <div className="text-light">
 //                   <h1 className="display-6">{summary.opportunities}</h1>
 //                   <h3>Jobs</h3>
@@ -534,7 +531,7 @@ export default Dashboard;
 //               </div>
 //               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
 //                 <h6 className="text-light">View Details</h6>
-//                 <i class="bi bi-arrow-right-circle-fill h1"></i>
+//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
 //               </div>
 //             </div>
 //           </div>
@@ -545,9 +542,9 @@ export default Dashboard;
 //             }}
 //             style={{ width: "250", cursor: "pointer" }}
 //           >
-//             <div class="card card-hover">
+//             <div className="card card-hover">
 //               <div className="d-flex align-items-center justify-content-between pink px-3">
-//                 <i class="bi bi-bar-chart-fill dashboard_icons text-light"></i>
+//                 <i className="bi bi-bar-chart-fill dashboard_icons text-light"></i>
 //                 <div className="text-light">
 //                   <h1 className="display-6">{summary.applications}</h1>
 //                   <h3>Job Applications</h3>
@@ -555,7 +552,7 @@ export default Dashboard;
 //               </div>
 //               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
 //                 <h6 className="text-light">View Details</h6>
-//                 <i class="bi bi-arrow-right-circle-fill h1"></i>
+//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
 //               </div>
 //             </div>
 //           </div>

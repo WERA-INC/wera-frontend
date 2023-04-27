@@ -4,12 +4,12 @@ import JobseekerNavbar from "./JobseekerNavbar";
 
 const JobsApplied = ({ jobseeker }) => {
   //  const [id, setId] = useState(jobseeker.id);
-   const [id, setId] = useState(null);
-   useEffect(() => {
-     const jsId = localStorage.getItem("jobseekerId");
-     console.log(jsId);
-     setId(jsId);
-   }, []);
+  const [id, setId] = useState(null);
+  useEffect(() => {
+    const jsId = localStorage.getItem("jobseekerId");
+    console.log(jsId);
+    setId(jsId);
+  }, []);
 
   const [applications, setApplications] = useState([]);
   useEffect(() => {
@@ -51,11 +51,11 @@ const JobsApplied = ({ jobseeker }) => {
       <div>
         <JobseekerNavbar />
         <div className="container">
-          <div class="my-3 px-10 w-1/2 mx-auto">
-            <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+          <div className="my-3 px-10 w-1/2 mx-auto">
+            <div className="relative mb-4 flex w-full flex-wrap items-stretch">
               <input
                 type="search"
-                class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg- bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg- bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
                 placeholder="Search by job title or company name"
                 aria-label="Search"
                 aria-describedby="button-addon1"
@@ -64,7 +64,7 @@ const JobsApplied = ({ jobseeker }) => {
               />
 
               <button
-                class="relative z-[2] flex items-center rounded-r  px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg "
+                className="relative z-[2] flex items-center rounded-r  px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg "
                 style={{ backgroundColor: "#0D2644" }}
                 type="button"
                 id="button-addon1"
@@ -75,7 +75,7 @@ const JobsApplied = ({ jobseeker }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  class="h-5 w-5"
+                  className="h-5 w-5"
                 >
                   <path
                     fill-rule="evenodd"
@@ -106,10 +106,10 @@ const JobsApplied = ({ jobseeker }) => {
     //   <div className="container">
     //     <div className="row">
     //       <div className="col-6 m-auto">
-    //         <div class="input-group rounded m-auto">
+    //         <div className="input-group rounded m-auto">
     //           <input
     //             type="search"
-    //             class="form-control rounded"
+    //             className="form-control rounded"
     //             placeholder="Search job title or keyword"
     //             aria-label="Search"
     //             aria-describedby="search-addon"
@@ -117,7 +117,7 @@ const JobsApplied = ({ jobseeker }) => {
     //             onChange={handleSearch}
     //           />
     //           <span
-    //             class="input-group-text border-0 blue text-light"
+    //             className="input-group-text border-0 blue text-light"
     //             id="search-addon"
     //           >
     //             Search

@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginImg from "./images/login.png";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-function Login({setUser,setCompany}) {
+function Login({ setUser, setCompany }) {
   const navigate = useNavigate();
 
- 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("");
- 
+
   const [errors, setErrors] = useState([]);
 
   const signUpFunctionality = (e) => {
     e.preventDefault();
-    let formData = {     
+    let formData = {
       email_address: emailAddress,
-      password: password,     
+      password: password,
       user_type: userType,
     };
     // console.log(formData);
@@ -30,21 +27,20 @@ function Login({setUser,setCompany}) {
     }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
-          
-         console.log(data)
-        if(userType=="Employer"){
-          setCompany(data)
-          navigate("/company/jobs");
           console.log(data);
-        }else if(userType=="Jobseeker"){
+          if (userType == "Employer") {
+            setCompany(data);
+            navigate("/company/jobs");
+            console.log(data);
+          } else if (userType == "Jobseeker") {
             navigate("/jobseeker");
             localStorage.setItem("jobseekerId", JSON.stringify(data.id));
             setUser(data);
-        }else{
+          } else {
             navigate("/admin-dashboard");
             localStorage.setItem("adminId", JSON.stringify(data.id));
             console.log(data);
-        }
+          }
         });
       } else {
         response.json().then((err) => setErrors(err.errors));
@@ -53,36 +49,36 @@ function Login({setUser,setCompany}) {
   };
 
   return (
-    <div className="maincontainer p-3">
-      <div class="container">
-        <div class="row no-gutter">
-          <div class="col-md-7 d-none d-md-block bg-image me-2">
-            <img className="login" src={LoginImg} alt="" />
+    <div className="container p-3">
+      <div className="container">
+        <div className="row no-gutter">
+          <div className="col-md-7 d-none d-md-block bg-image me-2">
+            <img className="login" src={"images/login.png"} alt="" />
           </div>
 
-          <div class="col-md-4 bg-light bg-image">
-            <div class="login py-5">
-              <div class="col-lg-12 col-xl-10 mx-auto">
-                <h4 class="display-6">WELCOME BACK TO WERA</h4>
-                <p class="text-muted mb-4">Log into your account</p>
+          <div className="col-md-4 bg-light bg-image">
+            <div className="login py-5">
+              <div className="col-lg-12 col-xl-10 mx-auto">
+                <h4 className="display-6">WELCOME BACK TO WERA</h4>
+                <p className="text-muted mb-4">Log into your account</p>
                 <form onSubmit={signUpFunctionality} novalidate>
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <input
                       id="inputEmail"
                       onChange={(e) => setEmailAddress(e.target.value)}
                       type="email"
                       placeholder="Email Address"
-                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      className="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
                       required
                     />
                   </div>
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <input
                       id="inputPassword"
                       onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       placeholder="Password"
-                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      className="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
                       required
                     />
                   </div>
@@ -96,7 +92,7 @@ function Login({setUser,setCompany}) {
                     <select
                       id="users"
                       name="users"
-                      class="form-control rounded-pill border-0 shadow-sm px-4"
+                      className="form-control rounded-pill border-0 shadow-sm px-4"
                       onChange={(e) => setUserType(e.target.value)}
                     >
                       <option selected>Select</option>
@@ -105,12 +101,12 @@ function Login({setUser,setCompany}) {
                       <option>Admin</option>
                     </select>
                   </div>
-                  <div class="d-grid gap-2 mt-2">
+                  <div className="d-grid gap-2 mt-2">
                     <br />
 
                     <button
                       type="submit"
-                      class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                      className="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
                     >
                       Log In
                     </button>
@@ -146,9 +142,9 @@ function Login({setUser,setCompany}) {
   );
   //   return (
   //     <div className="container maincontainer">
-  //       <div class="container-fluid">
-  //         <div class="row no-gutter">
-  //           <div class="col-md-6 d-none d-md-flex bg-image">
+  //       <div className="container-fluid">
+  //         <div className="row no-gutter">
+  //           <div className="col-md-6 d-none d-md-flex bg-image">
   //             <img
   //               className="img-fluid mx-auto d-block max-height-100vh"
   //               src={LoginImg}
@@ -157,52 +153,52 @@ function Login({setUser,setCompany}) {
   //           </div>
 
   //           <div className="col-md-6 bg-light d-flex align-items-center justify-content-center">
-  //             <div class="container">
-  //               <div class="row">
-  //                 <div class="col-lg-10 col-xl-7">
-  //                   <h4 class="display-6">WELCOME BACK TO WERA</h4>
-  //                   <p class="text-muted mb-4">Login your account</p>
+  //             <div className="container">
+  //               <div className="row">
+  //                 <div className="col-lg-10 col-xl-7">
+  //                   <h4 className="display-6">WELCOME BACK TO WERA</h4>
+  //                   <p className="text-muted mb-4">Login your account</p>
   //                   <form>
-  //                     <div class="mb-3">
+  //                     <div className="mb-3">
   //                       <input
   //                         id="inputEmail"
   //                         type="email"
   //                         placeholder="Email Address"
   //                         required=""
-  //                         class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+  //                         className="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
   //                       />
   //                     </div>
-  //                     <div class="mb-3">
+  //                     <div className="mb-3">
   //                       <input
   //                         id="inputPassword"
   //                         type="password"
   //                         placeholder="Password"
   //                         required=""
-  //                         class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+  //                         className="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
   //                       />
   //                     </div>
 
   //                     <div className="flex flex-col text-black-900 py-1 form-control rounded-pill border-0 shadow-sm px-4 text-primary">
   //                       <label htmlfor="users">Who are you?</label>
-  //                       <select id="users" name="users" class="form-control">
+  //                       <select id="users" name="users" className="form-control">
   //                         <option value="1">Admin</option>
   //                         <option value="2">Recruiter</option>
   //                         <option value="3">Job Seeker</option>
   //                       </select>
   //                     </div>
-  //                     <div class="d-grid gap-2 mt-2">
+  //                     <div className="d-grid gap-2 mt-2">
   //                       <br />
 
   //                       <button
   //                         type="submit"
-  //                         class="btn btn-primary btn-sm  text-uppercase mb-3 rounded-pill shadow-sm custom button"
+  //                         className="btn btn-primary btn-sm  text-uppercase mb-3 rounded-pill shadow-sm custom button"
   //                       >
   //                         Sign in
   //                       </button>
   //                       <h7>
   //                         Not yet registered?{" "}
   //                         <a href="http://localhost:4000/register">
-  //                           <button type="button" class="btn-primary">
+  //                           <button type="button" className="btn-primary">
   //                             SIGN UP
   //                           </button>
   //                         </a>

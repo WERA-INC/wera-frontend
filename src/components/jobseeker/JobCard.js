@@ -5,28 +5,28 @@ import { useParams, useNavigate } from "react-router";
 const JobCard = () => {
   const [showAlert, setShowAlert] = React.useState(false);
   const [profileData, setProfileData] = useState({});
-  const [hasApplied, setHasApplied]=useState(false)
+  const [hasApplied, setHasApplied] = useState(false);
   const navigator = useNavigate();
   const [job, setJob] = useState(null);
   const [profileId, setProfileId] = useState(null);
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
     const adminId = localStorage.getItem("adminId");
-    if(jsId){
-      console.log("js is present")
-    }else if(adminId){
-      console.log("admin is present")
+    if (jsId) {
+      console.log("js is present");
+    } else if (adminId) {
+      console.log("admin is present");
     }
 
     console.log(jsId);
     setProfileId(jsId);
   }, []);
- 
+
   let { id } = useParams();
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
   // console.log(id);
   useEffect(() => {
-    if(profileId!==null){
+    if (profileId !== null) {
       fetch(`http://localhost:3000/profiles/${profileId}`).then((res) => {
         if (res.ok) {
           res.json().then((data) => {
@@ -53,7 +53,6 @@ const JobCard = () => {
       profile_id: profileId,
       opportunity_id: parseInt(id),
     };
-    
 
     // console.log(applicationData)
 
@@ -63,26 +62,26 @@ const JobCard = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(applicationData),
-    }).then(res=>res.json())
-    .then(data=>{
-      console.log(data);
-     
-      setShowAlert(true);
-      // navigator("/jobsapplied");
     })
-    .catch(error=>console.error(error))
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        setShowAlert(true);
+        // navigator("/jobsapplied");
+      })
+      .catch((error) => console.error(error));
   }
   useEffect(() => {
-    if (profileData["id"]!==undefined) {
+    if (profileData["id"] !== undefined) {
       let applications = profileData.applications;
-       const answer = applications.filter(
-         (element) => {return element.opportunity.id == job.id;}
-       );
-       console.log(answer.length)
-       if(answer.length==0){
-        setHasApplied(true)
-       }
-
+      const answer = applications.filter((element) => {
+        return element.opportunity.id == job.id;
+      });
+      console.log(answer.length);
+      if (answer.length == 0) {
+        setHasApplied(true);
+      }
     }
   }, [profileData]);
   console.log(profileData);
@@ -116,7 +115,7 @@ const JobCard = () => {
           <>
             <header>
               <div
-                class="relative overflow-hidden bg-cover bg-no-repeat"
+                className="relative overflow-hidden bg-cover bg-no-repeat"
                 style={{
                   backgroundImage:
                     "linear-gradient(to bottom, rgba(0,0,0,0.4),rgba(0,0,0.95,0.4), #051b2c), url(https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150266863.jpg?size=626&ext=jpg)",
@@ -124,19 +123,17 @@ const JobCard = () => {
                   minHeight: "20vh",
                 }}
               >
-                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed">
-                  <div class="flex h-full items-center justify-center">
-                    <div class="px-6 text-center text-white md:px-12">
-                      <h1 class="mb-6 text-5xl font-bold">
-                        
-                      </h1>
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed">
+                  <div className="flex h-full items-center justify-center">
+                    <div className="px-6 text-center text-white md:px-12">
+                      <h1 className="mb-6 text-5xl font-bold"></h1>
                     </div>
                   </div>
                 </div>
               </div>
             </header>
-            <div class="grid grid-cols-3 gap-1 mt-3">
-              <div class="relative">
+            <div className="grid grid-cols-3 gap-1 mt-3">
+              <div className="relative">
                 {job.employer.company_logo ? (
                   <div
                     className="logo-jobcard"
@@ -179,18 +176,18 @@ const JobCard = () => {
                 )}
                 <div className="w-3/4 mx-auto mt-20">
                   <div
-                    class="max-w-sm rounded overflow-hidden shadow-lg text-white relative"
+                    className="max-w-sm rounded overflow-hidden shadow-lg text-white relative"
                     style={{ backgroundColor: "#0D2644" }}
                   >
-                    <div class="px-6 py-4 ">
-                      <div class="">
-                        <h4 class="uppercase rounded-full">
+                    <div className="px-6 py-4 ">
+                      <div className="">
+                        <h4 className="uppercase rounded-full">
                           {job.employer.company_name}
                         </h4>
-                        {/* <h2 class="card-title fw-bold mb-3">
+                        {/* <h2 className="card-title fw-bold mb-3">
                         {job.employer.company_name}
                       </h2> */}
-                        <div class="my-4 bg-gray-600 h-[1px]"></div>
+                        <div className="my-4 bg-gray-600 h-[1px]"></div>
                         <p className="text-left  mb-4">
                           Date Posted: {job.created_at.split("T")[0]}
                         </p>
@@ -222,15 +219,18 @@ const JobCard = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-span-2 bg-gray-200">
+              <div className="col-span-2 bg-gray-200">
                 <div>
-                  <div class="bg-gray-100">
+                  <div className="bg-gray-100">
                     <div className="">
-                      <div class="mb-4 text-left p-4" style={{ width: "100%" }}>
+                      <div
+                        className="mb-4 text-left p-4"
+                        style={{ width: "100%" }}
+                      >
                         <h4 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">
                           {job.title}
                         </h4>
-                        <h5 class="inline-block font-semibold tracking-wide text-gray-900 uppercase rounded-full">
+                        <h5 className="inline-block font-semibold tracking-wide text-gray-900 uppercase rounded-full">
                           About the company
                         </h5>
                         {/* <h4 className="">About the company</h4> */}
@@ -247,7 +247,7 @@ const JobCard = () => {
                         </h5>
                         <ul className="mb-4">
                           <li className="mt-2">
-                            <i class="bi bi-arrow-up-right-circle-fill me-3 text-sm "></i>
+                            <i className="bi bi-arrow-up-right-circle-fill me-3 text-sm "></i>
                             {job.responsibilities}
                           </li>
                         </ul>
@@ -256,7 +256,7 @@ const JobCard = () => {
                         </h5>
                         <ul>
                           <li className="mt-2">
-                            <i class="bi bi-arrow-up-right-circle-fill me-3"></i>
+                            <i className="bi bi-arrow-up-right-circle-fill me-3"></i>
                             {job.qualifications}
                           </li>
                         </ul>
@@ -318,9 +318,9 @@ export default JobCard;
 
 //       <div className="row mt-5 ps-2">
 //         <div className="col-3">
-//           <div class="card company-profile" style={{ width: 300 }}>
-//             <div class="card-body bluey text-light">
-//               <h2 class="card-title fw-bold mb-3">
+//           <div className="card company-profile" style={{ width: 300 }}>
+//             <div className="card-body bluey text-light">
+//               <h2 className="card-title fw-bold mb-3">
 //                 {job.employer.company_name}
 //               </h2>
 //               <p className="text-left  mb-4">
@@ -351,7 +351,7 @@ export default JobCard;
 //         <div className="col-9">
 //           <div className="col-4">
 //             <div
-//               class="card js-card mb-4 text-left p-4"
+//               className="card js-card mb-4 text-left p-4"
 //               style={{ width: 1000 }}
 //             >
 //               <h4 className="fw-bold">{job.title}</h4>
@@ -363,14 +363,14 @@ export default JobCard;
 //               <h4 className="">Responsibilities</h4>
 //               <ul>
 //                 <li className="mt-2">
-//                   <i class="bi bi-arrow-up-right-circle-fill me-3"></i>
+//                   <i className="bi bi-arrow-up-right-circle-fill me-3"></i>
 //                   {job.responsibilities}
 //                 </li>
 //               </ul>
 //               <h4 className="">Minimum Qualifications</h4>
 //               <ul>
 //                 <li className="mt-2">
-//                   <i class="bi bi-arrow-up-right-circle-fill me-3"></i>
+//                   <i className="bi bi-arrow-up-right-circle-fill me-3"></i>
 //                   {job.qualifications}
 //                 </li>
 //               </ul>
@@ -383,5 +383,3 @@ export default JobCard;
 //     "Please wait"
 //   );
 // }
-
-
