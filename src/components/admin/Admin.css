@@ -13,10 +13,11 @@
 
 .green {
   background-color: rgb(110, 138, 112);
+
 }
 
 .blue {
-  background-color: #669ca3
+  background-color: #171d27
 }
 .bluey {
   background-color: #0f4852
@@ -77,4 +78,33 @@
 
  .toggle.ios .toggle-handle {
    border-radius: 20px;
+ }
+ .dashboard-main{
+  min-height:100vh;
+  background: #031524
+ }
+ .dashboard-row{
+  background:rgba(3, 21, 36, 0.9)
+ }
+
+
+ .btn-link {
+    text-decoration: none;
+    background-color: inherit;
+    border:none;
+    padding: 5px 5px;
+    margin: 0;
+    color: black;
+ }
+ .btn-link:hover{
+  text-decoration: none;
+  color: black;
+ }
+ .logo-title{
+  text-decoration: none;
+  color: black;
+ }
+ .logo-title:hover{
+  text-decoration: none;
+  color: black;
  }

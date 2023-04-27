@@ -4,14 +4,14 @@ import "./LandingHomePage.css";
 const AboutUs = () => {
   return (
     <>
-      <section className="p-4 lg:p-8  dark:text-gray-100">
+      <section className="p-4 lg:p-8  text-white">
         <div>
           <h1 style={{ padding: "30px", color: "black" }}>About Us</h1>
         </div>
         <div className="container mx-auto space-y-12">
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
             <img
-              src="https://img.freepik.com/free-vector/recruitment-agency-searching-job-candidates_1262-19874.jpg?w=996&t=st=1681966015~exp=1681966615~hmac=7eed9db41258a3d078cfb9a13af3ad5e35f3bc52141a4c5bcb0298e0c5c98d22"
+              src="https://img.freepik.com/free-vector/team-concept-illustration_114360-678.jpg?size=626&ext=jpg"
               alt=""
               className="h-80 dark:bg-gray-500 aspect-video"
             />
@@ -30,7 +30,7 @@ const AboutUs = () => {
           </div>
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
             <img
-              src="https://img.freepik.com/free-photo/woman-looking-through-magnifying-glass_1187-1250.jpg?w=1380&t=st=1681965851~exp=1681966451~hmac=ff8e67a0ea22dbdd676cca04c4eddef4518a966f926d19f7a5425ac7e614e73f"
+              src="https://img.freepik.com/free-vector/happy-freelancer-with-computer-home-young-man-sitting-armchair-using-laptop-chatting-online-smiling-vector-illustration-distance-work-online-learning-freelance_74855-8401.jpg?size=626&ext=jpg"
               alt=""
               className="h-80 dark:bg-gray-500 aspect-video"
             />
@@ -48,7 +48,7 @@ const AboutUs = () => {
           </div>
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
             <img
-              src="https://img.freepik.com/free-photo/diverse-group-candidates-waiting-line-meet-with-hr-team-career-opportunity-discussion-nervous-people-sitting-office-lobby-expecting-attend-job-interview-meeting_482257-44170.jpg?w=1380&t=st=1681965959~exp=1681966559~hmac=33f069b2ceca46b01a83a6465d19b6794a407caf70ce6eb2a56d76f3e0402dda"
+              src="https://img.freepik.com/free-vector/flat-hand-drawn-multitask-business-woman-illustrated_23-2148855947.jpg?size=626&ext=jpg"
               alt=""
               className="h-80 dark:bg-gray-500 aspect-video"
             />

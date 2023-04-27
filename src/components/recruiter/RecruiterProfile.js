@@ -3,6 +3,7 @@ import RecruiterImg from "./recruiter.png"
 
 
 const RecruiterProfile = () => {
+  
   return (
    <div class="card mb-3" style={{maxWidth: '540px'}}>
   <div class="row g-0">

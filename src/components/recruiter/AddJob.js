@@ -1,5 +1,4 @@
 import { useState} from 'react';
-import RecruiterNavbar from "./RecruiterNavbar";
 import './AddJob.css';
 
 const AddJob = () => {
@@ -47,7 +46,7 @@ const AddJob = () => {
   
   return (
     <div>
-      <RecruiterNavbar />
+
       <div className="add-job">
         <h1>Add a Job</h1>
         <div className="container">
@@ -62,80 +61,83 @@ const AddJob = () => {
               required
             />
 
-            <label htmlFor="description">Description</label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              required
-            ></textarea>
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          ></textarea>
 
-            <label htmlFor="qualification">Qualification</label>
-            <input
-              type="text"
-              id="qualification"
-              name="qualification"
-              value={formData.qualification}
-              onChange={handleChange}
-              required
-            />
+          <label htmlFor="qualification">Qualification</label>
+          <input
+            type="text"
+            id="qualification"
+            name="qualification"
+            value={formData.qualification}
+            onChange={handleChange}
+            required
+          />
 
-            <label htmlFor="responsibilities">Responsibilities</label>
-            <textarea
-              id="responsibilities"
-              name="responsibilities"
-              value={formData.responsibilities}
-              onChange={handleChange}
-              required
-            ></textarea>
+          <label htmlFor="responsibilities">Responsibilities</label>
+          <textarea
+            id="responsibilities"
+            name="responsibilities"
+            value={formData.responsibilities}
+            onChange={handleChange}
+            required
+          ></textarea>
 
-            <label htmlFor="skills">Skills</label>
-            <input
-              type="text"
-              id="skills"
-              name="skills"
-              value={formData.skills}
-              onChange={handleChange}
-              required
-            />
+          <label htmlFor="skills">Skills</label>
+          <input
+            type="text"
+            id="skills"
+            name="skills"
+            value={formData.skills}
+            onChange={handleChange}
+            required
+          />
 
-            <label htmlFor="type">Type</label>
-            <input
-              type="text"
-              id="type"
-              name="type"
-              value={formData.type}
-              onChange={handleChange}
-              required
-            />
+          <label htmlFor="type">Type</label>
+          <input
+            type="text"
+            id="type"
+            name="type"
+            value={formData.type}
+            onChange={handleChange}
+            required
+          />
 
-            <label htmlFor="location">Location</label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
+          <label htmlFor="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+          />
 
-            <label htmlFor="estimatedSalary">Estimated Salary</label>
-            <input
-              type="text"
-              id="estimatedSalary"
-              name="estimatedSalary"
-              value={formData.estimatedSalary}
-              onChange={handleChange}
-              required
-            />
+          <label htmlFor="estimatedSalary">Estimated Salary</label>
+          <input
+            type="text"
+            id="estimatedSalary"
+            name="estimatedSalary"
+            value={formData.estimatedSalary}
+            onChange={handleChange}
+            required
+          />
 
-            <button type="submit">Submit</button>
-          </form>
-        </div>
+          <button type="submit">Submit</button>
+        </form>
       </div>
+      
     </div>
-  );
+
+    </div>
+    
+  )
 }
 
 export default AddJob;
