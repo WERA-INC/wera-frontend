@@ -553,6 +553,18 @@ export default Team;
                   role="listitem"
                   class="xl:w-1/3 relative mt-16 mb-32"
                 >
+               
+                </div>
+              </div>
+            </div>
+          </div>
+        </dh-component>
+      </div>
+    </>
+  );
+};
+
+export default Team;
                   <div
                     class="rounded overflow-hidden shadow-md"
                     style={{ backgroundColor: "#0D2644" }}
