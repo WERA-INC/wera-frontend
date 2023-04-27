@@ -33,8 +33,8 @@ function Login({setUser,setCompany}) {
           
          console.log(data)
         if(userType=="Employer"){
-          setCompany(data.id)
-          navigate("/company");
+          setCompany(data)
+          navigate("/company/jobs");
           console.log(data);
         }else if(userType=="Jobseeker"){
             navigate("/jobseeker");
