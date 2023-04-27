@@ -291,15 +291,25 @@ const CompanyNav = () => {
                     </button>
                   </div>
                   {/*body*/}
-                  <div className="relative p-6 flex-auto">
-                    <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                      I always felt like I could do anything. That’s the main
-                      thing people are controlled by! Thoughts- their perception
-                      of themselves! They're slowed down by their perception of
-                      themselves. If you're taught you can’t do anything, you
-                      won’t do anything. I was taught I could do everything.
-                    </p>
+                  <form>
+                  <div class="mb-6">
+                    <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company Name</label>
+                    <input type="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Company Name" required/>
                   </div>
+                  <div class="mb-6">
+                    <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
+                    <input type="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Location" required/>
+                  </div>
+                  <div class="mb-6">
+                  <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company Description</label>
+                  <input type="text" id="large-input" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Company Description" required/>
+                  </div>
+
+                  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
+                  <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file"/>
+                  <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Upload your Company Logo file</div>
+
+                  </form>
                   {/*footer*/}
                   <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                     <button
