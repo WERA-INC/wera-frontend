@@ -1,33 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import DatePicker from "react-datepicker";
-import { getYear, getMonth } from "date-fns";
-import "react-datepicker/dist/react-datepicker.css";
-
-function range(start, end, step = 1) {
-  const len = Math.floor((end - start) / step) + 1;
-  return Array(len)
-    .fill()
-    .map((_, i) => start + i * step);
-}
 
 const Profile = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const years = range(1990, getYear(new Date()) + 1, 1);
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
   const [isEditing, setIsEditing] = useState(false);
 
   const toggleEdit = () => {
@@ -36,18 +10,19 @@ const Profile = () => {
 
   const [profileData, setProfileData] = useState({});
   const [formData, setFormData] = useState({
-    name: "",
+    full_name: "",
+    email_address: "",
     phone_number: "",
     date_of_birth: "",
     biography: "",
-    tags: "",
+    skills: "",
     profile_pic: "",
     resume: null,
   });
 
   useEffect(() => {
-    async function fetchProfileData() {
-      const response = await axios.get(`http://localhost:3000/profiles/36`);
+    async function fetchProfileData(id) {
+      const response = await axios.get(`http://localhost:3000/profiles/2`);
       setProfileData(response.data);
       setFormData(response.data);
       console.log(response.data);
@@ -62,9 +37,10 @@ const Profile = () => {
     try {
       const formDataToUpdate = new FormData();
       formDataToUpdate.append("phone_number", formData.phone_number);
+      formDataToUpdate.append("email_address", formData.email_address);
       formDataToUpdate.append("date_of_birth", formData.date_of_birth);
       formDataToUpdate.append("biography", formData.biography);
-      formDataToUpdate.append("tags", formData.tags);
+      formDataToUpdate.append("skills", formData.skills);
       if (formData.profile_pic) {
         formDataToUpdate.append("profile_pic", formData.profile_pic);
       }
@@ -98,154 +74,238 @@ const Profile = () => {
   return (
     <>
       {isEditing ? (
-        <form
-          onSubmit={handleUpdateProfile}
-          encType="multipart/form-data"
-          className="bg-white rounded p-4 mt-4"
-        >
-          <h3>Edit Profile</h3>
-          <form
-            onSubmit={handleUpdateProfile}
-            encType="multipart/form-data"
-            className="bg-white rounded p-4 mt-4"
-          >
-            <label className="block mb-2">
-              Phone number:
-              <input
-                className="border rounded w-full py-2 px-3"
-                type="text"
-                name="phone_number"
-                value={formData.phone_number}
-                onChange={handleChange}
-              />
-            </label>
-            <label className="block mb-2">
-              Date of birth:
-              <DatePicker
-                renderCustomHeader={({
-                  date,
-                  changeYear,
-                  changeMonth,
-              
-                }) => (
-                  <div
-                    style={{
-                      margin: 10,
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
+        <div>
+          <section class="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
+            <h2 class="text-lg font-semibold text-black capitalize dark:text-white">
+              Edit Profile
+            </h2>
+
+            <form
+              onSubmit={handleUpdateProfile}
+              encType="multipart/form-data"
+              className="bg-dark text-white rounded p-4 mt-4"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0.9), #0D2644)",
+              }}
+            >
+              <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                <div>
+                  <label class="text-white dark:text-gray-200" for="phone">
+                    Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    name="phone_number"
+                    value={formData.phone_number}
+                    onChange={handleChange}
+                    id="phone"
+                    class="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="text-white dark:text-gray-200"
+                    for="emailAddress"
                   >
-                   
-                    <select
-                      value={getYear(date)}
-                      onChange={({ target: { value } }) => changeYear(value)}
-                    >
-                      {years.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
+                    Email Address
+                  </label>
+                  <input
+                    id="emailAddress"
+                    type="text"
+                    name="email_address"
+                    value={formData.email_address}
+                    onChange={handleChange}
+                    class="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  />
+                </div>
 
-                    <select
-                      value={months[getMonth(date)]}
-                      onChange={({ target: { value } }) =>
-                        changeMonth(months.indexOf(value))
-                      }
-                    >
-                      {months.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
+                <div>
+                  <label class="text-white dark:text-gray-200" for="date">
+                    Date of Birth
+                  </label>
+                  <input
+                    name="date_of_birth"
+                    value={formData.date_of_birth}
+                    onChange={handleChange}
+                    id="date"
+                    type="date"
+                    class="block w-full px-4 py-2 mt-2 text-white  bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  />
+                </div>
 
-                   
-                  </div>
-                )}
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-              />
-            </label>
-            <label className="block mb-2">
-              Biography:
-              <textarea
-                className="border rounded w-full py-2 px-3"
-                name="biography"
-                value={formData.biography}
-                onChange={handleChange}
-              />
-            </label>
-            <label className="block mb-2">
-              tags:
-              <input
-                className="border rounded w-full py-2 px-3"
-                type="text"
-                name="tags"
-                value={formData.tags}
-                onChange={handleChange}
-              />
-            </label>
-            <label className="block mb-2">
-              Profile pic:
-              <input
-                className="border rounded w-full py-2 px-3"
-                type="file"
-                name="profile_pic"
-                onChange={handleChange}
-              />
-            </label>
-            <label className="block mb-2">
-              Resume:
-              <input
-                className="border rounded w-full py-2 px-3"
-                type="file"
-                name="resume"
-                onChange={handleChange}
-              />
-            </label>
-          </form>
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Update Profile
-          </button>
-          <button
-            type="button"
-            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
-            onClick={toggleEdit}
-          >
-            Cancel
-          </button>
-        </form>
+                <div>
+                  <label class="text-white dark:text-gray-200" for="skill">
+                    Skills
+                  </label>
+                  <input
+                    name="skills"
+                    value={formData.skills}
+                    onChange={handleChange}
+                    id="skill"
+                    type="text"
+                    class="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  />
+                </div>
+                <div>
+                  <label class="text-white dark:text-gray-200" for="biography">
+                    Biography
+                  </label>
+                  <textarea
+                    name="biography"
+                    value={formData.biography}
+                    onChange={handleChange}
+                    id="biography"
+                    type="text"
+                    class="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="text-white dark:text-gray-200"
+                    for="profile_pic"
+                  >
+                    Profile Pic
+                  </label>
+                  <input
+                    name="profile_pic"
+                    value={formData.profile_pic}
+                    onChange={handleChange}
+                    id="profile_pic"
+                    type="file"
+                    class="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  />
+                </div>
+                <div>
+                  <label class="text-white dark:text-gray-200" for="resume">
+                    Resume
+                  </label>
+                  <input
+                    name="resume"
+                    value={formData.resume}
+                    onChange={handleChange}
+                    id="resume"
+                    type="file"
+                    class="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  />
+                </div>
+              </div>
+
+              <div class="flex justify-center mt-6">
+                <button
+                  type="submit"
+                  className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+                >
+                  Update Profile
+                </button>
+                <button
+                  type="button"
+                  className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
+                  onClick={toggleEdit}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
       ) : (
         <div>
-          <div>Profile</div>
-          <div className="bg-gray-100 p-4">
-            {/* Render profile data */}
-            <div className="bg-white rounded p-4 mb-4">
-              <p className="font-bold">Name: {profileData.full_name}</p>
-              <p>Phone number: {profileData.phone_number}</p>
-              <p>Date of birth: {profileData.date_of_birth}</p>
-              <p>Biography: {profileData.biography}</p>
-              <p>tags: {profileData.tags}</p>
-              {profileData.profile_pic && (
-                <img
-                  src={profileData.profile_pic}
-                  alt="Profile pic"
-                  className="h-32 w-32 object-cover rounded-full"
-                />
-              )}
-              <p>Resume: {profileData.resume}</p>
-            </div>
-            <button
-              type="button"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={toggleEdit}
-            >
-              Edit Profile
-            </button>
+          <div>
+            <section class=" relative block h-500-px">
+              <div
+                class="absolute top-0 w-full h-full bg-center bg-cover"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom, rgba(0,0,0,0.4),rgba(0,0,0,0.8)),  url('https://cdni.iconscout.com/illustration/premium/thumb/jobs-2061801-1737083.png?f=webp')",
+                  backgroundSize: "cover",
+                }}
+              ></div>
+
+              <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px">
+                <svg
+                  class="absolute bottom-0 overflow-hidden"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                  version="1.1"
+                  viewBox="0 0 2560 100"
+                  x="0"
+                  y="0"
+                ></svg>
+              </div>
+            </section>
+            <section class="relative py-16 ">
+              <div class="container mx-auto px-4">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-dark w-full mb-6 shadow-xl rounded-lg -mt-64"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0.9), #0D2644)",
+                  }}
+                >
+                  <div class="px-6">
+                    <div class="flex flex-wrap justify-center">
+                      <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                        <div class="relative">
+                          <img
+                            alt="..."
+                            src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=2000"
+                            class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                          />
+                        </div>
+                      </div>
+                      <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+                        <div class="py-6 px-3 mt-32 sm:mt-0"></div>
+                      </div>
+                      <div class="w-full lg:w-4/12 px-4 lg:order-1"></div>
+                    </div>
+                    <div class="text-center mt-12 ">
+                      <h3 class="text-4xl font-semibold leading-normal text-white mb-2 ">
+                        <p className="font-bold">{profileData.full_name}</p>
+                      </h3>
+                      <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-transparent text-white rounded-lg p-4">
+                          <div class="text-sm leading-normal mb-2 font-bold lowercase">
+                            <i class="fas fa-mail-bulk mr-2 text-lg text-white"></i>
+                            <p>Email: {profileData.email_address}</p>
+                          </div>
+                          <div class="mb-2 text-sm leading-normal font-bold lowercase">
+                            <i class="fas fa-phone mr-2 text-lg text-white"></i>
+                            <p>Phone number: {profileData.phone_number}</p>
+                          </div>
+                          <div class="mb-2 text-sm leading-normal font-bold lowercase">
+                            <i class="fas fa-calendar-alt mr-2 text-lg text-white"></i>
+                            <p>Date of birth: {profileData.date_of_birth}</p>
+                          </div>
+                        </div>
+                        <div class="bg-transparent rounded-lg font-bold text-white p-4">
+                          <div class="text-sm leading-normal mb-2  lowercase">
+                            <i class="fas fa-tasks mr-2 text-lg text-white"></i>
+                            <p>Skills: {profileData.skills}</p>
+                          </div>
+                          <div class="mb-2 text-sm leading-normal text-white lowercase">
+                            <i class="fas fa-info-circle mr-2 text-lg text-white"></i>
+                            <p>Biography: {profileData.biography}</p>
+                          </div>
+                          <div class="mb-2 text-sm leading-normal text-white  lowercase">
+                            <i class="fas fa-file-pdf mr-2 text-lg text-white"></i>
+                            <p>Resume: {profileData.resume}</p>
+                          </div>
+                          <button
+                            type="button"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            onClick={toggleEdit}
+                          >
+                            Edit Profile
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       )}
