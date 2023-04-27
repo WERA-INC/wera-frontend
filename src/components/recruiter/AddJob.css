@@ -1,54 +1,46 @@
-/* AddJob.css */
-
 .add-job {
-    margin-top: 50px;
-  }
-  
-  container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form-addjob {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0069d9;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+.add-job h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.add-job .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-job label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-job input,
+.add-job textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-job button {
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-job button:hover {
+  background-color: #0066cc;
+}

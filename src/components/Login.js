@@ -42,6 +42,7 @@ function Login({setUser,setCompany}) {
             setUser(data);
         }else{
             navigate("/admin-dashboard");
+            localStorage.setItem("adminId", JSON.stringify(data.id));
             console.log(data);
         }
         });

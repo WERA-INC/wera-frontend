@@ -9,7 +9,7 @@ import Logo from "../images/Logo5.png";
 const Dashboard = () => {
   const navigator = useNavigate();
   const [summary, setSummary] = useState([]);
-  const [slug, setSlug] = useState('');
+  const [slug, setSlug] = useState("");
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -30,11 +30,49 @@ const Dashboard = () => {
   }, [slug]);
   const [filtered, setFiltered] = useState([]);
   const [keys, setKeys] = useState([]);
+  const[found, setFound]=useState([])
+
+  const [search, setSearch] = useState("");
+  // console.log(profileData);
+  // Updates search words
+  function handleSearch(event) {
+    console.log(event.target.value);
+    setSearch(event.target.value);
+  }
+  // The editor can search for an application since the applications can be many to sort through visually, and applications stored in variable found
+ 
+// if(data.length!==0){
+//   let found = data.filter((element) => {
+//      let val1 = Object.values(element)[0].toLocaleLowerCase();
+//      let val2 = Object.values(element)[1].toLocaleLowerCase();
+//      let val3 = Object.values(element)[2].toLocaleLowerCase();
+//     //  let val2 = element[keys[1]].toLocaleLowerCase();
+//     //  let val3 = element[keys[2]].toLocaleLowerCase();
+  
+
+//      if (search === "") {
+//        return true;
+//      } else if (
+//        val1.includes(search) ||
+//        val2.includes(search) ||
+//        val3.includes(search)
+//      ) {
+//        return element
+//      }
+//    });
+  
+
+// }
+
+  
+//   console.log(found)
+// console.log(data)
+  //  
   //  let { slug } = useParams();
   //  console.log(slug)
 
   //  let keys = data.map((obj)=>{console.log(Object.keys(obj));})
-  //  console.log(keys[0])
+  // console.log(keys[0]);
   useEffect(() => {
     if (data.length > 0) {
       //  console.log(Object.keys(data[0]));
@@ -44,7 +82,7 @@ const Dashboard = () => {
             full_name,
             phone_number,
             email_address,
-            created_at
+            created_at,
           }))(object);
         });
         setFiltered(selected);
@@ -197,8 +235,9 @@ const Dashboard = () => {
         <div
           class="col-end-7 col-span-5  px-5 "
           style={{
-            backgroundImage:
-              "linear-gradient(to top, rgba(0,0,0,0.9),rgba(0,0,0.95,1), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
+            // backgroundImage:
+            //   "linear-gradient(to top, rgba(0, 0, 0, 0.95),rgba(5, 27, 44, 1), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
+            backgroundColor: "rgba(5, 27, 44, 0.1)",
             backgroundSize: "cover",
             minHeight: "100vh",
           }}
@@ -209,7 +248,7 @@ const Dashboard = () => {
               <h2 className="text-gray-200 pt-3">SUMMARY</h2>
               <div class="flex items-center justify-center">
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 p-5 ">
-                  <div class="relative bg-gray-200  py-6 px-6 rounded-3xl w-64 my-4 shadow-xl ">
+                  <div class="relative bg-gray-400  py-6 px-6 rounded-3xl w-64 my-4 shadow-xl ">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -238,7 +277,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -267,7 +306,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -295,7 +334,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -331,7 +370,7 @@ const Dashboard = () => {
               <div class="container px-4 sm:px-8">
                 <div class="py-8">
                   <div>
-                    <h2 class="text-2xl font-semibold leading-tight uppercase">
+                    <h2 class="text-2xl text-blue-950 font-semibold leading-tight uppercase">
                       {slug == "profiles"
                         ? "Job Seekers"
                         : slug == "opportunities"
@@ -339,42 +378,61 @@ const Dashboard = () => {
                         : slug}
                     </h2>
                   </div>
-                  {/* <div class="my-2 flex sm:flex-row flex-col">
-                    <div class="block relative">
-                      <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
-                        <svg
-                          viewBox="0 0 24 24"
-                          class="h-4 w-4 fill-current text-gray-500"
-                        >
-                          <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
-                        </svg>
-                      </span>
+                  <div class="my-3 px-10 w-2/3 mx-auto">
+                    <div class="relative mb-4 flex w-full flex-wrap items-stretch">
                       <input
-                        placeholder="Search"
-                        class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
+                        type="search"
+                        class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg- bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                        placeholder="Search "
+                        aria-label="Search"
+                        aria-describedby="button-addon1"
+                        value={search}
+                        onChange={handleSearch}
                       />
+
+                      <button
+                        class="relative z-[2] flex items-center rounded-r  px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg "
+                        style={{ backgroundColor: "#0D2644" }}
+                        type="button"
+                        id="button-addon1"
+                        data-te-ripple-init
+                        data-te-ripple-color="light"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
                     </div>
-                  </div> */}
+                  </div>
                   <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                       <table class="min-w-full leading-normal">
                         <thead>
                           <tr>
                             {keys.map((key) => (
-                              <th class="px-3 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600 capitalize tracking-wider">
+                              <th class="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-white capitalize tracking-wider">
                                 {key.split("_").length > 1
                                   ? key.split("_").join(" ")
                                   : key}
                               </th>
                             ))}
-                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                               Action
                             </th>
                           </tr>
                         </thead>
                         <tbody>
                           {filtered.map((val) => {
-                            return <Tabledata val={val} />;
+                            return <Tabledata val={val} slug={slug}/>;
                           })}
                         </tbody>
                       </table>
