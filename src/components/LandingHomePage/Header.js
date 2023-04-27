@@ -18,7 +18,7 @@ const Header = () => {
       <div class=" text-white pb-10">
         <div class="container mx-auto flex flex-col md:flex-row items-center">
           <div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
-            <h1 class="text-5xl md:text-7xl p-2 text-blue-200 tracking-loose">
+            <h1 class="text-5xl md:text-5xl p-2 text-blue-200 tracking-loose">
               /WE-RA
             </h1>
             <h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
@@ -38,7 +38,6 @@ const Header = () => {
               }}
             >
               Get Started
-              Get started
 
             </a>
           </div>
