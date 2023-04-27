@@ -419,13 +419,13 @@ const Dashboard = () => {
                         <thead>
                           <tr>
                             {keys.map((key) => (
-                              <th class="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-white capitalize tracking-wider">
+                              <th class="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-gray-950 capitalize tracking-wider">
                                 {key.split("_").length > 1
                                   ? key.split("_").join(" ")
                                   : key}
                               </th>
                             ))}
-                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-950 uppercase tracking-wider">
                               Action
                             </th>
                           </tr>
