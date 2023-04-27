@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './JobListing.css';
 
 const JobListing = () => {
+  const [applicants, setApplicants] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/applicants')
+      .then(response => response.json())
+      .then(data => setApplicants(data))
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div>
       <div className="applicants-section-container">
@@ -16,36 +27,13 @@ const JobListing = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>8/15/17</td>
-                <td>Courtney Kimani</td>
-                <td><a href="#">View</a></td>
-              </tr>
-              <tr>
-                <td>8/15/17</td>
-                <td>Billy Clinton</td>
-                <td><a href="#">View</a></td>
-              </tr>
-              <tr>
-                <td>8/15/17</td>
-                <td>Risper Aluoch</td>
-                <td><a href="#">View</a></td>
-              </tr>
-              <tr>
-                <td>8/15/17</td>
-                <td>Bill Simons</td>
-                <td><a href="#">View</a></td>
-              </tr>
-              <tr>
-                <td>8/15/17</td>
-                <td>Edgar Obare</td>
-                <td><a href="#">View</a></td>
-              </tr>
-              <tr>
-                <td>8/15/17</td>
-                <td>Reese Witherspoon</td>
-                <td><a href="#">View</a></td>
-              </tr>
+              {applicants.map(applicant => (
+                <tr key={applicant.id}>
+                  <td>{applicant.date}</td>
+                  <td>{applicant.name}</td>
+                  <td><a href="#">View</a></td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -54,5 +42,4 @@ const JobListing = () => {
   )
 }
 
-export default JobListing
-
+export default JobListing;
