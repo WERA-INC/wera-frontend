@@ -38,7 +38,7 @@ const Header = () => {
               }}
             >
               Get Started
-              Get started
+              
 
             </a>
           </div>
