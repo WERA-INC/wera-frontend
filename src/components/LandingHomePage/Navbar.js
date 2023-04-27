@@ -21,16 +21,16 @@ const Navbar = () => {
          
         </ul>
         <div className="md:block hidden text-white" style={{fontSize:"20px"}}>
-        <NavLinks />
+        {/* <NavLinks /> */}
         </div>
-        {/* Mobile nav */}
+        
         <ul
           className={`
         md:hidden bg-black fixed w-full text-white top-0 overflow-y-auto bottom-0 py-24 pl-4
         duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}
         >
-          <NavLinks />
+          {/* <NavLinks /> */}
           <div className="py-5">
             <Button />
           </div>

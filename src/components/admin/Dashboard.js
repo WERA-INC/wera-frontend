@@ -248,7 +248,7 @@ const Dashboard = () => {
               <h2 className="text-gray-200 pt-3">SUMMARY</h2>
               <div class="flex items-center justify-center">
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 p-5 ">
-                  <div class="relative bg-gray-200  py-6 px-6 rounded-3xl w-64 my-4 shadow-xl ">
+                  <div class="relative bg-gray-400  py-6 px-6 rounded-3xl w-64 my-4 shadow-xl ">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +277,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -306,7 +306,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -334,7 +334,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div class="relative bg-gray-200 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div class="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
                     <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -419,20 +419,20 @@ const Dashboard = () => {
                         <thead>
                           <tr>
                             {keys.map((key) => (
-                              <th class="px-3 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-600 capitalize tracking-wider">
+                              <th class="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-white capitalize tracking-wider">
                                 {key.split("_").length > 1
                                   ? key.split("_").join(" ")
                                   : key}
                               </th>
                             ))}
-                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                               Action
                             </th>
                           </tr>
                         </thead>
                         <tbody>
                           {filtered.map((val) => {
-                            return <Tabledata val={val} />;
+                            return <Tabledata val={val} slug={slug}/>;
                           })}
                         </tbody>
                       </table>
