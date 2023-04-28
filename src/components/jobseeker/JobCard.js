@@ -12,13 +12,13 @@ const JobCard = () => {
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
     const adminId = localStorage.getItem("adminId");
-    if(jsId){
-      console.log("js is present")
-    }else if(adminId){
-      console.log("admin is present")
-    }
+    // if(jsId){
+    //   console.log("js is present")
+    // }else if(adminId){
+    //   console.log("admin is present")
+    // }
 
-    console.log(jsId);
+    // console.log(jsId);
     setProfileId(jsId);
   }, []);
  
@@ -119,7 +119,7 @@ const JobCard = () => {
                 class="relative overflow-hidden bg-cover bg-no-repeat"
                 style={{
                   backgroundImage:
-                    "linear-gradient(to bottom, rgba(0,0,0,0.4),rgba(0,0,0.95,0.4), #051b2c), url(https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150266863.jpg?size=626&ext=jpg)",
+                    "linear-gradient(to bottom, rgba(5, 27, 44, 0.9),rgba(5, 27, 44, 0.95), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
                   backgroundSize: "cover",
                   minHeight: "20vh",
                 }}
@@ -127,9 +127,7 @@ const JobCard = () => {
                 <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed">
                   <div class="flex h-full items-center justify-center">
                     <div class="px-6 text-center text-white md:px-12">
-                      <h1 class="mb-6 text-5xl font-bold">
-                        
-                      </h1>
+                      <h1 class="mb-6 text-5xl font-bold"></h1>
                     </div>
                   </div>
                 </div>
@@ -180,7 +178,12 @@ const JobCard = () => {
                 <div className="w-3/4 mx-auto mt-20">
                   <div
                     class="max-w-sm rounded overflow-hidden shadow-lg text-white relative"
-                    style={{ backgroundColor: "#0D2644" }}
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to bottom, rgba(5, 27, 44, 0.95),rgba(5, 27, 44, 1), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
+                      backgroundSize: "cover",
+                      minHeight: "20vh",
+                    }}
                   >
                     <div class="px-6 py-4 ">
                       <div class="">

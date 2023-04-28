@@ -1,13 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { TickIcon } from "../icons";
 
 const JobAppliedCard = ({ application }) => {
   const navigator=useNavigate()
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
-  console.log(application);
+  // console.log(application);
   return (
     <div
-      class="rounded p-3 cursor-pointer bg-blue-800 bg-opacity-20"
+      class="rounded p-3 cursor-pointer text-white bg-opacity-20"
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom, rgba(5, 27, 44, 0.95),rgba(5, 27, 44, 1), #051b2c), url(https://images.pexels.com/photos/3184589/pexels-photo-3184589.jpeg?auto=compress&cs=tinysrgb&w=600)",
+        backgroundSize: "cover",
+        minHeight: "20vh",
+      }}
       onClick={() => {
         navigator(`/jobs/${application.opportunity.id}`);
       }}
@@ -34,7 +41,7 @@ const JobAppliedCard = ({ application }) => {
       </div>
       <div class="pe-3 py-2">
         <div class="flex-grow sm:text-left sm:mt-0">
-          <h1 class="text-black text-2xl title-font text-center font-bold">
+          <h1 class="text-2xl title-font text-center font-bold">
             {application.title}
           </h1>
           <div class="mb-4 bg-gray-600 h-[1px]"></div>
@@ -42,41 +49,13 @@ const JobAppliedCard = ({ application }) => {
           <div class="py-1 mb-2">
             <div class=" inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                <svg
-                  class="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+                <TickIcon/>
                 <p class="title-font font-medium">{application.company_name}</p>
               </div>
             </div>
             <div class="inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                <svg
-                  class="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+              <TickIcon/>
                 <p class="title-font font-medium">
                   {application.created_at.split("T")[0]}
                 </p>
@@ -84,21 +63,7 @@ const JobAppliedCard = ({ application }) => {
             </div>
             <div class=" inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                <svg
-                  class="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+                <TickIcon/>
                 <p class="title-font font-medium">
                   {application.opportunity.job_type}
                 </p>
@@ -106,21 +71,7 @@ const JobAppliedCard = ({ application }) => {
             </div>
             <div class=" inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                <svg
-                  class="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+                <TickIcon/>
                 <p class="title-font font-medium">
                   {application.opportunity.estimated_salary}
                 </p>

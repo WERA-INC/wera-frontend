@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { TickIcon } from "../icons";
 
 const JobCardLandingPg = ({ job }) => {
   const navigator = useNavigate();
@@ -10,7 +11,6 @@ const JobCardLandingPg = ({ job }) => {
     <div
       class="py-3 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col shadow-2xl"
       onClick={() => {
-        
         navigator(`/jobs/${job.id}`);
       }}
     >
@@ -40,61 +40,19 @@ const JobCardLandingPg = ({ job }) => {
         <div class="py-1 mb-2">
           <div class=" inline-block mr-2">
             <div class="flex  pr-2 h-full items-center">
-              <svg
-                class="text-blue-300 w-6 h-6 mr-1"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <circle cx="12" cy="12" r="9" />
-                <path d="M9 12l2 2l4 -4" />
-              </svg>
+              <TickIcon/>
               <p class="title-font font-medium">{job.employer.company_name}</p>
             </div>
           </div>
           <div class="inline-block mr-2">
             <div class="flex  pr-2 h-full items-center">
-              <svg
-                class="text-blue-300 w-6 h-6 mr-1"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <circle cx="12" cy="12" r="9" />
-                <path d="M9 12l2 2l4 -4" />
-              </svg>
+              <TickIcon/>
               <p class="title-font font-medium">{job.job_type}</p>
             </div>
           </div>
           <div class=" inline-block mr-2">
             <div class="flex  pr-2 h-full items-center">
-              <svg
-                class="text-blue-300 w-6 h-6 mr-1"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <circle cx="12" cy="12" r="9" />
-                <path d="M9 12l2 2l4 -4" />
-              </svg>
+              <TickIcon/>
               <p class="title-font font-medium">{job.estimated_salary}</p>
             </div>
           </div>
