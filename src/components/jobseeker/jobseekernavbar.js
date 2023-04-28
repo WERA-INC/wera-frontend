@@ -1,9 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../images/Logo5.png";
 import { ProfileIcon } from "../icons";
 
-const JobseekerNavbar = ({name}) => {
+const JobseekerNavbar = ({ name }) => {
   const navigator = useNavigate();
   return (
     <nav style={{ backgroundColor: "#0D2644" }}>
@@ -54,7 +53,7 @@ const JobseekerNavbar = ({name}) => {
               {/* <img className="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/>
           <img className="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/> */}
               <img
-                src={Logo}
+                src={"/images/Logo5.png"}
                 alt="wera"
                 href="/landingpage"
                 className="md:cursor-pointer h-12 "

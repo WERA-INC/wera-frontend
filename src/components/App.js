@@ -8,7 +8,8 @@ import GuestSignIn from "./guest/pages/sign-in";
 import GuestSignUp from "./guest/pages/sign-up";
 
 // jobseeker
-// import JobseekerLandingPage from "./jobseeker/JobseekerLandingPage";
+import JobSeeker from "../components/jobseeker";
+import JobSeekerLanding from "./jobseeker/pages";
 // import JobsApplied from "./jobseeker/JobsApplied";
 // import JobCard from "./jobseeker/JobCard";
 // import JobseekerNavbar from "./jobseeker/JobseekerNavbar";
@@ -37,6 +38,24 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <GuestLanding />,
+      },
+      {
+        path: "/sign-in",
+        element: <GuestSignIn />,
+      },
+      {
+        path: "/sign-up",
+        element: <GuestSignUp />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <JobSeeker/>,
+    children: [
+      {
+        path: "/jobseeker",
+        element: <JobSeekerLanding />,
       },
       {
         path: "/sign-in",

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import JobAppliedCard from "./JobAppliedCard";
-import JobseekerNavbar from "./JobseekerNavbar";
+import JobAppliedCard from "./jobsappliedcard";
+import JobseekerNavbar from "./jobseekernavbar";
 import { searchIcon } from "../icons";
 
 const JobsApplied = ({ jobseeker }) => {

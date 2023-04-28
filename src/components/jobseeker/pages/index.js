@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import JobseekerNavbar from "./JobseekerNavbar";
-import "./Jobseeker.css";
-import JobCardLandingPg from "./JobCardLandingPg";
+import JobseekerNavbar from "../jobseekernavbar";
+import "../Jobseeker.css";
+import JobCardLandingPg from "../jobcardlanding";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import JobsApplied from "./JobsApplied";
-import Navbar from "../LandingHomePage/Navbar";
-import Footer from "../LandingHomePage/Footer";
-import { rightArrowIcon, searchIcon } from "../icons";
+import JobsApplied from "../jobsapplied";
+// import Navbar from "../LandingHomePage/Navbar";
+import Footer from "../../guest/footer";
+import { rightArrowIcon, searchIcon } from "../../icons";
 
 const JobseekerLandingPage = ({ jobseeker }) => {
   // const [user, setUser]=useState(jobseeker)
