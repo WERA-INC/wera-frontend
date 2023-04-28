@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { tickIcon } from "../icons";
+import { TickIcon } from "../icons";
 
 const JobCardLandingPg = ({ job }) => {
   const navigator = useNavigate();
@@ -40,19 +40,19 @@ const JobCardLandingPg = ({ job }) => {
         <div class="py-1 mb-2">
           <div class=" inline-block mr-2">
             <div class="flex  pr-2 h-full items-center">
-              {tickIcon}
+              <TickIcon/>
               <p class="title-font font-medium">{job.employer.company_name}</p>
             </div>
           </div>
           <div class="inline-block mr-2">
             <div class="flex  pr-2 h-full items-center">
-              {tickIcon}
+              <TickIcon/>
               <p class="title-font font-medium">{job.job_type}</p>
             </div>
           </div>
           <div class=" inline-block mr-2">
             <div class="flex  pr-2 h-full items-center">
-              {tickIcon}
+              <TickIcon/>
               <p class="title-font font-medium">{job.estimated_salary}</p>
             </div>
           </div>

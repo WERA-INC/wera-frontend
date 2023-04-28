@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { tickIcon } from "../icons";
+import { TickIcon } from "../icons";
 
 const JobAppliedCard = ({ application }) => {
   const navigator=useNavigate()
@@ -49,13 +49,13 @@ const JobAppliedCard = ({ application }) => {
           <div class="py-1 mb-2">
             <div class=" inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                {tickIcon}
+                <TickIcon/>
                 <p class="title-font font-medium">{application.company_name}</p>
               </div>
             </div>
             <div class="inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                {tickIcon}
+              <TickIcon/>
                 <p class="title-font font-medium">
                   {application.created_at.split("T")[0]}
                 </p>
@@ -63,7 +63,7 @@ const JobAppliedCard = ({ application }) => {
             </div>
             <div class=" inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                {tickIcon}
+                <TickIcon/>
                 <p class="title-font font-medium">
                   {application.opportunity.job_type}
                 </p>
@@ -71,7 +71,7 @@ const JobAppliedCard = ({ application }) => {
             </div>
             <div class=" inline-block mr-2">
               <div class="flex  pr-2 h-full items-center">
-                {tickIcon}
+                <TickIcon/>
                 <p class="title-font font-medium">
                   {application.opportunity.estimated_salary}
                 </p>
