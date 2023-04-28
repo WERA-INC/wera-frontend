@@ -18,11 +18,7 @@ const Tabledata = ({ val, slug }) => {
             </p>
           </td>
         );
-      })}
-
-      {/* <td>{values[1]}</td>
-      <td>Clinton</td>
-      <td>ICT</td> */}
+      })}    
       <td class="px-3 py-3 border-y-4 border-gray-950 dashboard-row text-white text-sm ">
         <label class="relative inline-flex items-center cursor-pointer">
           <input type="checkbox" value="" class="sr-only peer"  />
