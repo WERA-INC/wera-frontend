@@ -87,18 +87,17 @@ const Experience = () => {
   return (
     <>
       {isAddingExpereince ? (
-        <section class="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
-           <form
-              onSubmit={handleAddExperience}
-              className="bg-dark text-white  rounded  mt-2"
-              style={{
-                background:
-                  "linear-gradient(to left, rgba(0,0,0,0.7), rgba(0,0,0,0.9), #0D2644)",
-                  padding: "70px",
-              }}
-           
-            >
-                 <h3 className="top-1 ">New Experience</h3>
+        <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
+          <form
+            onSubmit={handleAddExperience}
+            className="bg-dark text-white  rounded  mt-2"
+            style={{
+              background:
+                "linear-gradient(to left, rgba(0,0,0,0.7), rgba(0,0,0,0.9), #0D2644)",
+              padding: "70px",
+            }}
+          >
+            <h3 className="top-1 ">New Experience</h3>
             <div className="mb-4">
               <label className="block font-bold">Year:</label>
               <input
@@ -131,7 +130,6 @@ const Experience = () => {
             </div>
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-
               type="submit"
             >
               Add
@@ -168,33 +166,32 @@ const Experience = () => {
                   Job Description:{experience.job_description}
                 </p>
                 <div className="flex justify-center p-2 mt-4">
-                <button
-                        class="inline-flex items-center px-2 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
-                        onClick={() => handleDeleteExperience(experience.id)}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 mr-2"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                          />
-                        </svg>
-                        Delete
-                      </button>
+                  <button
+                    className="inline-flex items-center px-2 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
+                    onClick={() => handleDeleteExperience(experience.id)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                      />
+                    </svg>
+                    Delete
+                  </button>
                   <button
                     className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
                     onClick={toggleEdit}
                   >
                     Edit
                   </button>
-
                 </div>
               </div>
             ))}

@@ -22,9 +22,9 @@ export default DashboardSelection
 //      </nav>
 //    </div>
 
-//    <div class="row">
-//      <div class="col-md-4 col-sm-6 offset-md-8 ">
-//        <div class="card">
+//    <div className="row">
+//      <div className="col-md-4 col-sm-6 offset-md-8 ">
+//        <div className="card">
 //          <div className="d-flex align-items-center justify-content-between brown px-3">
 //            <div className="text-light">
 //              <h1 className="display-1">{data.length}</h1>
@@ -36,7 +36,7 @@ export default DashboardSelection
 //                  : slug}
 //              </h3>
 //            </div>
-//            <i class="bi bi-people-fill dashboard_icons text-light"></i>
+//            <i className="bi bi-people-fill dashboard_icons text-light"></i>
 //          </div>
 //        </div>
 //      </div>
@@ -53,24 +53,24 @@ export default DashboardSelection
 //            : slug}
 //        </span>
 
-//        <i class="bi bi-people-fill h3"></i>
+//        <i className="bi bi-people-fill h3"></i>
 //      </div>
 //      <div>
-//        <div class="input-group rounded">
+//        <div className="input-group rounded">
 //          <input
 //            type="search"
-//            class="form-control rounded"
+//            className="form-control rounded"
 //            placeholder="Search"
 //            aria-label="Search"
 //            aria-describedby="search-addon"
 //          />
-//          <span class=" border-0" id="search-addon">
-//            <i class="fas fa-search p-2"></i>
+//          <span className=" border-0" id="search-addon">
+//            <i className="fas fa-search p-2"></i>
 //          </span>
 //        </div>
 //      </div>
 //    </div>
-//    <table class="table">
+//    <table className="table">
 //      <thead className="blue">
 //        <tr className="text-light text-left">
 

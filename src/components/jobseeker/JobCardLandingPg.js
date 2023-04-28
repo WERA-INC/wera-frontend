@@ -9,12 +9,12 @@ const JobCardLandingPg = ({ job }) => {
 
   return (
     <div
-      class="py-3 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col shadow-2xl"
+      className="py-3 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col shadow-2xl"
       onClick={() => {
         navigator(`/jobs/${job.id}`);
       }}
     >
-      <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
+      <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
         {job.employer.company_logo ? (
           <img
             src={job.employer.company_logo}
@@ -34,37 +34,83 @@ const JobCardLandingPg = ({ job }) => {
           </h1>
         )}
       </div>
-      <div class="flex-grow sm:text-left sm:mt-0">
-        <h1 class="text-black text-2xl title-font font-bold">{job.title}</h1>
+      <div className="flex-grow sm:text-left sm:mt-0">
+        <h1 className="text-black text-2xl title-font font-bold">
+          {job.title}
+        </h1>
 
-        <div class="py-1 mb-2">
-          <div class=" inline-block mr-2">
-            <div class="flex  pr-2 h-full items-center">
-              <TickIcon/>
-              <p class="title-font font-medium">{job.employer.company_name}</p>
+        <div className="py-1 mb-2">
+          <div className=" inline-block mr-2">
+            <div className="flex  pr-2 h-full items-center">
+              <svg
+                className="text-blue-300 w-6 h-6 mr-1"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 12l2 2l4 -4" />
+              </svg>
+              <p className="title-font font-medium">
+                {job.employer.company_name}
+              </p>
             </div>
           </div>
-          <div class="inline-block mr-2">
-            <div class="flex  pr-2 h-full items-center">
-              <TickIcon/>
-              <p class="title-font font-medium">{job.job_type}</p>
+          <div className="inline-block mr-2">
+            <div className="flex  pr-2 h-full items-center">
+              <svg
+                className="text-blue-300 w-6 h-6 mr-1"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 12l2 2l4 -4" />
+              </svg>
+              <p className="title-font font-medium">{job.job_type}</p>
             </div>
           </div>
-          <div class=" inline-block mr-2">
-            <div class="flex  pr-2 h-full items-center">
-              <TickIcon/>
-              <p class="title-font font-medium">{job.estimated_salary}</p>
+          <div className=" inline-block mr-2">
+            <div className="flex  pr-2 h-full items-center">
+              <svg
+                className="text-blue-300 w-6 h-6 mr-1"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 12l2 2l4 -4" />
+              </svg>
+              <p className="title-font font-medium">{job.estimated_salary}</p>
             </div>
           </div>
         </div>
-        <div class="md:flex font-bold text-gray-800">
-          <p class="leading-relaxed text-sm">{job.description_summary}</p>
+        <div className="md:flex font-bold text-gray-800">
+          <p className="leading-relaxed text-sm">{job.description_summary}</p>
         </div>
       </div>
     </div>
 
     // <div
-    //   class="card js-card mb-4"
+    //   className="card js-card mb-4"
     //   style={{ width: 800 }}
     //   onClick={() => {
     //     navigator(`/jobs/${job.id}`);

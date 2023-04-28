@@ -1,6 +1,6 @@
+import { links } from "./MyLinks";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { links } from "./MyLinks";
 
 const NavLinks = () => {
   const [heading, setHeading] = useState("");
@@ -38,20 +38,21 @@ const NavLinks = () => {
                     mt-1 bg-transparent rotate-45"
                     ></div>
                   </div>
-                  <div className="p-3 grid grid-cols-1 gap-10"
-                  style={{backgroundColor:"#0D2644", listStyle:"none"}}>
+                  <div
+                    className="p-3 grid grid-cols-1 gap-10"
+                    style={{ backgroundColor: "#0D2644", listStyle: "none" }}
+                  >
                     {link.sublinks.map((mysublinks) => (
                       <div>
-                        <h1  className="text-sm font-semibold" >
+                        <h1 className="text-sm font-semibold">
                           {mysublinks.Head}
                         </h1>
                         {mysublinks.sublink.map((slink) => (
                           <li className="text-sm text-gray-600 my-2.5">
                             <Link
                               to={slink.link}
-
                               className="text-white hover:text-primary"
-                              style={{textDecoration:"none"}}
+                              style={{ textDecoration: "none" }}
                             >
                               {slink.name}
                             </Link>
@@ -100,7 +101,10 @@ const NavLinks = () => {
                     }`}
                   >
                     {slinks.sublink.map((slink) => (
-                      <li className="py-3 text-white pl-9" style={{textDecoration:"none"}}>
+                      <li
+                        className="py-3 text-white pl-9"
+                        style={{ textDecoration: "none" }}
+                      >
                         <Link to={slink.link}>{slink.name}</Link>
                       </li>
                     ))}

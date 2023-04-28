@@ -12,8 +12,8 @@ const Tabledata = ({ val, slug }) => {
     >
       {values.map((value) => {
         return (
-          <td class="px-3 py-3 border-y-4 border-gray-950 dashboard-row text-white text-sm mb-1 cursor-pointer">
-            <p class="whitespace-no-wrap">
+          <td className="px-3 py-3 border-y-4 border-gray-950 dashboard-row text-white text-sm mb-1 cursor-pointer">
+            <p className="whitespace-no-wrap">
               {values[3] == value ? value.split("T")[0] : value}
             </p>
           </td>

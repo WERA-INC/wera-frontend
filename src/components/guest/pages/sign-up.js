@@ -1,26 +1,24 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import SignupImg from "./images/signup.jpg";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function Register({ setStoredToken }) {
   const navigate = useNavigate();
 
+  const [errors, setErrors] = useState([]);
+  const [searchParams, _] = useSearchParams();
   const [fullName, setFullName] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-   const [errors, setErrors] = useState([]);
 
   const signUpFunctionality = (e) => {
     e.preventDefault();
     let formData = {
+      password: password,
       full_name: fullName,
       email_address: emailAddress,
-      password: password,
       password_confirmation: confirmPassword,
-      user_type: userType,
+      user_type: searchParams.get("user-type"),
     };
     // console.log(formData);
     fetch("http://localhost:3000/signup", {
@@ -29,98 +27,78 @@ function Register({ setStoredToken }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if(response.ok){
-          response.json().then(data=>{
-            console.log(data);
-            navigate('/login')
-          })
-        }else{
-          response.json().then((err) => setErrors(err.errors));
-        }
-      })
+    }).then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          console.log(data);
+          navigate("/login");
+        });
+      } else {
+        response.json().then((err) => setErrors(err.errors));
+      }
+    });
   };
 
   return (
-    <div className="maincontainer p-3">
-      <div class="container">
-        <div class="row no-gutter">
-          <div class="col-md-7 d-none d-md-block bg-image me-2">
-            <img className="" src={SignupImg} alt="" />
+    <main className="container px-3 py-16">
+      <div className="container">
+        <div className="row no-gutter">
+          <div className="col-md-7 d-none d-md-block me-2">
+            <img className="" src={"/images/signup.jpg"} alt="" />
           </div>
 
-          <div class="col-md-4 bg-light bg-image">
-            <div class="login py-3">
-              <div class="col-lg-12 col-xl-10 mx-auto">
-                <h4 class="display-6">WELCOME TO WERA</h4>
-                <p class="text-muted mb-4">Create an account</p>
+          <div className="col-md-4 bg-light">
+            <div className="login py-3">
+              <div className="col-lg-12 col-xl-10 mx-auto">
+                <h4 className="display-6">WELCOME TO WERA</h4>
+                <p className="text-muted mb-4">Create an account</p>
                 <form onSubmit={signUpFunctionality} novalidate>
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <input
                       id="inputText"
                       onChange={(e) => setFullName(e.target.value)}
                       type="text"
                       placeholder="Full Name"
                       autofocus=""
-                      class="form-control rounded-pill border-0 shadow-sm px-4"
+                      className="form-control rounded-pill border-0 shadow-sm px-4"
                       required
                     />
                   </div>
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <input
                       id="inputEmail"
                       onChange={(e) => setEmailAddress(e.target.value)}
                       type="email"
                       placeholder="Email Address"
-                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      className="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
                       required
                     />
                   </div>
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <input
                       id="inputPassword"
                       onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       placeholder="Password"
-                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      className="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
                       required
                     />
                   </div>
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <input
                       id="inputPassword"
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       type="password"
                       placeholder="Confirm Password"
-                      class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                      className="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
                       required
                     />
                   </div>
-                  <div className="form-group col-12">
-                    <label
-                      htmlFor="usertype"
-                      className="text-start text-primary"
-                    >
-                      Who are you?
-                    </label>
-                    <select
-                      id="users"
-                      name="users"
-                      class="form-control rounded-pill border-0 shadow-sm px-4"
-                      onChange={(e) => setUserType(e.target.value)}
-                    >
-                      <option selected>Select</option>
-                      <option>Jobseeker</option>
-                      <option>Employer</option>
-                    </select>
-                  </div>
-                  <div class="d-grid gap-2 mt-3">
-                   
 
+                  <div className="d-grid gap-2 mt-3">
                     <button
                       type="submit"
-                      class="btn btn-primary btn-block text-uppercase rounded-pill shadow-sm"
+                      className="px-6 py-3 bg-[#143C66] text-white btn-block text-uppercase rounded-pill shadow-sm"
                     >
                       Sign up
                     </button>
@@ -136,7 +114,7 @@ function Register({ setStoredToken }) {
                     <span>
                       Already have an account?
                       <span
-                      style={{"cursor":"pointer"}}
+                        style={{ cursor: "pointer" }}
                         onClick={() => {
                           navigate(`/login`);
                         }}
@@ -152,7 +130,7 @@ function Register({ setStoredToken }) {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
