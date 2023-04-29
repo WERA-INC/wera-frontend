@@ -212,7 +212,7 @@ const Dashboard = () => {
               <div
                 className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
-                  navigator("/login");
+                  navigator("/sign-up");
                 }}
               >
                 <i className="bi bi-box-arrow-in-right"></i>
@@ -308,7 +308,7 @@ const Dashboard = () => {
               <div className="container px-4 sm:px-8">
                 <div className="py-8">
                   <div>
-                    <h2 className="text-2xl text-blue-950 font-semibold leading-tight uppercase">
+                    <h2 className="text-2xl text-blue-950 font-semibold leading-tight text-center uppercase">
                       {slug == "profiles"
                         ? "Job Seekers"
                         : slug == "opportunities"
