@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import JobAppliedCard from "./jobsappliedcard";
-import JobseekerNavbar from "./jobseekernavbar";
-import { searchIcon } from "../icons";
+import JobAppliedCard from "../jobsappliedcard";
+import JobseekerNavbar from "../jobseekernavbar";
+import { searchIcon } from "../../icons";
 
 const JobsApplied = ({ jobseeker }) => {
   //  const [id, setId] = useState(jobseeker.id);
@@ -51,7 +51,7 @@ const JobsApplied = ({ jobseeker }) => {
   return (
     <>
       <div>
-        <JobseekerNavbar />
+       
         <div className="container">
           <div className="my-3 px-10 w-1/2 mx-auto">
             <div className="relative mb-4 flex w-full flex-wrap items-stretch">

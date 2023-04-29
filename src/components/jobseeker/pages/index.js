@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import JobseekerNavbar from "../jobseekernavbar";
 import "../Jobseeker.css";
-import JobCardLandingPg from "../jobcardlanding";
+import JobCardLandingPg from "./jobscard";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import JobsApplied from "../jobsapplied";
+import JobsApplied from "./jobsapplied";
 // import Navbar from "../LandingHomePage/Navbar";
 import { rightArrowIcon, searchIcon } from "../../icons";
 
@@ -100,7 +100,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
   return (
     <>
       <div>
-        <JobseekerNavbar />
+     
 
         <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
           <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">

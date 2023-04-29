@@ -1,12 +1,12 @@
-import JobseekerNavbar from "./jobseekernavbar";
+
 import Footer from "../guest/footer"
 import React, { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
-const JobSeeker = () => {
+const Admin = () => {
   return (
     <Fragment>
-      <JobseekerNavbar />
+     
       
       <Outlet />
 
@@ -15,4 +15,4 @@ const JobSeeker = () => {
   );
 };
 
-export default JobSeeker;
+export default Admin;
