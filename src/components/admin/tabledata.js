@@ -1,7 +1,6 @@
 import React from "react";
 
 const Tabledata = ({ val, slug }) => {
-  // console.log(val);
   let values = Object.values(val);
   return (
     <tr
@@ -30,13 +29,4 @@ const Tabledata = ({ val, slug }) => {
 };
 
 export default Tabledata;
-// {
-//   values[0] !== undefined
-//     ? null
-//     : values[4] == value
-//     ? value.split("T")[0]
-//     : value;
-// }
-// if (slug == "opportunities") {
-//   navigator(`/jobs/${values[0]}`);
-// }
+

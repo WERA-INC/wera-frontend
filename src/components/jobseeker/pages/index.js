@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from "react";
-import JobseekerNavbar from "../jobseekernavbar";
 import "../Jobseeker.css";
 import JobCardLandingPg from "./jobscard";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import JobsApplied from "./jobsapplied";
-// import Navbar from "../LandingHomePage/Navbar";
 import { RightArrowIcon, SearchIcon } from "../../icons";
 
-const JobseekerLandingPage = ({ jobseeker }) => {
-  // const [user, setUser]=useState(jobseeker)
-  // console.log(jobseeker);
+const JobseekerLandingPage = () => {
   const [id, setId] = useState(null);
   const navigator = useNavigate();
-  useEffect(() => {
-    const jsId = localStorage.getItem("jobseekerId");
-    console.log(jsId);
-    setId(jsId);
-  }, []);
-  // const id = 1;
   const [profileData, setProfileData] = useState([]);
   const [jobs, setJobs] = useState([]);
   const [AllJobs, setAllJobs] = useState([]);
   const [tags, setTags] = useState([]);
   const [filteredTag, setFilteredTag] = useState("All");
+  const [search, setSearch] = useState("");
+  useEffect(() => {
+    const jsId = localStorage.getItem("jobseekerId");
+    console.log(jsId);
+    setId(jsId);
+  }, []);
+
   let applications = profileData.applications;
   useEffect(() => {
     if (id !== null) {
@@ -37,6 +34,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
       });
     }
   }, [id]);
+
   useEffect(() => {
     if (AllJobs.length > 0) {
       let result = AllJobs.filter(
@@ -46,11 +44,10 @@ const JobseekerLandingPage = ({ jobseeker }) => {
     }
   }, [AllJobs]);
 
-  const [search, setSearch] = useState("");
-
   function handleSearch(event) {
     setSearch(event.target.value);
   }
+
   useEffect(() => {
     if (filteredTag == "All" && profileData["id"] !== undefined) {
       console.log("all");
@@ -70,14 +67,9 @@ const JobseekerLandingPage = ({ jobseeker }) => {
           setAllJobs(tag.opportunities);
         }
       });
-      // console.log(filteredTag);
-      // console.log(opps);
-      // setAllJobs(opps);
     }
   }, [profileData, filteredTag]);
-  console.log(profileData.full_name);
 
-  // The editor can search for an job since the jobs can be many to sort through visually, and jobs stored in variable found
   let found = jobs.filter((job) => {
     let jobName = job.title.toLocaleLowerCase();
     let jobCompany = job.employer.company_name.toLocaleLowerCase();
@@ -96,7 +88,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
   function handleFilter(selected) {
     setFilteredTag(selected);
   }
-  console.log(profileData.full_name);
+
   return (
     <>
       <div>
@@ -104,7 +96,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
           <div className="col-span-2">
             {profileData.full_name !== undefined ? (
               <h5
-                className="text-left text-gray-900 text-center 
+                className="text-left text-gray-900 text-center
             py-2"
               >
                 Hello, {profileData.full_name}
@@ -258,10 +250,6 @@ const JobseekerLandingPage = ({ jobseeker }) => {
           </div>
         </div>
       </div>
-      {/* <div className="grid grid-cols-8">
-        <div className="bg-pink-600 col-span-2">one</div>
-        <div className="bg-blue-600 col-span-6">two</div>
-      </div> */}
 
       <Routes>
         <Route path="/jobsapplied" element={<JobsApplied />} />
@@ -271,101 +259,3 @@ const JobseekerLandingPage = ({ jobseeker }) => {
 };
 
 export default JobseekerLandingPage;
-{
-  /* <div className="row mt-5 ps-2">
-          <div className="col-3">
-            <div className="card ps-4" style={{ width: 250 }}>
-              <div className="card-body text-start">
-                <h5 className="card-title">Filter</h5>
-                <h6 className="card-subtitle mb-2 text-muted mt-3">Job Type</h6>
-
-              <div>
-                <label className="customcheckbox m-b-20">
-                  <input type="checkbox" id="mainCheckbox" />
-                  <span className="checkmark me-3"></span>
-                </label>
-                <span>Full Time</span>
-              </div>
-              <div>
-                <label className="customcheckbox m-b-20">
-                  <input type="checkbox" id="mainCheckbox" />
-                  <span className="checkmark me-3"></span>
-                </label>
-                <span>Part Time</span>
-              </div>
-              <div>
-                <label className="customcheckbox m-b-20">
-                  <input type="checkbox" id="mainCheckbox" />
-                  <span className="checkmark me-3"></span>
-                </label>
-                <span>Intenship</span>
-              </div>
-              <div>
-                <label className="customcheckbox m-b-20">
-                  <input type="checkbox" id="mainCheckbox" />
-                  <span className="checkmark me-3"></span>
-                </label>
-                <span>Volunteer</span>
-              </div>
-
-<<<<<<< HEAD
-                <h6 className="card-subtitle mb-2 text-muted mt-3">Industry</h6>
-
-=======
-                <h6 className="card-subtitle mb-2 text-muted mt-3">Industry</h6>
-                
->>>>>>> origin/review
-                {tags.length > 0
-                  ? tags.map((tag) => (
-                      <div>
-                        <label className="customcheckbox m-b-20">
-                          <input
-                            type="checkbox"
-                            id="mainCheckbox"
-                            name={tag.name}
-                            onChange={(event) => {
-                              // console.log(event.target.checked)
-                              console.log(event.target.name);
-                            }}
-                          />
-                          <span className="checkmark me-3"></span>
-                        </label>
-                        <span>{tag.name}</span>
-                      </div>
-                    ))
-                  : "Not Selected"}
-              </div>
-            </div>
-          </div>
-
-          <div className="col-9">
-            <div className="row">
-              <div className="col-9">
-                <div className="input-group rounded m-auto">
-                  <input
-                    type="search"
-                    className="form-control rounded"
-                    placeholder="Search job title or company or keyword"
-                    aria-label="Search"
-                    aria-describedby="search-addon"
-                    value={search}
-                    onChange={handleSearch}
-                  />
-                  <span className=" border-0" id="search-addon">
-                    <i className="fas fa-search p-2"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <h5 className="py-3 text-start ">Recommended For You</h5>
-            <div className="mb-5">
-              {jobs.length > 0 ? (
-                found.map((job) => <JobCardLandingPg job={job} />)
-              ) : (
-                <p>You have not selected any tags</p>
-              )}
-
-            </div>
-          </div>
-        </div> */
-}

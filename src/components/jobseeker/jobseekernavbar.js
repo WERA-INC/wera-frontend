@@ -50,8 +50,6 @@ const JobseekerNavbar = ({ name }) => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              {/* <img className="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/>
-          <img className="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/> */}
               <img
                 src={"/images/Logo5.png"}
                 alt="wera"
@@ -61,13 +59,6 @@ const JobseekerNavbar = ({ name }) => {
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {/* <a
-                  href="#"
-                  className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                  aria-current="page"
-                >
-                  Dashboard
-                </a> */}
                 <a
                   href="#"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium hover:no-underline no-underline"
@@ -144,35 +135,6 @@ const JobseekerNavbar = ({ name }) => {
 };
 
 export default JobseekerNavbar;
-{
-  /* <nav className="navbar py-3">
-      <div className="container">
-        <div>
-          <a href="#" className="navbar-brand me-5">
-            WERA
-          </a>
-          <a
-            href="#"
-            className="navbar-brand blue rounded px-2 py-1 text-light h6"
-            onClick={() => {
-              navigator("/jobsapplied");
-            }}
-          >
-            Jobs Applied
-          </a>
-        </div>
-        <div>
-          <button
-            className="blue rounded text-light py-2 px-3 mt-2 "
-            onClick={() => {
-              navigator("/login");
-            }}
-          >
-            Logout
-          </button>
 
+ 
 
-        </div>
-      </div>
-    </nav> */
-}

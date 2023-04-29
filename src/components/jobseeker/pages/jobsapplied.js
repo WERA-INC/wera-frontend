@@ -19,7 +19,7 @@ const JobsApplied = ({ jobseeker }) => {
         if (res.ok) {
           res.json().then((data) => {
             setApplications(data.applications);
-            
+
           });
         }
       });
@@ -93,42 +93,6 @@ const JobsApplied = ({ jobseeker }) => {
         </div>
       </div>
     </>
-    // <div>
-    //   <JobseekerNavbar />
-    //   <div className="container">
-    //     <div className="row">
-    //       <div className="col-6 m-auto">
-    //         <div className="input-group rounded m-auto">
-    //           <input
-    //             type="search"
-    //             className="form-control rounded"
-    //             placeholder="Search job title or keyword"
-    //             aria-label="Search"
-    //             aria-describedby="search-addon"
-    //             value={search}
-    //             onChange={handleSearch}
-    //           />
-    //           <span
-    //             className="input-group-text border-0 blue text-light"
-    //             id="search-addon"
-    //           >
-    //             Search
-    //           </span>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <h5 className="py-3">Your Application History</h5>
-    //     <div className="row">
-    //       {applications.length > 0 ? (
-    //         found.map((application) => (
-    //           <JobAppliedCard application={application} />
-    //         ))
-    //       ) : (
-    //         <p>You have not applied for any jobs</p>
-    //       )}
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

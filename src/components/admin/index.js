@@ -1,16 +1,12 @@
-
-import Footer from "../guest/footer"
+import Footer from "../guest/footer";
 import React, { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
 const Admin = () => {
   return (
     <Fragment>
-     
-      
       <Outlet />
-
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 };

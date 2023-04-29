@@ -66,43 +66,6 @@ const JobsCard = ({ job }) => {
         </div>
       </div>
     </div>
-
-    // <div
-    //   className="card js-card mb-4"
-    //   style={{ width: 800 }}
-    //   onClick={() => {
-    //     navigator(`/jobs/${job.id}`);
-    //   }}
-    // >
-    //   <div className="d-flex align-items-center justify-content-start">
-    //     {job.employer.company_logo ? (
-    //       <img
-    //         src={job.employer.company_logo}
-    //         alt=""
-    //         className="profile-picture m-4"
-    //       />
-    //     ) : (
-    //       <h1
-    //         className="px-4 py-2 my-2 mx-3 text-light"
-    //         style={{
-    //           backgroundColor:
-    //             randColors[Math.floor(Math.random() * randColors.length)],
-    //           borderRadius: "10px",
-    //         }}
-    //       >
-    //         {job.employer.company_name.charAt(0)}
-    //       </h1>
-    //     )}
-
-    //     <div>
-    //       <h6 className="text-left">{job.title}</h6>
-    //       <span className="me-4">{job.employer.company_name}</span>
-    //       <span className="me-4">{job.job_type}</span>
-    //       <span className="me-4">{job.estimated_salary}</span>
-    //     </div>
-    //   </div>
-    //   <p className="text-left ps-4">{job.description_summary}</p>
-    // </div>
   );
 };
 

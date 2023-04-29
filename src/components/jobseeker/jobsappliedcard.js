@@ -84,37 +84,4 @@ const JobAppliedCard = ({ application }) => {
 };
 
 export default JobAppliedCard;
-//  <div className="col-4">
-//    <div className="card js-card mb-4" style={{ width: 300 }}>
-//      <div className="d-flex align-items-center justify-content-start my-3">
-//        {application.company_logo ? (
-//          <img
-//            src={application.company_logo}
-//            alt=""
-//            className="profile-picture m-4"
-//          />
-//        ) : (
-//          <h1
-//            className="px-4 py-2 my-2 mx-3 text-light"
-//            style={{
-//              backgroundColor:
-//                randColors[Math.floor(Math.random() * randColors.length)],
-//              borderRadius: "10px",
-//            }}
-//          >
-//            {application.company_name.charAt(0)}
-//          </h1>
-//        )}
-//        <div className="text-left">
-//          <p>Date of application:</p>
-//          <p>{application.created_at.split("T")[0]}</p>
-//        </div>
-//      </div>
-//      <div className="text-left ps-4 mb-4">
-//        <h4 className="fw-bold">{application.title}</h4>
-//        <span className="me-4">{application.company_name}</span>
-//        <span className="me-4">{application.job_type}</span>
-//        <span className="me-4">{application.estimated_salary}</span>
-//      </div>
-//    </div>
-//  </div>;
+

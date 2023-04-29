@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Admin.css";
 import { useNavigate } from "react-router-dom";
-import DashboardSelection from "../DashboardSelection";
-import Tabledata from "../Tabledata";
-
+import DashboardSelection from "../dashboardSelection";
+import Tabledata from "../tabledata";
 import {
   PersonIcon,
   BuildingIcon,
@@ -18,6 +17,10 @@ const Dashboard = () => {
   const [summary, setSummary] = useState([]);
   const [slug, setSlug] = useState("");
   const [data, setData] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [keys, setKeys] = useState([]);
+  const [found, setFound] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/all_summaries`).then((res) => {
@@ -35,13 +38,7 @@ const Dashboard = () => {
       }
     });
   }, [slug]);
-  const [filtered, setFiltered] = useState([]);
-  const [keys, setKeys] = useState([]);
-  const [found, setFound] = useState([]);
 
-  const [search, setSearch] = useState("");
-  // console.log(profileData);
-  // Updates search words
   function handleSearch(event) {
     console.log(event.target.value);
     setSearch(event.target.value);
@@ -373,116 +370,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-// <div className="admin-land">
-//   <nav
-//     className="navbar container d-flex align-items-center justify-content-between"
-//     id="navtitle"
-//   >
-//     <h4 href="#" className="me-3">
-//       WERA
-//     </h4>
-//     <div className="right-nav">
-//       <button
-//         className="py-2 px-3 blue text-light rounded"
-//         onClick={() => {
-//           navigator("/login");
-//         }}
-//       >
-//         Logout
-//       </button>
-//     </div>
-//   </nav>
-
-//   <div className="container">
-//     <div className="row">
-//       <div className="col-lg-8 col-12 mx-auto">
-//         <div className="row ps-md-5">
-//           <div
-//             className="col-md-6 mb-3"
-//             onClick={() => {
-//               navigator(`/admin-dashboard/${"profiles"}`);
-//             }}
-//             style={{ width: "250", cursor: "pointer" }}
-//           >
-//             <div className="card card-hover">
-//               <div className="d-flex align-items-center justify-content-between brown px-3">
-//                 <i className="bi bi-people-fill dashboard_icons text-light"></i>
-//                 <div className="text-light">
-//                   <h1 className="display-6">{summary.profiles}</h1>
-//                   <h3>Job Seekers</h3>
-//                 </div>
-//               </div>
-//               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
-//                 <h6 className="text-light">View Details</h6>
-//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
-//               </div>
-//             </div>
-//           </div>
-//           <div
-//             className="col-md-6 mb-3"
-//             onClick={() => {
-//               navigator(`/admin-dashboard/${"employers"}`);
-//             }}
-//             style={{ width: "250", cursor: "pointer" }}
-//           >
-//             <div className="card card-hover">
-//               <div className="d-flex align-items-center justify-content-between green px-3">
-//                 <i className="bi bi-houses-fill dashboard_icons text-light"></i>
-//                 <div className="text-light">
-//                   <h1 className="display-6">{summary.employers}</h1>
-//                   <h3>Employers</h3>
-//                 </div>
-//               </div>
-//               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
-//                 <h6 className="text-light">View Details</h6>
-//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
-//               </div>
-//             </div>
-//           </div>
-//           <div
-//             className="col-md-6 mb-3"
-//             onClick={() => {
-//               navigator(`/admin-dashboard/${"opportunities"}`);
-//             }}
-//             style={{ width: "250", cursor: "pointer" }}
-//           >
-//             <div className="card card-hover">
-//               <div className="d-flex align-items-center justify-content-between blue px-3">
-//                 <i className="bi bi-clipboard2-data-fill dashboard_icons text-light"></i>
-//                 <div className="text-light">
-//                   <h1 className="display-6">{summary.opportunities}</h1>
-//                   <h3>Jobs</h3>
-//                 </div>
-//               </div>
-//               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
-//                 <h6 className="text-light">View Details</h6>
-//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
-//               </div>
-//             </div>
-//           </div>
-//           <div
-//             className="col-md-6 mb-3"
-//             onClick={() => {
-//               navigator(`/admin-dashboard/${"applications"}`);
-//             }}
-//             style={{ width: "250", cursor: "pointer" }}
-//           >
-//             <div className="card card-hover">
-//               <div className="d-flex align-items-center justify-content-between pink px-3">
-//                 <i className="bi bi-bar-chart-fill dashboard_icons text-light"></i>
-//                 <div className="text-light">
-//                   <h1 className="display-6">{summary.applications}</h1>
-//                   <h3>Job Applications</h3>
-//                 </div>
-//               </div>
-//               <div className="d-flex align-items-center justify-content-between bg-secondary p-2 px-3">
-//                 <h6 className="text-light">View Details</h6>
-//                 <i className="bi bi-arrow-right-circle-fill h1"></i>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// </div>
