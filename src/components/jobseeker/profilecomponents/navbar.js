@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import logo from "./Logo5.png";
+import { useNavigate, useParams} from "react-router-dom";
+
 
 const Navbar = () => {
   return (
@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-center p-6 mx-auto text-white capitalize dark:text-gray-300">
         <a href="#" className="text-white dark:text-gray-200 mx-1.5 sm:mx-6">
           <img
-            src={logo}
+            src={"/images/Logo5.png"}
             alt="Wera"
             style={{
               maxWidth: "100%",
@@ -20,7 +20,7 @@ const Navbar = () => {
         </a>
 
         <a
-          href="#"
+          href="/jobseeker"
           className=" border-transparent text-white mx-1.5 sm:mx-6"
           style={{ textDecoration: "none" }}
         >

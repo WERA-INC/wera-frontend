@@ -116,7 +116,7 @@ function Register({ setStoredToken }) {
                       <span
                         style={{ cursor: "pointer" }}
                         onClick={() => {
-                          navigate(`/login`);
+                          navigate(`/sign-in`);
                         }}
                         className="ms-3 text-primary"
                       >

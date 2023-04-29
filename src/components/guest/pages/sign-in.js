@@ -123,7 +123,7 @@ function Login({ setUser, setCompany }) {
                       Not yet registered?
                       <span
                         onClick={() => {
-                          navigate(`/register`);
+                          navigate(`/sign-up`);
                         }}
                         className="ms-3 text-primary"
                         style={{ cursor: "pointer" }}
