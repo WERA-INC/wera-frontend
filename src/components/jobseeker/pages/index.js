@@ -5,7 +5,6 @@ import JobCardLandingPg from "../jobcardlanding";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import JobsApplied from "../jobsapplied";
 // import Navbar from "../LandingHomePage/Navbar";
-import Footer from "../../guest/footer";
 import { rightArrowIcon, searchIcon } from "../../icons";
 
 const JobseekerLandingPage = ({ jobseeker }) => {
@@ -321,7 +320,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
         <div className="bg-pink-600 col-span-2">one</div>
         <div className="bg-blue-600 col-span-6">two</div>
       </div> */}
-      <Footer />
+     
       <Routes>
         <Route path="/jobsapplied" element={<JobsApplied />} />
       </Routes>
