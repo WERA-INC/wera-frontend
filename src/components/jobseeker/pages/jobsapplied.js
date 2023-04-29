@@ -3,15 +3,14 @@ import JobAppliedCard from "../jobsappliedcard";
 import JobseekerNavbar from "../jobseekernavbar";
 import { SearchIcon, searchIcon } from "../../icons";
 
-const JobsApplied = ({ jobseeker }) => {
-  //  const [id, setId] = useState(jobseeker.id);
+const JobsApplied = () => {
   const [id, setId] = useState(null);
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
-    console.log(jsId);
+    // console.log(jsId);
     setId(jsId);
   }, []);
-
+  const [search, setSearch] = useState("");
   const [applications, setApplications] = useState([]);
   useEffect(() => {
     if (id !== null) {
@@ -19,21 +18,16 @@ const JobsApplied = ({ jobseeker }) => {
         if (res.ok) {
           res.json().then((data) => {
             setApplications(data.applications);
-
           });
         }
       });
     }
   }, [id]);
 
-  console.log(applications);
-  const [search, setSearch] = useState("");
-  // console.log(profileData);
-  // Updates search words
   function handleSearch(event) {
     setSearch(event.target.value);
   }
-  // The editor can search for an application since the applications can be many to sort through visually, and applications stored in variable found
+
   let found = applications.filter((application) => {
     let applicationName = application.title.toLocaleLowerCase();
     let applicationCompany = application.company_name.toLocaleLowerCase();
@@ -47,7 +41,7 @@ const JobsApplied = ({ jobseeker }) => {
       return application;
     }
   });
-  console.log(found);
+
   return (
     <>
       <div>

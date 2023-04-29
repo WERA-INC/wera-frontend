@@ -16,7 +16,7 @@ const JobseekerLandingPage = () => {
   const [search, setSearch] = useState("");
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
-    console.log(jsId);
+    // console.log(jsId);
     setId(jsId);
   }, []);
 
@@ -25,8 +25,7 @@ const JobseekerLandingPage = () => {
     if (id !== null) {
       fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
         if (res.ok) {
-          res.json().then((data) => {
-            console.log(data);
+          res.json().then((data) => {            
             setProfileData(data);
             setTags(data.tags);
           });
@@ -49,19 +48,16 @@ const JobseekerLandingPage = () => {
   }
 
   useEffect(() => {
-    if (filteredTag == "All" && profileData["id"] !== undefined) {
-      console.log("all");
+    if (filteredTag == "All" && profileData["id"] !== undefined) {     
       let opps = [];
       profileData.tags.map((tag) => {
         tag.opportunities.map((opp) => {
           opps.push(opp);
         });
       });
-      console.log(opps);
+     
       setAllJobs(opps);
-    } else if (filteredTag !== "All" && profileData["id"] !== undefined) {
-      console.log(filteredTag);
-      // let opps = [];
+    } else if (filteredTag !== "All" && profileData["id"] !== undefined) {     
       profileData.tags.map((tag) => {
         if (tag.name == filteredTag) {
           setAllJobs(tag.opportunities);
