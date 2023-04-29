@@ -25,7 +25,7 @@ const JobseekerLandingPage = () => {
     if (id !== null) {
       fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
         if (res.ok) {
-          res.json().then((data) => {            
+          res.json().then((data) => {
             setProfileData(data);
             setTags(data.tags);
           });
@@ -48,16 +48,16 @@ const JobseekerLandingPage = () => {
   }
 
   useEffect(() => {
-    if (filteredTag == "All" && profileData["id"] !== undefined) {     
+    if (filteredTag == "All" && profileData["id"] !== undefined) {
       let opps = [];
       profileData.tags.map((tag) => {
         tag.opportunities.map((opp) => {
           opps.push(opp);
         });
       });
-     
+
       setAllJobs(opps);
-    } else if (filteredTag !== "All" && profileData["id"] !== undefined) {     
+    } else if (filteredTag !== "All" && profileData["id"] !== undefined) {
       profileData.tags.map((tag) => {
         if (tag.name == filteredTag) {
           setAllJobs(tag.opportunities);
@@ -246,10 +246,6 @@ const JobseekerLandingPage = () => {
           </div>
         </div>
       </div>
-
-      <Routes>
-        <Route path="/jobsapplied" element={<JobsApplied />} />
-      </Routes>
     </>
   );
 };
