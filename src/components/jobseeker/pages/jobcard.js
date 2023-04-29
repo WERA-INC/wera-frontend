@@ -31,7 +31,6 @@ const JobCard = () => {
       fetch(`http://localhost:3000/profiles/${profileId}`).then((res) => {
         if (res.ok) {
           res.json().then((data) => {
-            console.log(data)
             setProfileData(data);
           });
         }
@@ -42,8 +41,6 @@ const JobCard = () => {
     fetch(`http://localhost:3000/opportunities/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          data.tags.map((tag) => console.log(tag.name));
-
           setJob(data);
         });
       }
@@ -76,13 +73,13 @@ const JobCard = () => {
       const answer = applications.filter((element) => {
         return element.opportunity.id == job.id;
       });
-      console.log(answer.length);
+
       if (answer.length == 0) {
         setHasApplied(true);
       }
     }
   }, [profileData]);
-  
+
 
   return (
     <>

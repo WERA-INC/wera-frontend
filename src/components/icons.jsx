@@ -29,7 +29,7 @@ export const BriefcaseIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -45,7 +45,7 @@ export const FilesIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -61,7 +61,7 @@ export const SearchIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -77,7 +77,7 @@ export const RightArrowIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -93,7 +93,7 @@ export const ProfileIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9 text-white"
   >
     <path
       strokeLinecap="round"
@@ -109,7 +109,7 @@ export const TickIcon = () => (
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                stroke-width="2"
+                srokeWidth="2"
                 stroke="currentColor"
                 fill="none"
                 stroke-linecap="round"
