@@ -46,7 +46,7 @@ const JobsApplied = () => {
     <>
       <div>
         <div className="container">
-          <div className="my-3 px-10 w-1/2 mx-auto">
+          <div className="my-3 px-10 w-full lg:w-1/2 mx-auto">
             <div className="relative mb-4 flex w-full flex-wrap items-stretch">
               <input
                 type="search"
@@ -74,7 +74,7 @@ const JobsApplied = () => {
             Your Application History
           </h5>
           <div className="container p-4">
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
               {applications.length > 0 ? (
                 found.map((application) => (
                   <JobAppliedCard application={application} />

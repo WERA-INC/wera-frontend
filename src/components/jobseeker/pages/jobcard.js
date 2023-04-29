@@ -3,7 +3,7 @@ import JobseekerNavbar from "../jobseekernavbar";
 import { useParams, useNavigate } from "react-router";
 
 const JobCard = () => {
-  const [showAlert, setShowAlert] = React.useState(false);
+  
   const [profileData, setProfileData] = useState({});
   const [hasApplied, setHasApplied] = useState(false);
   const navigator = useNavigate();
@@ -62,8 +62,8 @@ const JobCard = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setShowAlert(true);
-        // navigator("/jobsapplied");
+       
+        console.log("job successfully applied")
       })
       .catch((error) => console.error(error));
   }
@@ -84,30 +84,10 @@ const JobCard = () => {
   return (
     <>
       <div className="relative">
-        {showAlert ? (
-          <div
-            className={
-              "fixed top-0 left-0 right-0 text-green-800 px-6 py-4 border-0 rounded mb-4 bg-green-50"
-            }
-          >
-            <span className="text-xl inline-block mr-5 align-middle">
-              <i className="fas fa-bell" />
-            </span>
-            <span className="inline-block align-middle mr-8">
-              <b className="capitalize">Successful Application! </b>
-              Your resume and profile has been sent to the employer
-            </span>
-            <button
-              className="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
-              onClick={() => setShowAlert(false)}
-            >
-              <span>×</span>
-            </button>
-          </div>
-        ) : null}
+        
         {job ? (
           <>
-            <header>
+            <header className="hidden md:block">
               <div
                 className="relative overflow-hidden bg-cover bg-no-repeat"
                 style={{
@@ -126,7 +106,7 @@ const JobCard = () => {
                 </div>
               </div>
             </header>
-            <div className="grid grid-cols-3 gap-1 mt-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-1 mt-3">
               <div className="relative">
                 {job.employer.company_logo ? (
                   <div
@@ -149,7 +129,7 @@ const JobCard = () => {
                   </div>
                 ) : (
                   <h1
-                    className="text-light m-5 text-center"
+                    className="text-light m-5 text-center hidden md:block"
                     style={{
                       backgroundColor:
                         randColors[
@@ -168,14 +148,14 @@ const JobCard = () => {
                     {job.employer.company_name.charAt(0)}
                   </h1>
                 )}
-                <div className="w-3/4 mx-auto my-20">
+                <div className="w-3/4 mx-auto my-5 md:my-20">
                   <div
                     className="max-w-sm rounded overflow-hidden shadow-lg text-white relative"
                     style={{ backgroundColor: "#0D2644" }}
                   >
                     <div className="px-6 py-4 ">
                       <div className="">
-                        <h4 className="uppercase rounded-full">
+                        <h4 className="uppercase rounded-full text-center">
                           {job.employer.company_name}
                         </h4>
 
@@ -214,12 +194,12 @@ const JobCard = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-2">
+              <div className="col-span-2 order-first md:order-last">
                 <div>
                   <div className="bg-gray-100">
                     <div className="">
                       <div
-                        className="my-5 text-left p-4"
+                        className="md:my-5 text-left p-4"
                         style={{ width: "100%" }}
                       >
                         <h4 className="font-semibold tracking-wide text-gray-900 uppercase rounded-full mb-4">

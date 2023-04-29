@@ -9,12 +9,12 @@ const JobsCard = ({ job }) => {
 
   return (
     <div
-      className="py-3 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col shadow-2xl"
+      className="relative py-3 px-3 md:px-3 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col shadow-2xl"
       onClick={() => {
         navigator(`/jobs/${job.id}`);
       }}
     >
-      <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
+      <div className="sm:w-32 sm:h-32 h-30 w-30 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
         {job.employer.company_logo ? (
           <img
             src={job.employer.company_logo}
@@ -23,7 +23,7 @@ const JobsCard = ({ job }) => {
           />
         ) : (
           <h1
-            className="px-8 py-8 my-2 mx-2 text-light text-4xl"
+            className="absolute top-0 right-0 md:relative px-4 py-4 md:px-8 md:py-8 my-2 mx-2 text-light text-3xl lg:text-4xl"
             style={{
               backgroundColor:
                 randColors[Math.floor(Math.random() * randColors.length)],

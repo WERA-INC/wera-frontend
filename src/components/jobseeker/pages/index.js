@@ -88,7 +88,7 @@ const JobseekerLandingPage = () => {
   return (
     <>
       <div>
-        <div className="grid grid-cols-8 gap-1">
+        <div className="grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-8">
           <div className="col-span-2">
             {profileData.full_name !== undefined ? (
               <h5
@@ -98,7 +98,7 @@ const JobseekerLandingPage = () => {
                 Hello, {profileData.full_name}
               </h5>
             ) : null}
-            <div className="w-full  px-4 mx-auto mb-10 ">
+            <div className="w-full  px-4 mx-auto mb-10 hidden md:hidden lg:block">
               <img
                 className="object-cover w-full rounded shadow-lg"
                 src="https://img.freepik.com/premium-vector/home-office-freelancer-working-from-house_316839-4061.jpg?size=626&ext=jpg"
@@ -111,13 +111,13 @@ const JobseekerLandingPage = () => {
                   {tags.length == 0 ? (
                     <h6 className="uppercase">Select an industry</h6>
                   ) : (
-                    <div className="font-bold text-xl mb-2 pb-3">
+                    <div className="font-bold text-xl mb-2 pb-3 text-center">
                       Filter Industry
                     </div>
                   )}
 
                   <div className="mb-4 bg-gray-600 h-[1px]"></div>
-                  <form action="">
+                  <div className="grid grid-cols-3 lg:grid-cols-2">
                     {tags.length == 0 ? null : (
                       <div className="flex items-center mb-4">
                         <input
@@ -175,7 +175,7 @@ const JobseekerLandingPage = () => {
                         </button>
                       </>
                     )}
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@ const JobseekerLandingPage = () => {
               <div className="bg-gray-100">
                 <div className="bg-gray-100 flex justify-center items-center">
                   <div
-                    className="container mx-auto rounded-b p-2"
+                    className="container mx-auto rounded-b p-2 hidden lg:block"
                     style={{ backgroundColor: "#0D2644" }}
                   >
                     <div>
@@ -198,7 +198,7 @@ const JobseekerLandingPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="my-3 px-10 w-1/2 mx-auto">
+                <div className="my-3 px-2  w-full md:w-3/4 lg:w-1/2 mx-auto">
                   <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                     <input
                       type="search"
