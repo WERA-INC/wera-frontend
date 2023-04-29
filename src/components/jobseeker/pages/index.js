@@ -96,7 +96,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
   function handleFilter(selected) {
     setFilteredTag(selected);
   }
-console.log(profileData.full_name)
+  console.log(profileData.full_name);
   return (
     <>
       <div>
@@ -309,7 +309,7 @@ export default JobseekerLandingPage;
               </div>
 
 <<<<<<< HEAD
-                <h6 class="card-subtitle mb-2 text-muted mt-3">Industry</h6>
+                <h6 className="card-subtitle mb-2 text-muted mt-3">Industry</h6>
 
 =======
                 <h6 className="card-subtitle mb-2 text-muted mt-3">Industry</h6>
