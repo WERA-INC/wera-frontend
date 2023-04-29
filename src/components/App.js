@@ -8,14 +8,14 @@ import GuestSignIn from "./guest/pages/sign-in";
 import GuestSignUp from "./guest/pages/sign-up";
 
 // jobseeker
-// import JobseekerLandingPage from "./jobseeker/JobseekerLandingPage";
-// import JobsApplied from "./jobseeker/JobsApplied";
-// import JobCard from "./jobseeker/JobCard";
-// import JobseekerNavbar from "./jobseeker/JobseekerNavbar";
-// import JobseekerProfile from "./jobseeker/JobseekerProfile";
+import JobSeeker from "../components/jobseeker";
+import JobSeekerLanding from "./jobseeker/pages";
+import JobsApplied from "./jobseeker/pages/jobsapplied";
+import JobsCard from "./jobseeker/pages/jobscard";
+import JobseekerProfile from "./jobseeker/pages/jobseekerprofile";
 // Admin
-// import Dashboard from "./admin/Dashboard";
-// import DashboardSelection from "./admin/DashboardSelection";
+import Admin from "../components/admin";
+import Dashboard from "./admin/pages";
 // employer
 // import RecruiterProfile from "./recruiter/RecruiterProfile";
 // import AddJob from "./recruiter/AddJob";
@@ -48,6 +48,40 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/",
+    element: <JobSeeker/>,
+    children: [
+      {
+        path: "/jobseeker",
+        element: <JobSeekerLanding />,
+      },
+      {
+        path: "/jobseekerprofile",
+        element: <JobseekerProfile />,
+      },
+      {
+        path: "/jobsapplied",
+        element: <JobsApplied />,
+      },
+      {
+        path: "/jobscard",
+        element: <JobsCard />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <Admin/>,
+    children: [
+      {
+        path: "/admin",
+        element: <Dashboard />,
+      },
+     
+    ],
+  },
+  
 ]);
 
 function App() {

@@ -1,5 +1,4 @@
 import Button from "./Button";
-import NavLinks from "./NavLinks";
 import React, { useState } from "react";
 
 const Navbar = () => {
@@ -8,10 +7,10 @@ const Navbar = () => {
     <nav className="">
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 p-5 md:w-auto text-white w-full flex justify-between">
-          {/* <h3 style={{cursor:"pointer"}} >WERA</h3> */}
+         
           <img
             alt="wera"
-            href="/landingpage"
+            href="/"
             src={"/images/Logo5.png"}
             className="md:cursor-pointer h-20 "
           />
@@ -28,7 +27,7 @@ const Navbar = () => {
           className="md:block hidden text-white"
           style={{ fontSize: "20px" }}
         >
-          {/* <NavLinks /> */}
+          
         </div>
 
         <ul
@@ -37,7 +36,7 @@ const Navbar = () => {
         duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}
         >
-          {/* <NavLinks /> */}
+      
           <div className="py-5">
             <Button />
           </div>

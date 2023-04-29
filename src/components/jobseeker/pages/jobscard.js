@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { TickIcon } from "../icons";
+import { TickIcon } from "../../icons";
 
-const JobCardLandingPg = ({ job }) => {
+const JobsCard = ({ job }) => {
   const navigator = useNavigate();
   // console.log(job)
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
@@ -148,4 +148,4 @@ const JobCardLandingPg = ({ job }) => {
   );
 };
 
-export default JobCardLandingPg;
+export default JobsCard;

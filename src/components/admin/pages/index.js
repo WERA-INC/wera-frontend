@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Admin.css";
+import "../Admin.css";
 import { useNavigate } from "react-router-dom";
-import DashboardSelection from "./DashboardSelection";
-import Tabledata from "./Tabledata";
-import Logo from "../images/Logo5.png";
+import DashboardSelection from "../DashboardSelection";
+import Tabledata from "../Tabledata";
+
 import {
   personIcon,
   buildingIcon,
   briefcaseIcon,
   filesIcon,
   searchIcon,
-} from "../icons";
+} from "../../icons";
 
 const Dashboard = () => {
   const navigator = useNavigate();
@@ -149,7 +149,7 @@ const Dashboard = () => {
               <div className="text-gray-100 text-xl">
                 <div className="p-2.5 mt-1 flex items-center">
                   <img
-                    src={Logo}
+                    src={"/images/Logo5.png"}
                     alt="wera"
                     href="/landingpage"
                     className="md:cursor-pointer h-20 "
@@ -239,7 +239,7 @@ const Dashboard = () => {
           }}
         >
           {/* start */}
-          {tickIcon}
+          {/* {tickIcon} */}
           {slug === "" ? (
             <div>
               <h2 className="text-gray-200 pt-3">SUMMARY</h2>
