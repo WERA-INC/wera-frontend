@@ -6,7 +6,7 @@ const Admin = () => {
   return (
     <Fragment>
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 };
