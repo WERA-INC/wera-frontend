@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import JobseekerNavbar from "./JobseekerNavbar";
+import JobseekerNavbar from "../jobseekernavbar";
 import { useParams, useNavigate } from "react-router";
 
 const JobCard = () => {
@@ -88,8 +88,7 @@ const JobCard = () => {
 
   return (
     <>
-      <div className="relative">
-        <JobseekerNavbar />
+      <div className="relative">        
         {showAlert ? (
           <div
             className={
@@ -155,7 +154,7 @@ const JobCard = () => {
                   </div>
                 ) : (
                   <h1
-                    className="text-light m-5"
+                    className="text-light m-5 text-center"
                     style={{
                       backgroundColor:
                         randColors[

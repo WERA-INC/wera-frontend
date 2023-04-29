@@ -96,12 +96,20 @@ const JobseekerLandingPage = ({ jobseeker }) => {
   function handleFilter(selected) {
     setFilteredTag(selected);
   }
-
+console.log(profileData.full_name)
   return (
     <>
       <div>
         <div className="grid grid-cols-8 gap-1">
           <div className="col-span-2">
+            {profileData.full_name !== undefined ? (
+              <h5
+                className="text-left text-gray-900 text-center 
+            py-2"
+              >
+                Hello, {profileData.full_name}
+              </h5>
+            ) : null}
             <div className="w-full  px-4 mx-auto mb-10 ">
               <img
                 className="object-cover w-full rounded shadow-lg"
@@ -189,31 +197,38 @@ const JobseekerLandingPage = ({ jobseeker }) => {
               <div className="bg-gray-100">
                 <div className="bg-gray-100 flex justify-center items-center">
                   <div
-                    className="container mx-auto rounded-b p-3"
+                    className="container mx-auto rounded-b p-2"
                     style={{ backgroundColor: "#0D2644" }}
                   >
-                    <form>
+                    <div>
                       <h1 className="text-center font-bold text-white text-4xl">
                         Browse for latest jobs here
                       </h1>
-                      <p className="mx-auto text-white font-normal text-sm my-6 max-w-lg">
+                      <p className="mx-auto text-white text-center font-normal text-sm my-3 max-w-lg">
                         You can search or filter by industry.
                       </p>
-                    </form>
+                    </div>
                   </div>
                 </div>
-                <div className="my-3 ps-3 mx-auto">
-                  <div className=" block relative mb-4 flex w-full flex-wrap items-stretch">
+                <div className="my-3 px-10 w-1/2 mx-auto">
+                  <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                     <input
                       type="search"
-                      className=" w-1/2 rounded-l border border-solid border-neutral-300 outline-none "
-                      placeholder="Search by title, name or keyword"
+                      className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg- bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                      placeholder="Search by job title or company name"
+                      aria-label="Search"
+                      aria-describedby="button-addon1"
                       value={search}
                       onChange={handleSearch}
                     />
+
                     <button
-                      className=" rounded-r  px-6 py-2.5 text-xs text-white"
+                      className="relative z-[2] flex items-center rounded-r  px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg "
                       style={{ backgroundColor: "#0D2644" }}
+                      type="button"
+                      id="button-addon1"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
                     >
                       <SearchIcon />
                     </button>
@@ -223,7 +238,7 @@ const JobseekerLandingPage = ({ jobseeker }) => {
                   <div className="text-gray-600 body-font text-left">
                     <div className="container px-3  mx-auto">
                       {jobs.length == 0 ? null : (
-                        <h4 className="mb-3 text-center">
+                        <h4 className="mb-3 text-center text-blue-950 text-lg">
                           Recommended for you
                         </h4>
                       )}

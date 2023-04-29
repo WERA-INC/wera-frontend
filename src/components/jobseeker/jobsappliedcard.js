@@ -8,12 +8,15 @@ const JobAppliedCard = ({ application }) => {
   // console.log(application);
   return (
     <div
-      className="rounded p-3 cursor-pointer bg-blue-800 bg-opacity-20"
+      className="rounded p-3 cursor-pointer bg-gray-200 bg-opacity-90 text-blue-950 "
+      style={{
+        minHeight: "20vh",
+      }}
       onClick={() => {
         navigator(`/jobs/${application.opportunity.id}`);
       }}
     >
-      <div className="sm:w-32 sm:h-20 h-20 w-20 sm:mr-3 inline-flex items-center justify-center flex-shrink-0">
+      <div className="flex items-center justify-center  mx-auto">
         {application.company_logo ? (
           <img
             src={application.company_logo}
@@ -22,7 +25,7 @@ const JobAppliedCard = ({ application }) => {
           />
         ) : (
           <h1
-            className="px-4 py-3 text-light"
+            className="px-4 py-3 text-light text-4xl"
             style={{
               backgroundColor:
                 randColors[Math.floor(Math.random() * randColors.length)],
@@ -35,7 +38,7 @@ const JobAppliedCard = ({ application }) => {
       </div>
       <div className="pe-3 py-2">
         <div className="flex-grow sm:text-left sm:mt-0">
-          <h1 className="text-black text-2xl title-font text-center font-bold">
+          <h1 className="text-2xl title-font text-center font-bold">
             {application.title}
           </h1>
           <div className="mb-4 bg-gray-600 h-[1px]"></div>
@@ -43,21 +46,7 @@ const JobAppliedCard = ({ application }) => {
           <div className="py-1 mb-2">
             <div className=" inline-block mr-2">
               <div className="flex  pr-2 h-full items-center">
-                <svg
-                  className="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+                <TickIcon />
                 <p className="title-font font-medium">
                   {application.company_name}
                 </p>
@@ -65,21 +54,7 @@ const JobAppliedCard = ({ application }) => {
             </div>
             <div className="inline-block mr-2">
               <div className="flex  pr-2 h-full items-center">
-                <svg
-                  className="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+                <TickIcon />
                 <p className="title-font font-medium">
                   {application.created_at.split("T")[0]}
                 </p>
@@ -87,21 +62,7 @@ const JobAppliedCard = ({ application }) => {
             </div>
             <div className=" inline-block mr-2">
               <div className="flex  pr-2 h-full items-center">
-                <svg
-                  className="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+                <TickIcon />
                 <p className="title-font font-medium">
                   {application.opportunity.job_type}
                 </p>
@@ -109,21 +70,7 @@ const JobAppliedCard = ({ application }) => {
             </div>
             <div className=" inline-block mr-2">
               <div className="flex  pr-2 h-full items-center">
-                <svg
-                  className="text-blue-300 w-6 h-6 mr-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9 12l2 2l4 -4" />
-                </svg>
+                <TickIcon />
                 <p className="title-font font-medium">
                   {application.opportunity.estimated_salary}
                 </p>

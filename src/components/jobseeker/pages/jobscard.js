@@ -23,7 +23,7 @@ const JobsCard = ({ job }) => {
           />
         ) : (
           <h1
-            className="px-8 py-8 my-2 mx-2 text-light"
+            className="px-8 py-8 my-2 mx-2 text-light text-4xl"
             style={{
               backgroundColor:
                 randColors[Math.floor(Math.random() * randColors.length)],
@@ -42,21 +42,7 @@ const JobsCard = ({ job }) => {
         <div className="py-1 mb-2">
           <div className=" inline-block mr-2">
             <div className="flex  pr-2 h-full items-center">
-              <svg
-                className="text-blue-300 w-6 h-6 mr-1"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <circle cx="12" cy="12" r="9" />
-                <path d="M9 12l2 2l4 -4" />
-              </svg>
+              <TickIcon />
               <p className="title-font font-medium">
                 {job.employer.company_name}
               </p>
@@ -64,41 +50,13 @@ const JobsCard = ({ job }) => {
           </div>
           <div className="inline-block mr-2">
             <div className="flex  pr-2 h-full items-center">
-              <svg
-                className="text-blue-300 w-6 h-6 mr-1"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <circle cx="12" cy="12" r="9" />
-                <path d="M9 12l2 2l4 -4" />
-              </svg>
+              <TickIcon />
               <p className="title-font font-medium">{job.job_type}</p>
             </div>
           </div>
           <div className=" inline-block mr-2">
             <div className="flex  pr-2 h-full items-center">
-              <svg
-                className="text-blue-300 w-6 h-6 mr-1"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <circle cx="12" cy="12" r="9" />
-                <path d="M9 12l2 2l4 -4" />
-              </svg>
+              <TickIcon />
               <p className="title-font font-medium">{job.estimated_salary}</p>
             </div>
           </div>
