@@ -23,6 +23,7 @@ const Navbar = () => {
             href="/landingpage"
             src={"/images/Logo5.png"}
             className="md:cursor-pointer h-20 "
+            
           />
           <div
             style={{ cursor: "pointer" }}

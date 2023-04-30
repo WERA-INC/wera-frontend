@@ -5,11 +5,15 @@ function Register({ setStoredToken }) {
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState([]);
-  const [searchParams, _] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  
+  
+  // const searchParams = new URLSearchParams(document.location.search);
+  console.log(searchParams.get("user-type"));
 
   const signUpFunctionality = (e) => {
     e.preventDefault();
@@ -31,7 +35,7 @@ function Register({ setStoredToken }) {
       if (response.ok) {
         response.json().then((data) => {
           console.log(data);
-          navigate("/login");
+          navigate(`/sign-in?user-type=${searchParams.get("user-type")}`);
         });
       } else {
         response.json().then((err) => setErrors(err.errors));
@@ -40,7 +44,7 @@ function Register({ setStoredToken }) {
   };
 
   return (
-    <main className="container px-3 py-16">
+    <main className="container px-3 py-4">
       <div className="container">
         <div className="row no-gutter">
           <div className="col-md-7 d-none d-md-block me-2">
@@ -50,8 +54,10 @@ function Register({ setStoredToken }) {
           <div className="col-md-4 bg-light">
             <div className="login py-3">
               <div className="col-lg-12 col-xl-10 mx-auto">
-                <h4 className="display-6">WELCOME TO WERA</h4>
-                <p className="text-muted mb-4">Create an account</p>
+                <h4 className="text-3xl text-center mb-2">WELCOME TO WERA</h4>
+                <p className="text-muted mb-4 text-center py-3">
+                  Create {searchParams.get("user-type")} account
+                </p>
                 <form onSubmit={signUpFunctionality} novalidate>
                   <div className="mb-3">
                     <input
@@ -98,7 +104,7 @@ function Register({ setStoredToken }) {
                   <div className="d-grid gap-2 mt-3">
                     <button
                       type="submit"
-                      className="px-6 py-3 bg-[#143C66] text-white btn-block text-uppercase rounded-pill shadow-sm"
+                      className="py-2 bg-[#143C66] text-white text-uppercase rounded-pill shadow-sm"
                     >
                       Sign up
                     </button>
@@ -116,12 +122,25 @@ function Register({ setStoredToken }) {
                       <span
                         style={{ cursor: "pointer" }}
                         onClick={() => {
-                          navigate(`/sign-in`);
+                          navigate(
+                            `/sign-in?user-type=${searchParams.get(
+                              "user-type"
+                            )}`
+                          );
                         }}
                         className="ms-3 text-primary"
                       >
-                        Log In
+                        log In
                       </span>
+                    </span>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        navigate("/");
+                      }}
+                      className="ms-3 text-primary text-center"
+                    >
+                      Home
                     </span>
                   </div>
                 </form>

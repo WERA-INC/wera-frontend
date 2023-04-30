@@ -29,7 +29,7 @@ export const BriefcaseIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -45,7 +45,7 @@ export const FilesIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -61,7 +61,7 @@ export const SearchIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -77,7 +77,7 @@ export const RightArrowIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9"
   >
     <path
       strokeLinecap="round"
@@ -93,7 +93,7 @@ export const ProfileIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="w-9 h-9 text-white"
   >
     <path
       strokeLinecap="round"
@@ -103,20 +103,21 @@ export const ProfileIcon = () => (
   </svg>
 );
 
-export const TickIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M4.5 12.75l6 6 9-13.5"
-    />
-  </svg>
+export const TickIcon = () => (  
+<svg
+                className="text-blue-300 w-6 h-6 mr-1"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                srokeWidth="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 12l2 2l4 -4" />
+              </svg>
 );
 // export const Icon=()

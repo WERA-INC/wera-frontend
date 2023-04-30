@@ -28,6 +28,7 @@ import Dashboard from "./admin/pages";
 // import JobDetails from "./company/views/JobDetails.js";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import JobCard from "./jobseeker/pages/jobcard";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <JobSeeker/>,
+    element: <JobSeeker />,
     children: [
       {
         path: "/jobseeker",
@@ -68,20 +69,22 @@ const router = createBrowserRouter([
         path: "/jobscard",
         element: <JobsCard />,
       },
+      {
+        path: "/jobs/:id",
+        element: <JobCard />,
+      },
     ],
   },
   {
     path: "/",
-    element: <Admin/>,
+    element: <Admin />,
     children: [
       {
         path: "/admin-dashboard",
         element: <Dashboard />,
       },
-     
     ],
   },
-  
 ]);
 
 function App() {
