@@ -241,11 +241,8 @@ const Profile = () => {
             <section className="relative py-16 ">
               <div className="container mx-auto px-4">
                 <div
-                  className="relative flex flex-col min-w-0 break-words bg-dark w-full mb-6 shadow-xl rounded-lg -mt-64"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0.9), #0D2644)",
-                  }}
+                  className="relative flex flex-col min-w-0 break-words bg-[#0D2644] w-full mb-6 shadow-xl rounded-lg -mt-64"
+               
                 >
                   <div className="px-6">
                     <div className="flex flex-wrap justify-center">
