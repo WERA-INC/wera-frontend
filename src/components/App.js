@@ -29,6 +29,10 @@ import Dashboard from "./admin/pages";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import JobCard from "./jobseeker/pages/jobcard";
+import Application from "./admin/pages/application";
+import Employers from "./admin/pages/employers";
+import Opprotunity from "./admin/pages/opprotunity";
+import Profiles from "./admin/pages/profiles";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +86,22 @@ const router = createBrowserRouter([
       {
         path: "/admin-dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/profiles/:id",
+        element: <Profiles />,
+      },
+      {
+        path: "/employers/:id",
+        element: <Employers />,
+      },
+      {
+        path: "/applications/:id",
+        element: <Application />,
+      },
+      {
+        path: "/opportunities/:id",
+        element: <Opprotunity />,
       },
     ],
   },
