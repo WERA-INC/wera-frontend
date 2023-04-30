@@ -34,13 +34,16 @@ const Dashboard = () => {
   useEffect(() => {
     fetch(`http://localhost:3000/${slug}`).then((res) => {
       if (res.ok) {
-        res.json().then((data) => setData(data));
+        res.json().then((data) => {
+          // console.log(data)
+          setData(data);
+        });
       }
     });
   }, [slug]);
 
   function handleSearch(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSearch(event.target.value);
   }
   // The editor can search for an application since the applications can be many to sort through visually, and applications stored in variable found
@@ -77,7 +80,7 @@ const Dashboard = () => {
       //  console.log(Object.keys(data[0]));
       if (slug === "profiles") {
         let selected = data.map((object) => {
-          return (({ full_name, phone_number, email_address, created_at }) => ({
+          return (({id,  full_name, phone_number, email_address, created_at }) => ({id,
             full_name,
             phone_number,
             email_address,
@@ -87,7 +90,7 @@ const Dashboard = () => {
         setFiltered(selected);
       } else if (slug === "opportunities") {
         let selected = data.map((object) => {
-          return (({ title, job_type, estimated_salary, created_at }) => ({
+          return (({id,  title, job_type, estimated_salary, created_at }) => ({id,
             title,
             job_type,
             estimated_salary,
@@ -97,12 +100,12 @@ const Dashboard = () => {
         setFiltered(selected);
       } else if (slug === "employers") {
         let selected = data.map((object) => {
-          return (({
+          return (({id,
             company_name,
             company_location,
             email_address,
             created_at,
-          }) => ({
+          }) => ({id,
             company_name,
             company_location,
             email_address,
@@ -112,7 +115,7 @@ const Dashboard = () => {
         setFiltered(selected);
       } else {
         let selected = data.map((object) => {
-          return (({ applicant, title, company_name, created_at }) => ({
+          return (({id,  applicant, title, company_name, created_at }) => ({id,
             applicant,
             title,
             company_name,
@@ -292,7 +295,7 @@ const Dashboard = () => {
                           {summary.applications}
                         </p>
                       </div>
-                      <p className="text-xl font-semibold my-2 text-blue-950 text-center                                                                                                                                                                                                                                                                                                  ">
+                      <p className="text-xl font-semibold my-2 text-blue-950 text-center">
                         Applications
                       </p>
                     </div>
@@ -341,11 +344,16 @@ const Dashboard = () => {
                           <tr>
                             {keys.map((key) => (
                               <th className="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-gray-950 capitalize tracking-wider">
-                                {key.split("_").length > 1
+                                {keys[0] == key
+                                  ? null
+                                  : key.split("_").length > 1
                                   ? key.split("_").join(" ")
                                   : key}
                               </th>
                             ))}
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-950 uppercase tracking-wider">
+                              View
+                            </th>
                             <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-950 uppercase tracking-wider">
                               Action
                             </th>
