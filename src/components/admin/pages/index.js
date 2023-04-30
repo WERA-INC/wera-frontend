@@ -135,35 +135,35 @@ const Dashboard = () => {
       <div className="grid grid-cols-6">
         <div className="col-start-1 col-end-2">
           <div>
-            <div className="fixed top-0 bottom-0 w-[300px] dashboard-main">
+            <div className="fixed top-0 bottom-0 md:w-[300px] w-[100px] dashboard-main">
               <div className="text-gray-100 text-xl">
-                <div className="p-2.5 mt-1 flex items-center">
+                <div className=" py-2.5 md:p-2.5 mt-1 flex items-center">
                   <img
                     src={"/images/Logo5.png"}
                     alt="wera"
                     href="/landingpage"
-                    className="md:cursor-pointer h-20 "
+                    className="md:cursor-pointer h-10 md:h-20"
                   />
                 </div>
                 <div className="my-2 bg-gray-600 h-[1px]"></div>
               </div>
 
               <div
-                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className=" py-2.5 md:p-2.5 mt-3 flex items-center rounded-md sm:px-0  md:px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("");
                 }}
               >
-                <i className="bi bi-house-door-fill"></i>
-                <span className="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="hidden md:inline bi bi-house-door-fill"></i>
+                <span className="text-[15px] ml-2 md:ml-4 text-gray-200 font-bold">
                   Dashboard
                 </span>
               </div>
               <div className="my-4 bg-gray-600 h-[1px]"></div>
-              <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white">
-                <i className="bi bi-bookmark-fill"></i>
+              <div className=" py-2.5 md:p-2.5 mt-3 flex items-center rounded-md sm:px-0  md:px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white">
+                <i className=" hidden md:inline bi bi-bookmark-fill"></i>
                 <span
-                  className="text-[15px] ml-4 text-gray-200 font-bold"
+                  className="text-[15px] ml-2 md:ml-4 text-gray-200 font-bold"
                   onClick={() => {
                     setSlug("profiles");
                   }}
@@ -172,48 +172,48 @@ const Dashboard = () => {
                 </span>
               </div>
               <div
-                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className=" py-2.5 md:p-2.5 mt-3 flex items-center rounded-md sm:px-0  md:px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("employers");
                 }}
               >
-                <i className="bi bi-bookmark-fill"></i>
-                <span className="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="hidden md:inline bi bi-bookmark-fill"></i>
+                <span className="text-[15px] ml-2 md:ml-4 text-gray-200 font-bold">
                   Employers
                 </span>
               </div>
               <div
-                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className=" py-2.5 md:p-2.5 mt-3 flex items-center rounded-md sm:px-0  md:px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("opportunities");
                 }}
               >
-                <i className="bi bi-bookmark-fill"></i>
-                <span className="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className=" hidden md:inline bi bi-bookmark-fill"></i>
+                <span className="text-[15px] ml-2 md:ml-4 text-gray-200 font-bold">
                   Jobs
                 </span>
               </div>
               <div
-                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className=" py-2.5 md:p-2.5 mt-3 flex items-center rounded-md sm:px-0  md:px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   setSlug("applications");
                 }}
               >
-                <i className="bi bi-bookmark-fill"></i>
-                <span className="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className=" hidden md:inline bi bi-bookmark-fill"></i>
+                <span className="text-[15px] ml-2 md:ml-4 text-gray-200 font-bold">
                   Applications
                 </span>
               </div>
               <div className="my-4 bg-gray-600 h-[1px]"></div>
 
               <div
-                className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
+                className=" py-2.5 md:p-2.5 mt-3 flex items-center rounded-md sm:px-0  md:px-4 duration-300 cursor-pointer hover:bg-blue-500 text-white"
                 onClick={() => {
                   navigator("/");
                 }}
               >
-                <i className="bi bi-box-arrow-in-right"></i>
-                <span className="text-[15px] ml-4 text-gray-200 font-bold">
+                <i className="hidden md:inline bi bi-box-arrow-in-right"></i>
+                <span className="text-[15px] ml-2 md:ml-4 text-gray-200 font-bold">
                   Logout
                 </span>
               </div>
@@ -221,7 +221,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          className="col-end-7 col-span-5  px-5 "
+          className="col-end-7 col-span-5  md:px-5 "
           style={{
             backgroundColor: "rgba(5, 27, 44, 0.1)",
             backgroundSize: "cover",
@@ -233,8 +233,8 @@ const Dashboard = () => {
             <div>
               <h2 className="text-gray-200 pt-3">SUMMARY</h2>
               <div className="flex items-center justify-center">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 p-5 ">
-                  <div className="relative bg-gray-400  py-6 px-6 rounded-3xl w-64 my-4 shadow-xl ">
+                <div className="grid grid-cols-2 gap-1 md:gap-6 sm:grid-cols-2 md:p-5 ">
+                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-32 md:w-64 my-4 shadow-xl ">
                     <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <PersonIcon />
                     </div>
@@ -244,13 +244,13 @@ const Dashboard = () => {
                           {summary.profiles}
                         </p>
                       </div>
-                      <p className="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950 text-center text-center">
                         Job Seekers
                       </p>
                     </div>
                   </div>
 
-                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-32 md:w-64 my-4 shadow-xl">
                     <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <BuildingIcon />
                     </div>
@@ -260,13 +260,13 @@ const Dashboard = () => {
                           {summary.employers}
                         </p>
                       </div>
-                      <p className="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950 text-center">
                         Employers
                       </p>
                     </div>
                   </div>
 
-                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-32 md:w-64 my-4 shadow-xl">
                     <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <BriefcaseIcon />
                     </div>
@@ -276,13 +276,13 @@ const Dashboard = () => {
                           {summary.opportunities}
                         </p>
                       </div>
-                      <p className="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950 text-center">
                         Jobs
                       </p>
                     </div>
                   </div>
 
-                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                  <div className="relative bg-gray-400 py-6 px-6 rounded-3xl w-32 md:w-64 my-4 shadow-xl">
                     <div className=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 left-4 -top-6">
                       <FilesIcon />
                     </div>
@@ -292,7 +292,7 @@ const Dashboard = () => {
                           {summary.applications}
                         </p>
                       </div>
-                      <p className="text-xl font-semibold my-2 text-blue-950">
+                      <p className="text-xl font-semibold my-2 text-blue-950 text-center                                                                                                                                                                                                                                                                                                  ">
                         Applications
                       </p>
                     </div>
@@ -301,7 +301,7 @@ const Dashboard = () => {
               </div>
             </div>
           ) : (
-            <div className="antialiased font-sans text-white px-5 ms-20 mt-4">
+            <div className="antialiased font-sans text-white md:px-5 md:ms-20 mt-4">
               <div className="container px-4 sm:px-8">
                 <div className="py-8">
                   <div>
@@ -313,7 +313,7 @@ const Dashboard = () => {
                         : slug}
                     </h2>
                   </div>
-                  <div className="my-3 px-10 w-2/3 mx-auto">
+                  <div className="my-3 ps-2 md:ps-0 md:px-10 w-full md:w-2/3 mx-auto">
                     <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                       <input
                         type="search"
