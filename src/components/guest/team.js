@@ -25,10 +25,10 @@ const Team = () => {
                   <div className="absolute -mt-20 w-full flex justify-center">
                     <div className="h-32 w-32">
                       <img
-                        src="https://cdn.tuk.dev/assets/photo-1530577197743-7adf14294584.jfif"
+                        src={"/images/lizpic1.jpeg"}
                         alt="Display Picture of Elizabeth"
                         role="img"
-                        className="rounded-full object-cover h-full w-full shadow-md"
+                        className="rounded-full object-cover h-full w-full shadow-md rotate-12"
                       />
                     </div>
                   </div>
