@@ -80,11 +80,11 @@ const Dashboard = () => {
       //  console.log(Object.keys(data[0]));
       if (slug === "profiles") {
         let selected = data.map((object) => {
-          return (({id,  full_name, phone_number, email_address, created_at }) => ({id,
+          return (({id,  full_name, phone_number, email_address, created_at, disabled }) => ({id,
             full_name,
             phone_number,
             email_address,
-            created_at,
+            created_at,disabled
           }))(object);
         });
         setFiltered(selected);
@@ -104,12 +104,12 @@ const Dashboard = () => {
             company_name,
             company_location,
             email_address,
-            created_at,
+            created_at,disabled
           }) => ({id,
             company_name,
             company_location,
             email_address,
-            created_at,
+            created_at,disabled
           }))(object);
         });
         setFiltered(selected);
@@ -346,6 +346,8 @@ const Dashboard = () => {
                               <th className="px-3 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-sm font-semibold text-gray-950 capitalize tracking-wider">
                                 {keys[0] == key
                                   ? null
+                                  : keys[5] == key
+                                  ? null
                                   : key.split("_").length > 1
                                   ? key.split("_").join(" ")
                                   : key}
@@ -354,9 +356,11 @@ const Dashboard = () => {
                             <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-950 uppercase tracking-wider">
                               View
                             </th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-950 uppercase tracking-wider">
-                              Action
-                            </th>
+                            {slug == "employers" || slug == "profiles" ? (
+                              <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-400 text-left text-xs font-semibold text-gray-950 uppercase tracking-wider">
+                                Action
+                              </th>
+                            ) : null}
                           </tr>
                         </thead>
                         <tbody>
