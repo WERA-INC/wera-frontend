@@ -40,8 +40,8 @@ function Login({ setUser, setCompany }) {
             localStorage.setItem("adminId", JSON.stringify(data.id));
             }else{
               console.log(data)
-               setCompany(data);
             navigate("/company");
+
                       }
 
           }
