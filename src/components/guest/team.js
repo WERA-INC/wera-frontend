@@ -15,7 +15,7 @@ const Team = () => {
               </h1>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4 px-20">
+          <div className="grid grid-cols-1 gap-4 px-20 md:grid-cols-2 lg:grid-cols-3">
             <div>
               <div role="listitem" className="w-full relative mt-24">
                 <div

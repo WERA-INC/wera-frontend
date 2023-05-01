@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { RightArrowIcon } from "../../icons";
 
 function Login({ setUser, setCompany }) {
   const navigate = useNavigate();
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("");
+   const [searchParams, setSearchParams] = useSearchParams();
+  const [userType, setUserType] = useState(searchParams.get("user-type"));
 
   const [errors, setErrors] = useState([]);
+  console.log(userType)
 
   const signUpFunctionality = (e) => {
     e.preventDefault();
@@ -27,19 +30,20 @@ function Login({ setUser, setCompany }) {
     }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
-          console.log(data);
-          if (userType == "Employer") {
-            setCompany(data);
-            navigate("/company/jobs");
-            console.log(data);
-          } else if (userType == "Jobseeker") {
+          if (userType == "jobseeker") {
             navigate("/jobseeker");
             localStorage.setItem("jobseekerId", JSON.stringify(data.id));
             setUser(data);
           } else {
-            navigate("/admin-dashboard");
+            if(data.user_type!==undefined){
+               navigate("/admin-dashboard");
             localStorage.setItem("adminId", JSON.stringify(data.id));
-            console.log(data);
+            }else{
+              console.log(data)
+               setCompany(data);
+            navigate("/company/jobs");
+                      }
+
           }
         });
       } else {
@@ -59,10 +63,14 @@ function Login({ setUser, setCompany }) {
           <div className="col-md-4 bg-light bg-image">
             <div className="login py-5">
               <div className="col-lg-12 col-xl-10 mx-auto">
-                <h4 className="display-6">WELCOME BACK TO WERA</h4>
-                <p className="text-muted mb-4">Log into your account</p>
+                <p className="text-3xl text-center mb-2">
+                  WELCOME BACK TO WERA
+                </p>
+                <p className="text-muted text-center py-3 mb-6">
+                  You are logging in as a {userType}
+                </p>
                 <form onSubmit={signUpFunctionality} novalidate>
-                  <div className="mb-3">
+                  <div className="mb-6">
                     <input
                       id="inputEmail"
                       onChange={(e) => setEmailAddress(e.target.value)}
@@ -82,31 +90,12 @@ function Login({ setUser, setCompany }) {
                       required
                     />
                   </div>
-                  <div className="form-group col-12">
-                    <label
-                      htmlFor="usertype"
-                      className="text-start text-primary"
-                    >
-                      Who are you?
-                    </label>
-                    <select
-                      id="users"
-                      name="users"
-                      className="form-control rounded-pill border-0 shadow-sm px-4"
-                      onChange={(e) => setUserType(e.target.value)}
-                    >
-                      <option selected>Select</option>
-                      <option>Jobseeker</option>
-                      <option>Employer</option>
-                      <option>Admin</option>
-                    </select>
-                  </div>
                   <div className="d-grid gap-2 mt-2">
                     <br />
 
                     <button
                       type="submit"
-                      className="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                      className=" py-2 bg-[#143C66] text-white text-uppercase rounded-pill shadow-sm"
                     >
                       Log In
                     </button>
@@ -119,17 +108,27 @@ function Login({ setUser, setCompany }) {
                           ))
                         : null}
                     </ul>
-                    <span>
+                    <span className="text-center block">
                       Not yet registered?
                       <span
                         onClick={() => {
-                          navigate(`/sign-up`);
+                          navigate(`/sign-up?user-type=${userType}`);
                         }}
                         className="ms-3 text-primary"
                         style={{ cursor: "pointer" }}
                       >
-                        Sign Up
+                        Sign up
                       </span>
+                    </span>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        navigate('/');
+                      }}
+                      className="ms-3 text-primary text-center"
+                    >
+
+                      Home
                     </span>
                   </div>
                 </form>

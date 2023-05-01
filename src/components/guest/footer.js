@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigator= useNavigate()
   return (
     <>
       <footer className="relative  pt-8 pb-6 bg-[#0D2644]">
@@ -56,8 +58,11 @@ const Footer = () => {
                       <a
                         className="text-blueGray-600 hover:text-blueGray-400 font-semibold block pb-2 text-sm"
                         href="#"
+                        onClick={()=>{
+                          navigator('/')
+                        }}
                       >
-                        About Us
+                        Home
                       </a>
                     </li>
                     <li>
