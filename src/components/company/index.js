@@ -178,9 +178,14 @@ const CompanyNav = () => {
                 }}
               >
                 <Tab
-                  value="jobs"
-                  onClick={() => navigate("/company/:id/jobs")}
-                  label="Jobs"
+                  value="jobs1"
+                  onClick={() => navigate("/company/jobs")}
+                  label="posted jobs"
+                />
+                <Tab
+                  value="jobs2"
+                  onClick={() => navigate("/company/add-job")}
+                  label="Add Job"
                 />
               </Tabs>
             </Box>

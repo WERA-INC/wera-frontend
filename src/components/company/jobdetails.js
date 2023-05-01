@@ -66,7 +66,7 @@ export default function JobDetails() {
         <CardMedia
           component="img"
           height="10"
-          image="https://img.freepik.com/free-vector/we-re-hiring-red-vector-banner-employee-vacancy-announcement-illustration-isolated-business-recruiting-concept_91128-1342.jpg?size=626&ext=jpg"
+          image="https://img.freepik.com/free-vector/job-vacancy-background-with-chair_23-2147868094.jpg?size=626&ext=jpg"
           alt="Moringa Logo"
           style={{ height: "200px" }}
         />
