@@ -3,8 +3,8 @@ import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { GridToolbarQuickFilter } from "@mui/x-data-grid";
 
-import SortedAscendingIcon from "../icons/SortedAscendingIcon.js";
-import SortedDescendingIcon from "../icons/SortedDescendingIcon.js";
+import SortedAscendingIcon from "./icons/SortedAscendingIcon.js";
+import SortedDescendingIcon from "./icons/SortedDescendingIcon.js";
 import CustomNoRowsOverlay from "./NoRowsOverlay.js";
 
 

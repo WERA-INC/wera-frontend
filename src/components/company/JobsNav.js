@@ -7,7 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 
 // Functions
-import { getRecruiterJobs } from "../api/company/index.js";
+import { getRecruiterJobs } from "./api/company/index.js";
 
 
 
