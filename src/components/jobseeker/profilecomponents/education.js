@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Education = () => {
-  const [isEditing, setIsEditing] = useState(false);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  
+    const toggleEdit = () => {
+      setIsEditModalOpen(!isEditModalOpen);
+    };
+  // const [isEditing, setIsEditing] = useState(false);
 
-  const toggleEdit = () => {
-    setIsEditing(!isEditing);
-  };
+  // const toggleEdit = () => {
+  //   setIsEditing(!isEditing);
+  // };
   const [isAddingEducation, setIsAddingEducation] = useState(false);
 
   const toggleAddEducation = () => {
@@ -177,31 +182,27 @@ const Education = () => {
           </section>
         </div>
       ) : (
-        <div>
-          <h1>Education</h1>
-          <button
-            type="button"
-            className=" text-white font-bold py-2 px-4 rounded"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,1), #0D2644)",
-            }}
-            onClick={toggleAddEducation}
-          >
-            Add
-          </button>
+        <section className="justify-center items-center ">
+          <div className="flex flex-col items-center justify-center">
+            <h1 className=" text-4xl ">Education</h1>
+            <button
+              type="button"
+              className="text-white bg-black font-bold py-2 px-4 rounded"
+              onClick={toggleAddEducation}
+            >
+              Add
+            </button>
+          </div>
+
           {/* Render education data */}
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-3 mx-auto w-2/3 gap-3">
             {educationData.map((education) => (
-              <div key={education.id} className="bg-white rounded p-4 mb-4">
+              <div key={education.id} className=" rounded p-4 mb-4">
                 <div className="text-white">
                   <section
-                    className="w-64 mx-auto bg-dark rounded-2xl px-8 py-6 shadow-lg h-100"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.9), #0D2644)",
-                    }}
-                  >
+                    className="w-full sm:w-64 mx-auto bg-[#0a1f38] rounded-2xl px-8 py-6 shadow-lg h-auto sm:h-100">
+
+
                     <div className="flex items-center justify-between">
                       <span className="text-emerald-400">
                         <svg
@@ -226,18 +227,12 @@ const Education = () => {
                       <p>Institution: {education.institution}</p>
                       <p>Qualification: {education.qualification}</p>
                     </div>
-                    <button
-                      type="button"
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                      onClick={toggleEdit}
-                    >
-                      Edit
-                    </button>
-
+                    <div className="flex justify-center gap-1 p-2 mt-4">
                     <div className="mt-3 text-white text-sm">
                       <button
-                        className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
-                        onClick={() => handleDeleteEducation(education.id)}
+                        type="button"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        onClick={toggleEdit}
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -255,19 +250,60 @@ const Education = () => {
                         </svg>
                         Delete
                       </button>
+                      </div>
+
+                      <div className="mt-3 text-white text-sm">
+                        <button
+                          className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
+                          onClick={() => handleDeleteEducation(education.id)}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
+                          </svg>
+                          Delete
+                        </button>
+                      </div>
                     </div>
                   </section>
                 </div>
-                {isEditing && (
-                  <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
-                    <form className="bg-black justify-center items-center rounded p-4 mt-4">
+                {isEditModalOpen && (
+                   <div className="fixed z-10 inset-0 overflow-y-auto">
+                   <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                     <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+                       <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+                     </div>
+         
+                     <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+                       &#8203;
+                     </span>
+         
+                     <div
+                       className="inline-block align-bottom bg-[#0D2644] rounded-lg px-4 pt-2 pb-4 text-center overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
+                       role="dialog"
+                       aria-modal="true"
+                       aria-labelledby="modal-headline"
+                     >
+                       {/* Edit form content */}
+                     
+                    <form className=" rounded p-3 mt-4">
                       <input
                         type="text"
                         name="year_of_admission"
                         placeholder="Year of Admission"
                         value={formData.year_of_admission}
                         onChange={handleChange}
-                        className="bg-white rounded p-2 mb-2"
+                        className="bg-dark placeholder-white rounded p-2 mb-2"
                       />
                       <input
                         type="text"
@@ -275,7 +311,7 @@ const Education = () => {
                         placeholder="Year of Completion"
                         value={formData.year_of_completion}
                         onChange={handleChange}
-                        className="bg-white rounded p-2 mb-2"
+                        className="bg-dark placeholder-white  rounded p-2 mb-2"
                       />
                       <input
                         type="text"
@@ -283,7 +319,7 @@ const Education = () => {
                         placeholder="Institution"
                         value={formData.institution}
                         onChange={handleChange}
-                        className="bg-white rounded p-2 mb-2"
+                        className="bg-dark placeholder-white  rounded p-2 mb-2"
                       />
                       <input
                         type="text"
@@ -291,9 +327,12 @@ const Education = () => {
                         placeholder="Qualification"
                         value={formData.qualification}
                         onChange={handleChange}
-                        className="bg-white rounded p-2 mb-2"
+                        className="bg-dark placeholder-white  rounded p-2 mb-2"
                       />
-                      <button
+                     
+                    
+                    </form>
+                    <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
                         onClick={() =>
                           handleUpdateEducation(educationData.id, educationData)
@@ -301,20 +340,23 @@ const Education = () => {
                       >
                         Update
                       </button>
-                      <button
+                  
+                        <button
                         type="button"
-                        className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
+                        className=" bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2"
                         onClick={toggleEdit}
                       >
                         Cancel
                       </button>
-                    </form>
-                  </section>
+                     </div>
+                   </div>
+                 </div>
+                
                 )}
               </div>
             ))}
           </div>
-        </div>
+        </section>
       )}
     </>
   );

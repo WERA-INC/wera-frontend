@@ -56,8 +56,8 @@ function Login({ setUser, setCompany }) {
     <div className="container p-3">
       <div className="container">
         <div className="row no-gutter">
-          <div className="col-md-7 d-none d-md-block bg-image me-2">
-            <img className="login" src={"images/login.png"} alt="" />
+          <div className="col-md-7 d-none d-md-block  me-2">
+            <img className="login" src={"images/sign-in-02.svg"} alt="" />
           </div>
 
           <div className="col-md-4 bg-light bg-image">
