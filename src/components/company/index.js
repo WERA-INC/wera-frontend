@@ -31,6 +31,7 @@ const CompanyNav = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [active, setActive] = React.useState(false);
   const [selectedTab, setSelectedTab] = React.useState("dashboard");
+  const [recruiterDetails, setRecruiterDetails] = React.useState(null);
 
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -55,6 +56,18 @@ const CompanyNav = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const fetchRecruiterDetails = async () => {
+    try{
+      const response = await fetch("http://localhost:3000/employers/id")
+      const data = await response.json();
+      setRecruiterDetails(data);
+      setShowModal1(true);
+    }catch(error){
+      console.error(error);
+    }
+  }
+
 
   // Define logOut fuction here
   const handleLogOut = () => {
@@ -346,11 +359,13 @@ const CompanyNav = () => {
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
+                    <b>Company Name:</b> Moringa School
+                    <br/>
+                    <b>Email Address:</b>moringaschool@gmail.com
+                    <br/>
+                    <b>Company Description:</b> Moringa is a leading coding school that seeks to upscale the tech enthusiasts with programming knowledge.
+                    <br/>
+                    <b>Company Location:</b> Nairobi, Kenya
                   </p>
                 </div>
                 {/*footer*/}
