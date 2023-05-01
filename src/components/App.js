@@ -18,11 +18,9 @@ import Admin from "../components/admin";
 import Dashboard from "./admin/pages";
 // employer
 // import RecruiterProfile from "./recruiter/RecruiterProfile";
-// import AddJob from "./recruiter/AddJob";
-// import JobListing from "./recruiter/JobListing";
-// import CompanyDashboard from "./company/CompanyDashboard.js";
-// import CompanyNav from "./company/navs/CompanyNav.js";
-// import JobsNav from "./company/navs/JobsNav.js";
+import AddJob from "./company/pages/addjob";
+import JobListing from "./company/pages/joblisting";
+import JobsNav from "./company/pages";
 // import AddJobListing from "./company/forms/AddJobListing.js";
 // import RecruiterJobsTable from "./company/tables/RecruiterJobsTable.js";
 // import JobDetails from "./company/views/JobDetails.js";
@@ -33,6 +31,7 @@ import Application from "./admin/pages/application";
 import Employers from "./admin/pages/employers";
 import Opprotunity from "./admin/pages/opprotunity";
 import Profiles from "./admin/pages/profiles";
+import CompanyNav from "../components/company";
 
 const router = createBrowserRouter([
   {
@@ -103,6 +102,25 @@ const router = createBrowserRouter([
         path: "/opportunities/:id",
         element: <Opprotunity />,
       },
+    ],
+  },
+  {
+    path: "/",
+    element: <CompanyNav />,
+    children: [
+      {
+        path: "/company",
+        element: <JobsNav />,
+      },
+      {
+        path: "/company/:id/add-job",
+        element: <AddJob />,
+      },
+      {
+        path: "/company/:id/jobs",
+        element: <JobListing />,
+      },
+      
     ],
   },
 ]);
