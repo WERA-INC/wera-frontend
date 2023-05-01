@@ -41,7 +41,7 @@ function Login({ setUser, setCompany }) {
             }else{
               console.log(data)
                setCompany(data);
-            navigate("/company/jobs");
+            navigate("/company");
                       }
 
           }

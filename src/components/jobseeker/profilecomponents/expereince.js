@@ -8,8 +8,8 @@ const Experience = () => {
     setIsEditModalOpen(!isEditModalOpen);
   };
 
-
-  const [isAddingExpereinceModalOpen, setIsAddingExperienceModalOpen] = useState(false);
+  const [isAddingExpereinceModalOpen, setIsAddingExperienceModalOpen] =
+    useState(false);
 
   const toggleAddExperience = () => {
     setIsAddingExperienceModalOpen(!isAddingExpereinceModalOpen);
@@ -25,7 +25,7 @@ const Experience = () => {
   useEffect(() => {
     async function fetchExperienceData(id) {
       const response = await axios.get(
-        `http://localhost:3000/profiles/2/experiences/`
+        `http://localhost:3000/profiles/${id}/experiences/`
       );
       setExperienceData(response.data);
     }
@@ -38,7 +38,7 @@ const Experience = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/profiles/2/experiences/`,
+        `http://localhost:3000/profiles/${id}/experiences/`,
         formData
       );
       setExperienceData([...experienceData, response.data]);
@@ -88,13 +88,11 @@ const Experience = () => {
   }
   return (
     <>
-    
       {isAddingExpereinceModalOpen ? (
         <section className="max-w-4xl p-6 mx-auto justify-center text-center items-center  rounded-md ">
           <form
             onSubmit={handleAddExperience}
             className="bg-[#0D2644] text-white  rounded p-8  mt-2"
-           
           >
             <h3 className="top-1 ">New Experience</h3>
             <div className="mb-4">
@@ -170,7 +168,6 @@ const Experience = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-          
                     <path d="M12 14l9-5-9-5-9 5 9 5z" />
                     <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                     <path
@@ -190,26 +187,26 @@ const Experience = () => {
                     Job Description:{experience.job_description}
                   </p>
                   <div className="flex justify-center gap-2">
-                       <button
-                    className="inline-flex items-center px-2 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
-                    onClick={() => handleDeleteExperience(experience.id)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                    <button
+                      className="inline-flex items-center px-2 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
+                      onClick={() => handleDeleteExperience(experience.id)}
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                      />
-                    </svg>
-                    Delete
-                  </button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        />
+                      </svg>
+                      Delete
+                    </button>
                     <button
                       className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
                       onClick={toggleEdit}
@@ -243,41 +240,42 @@ const Experience = () => {
                         >
                           {/* Edit form content */}
                           <form className=" rounded p-3 mt-4">
-                      <input
-                        type="text"
-                        name="comapny"
-                        placeholder="Company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className="bg-dark placeholder-white rounded p-2 mb-2"
-                      />
-                      <input
-                        type="text"
-                        name="year"
-                        placeholder="Year"
-                        value={formData.year}
-                        onChange={handleChange}
-                        className="bg-dark placeholder-white  rounded p-2 mb-2"
-                      />
-                      <input
-                        type="text"
-                        name="job_description"
-                        placeholder="Job Description"
-                        value={formData.job_description}
-                        onChange={handleChange}
-                        className="bg-dark placeholder-white  rounded p-2 mb-2"
-                      />
-                    
-                    
-                    </form>
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-                        onClick={() =>
-                          handleUpdateExperience(experience.id, experienceData)
-                        }
-                      >
-                        Update
-                      </button>
+                            <input
+                              type="text"
+                              name="comapny"
+                              placeholder="Company"
+                              value={formData.company}
+                              onChange={handleChange}
+                              className="bg-dark placeholder-white rounded p-2 mb-2"
+                            />
+                            <input
+                              type="text"
+                              name="year"
+                              placeholder="Year"
+                              value={formData.year}
+                              onChange={handleChange}
+                              className="bg-dark placeholder-white  rounded p-2 mb-2"
+                            />
+                            <input
+                              type="text"
+                              name="job_description"
+                              placeholder="Job Description"
+                              value={formData.job_description}
+                              onChange={handleChange}
+                              className="bg-dark placeholder-white  rounded p-2 mb-2"
+                            />
+                          </form>
+                          <button
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                            onClick={() =>
+                              handleUpdateExperience(
+                                experience.id,
+                                experienceData
+                              )
+                            }
+                          >
+                            Update
+                          </button>
                           <button
                             className=" bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2"
                             onClick={toggleEdit}
@@ -289,62 +287,6 @@ const Experience = () => {
                     </div>
                   )}
                 </div>
-                {/* <div className="block rounded-xl border bg-[#0D2644] shadow-xl sm:p-6 lg:p-8">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-10 w-10 text-blue-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                    />
-                  </svg>
-
-                  <h3 className="mt-3 text-lg font-bold text-white sm:text-xl">
-                    <p className="font-bold">Company: {experience.company}</p>
-                    <p className="">Year:{experience.year}</p>
-                  </h3>
-
-                  <p className="mt-4 text-sm text-gray-300">
-                    Job Description:{experience.job_description}
-                  </p>
-                  <div className="flex justify-center gap-2">
-                  <button
-                    className="inline-flex items-center px-2 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
-                    onClick={() => handleDeleteExperience(experience.id)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                      />
-                    </svg>
-                    Delete
-                  </button>
-                  <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-                    onClick={toggleEdit}
-                  >
-                    Edit
-                  </button>
-                </div>
-                </div>
-                 */}
               </div>
             ))}
           </div>

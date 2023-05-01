@@ -7,11 +7,7 @@ const Education = () => {
   const toggleEdit = () => {
     setIsEditModalOpen(!isEditModalOpen);
   };
-  // const [isEditing, setIsEditing] = useState(false);
 
-  // const toggleEdit = () => {
-  //   setIsEditing(!isEditing);
-  // };
   const [isAddingEducation, setIsAddingEducation] = useState(false);
 
   const toggleAddEducation = () => {
@@ -27,9 +23,9 @@ const Education = () => {
   });
 
   useEffect(() => {
-    async function fetchEducationData() {
+    async function fetchEducationData(id) {
       const response = await axios.get(
-        `http://localhost:3000/profiles/2/educations/`
+        `http://localhost:3000/profiles/${id}/educations/`
       );
       setEducationData(response.data);
       // console.log(response.data);
@@ -43,7 +39,7 @@ const Education = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/profiles/2/educations/`,
+        `http://localhost:3000/profiles/${id}/educations/`,
         formData
       );
       setEducationData([...educationData, response.data]);
@@ -86,7 +82,7 @@ const Education = () => {
       );
 
       const response = await axios.patch(
-        `http://localhost:3000/profiles/${educationData.id}/educations/${id}`,
+        `http://localhost:3000/profiles/${id}/educations/${id}`,
         formDataToUpdate,
         {
           headers: {
@@ -358,92 +354,3 @@ const Education = () => {
 
 export default Education;
 
-{
-  /* <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-                onClick={() =>
-                  handleUpdateEducation(education.id, { ...education })
-                }
-              >
-                Edit
-              </button> */
-}
-{
-  /* <div>
-          {educationData.map((education) => (
-            <div key={education.id} className="bg-white rounded p-4 mb-4">
-              <div className="bg-dark">
-              <p>Year of admission: {education.year_of_admission}</p>
-              <p>Year of completion: {education.year_of_completion}</p>
-              <p>Institution: {education.institution}</p>
-              <p>Qualification: {education.qualification}</p>
-              <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2 mt-4"
-                onClick={() => handleDeleteEducation(education.id)}
-              >
-                Delete
-              </button>
-
-              <button
-                type="button"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={toggleEdit}
-              >
-                Edit
-              </button>
-              </div>
-              {isEditing && (
-                 <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
-                  <form className="bg-black justify-center items-center rounded p-4 mt-4">
-                  <input
-                    type="text"
-                    name="year_of_admission"
-                    placeholder="Year of Admission"
-                    value={formData.year_of_admission}
-                    onChange={handleChange}
-                    className="bg-white rounded p-2 mb-2"
-                  />
-                  <input
-                    type="text"
-                    name="year_of_completion"
-                    placeholder="Year of Completion"
-                    value={formData.year_of_completion}
-                    onChange={handleChange}
-                    className="bg-white rounded p-2 mb-2"
-                  />
-                  <input
-                    type="text"
-                    name="institution"
-                    placeholder="Institution"
-                    value={formData.institution}
-                    onChange={handleChange}
-                    className="bg-white rounded p-2 mb-2"
-                  />
-                  <input
-                    type="text"
-                    name="qualification"
-                    placeholder="Qualification"
-                    value={formData.qualification}
-                    onChange={handleChange}
-                    className="bg-white rounded p-2 mb-2"
-                  />
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-                    onClick={() => handleUpdateEducation(educationData.id, educationData)}
-                  >
-                    Update
-                  </button>
-                  <button
-                type="button"
-                className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-2"
-                onClick={toggleEdit}
-              >
-                Cancel
-              </button>
-                </form>
-                </section>
-              )}
-            </div>
-          ))}
-          </div> */
-}

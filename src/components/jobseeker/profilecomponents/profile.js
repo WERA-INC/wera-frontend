@@ -23,7 +23,7 @@ const Profile = () => {
 
   useEffect(() => {
     async function fetchProfileData(id) {
-      const response = await axios.get(`http://localhost:3000/profiles/2`);
+      const response = await axios.get(`http://localhost:3000/profiles/35`);
       setProfileData(response.data);
       setFormData(response.data);
       console.log(response.data);
@@ -32,7 +32,7 @@ const Profile = () => {
     fetchProfileData();
   }, []);
 
-  async function handleUpdateProfile(event) {
+  async function handleUpdateProfile(event, id) {
     event.preventDefault();
 
     try {
@@ -50,7 +50,7 @@ const Profile = () => {
       }
 
       const response = await axios.patch(
-        `http://localhost:3000/profiles/2`,
+        `http://localhost:3000/profiles/${id}`,
         formDataToUpdate,
         {
           headers: {
@@ -72,11 +72,27 @@ const Profile = () => {
       setFormData({ ...formData, [name]: value });
     }
   }
+  const handleTagChange = (event, tag) => {
+    const tagIndex = formData.tags.findIndex((t) => t.id === tag.id);
+    if (tagIndex !== -1) {
+      // Remove tag if it exists in formData
+      const newTags = [...formData.tags];
+      newTags.splice(tagIndex, 1);
+      setFormData({ ...formData, tags: newTags });
+    } else {
+      // Add tag if it doesn't exist in formData
+      setFormData({
+        ...formData,
+        tags: [...formData.tags, { id: tag.id, name: event.target.value }],
+      });
+    }
+  };
+
   return (
     <>
       {isEditing ? (
         <div>
-          <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
+          <section className="max-w-4xl p-6 mx-auto  rounded-md   mt-20">
             <h2 className="text-lg font-semibold text-black capitalize dark:text-white">
               Edit Profile
             </h2>
@@ -165,6 +181,25 @@ const Profile = () => {
                     className="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
+                <div>
+                  <label className="text-white dark:text-gray-200">Tags</label>
+                  <div className="flex flex-wrap mt-2">
+                    {profileData.tags &&
+                      profileData.tags.map((tag, index) => (
+                        <div key={index} className="mr-4">
+                          <input
+                            type="text"
+                            name="tags"
+                            value={tag.name}
+                            onChange={(event) => handleTagChange(event, tag)}
+                            id={`tag-${tag.id}`}
+                            className="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                          />
+                        </div>
+                      ))}
+                  </div>
+                </div>
+
                 <div>
                   <label
                     className="text-white dark:text-gray-200"
@@ -326,27 +361,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-// <>
-// <div>Profile</div>
-// <div className="bg-gray-100 p-4">
-//   {/* Render profile data */}
-//   <div className="bg-white rounded p-4 mb-4">
-//     <p className="font-bold">Name: {profileData.full_name}</p>
-//     <p>Phone number: {profileData.phone_number}</p>
-//     <p>Date of birth: {profileData.date_of_birth}</p>
-//     <p>Biography: {profileData.biography}</p>
-//     <p>tags: {profileData.tags}</p>
-//     {profileData.profile_pic && (
-//       <img
-//         src={profileData.profile_pic}
-//         alt="Profile pic"
-//         className="h-32 w-32 object-cover rounded-full"
-//       />
-//     )}
-//     <p>Resume: {profileData.resume}</p>
-//   </div>
-// </div>
-// {/* Render Form for update profile */}
-
-// </>
