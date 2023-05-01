@@ -18,6 +18,7 @@ const Profile = () => {
     skills: "",
     profile_pic: "",
     resume: null,
+    tags: [],
   });
 
   useEffect(() => {
@@ -41,15 +42,15 @@ const Profile = () => {
       formDataToUpdate.append("date_of_birth", formData.date_of_birth);
       formDataToUpdate.append("biography", formData.biography);
       formDataToUpdate.append("skills", formData.skills);
-      if (formData.profile_pic) {
+      if (formData.profile_pic !== "") {
         formDataToUpdate.append("profile_pic", formData.profile_pic);
       }
-      if (formData.resume) {
+      if (formData.resume !== "") {
         formDataToUpdate.append("resume", formData.resume);
       }
 
       const response = await axios.patch(
-        `http://localhost:3000/profiles/${profileData.id}`,
+        `http://localhost:3000/profiles/2`,
         formDataToUpdate,
         {
           headers: {
@@ -240,10 +241,7 @@ const Profile = () => {
             </section>
             <section className="relative py-16 ">
               <div className="container mx-auto px-4">
-                <div
-                  className="relative flex flex-col min-w-0 break-words bg-[#0D2644] w-full mb-6 shadow-xl rounded-lg -mt-64"
-               
-                >
+                <div className="relative flex flex-col min-w-0 break-words bg-[#0D2644] w-full mb-6 shadow-xl rounded-lg -mt-64">
                   <div className="px-6">
                     <div className="flex flex-wrap justify-center">
                       <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
@@ -278,6 +276,18 @@ const Profile = () => {
                             <i className="fas fa-calendar-alt mr-2 text-lg text-white"></i>
                             <p>Date of birth: {profileData.date_of_birth}</p>
                           </div>
+
+                          <div className="mb-2 text-sm leading-normal font-bold lowercase">
+                            <p>
+                              Industry
+                              <ul>
+                                {profileData.tags &&
+                                  profileData.tags.map((tag, index) => (
+                                    <li key={index}>{tag.name}</li>
+                                  ))}
+                              </ul>
+                            </p>
+                          </div>
                         </div>
                         <div className="bg-transparent rounded-lg font-bold text-white p-4">
                           <div className="text-sm leading-normal mb-2  lowercase">
@@ -292,16 +302,18 @@ const Profile = () => {
                             <i className="fas fa-file-pdf mr-2 text-lg text-white"></i>
                             <p>Resume: {profileData.resume}</p>
                           </div>
-                          <button
-                            type="button"
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                            onClick={toggleEdit}
-                          >
-                            Edit Profile
-                          </button>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="flex p-3 justify-center items-center">
+                    <button
+                      type="button"
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      onClick={toggleEdit}
+                    >
+                      Edit Profile
+                    </button>
                   </div>
                 </div>
               </div>
