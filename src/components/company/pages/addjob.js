@@ -1,18 +1,29 @@
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import '../AddJob.css';
+import { useNavigate } from 'react-router-dom';
 
 const AddJob = () => {
-  const [formData, setFormData] = useState({
+  //  localStorage.setItem("employerId", JSON.stringify(data.id)); put in login
+  const navigate=useNavigate()
+  const [id, setId] = useState(null);
+  const [tags, setTags] = useState([]);
+  const [selectedtags, setSelectedTags] = useState([]);
+  const [formData, setFormData] = useState({  
     title: "",
     description: "",
-    qualification: "",
+    qualifications: "",
     responsibilities: "",
-    skills: "",
+    cut_off: "",
     job_type: "",
-    location: "",
     estimated_salary: "",
+    application_deadline: "",
+    cut_off: "",
   });
-
+  useEffect(() => {
+    const employerId = localStorage.getItem("employerId");
+    setId(employerId);
+  }, []);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -20,22 +31,32 @@ const AddJob = () => {
       [name]: value,
     }));
   };
-
+  useEffect(() => {
+    fetch(`http://localhost:3000/tags`).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setTags(data);
+        });
+      }
+    });
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    // add your code here to submit the form data to your server or store
-  
-    fetch("/opportunities", {
+    fetch("http://localhost:3000/opportunities", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...formData,
+        tags: selectedtags,
+        employer_id: parseInt(id, 10),
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+         navigate("/company/jobs");
         // handle the response from the server or store
       })
       .catch((error) => {
@@ -43,101 +64,266 @@ const AddJob = () => {
         // handle the error
       });
   };
-  
+
+  function handleChecked(event) {
+    if (event.target.checked == true) {
+      setSelectedTags([...selectedtags, event.target.name]);
+    } else {
+      let found = selectedtags.filter((tag) => tag !== event.target.name);
+      setSelectedTags(found);
+    }
+  }
+  function handleSub(event){
+    event.preventDefault()
+    console.log("submitted")
+
+  }
+
   return (
-    <div>
+    <>
+      <section class=" py-1 bg-blueGray-50">
+        <div class="w-full lg:w-10/12 px-4 mx-auto mt-6 text-left">
+          <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+            <div class="rounded-t bg-white mb-0 px-6 py-6">
+              <div class="text-center flex justify-between">
+                <h6 class="text-blueGray-700 text-xl font-bold">Post a Job</h6>
+                <button
+                  class="text-white active:bg-blue-950 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  type="submit"
+                  style={{ backgroundColor: "#0D2644" }}
+                  onClick={handleSubmit}
+                >
+                  POST
+                </button>
+              </div>
+            </div>
+            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+              <form >
+                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  Job Details
+                </h6>
+                <div class="flex flex-wrap">
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="title"
+                      >
+                        Title
+                      </label>
+                      <input
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={formData.title}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="application_deadline"
+                      >
+                        Application deadline
+                      </label>
+                      <input
+                        type="datetime-local"
+                        id="application_deadline"
+                        name="application_deadline"
+                        value={formData.application_deadline}
+                        onChange={handleChange}
+                        required
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      />
+                    </div>
+                  </div>
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="job_type"
+                      >
+                        Job type
+                      </label>
+                      <select
+                        id="job_type"
+                        name="job_type"
+                        value={formData.job_type}
+                        onChange={handleChange}
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        required
+                      >
+                        <option value="">Select </option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Freelance">Freelance</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="grid-password"
+                      >
+                        Number of Applicant required
+                      </label>
+                      <input
+                        type="text"
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        id="cut_off"
+                        name="cut_off"
+                        value={formData.cut_off}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="grid-password"
+                      >
+                        Estimated salary
+                      </label>
+                      <input
+                        type="text"
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        id="estimated_salary"
+                        name="estimated_salary"
+                        value={formData.estimated_salary}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
 
-      <div className="add-job">
-        <h1>Add a Job</h1>
-        <div className="container">
-          <form className="form-addjob" onSubmit={handleSubmit}>
-            <label htmlFor="title">Title</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              required
-            />
+                <hr class="mt-6 border-b-1 border-blueGray-300" />
 
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          ></textarea>
-
-          <label htmlFor="qualification">Qualification</label>
-          <input
-            type="text"
-            id="qualification"
-            name="qualification"
-            value={formData.qualification}
-            onChange={handleChange}
-            required
-          />
-
-          <label htmlFor="responsibilities">Responsibilities</label>
-          <textarea
-            id="responsibilities"
-            name="responsibilities"
-            value={formData.responsibilities}
-            onChange={handleChange}
-            required
-          ></textarea>
-
-          <label htmlFor="skills">Skills</label>
-          <input
-            type="text"
-            id="skills"
-            name="skills"
-            value={formData.skills}
-            onChange={handleChange}
-            required
-          />
-
-          <label htmlFor="type">Type</label>
-          <input
-            type="text"
-            id="type"
-            name="type"
-            value={formData.type}
-            onChange={handleChange}
-            required
-          />
-
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            required
-          />
-
-          <label htmlFor="estimatedSalary">Estimated Salary</label>
-          <input
-            type="text"
-            id="estimatedSalary"
-            name="estimatedSalary"
-            value={formData.estimatedSalary}
-            onChange={handleChange}
-            required
-          />
-
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      
-    </div>
-
-    </div>
-    
-  )
+                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  MORE DETAILS ABOUT THE JOB
+                </h6>
+                <div class="flex flex-wrap">
+                  <div class="w-full lg:w-12/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="grid-password"
+                      >
+                        Description
+                      </label>
+                      <textarea
+                        type="text"
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        rows="3"
+                        id="description"
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full lg:w-12/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="grid-password"
+                      >
+                        Qualification
+                      </label>
+                      <textarea
+                        type="text"
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        rows="3"
+                        id="qualifications"
+                        name="qualifications"
+                        value={formData.qualifications}
+                        onChange={handleChange}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full lg:w-12/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="grid-password"
+                      >
+                        Responsibilities
+                      </label>
+                      <textarea
+                        type="text"
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        rows="3"
+                        id="responsibilities"
+                        name="responsibilities"
+                        value={formData.responsibilities}
+                        onChange={handleChange}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full lg:w-12/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlfor="grid-password"
+                      >
+                        Industry
+                      </label>
+                      <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        {tags === []
+                          ? null
+                          : tags.map((tag) => (
+                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div class="flex items-center pl-3">
+                                  <input
+                                    id="react-checkbox-list"
+                                    type="checkbox"
+                                    value=""
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    onChange={handleChecked}
+                                    name={tag.id}
+                                  />
+                                  <label
+                                    for="react-checkbox-list"
+                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                  >
+                                    {tag.name}
+                                  </label>
+                                </div>
+                              </li>
+                            ))}
+                      </ul>
+                      <p className="text-red-600 text-sm">
+                        Note! It is essential to select the industry under which
+                        this job falls under to get the right applications
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
 
 export default AddJob;

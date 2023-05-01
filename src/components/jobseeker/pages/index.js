@@ -28,6 +28,7 @@ const JobseekerLandingPage = () => {
           res.json().then((data) => {
             setProfileData(data);
             setTags(data.tags);
+            localStorage.setItem("jobseekerName", JSON.stringify(data.full_name));
           });
         }
       });
@@ -90,14 +91,6 @@ const JobseekerLandingPage = () => {
       <div>
         <div className="grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-8">
           <div className="col-span-2">
-            {profileData.full_name !== undefined ? (
-              <h5
-                className="text-left text-gray-900 text-center
-            py-2"
-              >
-                Hello, {profileData.full_name}
-              </h5>
-            ) : null}
             <div className="w-full  px-4 mx-auto mb-10 hidden md:hidden lg:block">
               <img
                 className="object-cover w-full rounded shadow-lg"
@@ -157,14 +150,14 @@ const JobseekerLandingPage = () => {
                         </div>
                       ))
                     ) : (
-                      <>
+                      <div className="flex flex-col">
                         <p>
                           Please click the button below to update your profile
                           by selecting the industry to view the jobs
                         </p>
 
                         <button
-                          className="relative z-[2] flex items-center rounded mx-auto  px-6 py-2.5 text-xs uppercase"
+                          className="relative z-[2] flex items-center rounded mx-auto  px-6 py-2.5 text-xs uppercase text-white"
                           style={{ backgroundColor: "#0D2644" }}
                           onClick={() => {
                             navigator("/jobseekerprofile");
@@ -173,7 +166,7 @@ const JobseekerLandingPage = () => {
                           <RightArrowIcon />
                           To Profile
                         </button>
-                      </>
+                      </div>
                     )}
                   </div>
                 </div>

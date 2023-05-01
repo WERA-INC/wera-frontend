@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[#0D2644]">
       <div className="flex items-center font-medium justify-around">
-        <div className="z-50 p-5 md:w-auto text-white w-full flex justify-between">
+        <div className="z-50 p-2 md:w-auto text-white w-full flex justify-between">
           {/* <h3 style={{cursor:"pointer"}} >WERA</h3> */}
           <img
             alt="wera"
