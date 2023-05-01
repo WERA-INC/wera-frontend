@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import JobAppliedCard from "../jobsappliedcard";
 import JobseekerNavbar from "../jobseekernavbar";
-import { searchIcon } from "../../icons";
+import { SearchIcon, searchIcon } from "../../icons";
 
-const JobsApplied = ({ jobseeker }) => {
-  //  const [id, setId] = useState(jobseeker.id);
+const JobsApplied = () => {
   const [id, setId] = useState(null);
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
-    console.log(jsId);
+    // console.log(jsId);
     setId(jsId);
   }, []);
-
+  const [search, setSearch] = useState("");
   const [applications, setApplications] = useState([]);
   useEffect(() => {
     if (id !== null) {
@@ -19,21 +18,16 @@ const JobsApplied = ({ jobseeker }) => {
         if (res.ok) {
           res.json().then((data) => {
             setApplications(data.applications);
-            
           });
         }
       });
     }
   }, [id]);
 
-  console.log(applications);
-  const [search, setSearch] = useState("");
-  // console.log(profileData);
-  // Updates search words
   function handleSearch(event) {
     setSearch(event.target.value);
   }
-  // The editor can search for an application since the applications can be many to sort through visually, and applications stored in variable found
+
   let found = applications.filter((application) => {
     let applicationName = application.title.toLocaleLowerCase();
     let applicationCompany = application.company_name.toLocaleLowerCase();
@@ -47,13 +41,12 @@ const JobsApplied = ({ jobseeker }) => {
       return application;
     }
   });
-  console.log(found);
+
   return (
     <>
       <div>
-       
         <div className="container">
-          <div className="my-3 px-10 w-1/2 mx-auto">
+          <div className="my-3 px-10 w-full lg:w-1/2 mx-auto">
             <div className="relative mb-4 flex w-full flex-wrap items-stretch">
               <input
                 type="search"
@@ -73,24 +66,15 @@ const JobsApplied = ({ jobseeker }) => {
                 data-te-ripple-init
                 data-te-ripple-color="light"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="h-5 w-5"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
+                <SearchIcon />
               </button>
             </div>
           </div>
-          <h5 className="py-3">Your Application History</h5>
+          <h5 className="py-3 text-center text-blue-950 text-lg">
+            Your Application History
+          </h5>
           <div className="container p-4">
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
               {applications.length > 0 ? (
                 found.map((application) => (
                   <JobAppliedCard application={application} />
@@ -103,42 +87,6 @@ const JobsApplied = ({ jobseeker }) => {
         </div>
       </div>
     </>
-    // <div>
-    //   <JobseekerNavbar />
-    //   <div className="container">
-    //     <div className="row">
-    //       <div className="col-6 m-auto">
-    //         <div className="input-group rounded m-auto">
-    //           <input
-    //             type="search"
-    //             className="form-control rounded"
-    //             placeholder="Search job title or keyword"
-    //             aria-label="Search"
-    //             aria-describedby="search-addon"
-    //             value={search}
-    //             onChange={handleSearch}
-    //           />
-    //           <span
-    //             className="input-group-text border-0 blue text-light"
-    //             id="search-addon"
-    //           >
-    //             Search
-    //           </span>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <h5 className="py-3">Your Application History</h5>
-    //     <div className="row">
-    //       {applications.length > 0 ? (
-    //         found.map((application) => (
-    //           <JobAppliedCard application={application} />
-    //         ))
-    //       ) : (
-    //         <p>You have not applied for any jobs</p>
-    //       )}
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
