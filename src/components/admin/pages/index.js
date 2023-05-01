@@ -316,7 +316,7 @@ const Dashboard = () => {
                         : slug}
                     </h2>
                   </div>
-                  <div className="my-3 ps-2 md:ps-0 md:px-10 w-full md:w-2/3 mx-auto">
+                  {/* <div className="my-3 ps-2 md:ps-0 md:px-10 w-full md:w-2/3 mx-auto">
                     <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                       <input
                         type="search"
@@ -336,7 +336,7 @@ const Dashboard = () => {
                         <SearchIcon />
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
                       <table className="min-w-full leading-normal">
