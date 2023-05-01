@@ -87,7 +87,7 @@ const JobsNav = ({ employer }) => {
               iconPosition="start"
               value="new-job"
               onClick={() => {
-                navigate("/company/:id/add-job");
+                navigate("/company/add-job");
               }}
               label="Post Job Opening"
               sx={{ borderTopRightRadius: 10 }}

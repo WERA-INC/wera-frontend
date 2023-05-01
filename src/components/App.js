@@ -32,6 +32,7 @@ import Employers from "./admin/pages/employers";
 import Opprotunity from "./admin/pages/opprotunity";
 import Profiles from "./admin/pages/profiles";
 import CompanyNav from "../components/company";
+import RecruiterJobsTable from "./company/recruitersjobtable";
 
 const router = createBrowserRouter([
   {
@@ -113,14 +114,17 @@ const router = createBrowserRouter([
         element: <JobsNav />,
       },
       {
-        path: "/company/:id/add-job",
+        path: "/company/add-job",
         element: <AddJob />,
       },
       {
         path: "/company/:id/jobs",
         element: <JobListing />,
       },
-      
+      {
+        path: "/company/jobs",
+        element: <RecruiterJobsTable />,
+      },
     ],
   },
 ]);

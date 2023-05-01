@@ -4,19 +4,21 @@ import { ProfileIcon } from "../icons";
 
 const JobseekerNavbar = () => {
   const navigator = useNavigate();
-  const [name, setName]=useState('')
-  const [id, setId]= useState(null)
+  const [name, setName] = useState("");
+  const [id, setId] = useState(null);
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
     setId(jsId);
   }, []);
 
   useEffect(() => {
-    if(id !==null){
-      fetch(`http://localhost:3000/profiles/${id}`).then(res=>res.json()).then(data=>setName(data.full_name))
+    if (id !== null) {
+      fetch(`http://localhost:3000/profiles/${id}`)
+        .then((res) => res.json())
+        .then((data) => setName(data.full_name));
     }
   }, [id]);
-  console.log(name)
+  console.log(name);
   return (
     <nav style={{ backgroundColor: "#0D2644" }}>
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
