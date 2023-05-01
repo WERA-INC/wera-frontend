@@ -57,9 +57,9 @@ const CompanyNav = () => {
   };
 
   // Define logOut fuction here
-  const handleLogOut = () => {
-    console.log("log out!");
-  };
+  // const handleLogOut = () => {
+  //   console.log("log out!");
+  // };
 
   useEffect(() => {
     if (pathnameArray[2] === undefined || pathnameArray[2] === "dashboard") {
@@ -178,9 +178,14 @@ const CompanyNav = () => {
                 }}
               >
                 <Tab
-                  value="jobs"
-                  onClick={() => navigate("/company/:id/jobs")}
-                  label="Jobs"
+                  value="jobs1"
+                  onClick={() => navigate("/company/jobs")}
+                  label="posted jobs"
+                />
+                <Tab
+                  value="jobs2"
+                  onClick={() => navigate("/company/add-job")}
+                  label="Add Job"
                 />
               </Tabs>
             </Box>
@@ -189,7 +194,13 @@ const CompanyNav = () => {
 
             <Box sx={{ display: "flex", flexGrow: 0 }}>
               <Tooltip title="Log Out">
-                <IconButton onClick={handleLogOut} sx={{ color: "white" }}>
+                <IconButton
+                  onClick={() => {
+                    localStorage.clear();
+                    navigate("/");
+                  }}
+                  sx={{ color: "white" }}
+                >
                   {/* <LogoutIcon /> */}
                 </IconButton>
               </Tooltip>
@@ -241,11 +252,16 @@ const CompanyNav = () => {
                 </MenuItem>
 
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Box display="flex" alignItems="center" textAlign="center">
-                    <LogoutIcon
-                      onClick={handleLogOut}
-                      sx={{ color: `primary.main`, mr: 1 }}
-                    />
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    textAlign="center"
+                    onClick={() => {
+                      localStorage.clear();
+                      navigate("/");
+                    }}
+                  >
+                    <LogoutIcon sx={{ color: `primary.main`, mr: 1 }} />
                     Logout
                   </Box>
                 </MenuItem>
@@ -253,7 +269,7 @@ const CompanyNav = () => {
             </Box>
             <Box display={{ xs: "none", md: "block" }} sx={{ ml: 1 }}>
               <Typography sx={{ fontSize: "1rem", fontWeight: 400 }}>
-                Moringa School
+                Welcome
               </Typography>
               <Typography sx={{ fontSize: "0.9rem", fontWeight: 200 }}>
                 Recruiter

@@ -12,9 +12,9 @@ const Header = () => {
       className="py-16"
     >
       <div className=" text-white pb-10">
-        <div className="container">
+        <div className="container ">
           <div className="mb-2 flex align-items-center">
-            <h1 className="text-left text-blue-200">/Wera</h1>
+            <h1 className="text-left text-blue-200 text-5xl md:text-8xl">/Wera</h1>
 
             <span
               style={{ width: 14, height: 14 }}

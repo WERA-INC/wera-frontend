@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
-    Avatar,
-    IconButton,
-    Menu,
-    MenuItem,
-    Box,
-    Typography,
-    LinearProgress,
+  Avatar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Box,
+  Typography,
+  LinearProgress,
 } from "@mui/material";
 
 import EditIcon from "@mui/icons-material/Edit";
@@ -16,19 +16,15 @@ import Chip from "@mui/material/Chip";
 import { red, green } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import CustomDataGrid from "./CustomDataGrid.js";
-import JobViewerDialog from "./JobViewerDialog.js"
+import JobViewerDialog from "./JobViewerDialog.js";
 import JobDetailsDialog from "./JobDetailsDialog.js";
 
 import { getRecruiterJobs } from "./api/company/index.js";
 
-
 import { selectCurrentRecruiter } from "../../features/recruiters/recruiterSlice.js";
 import { setCurrentJob } from "../../features/jobs/jobSlice.js";
-
-
-
 
 // function getChipProps(params) {
 //     const deadline = new Date(params.value);
@@ -59,195 +55,227 @@ import { setCurrentJob } from "../../features/jobs/jobSlice.js";
 //     }
 // }
 
-const RecruiterJobsTable = ({employer}) => {
+const RecruiterJobsTable = ({ employer }) => {
+  // const [employer_id, setEmployerId] = useState(employer.id);
+  // console.log (employer.id)
+  let employer_id = 1;
+  const [id, setId] = useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [jobsData, setJobsData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [rowParams, setRowParams] = useState({});
+  const [openJobDetailsDialog, setOpenJobDetailsDialog] = useState(false);
+  const [openJobViewerDialog, setOpenJobViewerDialog] = useState(false);
 
-    // const [employer_id, setEmployerId] = useState(employer.id);
-    // console.log (employer.id)
-    let employer_id = 1;
+  const [openDeleteJobModal, setOpenDeleteJobModal] = useState(false);
 
-    const [anchorElNav, setAnchorElNav] = useState(null);
-    const [jobsData, setJobsData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [rowParams, setRowParams] = useState({});
-    const [openJobDetailsDialog, setOpenJobDetailsDialog] = useState(false);
-    const [openJobViewerDialog, setOpenJobViewerDialog] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    const [openDeleteJobModal, setOpenDeleteJobModal] = useState(false);
+  const location = useLocation();
+  const pathnameArr = location.pathname.split("/");
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const handleCloseMenu = () => {
+    setAnchorElNav(null);
+  };
+  const closeJobDetailsDialog = () => {
+    setOpenJobDetailsDialog(false);
+  };
+  const closeJobViewerDialog = () => {
+    setOpenJobViewerDialog(false);
+  };
 
-    const location = useLocation();
-    const pathnameArr = location.pathname.split("/");
+  const handleJobActionsClick = (params) => (event) => {
+    setRowParams(params.row);
+    console.log(rowParams.status);
+    setAnchorElNav(event.currentTarget);
+  };
+  useEffect(() => {
+    const employerId = localStorage.getItem("employerId");
+    setId(employerId);
+  }, []);
 
-    const handleCloseMenu = () => {
-        setAnchorElNav(null);
-    };
-    const closeJobDetailsDialog = () => {
-        setOpenJobDetailsDialog(false);
-    };
-    const closeJobViewerDialog = () => {
-        setOpenJobViewerDialog(false);
-    };
+  const handleDeleteJob = (prop) => {
+    console.log(prop);
+    handleCloseMenu();
+    setOpenDeleteJobModal(true);
+  };
 
-    const handleJobActionsClick = (params) => (event) => {
-        setRowParams(params.row);
-        console.log(rowParams.status);
-        setAnchorElNav(event.currentTarget);
-    };
+  const handleEditClick = (prop) => {
+    console.log(`${prop}`, rowParams);
 
-    const handleDeleteJob = (prop) => {
-        console.log(prop)
-        handleCloseMenu();
-        setOpenDeleteJobModal(true);
-    };
+    if (prop === "edit") {
+      dispatch(setCurrentJob({ currentJob: rowParams }));
+      setOpenJobDetailsDialog(true);
+    } else {
+      dispatch(setCurrentJob({ currentJob: rowParams }));
+    }
+    handleCloseMenu();
+  };
 
-    const handleEditClick = (prop) => {
-        console.log(`${prop}`, rowParams);
+  const handleViewClick = (prop) => {
+    console.log(`${prop} click params`, rowParams);
+    dispatch(setCurrentJob({ currentJob: rowParams }));
+    setOpenJobViewerDialog(true);
+    handleCloseMenu();
+    // navigate(prop);
+  };
 
-        if (prop === "edit") {
-            dispatch(setCurrentJob({ currentJob: rowParams }));
-            setOpenJobDetailsDialog(true);
-        } else {
-            dispatch(setCurrentJob({ currentJob: rowParams }));
-        }
-        handleCloseMenu();
-    };
+  // const fetchCompanyJobs = () => {
+  //     setLoading(true);
 
-    const handleViewClick = (prop) => {
-        console.log(`${prop} click params`, rowParams);
-        dispatch(setCurrentJob({ currentJob: rowParams }));
-        setOpenJobViewerDialog(true);
-        handleCloseMenu();
-        // navigate(prop);
-    };
+  //     getRecruiterJobs(employer_id).then((res) => {
+  //         console.log(res)
+  //         setJobsData(res.data);
+  //         setLoading(false);
+  //     });
+  // };
+  // useEffect(() => {
+  //    setLoading(true);
+  //     fetch(`http://localhost:3000/employers/${employer_id}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setJobsData(data.opportunities);
+  //         setLoading(false);
+  //       });
 
-    const fetchCompanyJobs = () => {
-        setLoading(true);
-        getRecruiterJobs(employer_id).then((res) => {
-            setJobsData(res.data);
-            setLoading(false);
+  // }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    if (id !== null) {
+      fetch(`http://localhost:3000/employers/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+          setJobsData(data.opportunities);
+          setLoading(false);
         });
-    };
+    }
+  }, [id]);
 
-    useEffect(() => {
-        fetchCompanyJobs();
-    }, []);
-    const JobActions = () => {
-        return (
-            <>
-                <Menu
-                    id="menu-appbar"
-                    anchorEl={anchorElNav}
-                    anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "right",
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                        vertical: "top",
-                        horizontal: "left",
-                    }}
-                    open={Boolean(anchorElNav)}
-                    onClose={handleCloseMenu}
-                >
-                    <MenuItem onClick={() => handleViewClick("view")}>
-                        <Box display="flex" alignItems="center" textAlign="center">
-                            <VisibilityOutlinedIcon
-                                sx={{
-                                    color: `primary.main`,
-                                    mr: 1,
-                                    fontSize: "medium",
-                                }}
-                            />
-                            View
-                        </Box>
-                    </MenuItem>
-                    <MenuItem onClick={() => handleEditClick("edit")}>
-                        <Box display="flex" alignItems="center" textAlign="center">
-                            <EditIcon
-                                sx={{
-                                    color: `primary.main`,
-                                    mr: 1,
-                                    fontSize: "medium",
-                                }}
-                            />
-                            Edit
-                        </Box>
-                    </MenuItem>
-                    <MenuItem onClick={() => handleDeleteJob("Deactivate")}>
-                        <Box display="flex" alignItems="center" textAlign="center">
-                            <DeleteOutlineIcon
-                                sx={{
-                                    color: `primary.main`,
-                                    mr: 1,
-                                    fontSize: "medium",
-                                }}
-                            />
-                            Delete
-                        </Box>
-                    </MenuItem>
-                </Menu>{" "}
-            </>
-        );
-    };
-
-    const columns = [
-        {
-            field: "title",
-            headerName: "Job Title",
-            width: 250,
-            renderCell: (params) => {
-                return (
-                    <>
-                        <Avatar sx={{ mr: 2 }} src={params.value} alt={params.value} />
-                        {params.value}
-                    </>
-                );
-            },
-        },
-        {
-            field: "job_type",
-            headerName: "Type",
-            width: 150,
-        },
-        {
-            field: "estimated_salary",
-            headerName: "Salary Range",
-            width: 200,
-        },
-        // {
-        //     field: "application_deadline",
-        //     headerName: "Status",
-        //     width: 200,
-        //     renderCell: (params) => {
-        //         return (
-        //             <Chip variant="outlined" size="medium" {...getChipProps(params)} />
-        //         );
-        //     },
-        // },
-        {
-            field: "actions",
-            type: "actions",
-            headerName: "Actions",
-            width: 100,
-            renderCell: (params) => {
-                return (
-                    <>
-                        <IconButton onClick={handleJobActionsClick(params)}>
-                            <MoreVertIcon />
-                        </IconButton>
-                    </>
-                )
-            },
-        },
-    ];
-
+  // useEffect(() => {
+  //     fetchCompanyJobs();
+  // }, []);
+  const JobActions = () => {
     return (
-        <>
+      <>
+        
+        <Menu
+          id="menu-appbar"
+          anchorEl={anchorElNav}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          open={Boolean(anchorElNav)}
+          onClose={handleCloseMenu}
+        >
+          <MenuItem onClick={() => handleViewClick("view")}>
+            <Box display="flex" alignItems="center" textAlign="center">
+              <VisibilityOutlinedIcon
+                sx={{
+                  color: `primary.main`,
+                  mr: 1,
+                  fontSize: "medium",
+                }}
+              />
+              View
+            </Box>
+          </MenuItem>
+          <MenuItem onClick={() => handleEditClick("edit")}>
+            <Box display="flex" alignItems="center" textAlign="center">
+              <EditIcon
+                sx={{
+                  color: `primary.main`,
+                  mr: 1,
+                  fontSize: "medium",
+                }}
+              />
+              Edit
+            </Box>
+          </MenuItem>
+          <MenuItem onClick={() => handleDeleteJob("Deactivate")}>
+            <Box display="flex" alignItems="center" textAlign="center">
+              <DeleteOutlineIcon
+                sx={{
+                  color: `primary.main`,
+                  mr: 1,
+                  fontSize: "medium",
+                }}
+              />
+              Delete
+            </Box>
+          </MenuItem>
+        </Menu>{" "}
+      </>
+    );
+  };
+
+  const columns = [
+    {
+      field: "title",
+      headerName: "Job Title",
+      width: 250,
+      renderCell: (params) => {
+        return (
+          <>
+            <Avatar sx={{ mr: 2 }} src={params.value} alt={params.value} />
+            {params.value}
+          </>
+        );
+      },
+    },
+    {
+      field: "job_type",
+      headerName: "Type",
+      width: 150,
+    },
+    {
+      field: "estimated_salary",
+      headerName: "Salary Range",
+      width: 200,
+    },
+    // {
+    //     field: "application_deadline",
+    //     headerName: "Status",
+    //     width: 200,
+    //     renderCell: (params) => {
+    //         return (
+    //             <Chip variant="outlined" size="medium" {...getChipProps(params)} />
+    //         );
+    //     },
+    // },
+    {
+      field: "actions",
+      type: "actions",
+      headerName: "Actions",
+      width: 100,
+      renderCell: (params) => {
+        return (
+          <>
+            <IconButton onClick={handleJobActionsClick(params)}>
+              <MoreVertIcon />
+            </IconButton>
+          </>
+        );
+      },
+    },
+  ];
+
+  return (
+    <>
+      <section class=" py-1 bg-blueGray-50">
+        <div class="w-full lg:w-10/12 px-4 mx-auto mt-6 text-left">
+          <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 p-5">
             <JobViewerDialog
-                openJobViewerDialog={openJobViewerDialog}
-                closeJobViewerDialog={closeJobViewerDialog}
+              openJobViewerDialog={openJobViewerDialog}
+              closeJobViewerDialog={closeJobViewerDialog}
             />
             {/* <JobDetailsDialog
                 openJobDetailsDialog={openJobDetailsDialog}
@@ -260,22 +288,27 @@ const RecruiterJobsTable = ({employer}) => {
                     deactivationStatus={deactivationStatus}
                     fetchSchools={fetchSchools}
                 /> */}
-            <Typography variant="h6" sx={{ ml: 2 }}>Find all posted jobs</Typography>
+            <Typography variant="h6" sx={{ ml: 2 }}>
+              Find all your posted jobs
+            </Typography>
             <Box
-                sx={{
-                    mt: 5,
-                    "& .MuiDataGrid-columnHeaders": {
-                        backgroundColor: "primary.lightest_gray",
-                        fontSize: 16,
-                    },
-                }}
+              sx={{
+                mt: 5,
+                "& .MuiDataGrid-columnHeaders": {
+                  backgroundColor: "primary.lightest_gray",
+                  fontSize: 16,
+                },
+              }}
             >
-                <JobActions />
-                {loading && <LinearProgress />}
-                {!loading && <CustomDataGrid rows={jobsData} columns={columns} />}
+              <JobActions />
+              {loading && <LinearProgress />}
+              {!loading && <CustomDataGrid rows={jobsData} columns={columns} />}
             </Box>
-        </>
-    );
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default RecruiterJobsTable;

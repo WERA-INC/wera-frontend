@@ -23,6 +23,7 @@ function Register({ setStoredToken }) {
       email_address: emailAddress,
       password_confirmation: confirmPassword,
       user_type: searchParams.get("user-type"),
+      disabled:false
     };
     // console.log(formData);
     fetch("http://localhost:3000/signup", {
