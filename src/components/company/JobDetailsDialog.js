@@ -9,7 +9,6 @@ import {
     TextField,
     OutlinedInput,
 } from "@mui/material";
-import AddJobListing from "../forms/AddJobListing"
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 
@@ -46,8 +45,7 @@ const JobDetailsDialog = ({
                         Edit Job details
                     </Typography>
                 </Box>
-                <Grid xs={12} md={6}>
-                    <Box><AddJobListing /></Box>
+                <Grid xs={12} md={6}>    
                 </Grid>
             </Box>
         </Dialog>

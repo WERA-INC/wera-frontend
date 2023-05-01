@@ -18,14 +18,14 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import CustomDataGrid from "./CustomDataGrid.js";
-import JobViewerDialog from "../views/JobViewerDialog.js"
-import JobDetailsDialog from "../views/JobDetailsDialog.js";
+import JobViewerDialog from "./JobViewerDialog.js"
+import JobDetailsDialog from "./JobDetailsDialog.js";
 
-import { getRecruiterJobs } from "../api/company/index.js";
+import { getRecruiterJobs } from "./api/company/index.js";
 
 
-import { selectCurrentRecruiter } from "../../../features/recruiters/recruiterSlice.js";
-import { setCurrentJob } from "../../../features/jobs/jobSlice.js";
+import { selectCurrentRecruiter } from "../../features/recruiters/recruiterSlice.js";
+import { setCurrentJob } from "../../features/jobs/jobSlice.js";
 
 
 
