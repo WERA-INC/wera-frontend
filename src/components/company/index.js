@@ -284,11 +284,22 @@ const CompanyNav = () => {
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
+                    
+                  <div>
+                  <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company Name</label>
+                  <input type="text" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
+                  <div>
+                  <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company Description</label>
+                  <input type="text" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
+                  <div>
+                  <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company Location</label>
+                  <input type="text" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
+                  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload Your Company Logo</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file"/>
+                      <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A profile logo is important to uniquely identify your company</div>
                   </p>
                 </div>
                 {/*footer*/}
