@@ -18,11 +18,12 @@ const Profile = () => {
     skills: "",
     profile_pic: "",
     resume: null,
+    tags: [],
   });
 
   useEffect(() => {
     async function fetchProfileData(id) {
-      const response = await axios.get(`http://localhost:3000/profiles/2`);
+      const response = await axios.get(`http://localhost:3000/profiles/35`);
       setProfileData(response.data);
       setFormData(response.data);
       console.log(response.data);
@@ -31,7 +32,7 @@ const Profile = () => {
     fetchProfileData();
   }, []);
 
-  async function handleUpdateProfile(event) {
+  async function handleUpdateProfile(event, id) {
     event.preventDefault();
 
     try {
@@ -41,15 +42,15 @@ const Profile = () => {
       formDataToUpdate.append("date_of_birth", formData.date_of_birth);
       formDataToUpdate.append("biography", formData.biography);
       formDataToUpdate.append("skills", formData.skills);
-      if (formData.profile_pic) {
+      if (formData.profile_pic !== "") {
         formDataToUpdate.append("profile_pic", formData.profile_pic);
       }
-      if (formData.resume) {
+      if (formData.resume !== "") {
         formDataToUpdate.append("resume", formData.resume);
       }
 
       const response = await axios.patch(
-        `http://localhost:3000/profiles/${profileData.id}`,
+        `http://localhost:3000/profiles/${id}`,
         formDataToUpdate,
         {
           headers: {
@@ -71,11 +72,27 @@ const Profile = () => {
       setFormData({ ...formData, [name]: value });
     }
   }
+  const handleTagChange = (event, tag) => {
+    const tagIndex = formData.tags.findIndex((t) => t.id === tag.id);
+    if (tagIndex !== -1) {
+      // Remove tag if it exists in formData
+      const newTags = [...formData.tags];
+      newTags.splice(tagIndex, 1);
+      setFormData({ ...formData, tags: newTags });
+    } else {
+      // Add tag if it doesn't exist in formData
+      setFormData({
+        ...formData,
+        tags: [...formData.tags, { id: tag.id, name: event.target.value }],
+      });
+    }
+  };
+
   return (
     <>
       {isEditing ? (
         <div>
-          <section className="max-w-4xl p-6 mx-auto  rounded-md  dark:bg-gray-800 mt-20">
+          <section className="max-w-4xl p-6 mx-auto  rounded-md   mt-20">
             <h2 className="text-lg font-semibold text-black capitalize dark:text-white">
               Edit Profile
             </h2>
@@ -165,6 +182,25 @@ const Profile = () => {
                   />
                 </div>
                 <div>
+                  <label className="text-white dark:text-gray-200">Tags</label>
+                  <div className="flex flex-wrap mt-2">
+                    {profileData.tags &&
+                      profileData.tags.map((tag, index) => (
+                        <div key={index} className="mr-4">
+                          <input
+                            type="text"
+                            name="tags"
+                            value={tag.name}
+                            onChange={(event) => handleTagChange(event, tag)}
+                            id={`tag-${tag.id}`}
+                            className="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                          />
+                        </div>
+                      ))}
+                  </div>
+                </div>
+
+                <div>
                   <label
                     className="text-white dark:text-gray-200"
                     for="profile_pic"
@@ -240,13 +276,7 @@ const Profile = () => {
             </section>
             <section className="relative py-16 ">
               <div className="container mx-auto px-4">
-                <div
-                  className="relative flex flex-col min-w-0 break-words bg-dark w-full mb-6 shadow-xl rounded-lg -mt-64"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0.9), #0D2644)",
-                  }}
-                >
+                <div className="relative flex flex-col min-w-0 break-words bg-[#0D2644] w-full mb-6 shadow-xl rounded-lg -mt-64">
                   <div className="px-6">
                     <div className="flex flex-wrap justify-center">
                       <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
@@ -281,6 +311,18 @@ const Profile = () => {
                             <i className="fas fa-calendar-alt mr-2 text-lg text-white"></i>
                             <p>Date of birth: {profileData.date_of_birth}</p>
                           </div>
+
+                          <div className="mb-2 text-sm leading-normal font-bold lowercase">
+                            <p>
+                              Industry
+                              <ul>
+                                {profileData.tags &&
+                                  profileData.tags.map((tag, index) => (
+                                    <li key={index}>{tag.name}</li>
+                                  ))}
+                              </ul>
+                            </p>
+                          </div>
                         </div>
                         <div className="bg-transparent rounded-lg font-bold text-white p-4">
                           <div className="text-sm leading-normal mb-2  lowercase">
@@ -295,16 +337,18 @@ const Profile = () => {
                             <i className="fas fa-file-pdf mr-2 text-lg text-white"></i>
                             <p>Resume: {profileData.resume}</p>
                           </div>
-                          <button
-                            type="button"
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                            onClick={toggleEdit}
-                          >
-                            Edit Profile
-                          </button>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="flex p-3 justify-center items-center">
+                    <button
+                      type="button"
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      onClick={toggleEdit}
+                    >
+                      Edit Profile
+                    </button>
                   </div>
                 </div>
               </div>
@@ -317,27 +361,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-// <>
-// <div>Profile</div>
-// <div className="bg-gray-100 p-4">
-//   {/* Render profile data */}
-//   <div className="bg-white rounded p-4 mb-4">
-//     <p className="font-bold">Name: {profileData.full_name}</p>
-//     <p>Phone number: {profileData.phone_number}</p>
-//     <p>Date of birth: {profileData.date_of_birth}</p>
-//     <p>Biography: {profileData.biography}</p>
-//     <p>tags: {profileData.tags}</p>
-//     {profileData.profile_pic && (
-//       <img
-//         src={profileData.profile_pic}
-//         alt="Profile pic"
-//         className="h-32 w-32 object-cover rounded-full"
-//       />
-//     )}
-//     <p>Resume: {profileData.resume}</p>
-//   </div>
-// </div>
-// {/* Render Form for update profile */}
-
-// </>

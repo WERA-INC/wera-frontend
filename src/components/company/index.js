@@ -19,8 +19,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonOffOutlinedIcon from "@mui/icons-material/PersonOffOutlined";
-import Person_Avatar from "../images/Person_Avatar.png";
-import Logo5 from "../images/Logo5.png";
+// import Person_Avatar from "../images/Person_Avatar.png";
+// import Logo5 from "../images/Logo5.png";
 
 const pages = ["Dashboard", "Jobs"];
 
@@ -86,7 +86,7 @@ const CompanyNav = () => {
             >
               <img
                 alt="Logo"
-                src={Logo5}
+                src={"/images/Logo5.png"}
                 style={{ width: "140px", height: "60px", marginRight: "20px" }}
               ></img>
             </Box>
@@ -138,7 +138,7 @@ const CompanyNav = () => {
             >
               <img
                 alt=""
-                src={Logo5}
+                src={"/images/Logo5.png"}
                 style={{
                   width: "150px",
                   height: "30px",
@@ -177,14 +177,9 @@ const CompanyNav = () => {
                   },
                 }}
               >
-                {/* <Tab
-                                    value="dashboard"
-                                    onClick={() => navigate("dashboard")}
-                                    label="Dashboard"
-                                /> */}
                 <Tab
                   value="jobs"
-                  onClick={() => navigate("jobs")}
+                  onClick={() => navigate("/company/:id/jobs")}
                   label="Jobs"
                 />
               </Tabs>
@@ -200,7 +195,7 @@ const CompanyNav = () => {
               </Tooltip>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Moringa School" src={Person_Avatar} />
+                  <Avatar alt="Moringa School" />
                 </IconButton>
               </Tooltip>
 
@@ -287,72 +282,15 @@ const CompanyNav = () => {
                   </button>
                 </div>
                 {/*body*/}
-                <form>
-                  <div className="mb-6">
-                    <label
-                      for="text"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      id="text"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Company Name"
-                      required
-                    />
-                  </div>
-                  <div className="mb-6">
-                    <label
-                      for="text"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Location
-                    </label>
-                    <input
-                      type="text"
-                      id="text"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Location"
-                      required
-                    />
-                  </div>
-                  <div className="mb-6">
-                    <label
-                      for="large-input"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Company Description
-                    </label>
-                    <input
-                      type="text"
-                      id="large-input"
-                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Company Description"
-                      required
-                    />
-                  </div>
-
-                  <label
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    for="user_avatar"
-                  >
-                    Upload file
-                  </label>
-                  <input
-                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                    aria-describedby="user_avatar_help"
-                    id="user_avatar"
-                    type="file"
-                  />
-                  <div
-                    className="mt-1 text-sm text-gray-500 dark:text-gray-300"
-                    id="user_avatar_help"
-                  >
-                    Upload your Company Logo file
-                  </div>
-                </form>
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                    I always felt like I could do anything. That’s the main
+                    thing people are controlled by! Thoughts- their perception
+                    of themselves! They're slowed down by their perception of
+                    themselves. If you're taught you can’t do anything, you
+                    won’t do anything. I was taught I could do everything.
+                  </p>
+                </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
