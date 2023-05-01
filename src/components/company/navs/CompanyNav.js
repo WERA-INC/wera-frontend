@@ -282,7 +282,7 @@ const CompanyNav = () => {
                     onClick={() => setShowModal1(false)}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
+                      
                     </span>
                   </button>
                 </div>
@@ -390,7 +390,7 @@ const CompanyNav = () => {
                     onClick={() => setShowModal2(false)}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
+                      
                     </span>
                   </button>
                 </div>
