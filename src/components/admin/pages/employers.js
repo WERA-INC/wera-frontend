@@ -8,13 +8,12 @@ const Employers = () => {
     fetch(`http://localhost:3000/employers/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          
           setData(data);
         });
       }
     });
   }, []);
-  
+
   return (
     <>
       {data.id !== undefined ? (
@@ -26,26 +25,26 @@ const Employers = () => {
               "linear-gradient(to bottom, rgba(0,0,0,0.7),rgba(0,0,0.95,1), #0D2644), url('https://images.pexels.com/photos/2110951/pexels-photo-2110951.jpeg?auto=compress&cs=tinysrgb&w=600')",
           }}
         >
-          <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+          <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
             <div
               id="profile"
-              class="w-full lg:w-5/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-6 lg:mx-0"
+              className="w-full lg:w-5/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-6 lg:mx-0"
             >
-              <div class="p-4 md:p-12 text-center lg:text-left">
+              <div className="p-4 md:p-12 text-center lg:text-left">
                 <div
-                  class="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+                  className="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
                   style={{
                     backgroundImage: `url("https://img.freepik.com/free-vector/building-concept-illustration_114360-4469.jpg?size=626&ext=jpg")`,
                   }}
                 ></div>
 
-                <h1 class="text-3xl font-bold pt-8 lg:pt-0 uppercase">
+                <h1 className="text-3xl font-bold pt-8 lg:pt-0 uppercase">
                   {data.company_name}
                 </h1>
-                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-                <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+                <p className="pt-4 text-base font-bold flex items-center justify-center ">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -53,9 +52,9 @@ const Employers = () => {
                   </svg>
                   Email - {data.email_address}
                 </p>
-                <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                <p className="pt-4 text-base font-bold flex items-center justify-center ">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -63,9 +62,9 @@ const Employers = () => {
                   </svg>
                   Location - {data.company_location}
                 </p>
-                <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                <p className="pt-4 text-base font-bold flex items-center justify-center ">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -73,9 +72,9 @@ const Employers = () => {
                   </svg>
                   Jobs Posted - {data.opportunities.length}
                 </p>
-                <p class="pt-8 text-base font-bold flex items-center justify-center  text-center">
+                <p className="pt-8 text-base font-bold flex items-center justify-center  text-center">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -83,19 +82,21 @@ const Employers = () => {
                   </svg>
                   About
                 </p>
-                <p class="pt-2 ps-10 text-base text-left">{data.company_description}</p>
+                <p className="pt-2 ps-10 text-base text-left">
+                  {data.company_description}
+                </p>
               </div>
             </div>
 
-            <div class="w-full lg:w-2/5">
+            <div className="w-full lg:w-2/5">
               <img
                 src="https://img.freepik.com/free-vector/building-concept-illustration_114360-4469.jpg?size=626&ext=jpg"
-                class="rounded-none lg:rounded-lg shadow-2xl hidden lg:hidden"
+                className="rounded-none lg:rounded-lg shadow-2xl hidden lg:hidden"
               />
             </div>
 
-            <div class="absolute top-0 right-0 h-12 w-18 p-4">
-              <button class="js-change-theme focus:outline-none">🌙</button>
+            <div className="absolute top-0 right-0 h-12 w-18 p-4">
+              <button className="js-change-theme focus:outline-none">🌙</button>
             </div>
           </div>
         </div>
@@ -104,8 +105,6 @@ const Employers = () => {
       )}
     </>
   );
-  
-
 };
 
 export default Employers;

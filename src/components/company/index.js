@@ -335,7 +335,7 @@ const CompanyNav = () => {
           <div className="justify-start items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto mx-auto max-w-3xl">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none bg-blue-100">
                 {/*body*/}
                 <div className="relative p-3 flex-auto">
                   <form
@@ -344,12 +344,12 @@ const CompanyNav = () => {
                     novalidate
                   >
                     <div className="w-2/3 mx-auto">
-                      <label htmlFor="company_name" className="form-label">
+                      <label className='block uppercase text-blueGray-600 text-xs font-bold mb-1' htmlFor="company_name" >
                         Name
                       </label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         id="company_name"
                         onChange={handleInputs}
                         name="company_name"
@@ -359,12 +359,12 @@ const CompanyNav = () => {
                     </div>
 
                     <div className="w-2/3 mx-auto">
-                      <label htmlFor="company_location" className="form-label">
+                      <label className='block uppercase text-blueGray-600 text-xs font-bold mb-1' htmlFor="company_location" >
                         Location
                       </label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         id="company_location"
                         onChange={handleInputs}
                         name="company_location"
@@ -373,12 +373,12 @@ const CompanyNav = () => {
                       />
                     </div>
                     <div className="w-2/3 mx-auto">
-                      <label htmlFor="email_address" className="form-label">
+                      <label className='block uppercase text-blueGray-600 text-xs font-bold mb-1' htmlFor="email_address" >
                         Email
                       </label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         id="email_address"
                         onChange={handleInputs}
                         name="email_address"
@@ -388,11 +388,11 @@ const CompanyNav = () => {
                     </div>
 
                     <div className="form-group w-2/3 mx-auto">
-                      <label htmlFor="company_description">
+                      <label className='block uppercase text-blueGray-600 text-xs font-bold mb-1' htmlFor="company_description">
                         Company Description
                       </label>
                       <textarea
-                        className="form-control"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         id="company_description"
                         rows="3"
                         name="company_description"
@@ -400,9 +400,9 @@ const CompanyNav = () => {
                         onChange={handleInputs}
                       ></textarea>
                     </div>
-                    <div className="mx-auto">
+                    <div className="mx-auto ms-5">
                       <button
-                        className="text-blue-950 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        className="ms-40 text-blue-950 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"
                         onClick={() => setShowModal1(false)}
                       >
@@ -450,13 +450,13 @@ const CompanyNav = () => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <h1 class="text-3xl font-bold pt-8 lg:pt-0 uppercase">
+                  <h1 className="text-3xl font-bold pt-8 lg:pt-0 uppercase">
                     {data.company_name}
                   </h1>
-                  <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-                  <p class="pt-4 text-base font-bold flex items-center justify-start ">
+                  <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+                  <p className="pt-4 text-base font-bold flex items-center justify-start ">
                     <svg
-                      class="h-4 fill-current text-green-700 pr-4"
+                      className="h-4 fill-current text-green-700 pr-4"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                     >
@@ -464,9 +464,9 @@ const CompanyNav = () => {
                     </svg>
                     Email - {data.email_address}
                   </p>
-                  <p class="pt-4 text-base font-bold flex items-center justify-start ">
+                  <p className="pt-4 text-base font-bold flex items-center justify-start ">
                     <svg
-                      class="h-4 fill-current text-green-700 pr-4"
+                      className="h-4 fill-current text-green-700 pr-4"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                     >
@@ -475,9 +475,9 @@ const CompanyNav = () => {
                     Location - {data.company_location}
                   </p>
 
-                  <p class="pt-8 text-base font-bold flex items-center justify-start  text-center">
+                  <p className="pt-8 text-base font-bold flex items-center justify-start  text-center">
                     <svg
-                      class="h-4 fill-current text-green-700 pr-4"
+                      className="h-4 fill-current text-green-700 pr-4"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                     >
@@ -485,7 +485,7 @@ const CompanyNav = () => {
                     </svg>
                     About
                   </p>
-                  <p class="pt-2 ps-10 text-base text-left">
+                  <p className="pt-2 ps-10 text-base text-left">
                     {data.company_description}
                   </p>
                 </div>

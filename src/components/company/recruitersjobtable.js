@@ -147,7 +147,7 @@ const RecruiterJobsTable = ({ employer }) => {
       fetch(`http://localhost:3000/employers/${id}`)
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
+          console.log(data);
           setJobsData(data.opportunities);
           setLoading(false);
         });
@@ -160,7 +160,6 @@ const RecruiterJobsTable = ({ employer }) => {
   const JobActions = () => {
     return (
       <>
-        
         <Menu
           id="menu-appbar"
           anchorEl={anchorElNav}
@@ -270,9 +269,9 @@ const RecruiterJobsTable = ({ employer }) => {
 
   return (
     <>
-      <section class=" py-1 bg-blueGray-50">
-        <div class="w-full lg:w-10/12 px-4 mx-auto mt-6 text-left">
-          <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 p-5">
+      <section className=" py-1 bg-blueGray-50">
+        <div className="w-full lg:w-10/12 px-4 mx-auto mt-6 text-left">
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 p-5">
             <JobViewerDialog
               openJobViewerDialog={openJobViewerDialog}
               closeJobViewerDialog={closeJobViewerDialog}
