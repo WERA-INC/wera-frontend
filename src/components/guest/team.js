@@ -231,7 +231,7 @@ const Team = () => {
                   <div className="absolute -mt-20 w-full flex justify-center">
                     <div className="h-32 w-32">
                       <img
-                        src="https://cdn.tuk.dev/assets/photo-1566753323558-f4e0952af115.jfif"
+                        src={"/images/alvin-pic.jpeg"}
                         alt="Display Picture of alvin"
                         role="img"
                         className="rounded-full object-cover h-full w-full shadow-md"
