@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
-
-  const toggleEdit = () => {
-    setIsEditing(!isEditing);
-  };
-
   const [profileData, setProfileData] = useState({});
+  const [id, setId] = useState(null);
+  // const [tags, setTags] = useState([]);
   const [formData, setFormData] = useState({
     full_name: "",
     email_address: "",
@@ -17,22 +13,32 @@ const Profile = () => {
     biography: "",
     skills: "",
     profile_pic: "",
-    resume: null,
+    resume: "",
     tags: [],
   });
 
   useEffect(() => {
-    async function fetchProfileData(id) {
-      const response = await axios.get(`http://localhost:3000/profiles/35`);
-      setProfileData(response.data);
-      setFormData(response.data);
-      console.log(response.data);
-    }
-
-    fetchProfileData();
+    const jsId = localStorage.getItem("jobseekerId");
+    // console.log(jsId);
+    setId(jsId);
   }, []);
 
-  async function handleUpdateProfile(event, id) {
+ 
+  useEffect(() => {
+    if (id !== null) {
+      fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            setProfileData(data);
+            
+            localStorage.setItem("jobseekerName", JSON.stringify(data.full_name));
+          });
+        }
+      });
+    }
+  }, [id]);
+
+  async function handleUpdateProfile(event) {
     event.preventDefault();
 
     try {
@@ -72,22 +78,11 @@ const Profile = () => {
       setFormData({ ...formData, [name]: value });
     }
   }
-  const handleTagChange = (event, tag) => {
-    const tagIndex = formData.tags.findIndex((t) => t.id === tag.id);
-    if (tagIndex !== -1) {
-      // Remove tag if it exists in formData
-      const newTags = [...formData.tags];
-      newTags.splice(tagIndex, 1);
-      setFormData({ ...formData, tags: newTags });
-    } else {
-      // Add tag if it doesn't exist in formData
-      setFormData({
-        ...formData,
-        tags: [...formData.tags, { id: tag.id, name: event.target.value }],
-      });
-    }
-  };
+  const [isEditing, setIsEditing] = useState(false);
 
+  const toggleEdit = () => {
+    setIsEditing(!isEditing);
+  };
   return (
     <>
       {isEditing ? (
@@ -190,10 +185,9 @@ const Profile = () => {
                           <input
                             type="text"
                             name="tags"
-                            value={tag.name}
-                            onChange={(event) => handleTagChange(event, tag)}
+                            value={formData.tags.name}
+                            onChange={(event) => handleChange(event, tag)}
                             id={`tag-${tag.id}`}
-                            className="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                           />
                         </div>
                       ))}
@@ -216,7 +210,7 @@ const Profile = () => {
                     className="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
-                <div>
+                {/* <div>
                   <label className="text-white dark:text-gray-200" for="resume">
                     Resume
                   </label>
@@ -228,7 +222,7 @@ const Profile = () => {
                     type="file"
                     className="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
-                </div>
+                </div> */}
               </div>
 
               <div className="flex justify-center mt-6">
