@@ -8,7 +8,7 @@ import {
     TextField,
     OutlinedInput,
 } from "@mui/material";
-import JobDetails from "./JobDetails";
+import JobDetails from "./jobdetails"
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 

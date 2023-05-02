@@ -11,15 +11,7 @@ const JobCard = () => {
   const [profileId, setProfileId] = useState(null);
   const [showApply, setShowApply] = React.useState(false);
   useEffect(() => {
-    const jsId = localStorage.getItem("jobseekerId");
-    const adminId = localStorage.getItem("adminId");
-    // if(jsId){
-    //   console.log("js is present")
-    // }else if(adminId){
-    //   console.log("admin is present")
-    // }
-
-    // console.log(jsId);
+    const jsId = localStorage.getItem("jobseekerId");    
     setProfileId(jsId);
   }, []);
 

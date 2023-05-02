@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProfileIcon } from "../icons";
 
 const JobseekerNavbar = () => {
   const navigator = useNavigate();
+  const [name, setName] = useState("");
+  const [id, setId] = useState(null);
+  useEffect(() => {
+    const jsId = localStorage.getItem("jobseekerId");
+    setId(jsId);
+  }, []);
+
+  useEffect(() => {
+    if (id !== null) {
+      fetch(`http://localhost:3000/profiles/${id}`)
+        .then((res) => res.json())
+        .then((data) => setName(data.full_name));
+    }
+  }, [id]);
+  console.log(name);
   return (
     <nav style={{ backgroundColor: "#0D2644" }}>
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -58,16 +73,17 @@ const JobseekerNavbar = () => {
                 navigator("/jobseekerprofile");
               }}
             >
-              <div>
+              <div className="ms-2">
                 <button
                   type="button"
-                  className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mx-auto"
                   id="user-menu-button"
                   aria-expanded="false"
                   aria-haspopup="true"
                 >
                   <ProfileIcon />
                 </button>
+                <p className="text-gray-300">{name}</p>
               </div>
             </div>
           </div>

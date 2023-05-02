@@ -7,11 +7,11 @@ function Login({ setUser, setCompany }) {
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [userType, setUserType] = useState(searchParams.get("user-type"));
 
   const [errors, setErrors] = useState([]);
-  console.log(userType)
+  console.log(userType);
 
   const signUpFunctionality = (e) => {
     e.preventDefault();
@@ -35,15 +35,14 @@ function Login({ setUser, setCompany }) {
             localStorage.setItem("jobseekerId", JSON.stringify(data.id));
             setUser(data);
           } else {
-            if(data.user_type!==undefined){
-               navigate("/admin-dashboard");
-            localStorage.setItem("adminId", JSON.stringify(data.id));
-            }else{
-              console.log(data)
-               setCompany(data);
-            navigate("/company");
-                      }
-
+            if (data.user_type !== undefined) {
+              navigate("/admin-dashboard");
+              localStorage.setItem("adminId", JSON.stringify(data.id));
+            } else {
+              console.log(data);
+              localStorage.setItem("employerId", JSON.stringify(data.id));
+              navigate("/company/jobs");
+            }
           }
         });
       } else {
@@ -123,11 +122,10 @@ function Login({ setUser, setCompany }) {
                     <span
                       style={{ cursor: "pointer" }}
                       onClick={() => {
-                        navigate('/');
+                        navigate("/");
                       }}
                       className="ms-3 text-primary text-center"
                     >
-
                       Home
                     </span>
                   </div>
