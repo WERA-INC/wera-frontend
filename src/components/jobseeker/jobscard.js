@@ -1,12 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { TickIcon } from "../../icons";
-
+import { TickIcon } from "../icons";
+// Job card rendered in the JobseekerLandingPage component with the job details
 const JobsCard = ({ job }) => {
   const navigator = useNavigate();
-  // console.log(job)
+  // The first character of the job title renders with random colors
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
-
   return (
     <div
       className="relative py-3 px-3 md:px-3 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col shadow-2xl"

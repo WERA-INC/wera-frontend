@@ -3,7 +3,7 @@ import JobseekerNavbar from "../jobseekernavbar";
 import { useParams, useNavigate } from "react-router";
 
 const JobCard = () => {
-  
+
   const [profileData, setProfileData] = useState({});
   const [hasApplied, setHasApplied] = useState(false);
   const navigator = useNavigate();
@@ -11,7 +11,7 @@ const JobCard = () => {
   const [profileId, setProfileId] = useState(null);
   const [showApply, setShowApply] = React.useState(false);
   useEffect(() => {
-    const jsId = localStorage.getItem("jobseekerId");    
+    const jsId = localStorage.getItem("jobseekerId");
     setProfileId(jsId);
   }, []);
 
@@ -54,7 +54,7 @@ const JobCard = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-       
+
         console.log("job successfully applied")
       })
       .catch((error) => console.error(error));
@@ -76,7 +76,7 @@ const JobCard = () => {
   return (
     <>
       <div className="relative">
-        
+
         {job ? (
           <>
             <header className="hidden md:block">
@@ -200,7 +200,6 @@ const JobCard = () => {
                         <h5 className="inline-block font-semibold tracking-wide text-gray-900 uppercase rounded-full">
                           About the company
                         </h5>
-                        {/* <h4 className="">About the company</h4> */}
                         <p className="mb-4">
                           {job.employer.company_description}
                         </p>

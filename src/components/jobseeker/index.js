@@ -7,9 +7,7 @@ const JobSeeker = () => {
   return (
     <Fragment>
       <JobseekerNavbar />
-
       <Outlet />
-
       <Footer />
     </Fragment>
   );
