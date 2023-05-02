@@ -28,7 +28,10 @@ const JobseekerLandingPage = () => {
           res.json().then((data) => {
             setProfileData(data);
             setTags(data.tags);
-            localStorage.setItem("jobseekerName", JSON.stringify(data.full_name));
+            localStorage.setItem(
+              "jobseekerName",
+              JSON.stringify(data.full_name)
+            );
           });
         }
       });
@@ -66,8 +69,10 @@ const JobseekerLandingPage = () => {
       });
     }
   }, [profileData, filteredTag]);
+  // console.log(jobs==[])
 
   let found = jobs.filter((job) => {
+    console.log(job.title==undefined);
     let jobName = job.title.toLocaleLowerCase();
     let jobCompany = job.employer.company_name.toLocaleLowerCase();
     let jobDescription = job.description.toLocaleLowerCase();
