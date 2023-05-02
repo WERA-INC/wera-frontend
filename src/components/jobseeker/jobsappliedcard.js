@@ -1,11 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { TickIcon } from "../icons";
-
+// Card rendered in JobsApplied section with the applied job details
 const JobAppliedCard = ({ application }) => {
   const navigator = useNavigate();
+  // The first character of the job title renders with random colors
   const randColors = ["#89DAFF", "#373D20", "#70B77E", "#561F37", "#AB8476"];
-  // console.log(application);
+ 
   return (
     <div
       className="rounded p-3 cursor-pointer bg-gray-200 bg-opacity-90 text-blue-950 "

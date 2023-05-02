@@ -6,11 +6,12 @@ const JobseekerNavbar = () => {
   const navigator = useNavigate();
   const [name, setName] = useState("");
   const [id, setId] = useState(null);
+  // Get jobseeker's id stored in the local storage
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
     setId(jsId);
   }, []);
-
+// If id is present, fetch the jobseeker details and use the full name to display on the navbar
   useEffect(() => {
     if (id !== null) {
       fetch(`http://localhost:3000/profiles/${id}`)
@@ -18,7 +19,6 @@ const JobseekerNavbar = () => {
         .then((data) => setName(data.full_name));
     }
   }, [id]);
-  console.log(name);
   return (
     <nav style={{ backgroundColor: "#0D2644" }}>
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -66,9 +66,8 @@ const JobseekerNavbar = () => {
             >
               Logout
             </a>
-
             <div
-              className="relative ml-3"
+              className="relative ml-0 lg:ml-3"
               onClick={() => {
                 navigator("/jobseekerprofile");
               }}

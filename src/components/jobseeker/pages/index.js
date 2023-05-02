@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Jobseeker.css";
-import JobCardLandingPg from "./jobscard";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import JobsApplied from "./jobsapplied";
+import JobCardLandingPg from "../jobscard"
+import {useNavigate } from "react-router-dom";
 import { RightArrowIcon, SearchIcon } from "../../icons";
 
 const JobseekerLandingPage = () => {
