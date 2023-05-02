@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Experience = () => {
+  const [id, setId] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const toggleEdit = () => {
@@ -22,18 +23,28 @@ const Experience = () => {
     job_description: "",
   });
 
+  
   useEffect(() => {
-    async function fetchExperienceData(id) {
-      const response = await axios.get(
-        `http://localhost:3000/profiles/${id}/experiences/`
-      );
-      setExperienceData(response.data);
-    }
-
-    fetchExperienceData();
+    const jsId = localStorage.getItem("jobseekerId");
+    // console.log(jsId);
+    setId(jsId);
   }, []);
 
-  async function handleAddExperience(event, id) {
+  // let applications = profileData.applications;
+  useEffect(() => {
+    if (id !== null) {
+      fetch(`http://localhost:3000/profiles/${id}/experiences`).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            setExperienceData(data);
+            localStorage.setItem("jobseekerName", JSON.stringify(data.full_name));
+          });
+        }
+      });
+    }
+  }, [id]);
+
+  async function handleAddExperience(event) {
     event.preventDefault();
 
     try {
@@ -52,7 +63,7 @@ const Experience = () => {
     }
   }
 
-  async function handleDeleteExperience(id) {
+  async function handleDeleteExperience() {
     try {
       await axios.delete(
         `http://localhost:3000/profiles/${id}/experiences/${id}`
@@ -65,10 +76,10 @@ const Experience = () => {
     }
   }
 
-  async function handleUpdateExperience(id, updatedData) {
+  async function handleUpdateExperience( updatedData) {
     try {
       const response = await axios.patch(
-        `http://localhost:3000/profiles/${id}/experiences/`,
+        `http://localhost:3000/profiles/${id}/experiences/${id}`,
         updatedData
       );
       setExperienceData(
@@ -207,12 +218,12 @@ const Experience = () => {
                       </svg>
                       Delete
                     </button>
-                    <button
+                    {/* <button
                       className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
                       onClick={toggleEdit}
                     >
                       Edit
-                    </button>
+                    </button> */}
                   </div>
 
                   {isEditModalOpen && (
@@ -239,7 +250,9 @@ const Experience = () => {
                           aria-labelledby="modal-headline"
                         >
                           {/* Edit form content */}
-                          <form className=" rounded p-3 mt-4">
+                          <form 
+                            onSubmit={handleUpdateExperience}
+                          className=" rounded p-3 mt-4">
                             <input
                               type="text"
                               name="comapny"
@@ -267,12 +280,7 @@ const Experience = () => {
                           </form>
                           <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-                            onClick={() =>
-                              handleUpdateExperience(
-                                experience.id,
-                                experienceData
-                              )
-                            }
+                            type="submit"
                           >
                             Update
                           </button>

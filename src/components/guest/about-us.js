@@ -5,7 +5,7 @@ const AboutUs = () => {
     <>
       <section className="p-4 lg:p-8  text-white">
         <div>
-          <h1 style={{ padding: "30px", color: "black" }}>About Us</h1>
+          <h1 style={{ padding: "30px", color: "black" }} className="text-center text-3xl font-bold">About Us</h1>
         </div>
         <div className="container mx-auto space-y-12">
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
