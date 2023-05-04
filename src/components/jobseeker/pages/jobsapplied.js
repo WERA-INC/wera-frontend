@@ -5,13 +5,14 @@ import { SearchIcon, searchIcon } from "../../icons";
 
 const JobsApplied = () => {
   const [id, setId] = useState(null);
-  useEffect(() => {
-    const jsId = localStorage.getItem("jobseekerId");
-    // console.log(jsId);
-    setId(jsId);
-  }, []);
   const [search, setSearch] = useState("");
   const [applications, setApplications] = useState([]);
+  // Get jobseeker's id stored in the local storage
+  useEffect(() => {
+    const jsId = localStorage.getItem("jobseekerId");
+    setId(jsId);
+  }, []);
+  // If id is present, fetch the jobseeker details and get the applications made
   useEffect(() => {
     if (id !== null) {
       fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
@@ -23,15 +24,15 @@ const JobsApplied = () => {
       });
     }
   }, [id]);
-
+// Sets the input search term
   function handleSearch(event) {
     setSearch(event.target.value);
   }
-
+// If search=="", it displays all applications, else it displays applications related to the search term
   let found = applications.filter((application) => {
+    // Search is only valid for a company name or job title
     let applicationName = application.title.toLocaleLowerCase();
     let applicationCompany = application.company_name.toLocaleLowerCase();
-
     if (search === "") {
       return true;
     } else if (
@@ -45,7 +46,7 @@ const JobsApplied = () => {
   return (
     <>
       <div>
-        <div className="container">
+        <div className="container" style={{ minHeight: "50vh" }}>
           <div className="my-3 px-10 w-full lg:w-1/2 mx-auto">
             <div className="relative mb-4 flex w-full flex-wrap items-stretch">
               <input
@@ -74,15 +75,16 @@ const JobsApplied = () => {
             Your Application History
           </h5>
           <div className="container p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
-              {applications.length > 0 ? (
-                found.map((application) => (
+            {/* Render jobs applied or message */}
+            {applications.length > 0 ? (
+              found.map((application) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
                   <JobAppliedCard application={application} />
-                ))
-              ) : (
-                <p className="text-center">You have not applied for any jobs</p>
-              )}
-            </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-center ">You have not applied for any jobs</p>
+            )}
           </div>
         </div>
       </div>

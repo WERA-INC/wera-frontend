@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate=useNavigate()
   const [profileData, setProfileData] = useState({});
   const [id, setId] = useState(null);
+   const [tags, setTags] = useState([]);
+   const [selectedtags, setSelectedTags] = useState([]);
   // const [tags, setTags] = useState([]);
   const [formData, setFormData] = useState({
     full_name: "",
@@ -14,7 +18,7 @@ const Profile = () => {
     skills: "",
     profile_pic: "",
     resume: "",
-    tags: [],
+    
   });
 
   useEffect(() => {
@@ -23,15 +27,17 @@ const Profile = () => {
     setId(jsId);
   }, []);
 
- 
   useEffect(() => {
     if (id !== null) {
       fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
         if (res.ok) {
           res.json().then((data) => {
             setProfileData(data);
-            
-            localStorage.setItem("jobseekerName", JSON.stringify(data.full_name));
+
+            localStorage.setItem(
+              "jobseekerName",
+              JSON.stringify(data.full_name)
+            );
           });
         }
       });
@@ -40,35 +46,81 @@ const Profile = () => {
 
   async function handleUpdateProfile(event) {
     event.preventDefault();
+    // const formDataToUpdate = new FormData();
+    //   formDataToUpdate.append("phone_number", formData.phone_number);
+    //   formDataToUpdate.append("email_address", formData.email_address);
+    //   formDataToUpdate.append("date_of_birth", formData.date_of_birth);
+    //   formDataToUpdate.append("biography", formData.biography);
+    //   formDataToUpdate.append("skills", formData.skills);
+    //   formDataToUpdate.append("tags", selectedtags);
+    // console.log(formDataToUpdate);
+    // console.log({...formData, tags:selectedtags})
+    fetch(`http://localhost:3000/profiles/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...formData, tags: selectedtags }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        navigate("/jobseeker");
+        // handle the response from the server or store
+      })
+      .catch((error) => {
+        console.error(error);
+        // handle the error
+      });
 
-    try {
-      const formDataToUpdate = new FormData();
-      formDataToUpdate.append("phone_number", formData.phone_number);
-      formDataToUpdate.append("email_address", formData.email_address);
-      formDataToUpdate.append("date_of_birth", formData.date_of_birth);
-      formDataToUpdate.append("biography", formData.biography);
-      formDataToUpdate.append("skills", formData.skills);
-      if (formData.profile_pic !== "") {
-        formDataToUpdate.append("profile_pic", formData.profile_pic);
-      }
-      if (formData.resume !== "") {
-        formDataToUpdate.append("resume", formData.resume);
-      }
+    // try {
+    //   const formDataToUpdate = new FormData();
+    //   formDataToUpdate.append("phone_number", formData.phone_number);
+    //   formDataToUpdate.append("email_address", formData.email_address);
+    //   formDataToUpdate.append("date_of_birth", formData.date_of_birth);
+    //   formDataToUpdate.append("biography", formData.biography);
+    //   formDataToUpdate.append("skills", formData.skills);
+    //   formDataToUpdate.append("tags", selectedtags);
+    //   if (formData.profile_pic !== "") {
+    //     formDataToUpdate.append("profile_pic", formData.profile_pic);
+    //   }
+    //   if (formData.resume !== "") {
+    //     formDataToUpdate.append("resume", formData.resume);
+    //   }
 
-      const response = await axios.patch(
-        `http://localhost:3000/profiles/${id}`,
-        formDataToUpdate,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setProfileData(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    //   const response = await axios.patch(
+
+    //     `http://localhost:3000/profiles/${id}`,
+    //     formDataToUpdate,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   );
+    //   console.log(response.data)
+    //   setProfileData(response.data);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   }
+  useEffect(() => {
+    fetch(`http://localhost:3000/tags`).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setTags(data);
+        });
+      }
+    });
+  }, []);
+   function handleChecked(event) {
+     if (event.target.checked == true) {
+       setSelectedTags([...selectedtags, event.target.name]);
+     } else {
+       let found = selectedtags.filter((tag) => tag !== event.target.name);
+       setSelectedTags(found);
+     }
+   }
 
   function handleChange(event) {
     const { name, value, type } = event.target;
@@ -83,6 +135,7 @@ const Profile = () => {
   const toggleEdit = () => {
     setIsEditing(!isEditing);
   };
+  console.log(selectedtags)
   return (
     <>
       {isEditing ? (
@@ -177,24 +230,6 @@ const Profile = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-white dark:text-gray-200">Tags</label>
-                  <div className="flex flex-wrap mt-2">
-                    {profileData.tags &&
-                      profileData.tags.map((tag, index) => (
-                        <div key={index} className="mr-4">
-                          <input
-                            type="text"
-                            name="tags"
-                            value={formData.tags.name}
-                            onChange={(event) => handleChange(event, tag)}
-                            id={`tag-${tag.id}`}
-                          />
-                        </div>
-                      ))}
-                  </div>
-                </div>
-
-                <div>
                   <label
                     className="text-white dark:text-gray-200"
                     for="profile_pic"
@@ -210,6 +245,54 @@ const Profile = () => {
                     className="block w-full px-4 py-2 mt-2 text-white bg-dark border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
+                {/* <div>
+                  <label className="text-white dark:text-gray-200">
+                    Tagsss
+                  </label>
+                  <div className="flex flex-wrap mt-2">
+                    {profileData.tags &&
+                      profileData.tags.map((tag, index) => (
+                        <div key={index} className="mr-4">
+                          <input
+                            type="text"
+                            name="tags"
+                            value={formData.tags.name}
+                            onChange={(event) => handleChange(event, tag)}
+                            id={`tag-${tag.id}`}
+                          />
+                        </div>
+                      ))}
+                  </div>
+                </div> */}
+                <div>
+                  <label className="text-white w-full dark:text-gray-200">
+                    Choose Industry
+                  </label>
+                  <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg  dark:text-white">
+                    {tags &&
+                      tags.map((tag, index) => (
+                        <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                          <div className="flex items-center pl-3">
+                            <input
+                              id="react-checkbox-list"
+                              type="checkbox"
+                              value=""
+                              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                              onChange={handleChecked}
+                              name={tag.id}
+                            />
+                            <label
+                              for="react-checkbox-list"
+                              className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                              {tag.name}
+                            </label>
+                          </div>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+
                 {/* <div>
                   <label className="text-white dark:text-gray-200" for="resume">
                     Resume

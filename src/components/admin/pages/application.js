@@ -8,7 +8,7 @@ const Application = () => {
     fetch(`http://localhost:3000/applications/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          console.log(data)
+          console.log(data);
           setData(data);
         });
       }
@@ -25,26 +25,26 @@ const Application = () => {
               "linear-gradient(to bottom, rgba(0,0,0,0.7),rgba(0,0,0.95,1), #0D2644), url('https://images.pexels.com/photos/2110951/pexels-photo-2110951.jpeg?auto=compress&cs=tinysrgb&w=600')",
           }}
         >
-          <div class="max-w-4xl h-auto lg:h-screen mx-auto my-32 lg:my-0 py-5 ">
+          <div className="max-w-4xl h-auto lg:h-screen mx-auto my-32 lg:my-0 py-5 ">
             <div
               id="profile"
-              class="w-full lg:w-5/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-6 lg:mx-0"
+              className="w-full lg:w-5/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-6 lg:mx-0"
             >
-              <div class="p-4 text-center">
+              <div className="p-4 text-center">
                 <div
-                  class=" rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+                  className=" rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
                   style={{
                     backgroundImage: `url("https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information-concept-illustration_335657-1661.jpg?size=626&ext=jpg")`,
                   }}
                 ></div>
 
-                <h1 class="text-3xl font-bold pt-8 lg:pt-0 uppercase">
+                <h1 className="text-3xl font-bold pt-8 lg:pt-0 uppercase">
                   {data.profile.full_name}
                 </h1>
-                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-                <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+                <p className="pt-4 text-base font-bold flex items-center justify-center ">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -52,9 +52,9 @@ const Application = () => {
                   </svg>
                   Email - {data.profile.email_address}
                 </p>
-                <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                <p className="pt-4 text-base font-bold flex items-center justify-center ">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -62,9 +62,9 @@ const Application = () => {
                   </svg>
                   Date of birth - {data.profile.date_of_birth.split("T")[0]}
                 </p>
-                <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                <p className="pt-4 text-base font-bold flex items-center justify-center ">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -73,9 +73,9 @@ const Application = () => {
                   Phone Number - {data.profile.phone_number}
                 </p>
 
-                <p class="pt-4 text-base font-bold flex items-center justify-center  text-center ">
+                <p className="pt-4 text-base font-bold flex items-center justify-center  text-center ">
                   <svg
-                    class="h-4 fill-current text-green-700 pr-4"
+                    className="h-4 fill-current text-green-700 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -84,15 +84,15 @@ const Application = () => {
                   Biography
                 </p>
                 <p>{data.profile.biography}</p>
-                <div class="mt-3 rounded overflow-hidden shadow-lg mb-3 mx-auto bg-cyan-200 bg-opacity-40">
-                  <div class="px-6 py-4">
-                    <h1 class="text-3xl font-bold pt-8 lg:pt-0 uppercase">
+                <div className="mt-3 rounded overflow-hidden shadow-lg mb-3 mx-auto bg-cyan-200 bg-opacity-40">
+                  <div className="px-6 py-4">
+                    <h1 className="text-3xl font-bold pt-8 lg:pt-0 uppercase">
                       {data.opportunity.title}
                     </h1>
-                    <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-                    <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                    <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+                    <p className="pt-4 text-base font-bold flex items-center justify-center ">
                       <svg
-                        class="h-4 fill-current text-green-700 pr-4"
+                        className="h-4 fill-current text-green-700 pr-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >
@@ -100,9 +100,9 @@ const Application = () => {
                       </svg>
                       Job Type - {data.opportunity.job_type}
                     </p>
-                    <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                    <p className="pt-4 text-base font-bold flex items-center justify-center ">
                       <svg
-                        class="h-4 fill-current text-green-700 pr-4"
+                        className="h-4 fill-current text-green-700 pr-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >
@@ -111,9 +111,9 @@ const Application = () => {
                       Application deadline -{" "}
                       {data.opportunity.application_deadline.split("T")[0]}
                     </p>
-                    <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                    <p className="pt-4 text-base font-bold flex items-center justify-center ">
                       <svg
-                        class="h-4 fill-current text-green-700 pr-4"
+                        className="h-4 fill-current text-green-700 pr-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >
@@ -122,9 +122,9 @@ const Application = () => {
                       Estimated salary - {data.opportunity.estimated_salary}
                     </p>
 
-                    <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                    <p className="pt-4 text-base font-bold flex items-center justify-center ">
                       <svg
-                        class="h-4 fill-current text-green-700 pr-4"
+                        className="h-4 fill-current text-green-700 pr-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >
@@ -133,9 +133,9 @@ const Application = () => {
                       Description
                     </p>
                     <p>{data.opportunity.description}</p>
-                    <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                    <p className="pt-4 text-base font-bold flex items-center justify-center ">
                       <svg
-                        class="h-4 fill-current text-green-700 pr-4"
+                        className="h-4 fill-current text-green-700 pr-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >
@@ -144,9 +144,9 @@ const Application = () => {
                       Qualifications
                     </p>
                     <p>{data.opportunity.qualifications}</p>
-                    <p class="pt-4 text-base font-bold flex items-center justify-center ">
+                    <p className="pt-4 text-base font-bold flex items-center justify-center ">
                       <svg
-                        class="h-4 fill-current text-green-700 pr-4"
+                        className="h-4 fill-current text-green-700 pr-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >
@@ -160,15 +160,15 @@ const Application = () => {
               </div>
             </div>
 
-            <div class="">
+            <div className="">
               <img
                 src="https://img.freepik.com/free-vector/job-vacancy-background-with-chair-flat-style_23-2147875408.jpg?size=626&ext=jpg"
-                class="rounded-none lg:rounded-lg shadow-2xl hidden lg:hidden"
+                className="rounded-none lg:rounded-lg shadow-2xl hidden lg:hidden"
               />
             </div>
 
-            <div class="absolute top-0 right-0 h-12 w-18 p-4">
-              <button class="js-change-theme focus:outline-none">🌙</button>
+            <div className="absolute top-0 right-0 h-12 w-18 p-4">
+              <button className="js-change-theme focus:outline-none">🌙</button>
             </div>
           </div>
         </div>
@@ -180,4 +180,3 @@ const Application = () => {
 };
 
 export default Application;
-

@@ -1,14 +1,14 @@
-import { useState, useEffect} from 'react';
-import '../AddJob.css';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import "../AddJob.css";
+import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
   //  localStorage.setItem("employerId", JSON.stringify(data.id)); put in login
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [id, setId] = useState(null);
   const [tags, setTags] = useState([]);
   const [selectedtags, setSelectedTags] = useState([]);
-  const [formData, setFormData] = useState({  
+  const [formData, setFormData] = useState({
     title: "",
     description: "",
     qualifications: "",
@@ -23,7 +23,7 @@ const AddJob = () => {
     const employerId = localStorage.getItem("employerId");
     setId(employerId);
   }, []);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -56,7 +56,7 @@ const AddJob = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-         navigate("/company/jobs");
+        navigate("/company/jobs");
         // handle the response from the server or store
       })
       .catch((error) => {
@@ -73,22 +73,23 @@ const AddJob = () => {
       setSelectedTags(found);
     }
   }
-  function handleSub(event){
-    event.preventDefault()
-    console.log("submitted")
-
+  function handleSub(event) {
+    event.preventDefault();
+    console.log("submitted");
   }
 
   return (
     <>
-      <section class=" py-1 bg-blueGray-50">
-        <div class="w-full lg:w-10/12 px-4 mx-auto mt-6 text-left">
-          <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
-            <div class="rounded-t bg-white mb-0 px-6 py-6">
-              <div class="text-center flex justify-between">
-                <h6 class="text-blueGray-700 text-xl font-bold">Post a Job</h6>
+      <section className=" py-1 bg-blueGray-50">
+        <div className="w-full lg:w-10/12 px-4 mx-auto mt-6 text-left">
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+            <div className="rounded-t bg-white mb-0 px-6 py-6">
+              <div className="text-center flex justify-between">
+                <h6 className="text-blueGray-700 text-xl font-bold">
+                  Post a Job
+                </h6>
                 <button
-                  class="text-white active:bg-blue-950 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  className="text-white active:bg-blue-950 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                   type="submit"
                   style={{ backgroundColor: "#0D2644" }}
                   onClick={handleSubmit}
@@ -97,22 +98,22 @@ const AddJob = () => {
                 </button>
               </div>
             </div>
-            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-              <form >
-                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+            <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+              <form>
+                <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                   Job Details
                 </h6>
-                <div class="flex flex-wrap">
-                  <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
+                <div className="flex flex-wrap">
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="title"
                       >
                         Title
                       </label>
                       <input
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         type="text"
                         id="title"
                         name="title"
@@ -122,10 +123,10 @@ const AddJob = () => {
                       />
                     </div>
                   </div>
-                  <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="application_deadline"
                       >
                         Application deadline
@@ -137,14 +138,14 @@ const AddJob = () => {
                         value={formData.application_deadline}
                         onChange={handleChange}
                         required
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       />
                     </div>
                   </div>
-                  <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="job_type"
                       >
                         Job type
@@ -166,17 +167,17 @@ const AddJob = () => {
                       </select>
                     </div>
                   </div>
-                  <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="grid-password"
                       >
                         Number of Applicant required
                       </label>
                       <input
                         type="text"
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         id="cut_off"
                         name="cut_off"
                         value={formData.cut_off}
@@ -185,17 +186,17 @@ const AddJob = () => {
                       />
                     </div>
                   </div>
-                  <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="grid-password"
                       >
                         Estimated salary
                       </label>
                       <input
                         type="text"
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         id="estimated_salary"
                         name="estimated_salary"
                         value={formData.estimated_salary}
@@ -206,23 +207,23 @@ const AddJob = () => {
                   </div>
                 </div>
 
-                <hr class="mt-6 border-b-1 border-blueGray-300" />
+                <hr className="mt-6 border-b-1 border-blueGray-300" />
 
-                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                   MORE DETAILS ABOUT THE JOB
                 </h6>
-                <div class="flex flex-wrap">
-                  <div class="w-full lg:w-12/12 px-4">
-                    <div class="relative w-full mb-3">
+                <div className="flex flex-wrap">
+                  <div className="w-full lg:w-12/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="grid-password"
                       >
                         Description
                       </label>
                       <textarea
                         type="text"
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows="3"
                         id="description"
                         name="description"
@@ -233,18 +234,18 @@ const AddJob = () => {
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-wrap">
-                  <div class="w-full lg:w-12/12 px-4">
-                    <div class="relative w-full mb-3">
+                <div className="flex flex-wrap">
+                  <div className="w-full lg:w-12/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="grid-password"
                       >
                         Qualification
                       </label>
                       <textarea
                         type="text"
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows="3"
                         id="qualifications"
                         name="qualifications"
@@ -255,18 +256,18 @@ const AddJob = () => {
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-wrap">
-                  <div class="w-full lg:w-12/12 px-4">
-                    <div class="relative w-full mb-3">
+                <div className="flex flex-wrap">
+                  <div className="w-full lg:w-12/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="grid-password"
                       >
                         Responsibilities
                       </label>
                       <textarea
                         type="text"
-                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows="3"
                         id="responsibilities"
                         name="responsibilities"
@@ -277,32 +278,32 @@ const AddJob = () => {
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-wrap">
-                  <div class="w-full lg:w-12/12 px-4">
-                    <div class="relative w-full mb-3">
+                <div className="flex flex-wrap">
+                  <div className="w-full lg:w-12/12 px-4">
+                    <div className="relative w-full mb-3">
                       <label
-                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlfor="grid-password"
                       >
                         Industry
                       </label>
-                      <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                         {tags === []
                           ? null
                           : tags.map((tag) => (
-                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                <div class="flex items-center pl-3">
+                              <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                <div className="flex items-center pl-3">
                                   <input
                                     id="react-checkbox-list"
                                     type="checkbox"
                                     value=""
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                                     onChange={handleChecked}
                                     name={tag.id}
                                   />
                                   <label
                                     for="react-checkbox-list"
-                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                    className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                   >
                                     {tag.name}
                                   </label>
@@ -324,6 +325,6 @@ const AddJob = () => {
       </section>
     </>
   );
-}
+};
 
 export default AddJob;

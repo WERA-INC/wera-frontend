@@ -80,7 +80,40 @@ After a Job is added, an employers landing page would be updated with their new 
 <img src = "ScreenShots/employerwithjob.jpeg" />
 
 
-## 
+## Admin Dashboard 
+
+This will be the admin dashboard landing page, they will be presented with basic stats at the center of the page
+
+<img src = "ScreenShots/admindashboard.png" />
+
+
+##  Admin Applications Page
+
+This page will display all the applications made onto the platform
+
+<img src = "ScreenShots/admin applications.png" />
+
+
+##  Admins Job Page
+
+This page will be able to show the jobs posted on the page
+
+<img src = "ScreenShots/adminjobs.png" />
+
+## Admin Job Seekers page
+
+This page will be able to reveal to the administrator the jobs seekers present in the page, the admin can block ones account incase of flagging by another member of the platform.
+
+<img src = "ScreenShots/adminjobseekers.png" />
+
+## Admin Employers Page
+
+This page would allow the admin to see the employers within the platform , also incase of flagging their accounts can be blocked and the employer would need to talk to the admin to get unblocked.
+
+<img src = "ScreenShots/adminemployers.png" />
+
+
+
 
 
 
