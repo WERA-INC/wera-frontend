@@ -101,7 +101,7 @@ const CompanyNav = () => {
     try{
       const response = await fetch("http://localhost:3000/employers/id")
       const data = await response.json();
-      setRecruiterDetails(data);
+      fetchRecruiterDetails(data);
       setShowModal1(true);
     }catch(error){
       console.error(error);
