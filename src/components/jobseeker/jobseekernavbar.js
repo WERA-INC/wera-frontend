@@ -20,7 +20,7 @@ const JobseekerNavbar = () => {
     }
   }, [id]);
   return (
-    <nav style={{ backgroundColor: "#0D2644" }}>
+    <nav className="theme-blue">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-stretch justify-start">

@@ -1,29 +1,29 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Tabledata = ({ val, slug }) => {
-  const navigator=useNavigate()
+  const navigator = useNavigate();
+  // The values will be used to map to the table rows
   let values = Object.values(val);
-  // console.log(values)
-  const [isDisabled, setIsDisabled]= useState(values[5])
-  function handleDisable(event){
+  const [isDisabled, setIsDisabled] = useState(values[5]);
+  // By setting disabled attribute to be true, a user can not log in using their credentials
+  function handleDisable(event) {
     const formData = {
-      disabled: event.target.checked
+      disabled: event.target.checked,
     };
-    // console.log(event.target.checked)
     fetch(`http://localhost:3000/${slug}/${values[0]}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    }).then(res=>res.json())
-    .then(data=>{
-      setIsDisabled(data.disabled);
-      // navigator('/admin-dashboard')
     })
-
+      .then((res) => res.json())
+      .then((data) => {
+        setIsDisabled(data.disabled);
+      });
   }
+
   return (
     <tr
       className="text-left "
@@ -33,6 +33,7 @@ const Tabledata = ({ val, slug }) => {
         return (
           <td className="px-3 py-3 border-y-4 border-gray-950 text-white text-sm mb-1 ">
             <p className="whitespace-no-wrap">
+              {/* The table does not display the id or the disabled attribute */}
               {values[0] == value
                 ? null
                 : values[4] == value
@@ -47,11 +48,13 @@ const Tabledata = ({ val, slug }) => {
       <td
         className="px-3 py-3 border-y-4 border-gray-950 text-center text-white text-sm mb-1 cursor-pointer cursor-pointer"
         onClick={() => {
+          // Redirects to view a specific user, job, application, depending on what is selected
           navigator(`/${slug}/${values[0]}`);
         }}
       >
         <p className="whitespace-no-wrap ">view</p>
       </td>
+      {/* The disable functionality only works for the jobseekers and the employers */}
       {slug == "employers" || slug == "profiles" ? (
         <td className="px-3 py-3 border-y-4 border-gray-950 text-white text-sm mx-auto">
           <label className="relative inline-flex items-center cursor-pointer">
@@ -70,4 +73,3 @@ const Tabledata = ({ val, slug }) => {
 };
 
 export default Tabledata;
-

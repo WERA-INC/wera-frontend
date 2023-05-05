@@ -3,7 +3,6 @@ import "../AddJob.css";
 import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
-  //  localStorage.setItem("employerId", JSON.stringify(data.id)); put in login
   const navigate = useNavigate();
   const [id, setId] = useState(null);
   const [tags, setTags] = useState([]);
@@ -89,9 +88,8 @@ const AddJob = () => {
                   Post a Job
                 </h6>
                 <button
-                  className="text-white active:bg-blue-950 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  className="text-white active:bg-blue-950 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 theme-blue"
                   type="submit"
-                  style={{ backgroundColor: "#0D2644" }}
                   onClick={handleSubmit}
                 >
                   POST
@@ -171,7 +169,7 @@ const AddJob = () => {
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
+                        htmlfor="cut-off"
                       >
                         Number of Applicant required
                       </label>
@@ -190,7 +188,7 @@ const AddJob = () => {
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
+                        htmlfor="estimagted_salary"
                       >
                         Estimated salary
                       </label>
@@ -217,7 +215,7 @@ const AddJob = () => {
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
+                        htmlfor="description"
                       >
                         Description
                       </label>
@@ -239,7 +237,7 @@ const AddJob = () => {
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
+                        htmlfor="qualification"
                       >
                         Qualification
                       </label>
@@ -261,7 +259,7 @@ const AddJob = () => {
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
+                        htmlfor="responsibilities"
                       >
                         Responsibilities
                       </label>
@@ -283,11 +281,11 @@ const AddJob = () => {
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
+                        htmlfor="industry"
                       >
-                        Industry
+                        Select the industry/ industries the job belongs to
                       </label>
-                      <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg  dark:text-white grid grid-cols-1 md:grid-cols-3">
                         {tags === []
                           ? null
                           : tags.map((tag) => (
@@ -296,7 +294,6 @@ const AddJob = () => {
                                   <input
                                     id="react-checkbox-list"
                                     type="checkbox"
-                                    value=""
                                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                                     onChange={handleChecked}
                                     name={tag.id}
@@ -312,7 +309,7 @@ const AddJob = () => {
                             ))}
                       </ul>
                       <p className="text-red-600 text-sm">
-                        Note! It is essential to select the industry under which
+                        Note! It is important to select the industry under which
                         this job falls under to get the right applications
                       </p>
                     </div>
