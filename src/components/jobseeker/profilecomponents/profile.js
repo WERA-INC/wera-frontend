@@ -268,7 +268,7 @@ const Profile = () => {
                   <label className="text-white w-full dark:text-gray-200">
                     Choose Industry
                   </label>
-                  <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg  dark:text-white">
+                  <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg  dark:text-white grid grid-cols-1 md:grid-cols-2">
                     {tags &&
                       tags.map((tag, index) => (
                         <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">

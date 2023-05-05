@@ -53,6 +53,14 @@
   overflow: hidden;
   box-shadow: 5px 6px 5px 0px rgba(0, 0, 0, 0.45);
 }
+.logo-jobcard{
+  width: 200px;
+      height: 200px;
+      position: absolute;
+      top: -10%;
+      left: 15%;
+      font-size: 150px;
+}
 .logo-jobcard img{
   width: 200px;
   height: 200px;
@@ -62,4 +70,14 @@
   bottom: 30%;
 left: 5%;
   z-index: 2;
+}
+.jobcard-logo{
+  border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: -35%;
+      left: 15%;
+      border: 10px solid white;
+      font-size: 150px;
 }
