@@ -23,7 +23,6 @@ const Experience = () => {
     job_description: "",
   });
 
-  
   useEffect(() => {
     const jsId = localStorage.getItem("jobseekerId");
     // console.log(jsId);
@@ -33,14 +32,19 @@ const Experience = () => {
   // let applications = profileData.applications;
   useEffect(() => {
     if (id !== null) {
-      fetch(`http://localhost:3000/profiles/${id}/experiences`).then((res) => {
-        if (res.ok) {
-          res.json().then((data) => {
-            setExperienceData(data);
-            localStorage.setItem("jobseekerName", JSON.stringify(data.full_name));
-          });
+      fetch(`https://rails-d0vf.onrender.com/profiles/${id}/experiences`).then(
+        (res) => {
+          if (res.ok) {
+            res.json().then((data) => {
+              setExperienceData(data);
+              localStorage.setItem(
+                "jobseekerName",
+                JSON.stringify(data.full_name)
+              );
+            });
+          }
         }
-      });
+      );
     }
   }, [id]);
 
@@ -49,7 +53,7 @@ const Experience = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/profiles/${id}/experiences/`,
+        `https://rails-d0vf.onrender.com/profiles/${id}/experiences/`,
         formData
       );
       setExperienceData([...experienceData, response.data]);
@@ -66,7 +70,7 @@ const Experience = () => {
   async function handleDeleteExperience() {
     try {
       await axios.delete(
-        `http://localhost:3000/profiles/${id}/experiences/${id}`
+        `https://rails-d0vf.onrender.com/profiles/${id}/experiences/${id}`
       );
       setExperienceData(
         experienceData.filter((experience) => experience.id !== id)
@@ -76,10 +80,10 @@ const Experience = () => {
     }
   }
 
-  async function handleUpdateExperience( updatedData) {
+  async function handleUpdateExperience(updatedData) {
     try {
       const response = await axios.patch(
-        `http://localhost:3000/profiles/${id}/experiences/${id}`,
+        `https://rails-d0vf.onrender.com/profiles/${id}/experiences/${id}`,
         updatedData
       );
       setExperienceData(
@@ -250,9 +254,10 @@ const Experience = () => {
                           aria-labelledby="modal-headline"
                         >
                           {/* Edit form content */}
-                          <form 
+                          <form
                             onSubmit={handleUpdateExperience}
-                          className=" rounded p-3 mt-4">
+                            className=" rounded p-3 mt-4"
+                          >
                             <input
                               type="text"
                               name="comapny"

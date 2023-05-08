@@ -8,7 +8,7 @@ const Employers = () => {
   let { id } = useParams();
   // If id is present, fetch the employers details and use the data
   useEffect(() => {
-    fetch(`http://localhost:3000/employers/${id}`).then((res) => {
+    fetch(`https://rails-d0vf.onrender.com/employers/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setData(data);

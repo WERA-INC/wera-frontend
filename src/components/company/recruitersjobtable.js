@@ -132,7 +132,7 @@ const RecruiterJobsTable = ({ employer }) => {
   // };
   // useEffect(() => {
   //    setLoading(true);
-  //     fetch(`http://localhost:3000/employers/${employer_id}`)
+  //     fetch(`https://rails-d0vf.onrender.com/employers/${employer_id}`)
   //       .then((res) => res.json())
   //       .then((data) => {
   //         setJobsData(data.opportunities);
@@ -144,7 +144,7 @@ const RecruiterJobsTable = ({ employer }) => {
   useEffect(() => {
     setLoading(true);
     if (id !== null) {
-      fetch(`http://localhost:3000/employers/${id}`)
+      fetch(`https://rails-d0vf.onrender.com/employers/${id}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

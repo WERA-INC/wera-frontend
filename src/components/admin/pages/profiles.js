@@ -8,7 +8,7 @@ const Profiles = () => {
   let { id } = useParams();
   // If id is present, fetch the jobseeker details and use the data
   useEffect(() => {
-    fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+    fetch(`https://rails-d0vf.onrender.com/profiles/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setData(data);

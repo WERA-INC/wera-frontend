@@ -8,7 +8,7 @@ const Application = () => {
   let { id } = useParams();
   // If id is present, fetch the application details and use the data
   useEffect(() => {
-    fetch(`http://localhost:3000/applications/${id}`).then((res) => {
+    fetch(`https://rails-d0vf.onrender.com/applications/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           console.log(data);

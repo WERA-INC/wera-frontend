@@ -31,7 +31,7 @@ const AddJob = () => {
     }));
   };
   useEffect(() => {
-    fetch(`http://localhost:3000/tags`).then((res) => {
+    fetch(`https://rails-d0vf.onrender.com/tags`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setTags(data);
@@ -41,7 +41,7 @@ const AddJob = () => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/opportunities", {
+    fetch("https://rails-d0vf.onrender.com/opportunities", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

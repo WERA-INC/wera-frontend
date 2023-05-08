@@ -22,7 +22,7 @@ const JobseekerLandingPage = () => {
   // If id is present, fetch the jobseeker details and use the full name to display on the navbar
   useEffect(() => {
     if (id !== null) {
-      fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+      fetch(`https://rails-d0vf.onrender.com/profiles/${id}`).then((res) => {
         if (res.ok) {
           res.json().then((data) => {
             setProfileData(data);

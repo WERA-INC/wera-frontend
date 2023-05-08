@@ -35,7 +35,7 @@ const CompanyNav = () => {
   const navigator = useNavigate();
   const [errors, setErrors] = useState([]);
   const [recruiterFormData, setEditrecruiterFormData] = useState({});
-// Gets the employer id from local storage
+  // Gets the employer id from local storage
   useEffect(() => {
     const employerId = localStorage.getItem("employerId");
     setId(employerId);
@@ -53,7 +53,7 @@ const CompanyNav = () => {
   function handleSubmit(event) {
     event.preventDefault();
     console.log("submitted");
-    fetch(`http://localhost:3000/employers/${id}`, {
+    fetch(`https://rails-d0vf.onrender.com/employers/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const CompanyNav = () => {
   };
   // Get employer's details
   useEffect(() => {
-    fetch(`http://localhost:3000/employers/${id}`).then((res) => {
+    fetch(`https://rails-d0vf.onrender.com/employers/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setData(data);
