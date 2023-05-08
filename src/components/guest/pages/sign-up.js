@@ -10,8 +10,7 @@ function Register({ setStoredToken }) {
   const [password, setPassword] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  
-  
+
   // const searchParams = new URLSearchParams(document.location.search);
   console.log(searchParams.get("user-type"));
 
@@ -23,10 +22,10 @@ function Register({ setStoredToken }) {
       email_address: emailAddress,
       password_confirmation: confirmPassword,
       user_type: searchParams.get("user-type"),
-      disabled:false
+      disabled: false,
     };
     // console.log(formData);
-    fetch("http://localhost:3000/signup", {
+    fetch("https://rails-d0vf.onrender.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

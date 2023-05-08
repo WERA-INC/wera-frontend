@@ -15,7 +15,7 @@ const JobsApplied = () => {
   // If id is present, fetch the jobseeker details and get the applications made
   useEffect(() => {
     if (id !== null) {
-      fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+      fetch(`https://rails-d0vf.onrender.com/profiles/${id}`).then((res) => {
         if (res.ok) {
           res.json().then((data) => {
             setApplications(data.applications);
@@ -24,11 +24,11 @@ const JobsApplied = () => {
       });
     }
   }, [id]);
-// Sets the input search term
+  // Sets the input search term
   function handleSearch(event) {
     setSearch(event.target.value);
   }
-// If search=="", it displays all applications, else it displays applications related to the search term
+  // If search=="", it displays all applications, else it displays applications related to the search term
   let found = applications.filter((application) => {
     // Search is only valid for a company name or job title
     let applicationName = application.title.toLocaleLowerCase();

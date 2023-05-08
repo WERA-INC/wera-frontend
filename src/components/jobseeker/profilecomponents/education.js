@@ -32,17 +32,19 @@ const Education = () => {
   // let applications = profileData.applications;
   useEffect(() => {
     if (id !== null) {
-      fetch(`http://localhost:3000/profiles/${id}/educations`).then((res) => {
-        if (res.ok) {
-          res.json().then((data) => {
-            setEducationData(data);
-            localStorage.setItem(
-              "jobseekerName",
-              JSON.stringify(data.full_name)
-            );
-          });
+      fetch(`https://rails-d0vf.onrender.com/profiles/${id}/educations`).then(
+        (res) => {
+          if (res.ok) {
+            res.json().then((data) => {
+              setEducationData(data);
+              localStorage.setItem(
+                "jobseekerName",
+                JSON.stringify(data.full_name)
+              );
+            });
+          }
         }
-      });
+      );
     }
   }, [id]);
 
@@ -51,7 +53,7 @@ const Education = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/profiles/${id}/educations/`,
+        `https://rails-d0vf.onrender.com/profiles/${id}/educations/`,
         formData
       );
       setEducationData([...educationData, response.data]);
@@ -69,7 +71,7 @@ const Education = () => {
   async function handleDeleteEducation(id) {
     try {
       await axios.delete(
-        `http://localhost:3000/profiles/${id}/educations/${id}`
+        `https://rails-d0vf.onrender.com/profiles/${id}/educations/${id}`
       );
       setEducationData(
         educationData.filter((education) => education.id !== id)
@@ -94,7 +96,7 @@ const Education = () => {
       );
 
       const response = await axios.patch(
-        `http://localhost:3000/profiles/${id}/educations/${id}`,
+        `https://rails-d0vf.onrender.com/profiles/${id}/educations/${id}`,
         formDataToUpdate,
         {
           headers: {

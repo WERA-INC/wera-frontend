@@ -3,11 +3,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [profileData, setProfileData] = useState({});
   const [id, setId] = useState(null);
-   const [tags, setTags] = useState([]);
-   const [selectedtags, setSelectedTags] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [selectedtags, setSelectedTags] = useState([]);
   // const [tags, setTags] = useState([]);
   const [formData, setFormData] = useState({
     full_name: "",
@@ -18,7 +18,6 @@ const Profile = () => {
     skills: "",
     profile_pic: "",
     resume: "",
-    
   });
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (id !== null) {
-      fetch(`http://localhost:3000/profiles/${id}`).then((res) => {
+      fetch(`https://rails-d0vf.onrender.com/profiles/${id}`).then((res) => {
         if (res.ok) {
           res.json().then((data) => {
             setProfileData(data);
@@ -55,7 +54,7 @@ const Profile = () => {
     //   formDataToUpdate.append("tags", selectedtags);
     // console.log(formDataToUpdate);
     // console.log({...formData, tags:selectedtags})
-    fetch(`http://localhost:3000/profiles/${id}`, {
+    fetch(`https://rails-d0vf.onrender.com/profiles/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -90,7 +89,7 @@ const Profile = () => {
 
     //   const response = await axios.patch(
 
-    //     `http://localhost:3000/profiles/${id}`,
+    //     `https://rails-d0vf.onrender.com/profiles/${id}`,
     //     formDataToUpdate,
     //     {
     //       headers: {
@@ -105,7 +104,7 @@ const Profile = () => {
     // }
   }
   useEffect(() => {
-    fetch(`http://localhost:3000/tags`).then((res) => {
+    fetch(`https://rails-d0vf.onrender.com/tags`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setTags(data);
@@ -113,14 +112,14 @@ const Profile = () => {
       }
     });
   }, []);
-   function handleChecked(event) {
-     if (event.target.checked == true) {
-       setSelectedTags([...selectedtags, event.target.name]);
-     } else {
-       let found = selectedtags.filter((tag) => tag !== event.target.name);
-       setSelectedTags(found);
-     }
-   }
+  function handleChecked(event) {
+    if (event.target.checked == true) {
+      setSelectedTags([...selectedtags, event.target.name]);
+    } else {
+      let found = selectedtags.filter((tag) => tag !== event.target.name);
+      setSelectedTags(found);
+    }
+  }
 
   function handleChange(event) {
     const { name, value, type } = event.target;
@@ -135,7 +134,7 @@ const Profile = () => {
   const toggleEdit = () => {
     setIsEditing(!isEditing);
   };
-  console.log(selectedtags)
+  console.log(selectedtags);
   return (
     <>
       {isEditing ? (
